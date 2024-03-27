@@ -1,5 +1,7 @@
-﻿  test.cpp
-SDL2main.lib(SDL_windows_main.obj) : error LNK2001: 확인할 수 없는 외부 기호 SDL_main
-    정의되었으며 잠재적으로 일치할 수 있는 기호에 대한 힌트:
-      "int __cdecl SDL_main(void)" (?SDL_main@@YAHXZ)
-C:\Users\yunji\SDLGame\SDLGame\SDLGameProject\x64\Release\SDLGameProject.exe : fatal error LNK1120: 1개의 확인할 수 없는 외부 참조입니다.
+﻿  func.cpp
+  코드를 생성하고 있습니다.
+  16 of 83 functions (19.3%) were compiled, the rest were copied from previous compilation.
+    0 functions were new in current compilation
+    6 functions had inline decision re-evaluated but remain unchanged
+  코드를 생성했습니다.
+  SDLGameProject.vcxproj -> C:\Users\yunji\SDLGame\SDLGame\SDLGameProject\x64\Release\SDLGameProject.exe
