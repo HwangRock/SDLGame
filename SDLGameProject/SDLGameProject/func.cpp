@@ -4,124 +4,237 @@
 #include<vector>
 #include "SDL_image.h"
 
-int g_input;
 double g_elapsed_time_ms;
 
-std::string g_output;
 
-int g_X;
-int g_Y;
+//Innput
+int catInput;
+int dogInput;
+int catKeyUp;
+int dogKeyUp;
+int catKeyDown;
+int dogKeyDown;
+std::vector<int> cat_input;
+std::vector<int> dog_input;
+int win_w, win_h;
 
-int sizeH;
-int sizeW;
-
-SDL_Rect catPos;
-SDL_Rect dogPos;
+//Sprite
+SDL_Rect dogRect;
+SDL_Rect catRect;
 SDL_Texture* catTexture;
 SDL_Texture* dogTexture;
+SDL_Texture* wallTexture;
+SDL_Rect wallRect;
 
-
-
-
-
-/////////////////////////////////////////////////////////////
-void InitGame() {
-	g_input = 0;
-	g_output = "*";
-	g_flag_running = true;
-
-	g_X = 0;
-	g_Y = 10;
-
-	sizeH = 20;
-	sizeW = 30;
-
-	g_elapsed_time_ms = 0;
-
-
-	
-
-
-	// std::cout 출력에 버퍼를 사용하여, 출력 속도가 느려지는 현상을 피한다.
-	setvbuf(stdout, NULL, _IOLBF, 4096);
-
-	// Clear the console screen.
-	system("cls");
-}
-
-
-
-/////////////////////////////////////////////////////////////
-
-
-void Update()
+#pragma region Dog and Cat Class
+class Pet
 {
 
-	//left
-	if (g_input == 1) { g_X--; }
-	//right
-	else if (g_input == 2) { g_X++; }
-	//up
-	else if (g_input == 3) { g_Y--; }
-	//down
-	else if (g_input == 4) { g_Y++; }
+};
 
-
-	//shot space
-	if (g_input == 5)
+class Dog :Pet 
+{
+public:
+	Dog(int x, int y)
 	{
-
-		
-
-		g_input = 0;
+		dogPos.x = x;
+		dogPos.y = y;
+		dogPos.w = 100;
+		dogPos.h = 100;
 	}
+	void Draw() 
+	{
+		SDL_RenderCopy(g_renderer,dogTexture,&dogRect,&dogPos);
+		SDL_RenderPresent(g_renderer);	
+	}
+	SDL_Rect dogPos;
+};
+
+class Cat :Pet
+{
+public:
+	Cat(int x, int y)
+	{
+		catPos.x = x;
+		catPos.y = y;
+		catPos.w = 80;
+		catPos.h = 80;
+	}
+	void Draw()
+	{
+		SDL_RenderCopy(g_renderer, catTexture, &catRect, &catPos);
+		SDL_RenderPresent(g_renderer);
+	}
+	SDL_Rect catPos;
+};
+#pragma endregion
+
+Dog dog(100, 100);
+Cat cat(200, 200);
+
+class Wall 
+{
+public:
+	Wall(int x, int y, int w, int h)
+	{
+		wallPos.x = x;
+		wallPos.y = y;
+		wallPos.w = w;
+		wallPos.h = h;
+	}
+	void Draw()
+	{
+		SDL_RenderCopy(g_renderer, wallTexture, &wallRect, &wallPos);
+		SDL_RenderPresent(g_renderer);
+	}
+	SDL_Rect wallPos;
+
+};
+Wall wall1(300, 100, 20, 100);
+Wall wall2(50, 100, 20, 100);
+std::vector<Wall>walls = { wall1,wall2 };
+
+#pragma region Init
+void InitGame()
+{
+
+	g_flag_running = true;
+	g_elapsed_time_ms = 0;
+
+	catInput = 0;
+	dogInput = 0;
+	catKeyDown = 0;
+	dogKeyDown = 0;
+	catKeyUp = 0;
+	dogKeyUp = 0;
+
+	cat_input.push_back(0);
+	dog_input.push_back(0);
+
+	SDL_GetWindowSize(g_window, &win_w, &win_h);
+
+	//Drawing//////////////////////////////
+	//Dog
+	SDL_Surface* g_surface_dog = IMG_Load("../Resources/dog_.png");
+	dogTexture = SDL_CreateTextureFromSurface(g_renderer, g_surface_dog);
+	SDL_FreeSurface(g_surface_dog);
+	dogRect = { 0,0,141,141 };
 
 	
-	g_elapsed_time_ms += 33;
+
+	//Cat
+	SDL_Surface* g_surface_cat = IMG_Load("../Resources/cat_.png");
+	catTexture = SDL_CreateTextureFromSurface(g_renderer, g_surface_cat);
+	SDL_FreeSurface(g_surface_cat);
+	catRect = { 0,0,90,90 };
 
 
-
+	//Wall
+	SDL_Surface* surface_wall = IMG_Load("../Resources/sky.jpg");
+	wallTexture= SDL_CreateTextureFromSurface(g_renderer, surface_wall);
+	SDL_FreeSurface(surface_wall);
+	wallRect = { 0,0,680,808 };
 }
+#pragma endregion
+
+
+#pragma region Update
+void Update()
+{
+	//DOG MOVING
+	dogInput = dog_input[dog_input.size() - 1];
+	for (int i = 0; i < dog_input.size(); i++)
+	{
+		std::cout << dog_input[i] << " ";
+	}
+	std::cout << "\t";
+
+	//left
+	if (dogInput == 1) { dog.dogPos.x -= 10; }
+	//right
+	else if (dogInput == 2) { dog.dogPos.x += 10; }
+	//up
+	else if (dogInput == 3) { dog.dogPos.y -= 10; }
 
 
 
-/////////////////////////////////////////////////////////////
-// 그림을 그리는 함수.
+	//CAT MOVING
+	catInput = cat_input[cat_input.size() - 1];
+	for (int i = 0; i < cat_input.size(); i++)
+	{
+		std::cout << cat_input[i] << " ";
+	}
+	std::cout << "\n";
+	//left
+	if (catInput == 1) { cat.catPos.x -= 10; }
+	//right
+	else if (catInput == 2) { cat.catPos.x += 10; }
+	//up
+	else if (catInput == 3) { cat.catPos.y -= 10; }
+	
 
-void Render() {
-	//// 1. 배경 그리기.
-	// 1.1. 커서를 콘솔 화면의 왼쪽 위 모서리 부분으로 옮긴다. 좌표(0, 0)
-	COORD cur;
-	cur.X = 0;
-	cur.Y = 0;
-	SetConsoleCursorPosition(GetStdHandle(STD_OUTPUT_HANDLE), cur);
 
-	//// 1.2. 배경 부분
-	for (int i = 0; i < sizeH; i++) {
-		for (int j = 0; j < sizeW; j++) {
-			if (i == g_Y && j == g_X) { std::cout << "*"; }
-			else { std::cout << "_"; }
-		}
-		std::cout << std::endl;
+	//Limit
+	if (dog.dogPos.x > win_w - dog.dogPos.w)
+	{
+		dog.dogPos.x = win_w - dog.dogPos.w;
+	}
+	else if (dog.dogPos.x < 0)
+	{
+		dog.dogPos.x = 0;
 	}
 
-	//// 1.3. 배경 아래에 시간
-	std::cout << "Elapsed Time: " << g_elapsed_time_ms / 1000.0f << std::endl;
+	if (cat.catPos.x > win_w - cat.catPos.w)
+	{
+		cat.catPos.x = win_w - cat.catPos.w;
+	}
+	else if (cat.catPos.x < 0)
+	{
+		cat.catPos.x = 0;
+	}
+
+	for (int i = 0; i < walls.size(); i++)
+	{
+		if (dog.dogPos.x + dog.dogPos.w > walls[i].wallPos.x &&
+			dog.dogPos.x + dog.dogPos.w < walls[i].wallPos.x + walls[i].wallPos.w)
+		{
+			dog.dogPos.x = walls[i].wallPos.x - dog.dogPos.w;
+		}
+		else if (dog.dogPos.x < walls[i].wallPos.x + walls[i].wallPos.w &&
+				dog.dogPos.x > walls[i].wallPos.x)
+		{
+			dog.dogPos.x = walls[i].wallPos.x + walls[i].wallPos.w;
+		}
+
+	}
 
 
 
-	//// 3. 프레임 완성.
-	// std::cout으로 출력한 내용 중, 아직 화면에 표시되 않고 버퍼에 남아 있는 것이 있다면, 모두 화면에 출력되도록 한다.
-	std::cout.flush();
+	g_elapsed_time_ms += 33;
 
 }
+#pragma endregion
 
 
+#pragma region Render
+void Render() 
+{
+	SDL_RenderClear(g_renderer);
 
-/////////////////////////////////////////////////////////////
-// HandleEvents() 
-// 이벤트를 처리하는 함수.
-// main 함수의 while loop에 의해서 무한히 반복 호출된다는 것을 주의.
+
+	SDL_SetRenderDrawColor(g_renderer, 255, 255, 255, 255);
+	
+	dog.Draw();
+	cat.Draw();
+	wall1.Draw();
+	wall2.Draw();
+
+	SDL_RenderPresent(g_renderer);
+}
+#pragma endregion
+
+
+#pragma region Handle Event
 void HandleEvents()
 {
 	SDL_Event event;
@@ -133,27 +246,115 @@ void HandleEvents()
 			break;
 
 		case SDL_KEYDOWN:
-			if (event.key.keysym.sym == SDLK_LEFT) {
-				g_input = 1;
-			}
-			else if (event.key.keysym.sym == SDLK_RIGHT) {
-				g_input = 2;
-			}
-			else if (event.key.keysym.sym == SDLK_UP) {
-				g_input = 3;
-			}
-			else if (event.key.keysym.sym == SDLK_DOWN)
+			if (event.key.keysym.sym == SDLK_LEFT) 
 			{
-				g_input = 4;
+				dogKeyDown = 1;
 			}
-			else if (event.key.keysym.sym == SDLK_SPACE)
+			else if (event.key.keysym.sym == SDLK_RIGHT) 
 			{
-				g_input = 5;
+				dogKeyDown = 2;
+			}
+			else if (event.key.keysym.sym == SDLK_UP) 
+			{
+				dogKeyDown = 3;
+			}
+
+			if (dogKeyDown != 0)
+			{
+				for (int i = dog_input.size() - 1; i >= 0; i--)
+				{
+					if (dog_input[i] != dogKeyDown && dogKeyDown != 0)
+					{
+						if (i == 0) { dog_input.push_back(dogKeyDown); }
+					}
+					else { break; }
+				}
+				dogKeyDown = 0;
+			}
+
+			if (event.key.keysym.sym == SDLK_a)
+			{
+				catKeyDown = 1;
+			}
+			else if (event.key.keysym.sym == SDLK_d)
+			{
+				catKeyDown = 2;
+			}
+			else if (event.key.keysym.sym == SDLK_w)
+			{
+				catKeyDown = 3;
+			}
+
+			if (catKeyDown != 0)
+			{
+				for (int i = cat_input.size() - 1; i >= 0; i--)
+				{
+					if (cat_input[i] != catKeyDown && catKeyDown != 0)
+					{
+						if (i == 0) { cat_input.push_back(catKeyDown); }
+					}
+					else { break; }
+				}
+				catKeyDown = 0;
 			}
 			break;
 
 		case SDL_KEYUP:
-			g_input = 0;
+			if (event.key.keysym.sym == SDLK_LEFT)
+			{
+				dogKeyUp = 1;
+			}
+			else if (event.key.keysym.sym == SDLK_RIGHT)
+			{
+				dogKeyUp = 2;
+			}
+			else if (event.key.keysym.sym == SDLK_UP)
+			{
+				dogKeyUp = 3;
+			}
+			
+			if (dogKeyUp != 0)
+			{
+				for (int i = dog_input.size() - 1; i >= 0; i--)
+				{
+					if (dog_input[i] == dogKeyUp)
+					{
+						dog_input.erase(dog_input.begin() + i);
+						dogKeyUp = 0;
+						break;
+					}
+					
+				}
+			}
+			
+
+			if (event.key.keysym.sym == SDLK_a)
+			{
+				catKeyUp = 1;
+			}
+			else if (event.key.keysym.sym == SDLK_d)
+			{
+				catKeyUp = 2;
+			}
+			else if (event.key.keysym.sym == SDLK_w)
+			{
+				catKeyUp = 3;
+			}
+
+			if (catKeyUp != 0)
+			{
+				for (int i = cat_input.size() - 1; i >= 0; i--)
+				{
+					if (cat_input[i] == catKeyUp)
+					{
+						cat_input.erase(cat_input.begin() + i);
+						catKeyUp = 0;
+						break;
+					}
+
+				}
+			}
+
 			break;
 
 		case SDL_MOUSEBUTTONDOWN:
@@ -166,14 +367,13 @@ void HandleEvents()
 	}
 
 }
+#pragma endregion
 
 
 
-
-/////////////////////////////////////////////////////////////
-// ClearGame() 
-// 프로그램이 끝날 때 한 번 호출되는 함수.
-// 이 함수에서 사용된 자원(이미지, 사운드 등)과 메모리 등을 해제해야한다.
 void ClearGame()
 {
+	SDL_DestroyTexture(dogTexture);
+	SDL_DestroyTexture(catTexture);
+
 }
