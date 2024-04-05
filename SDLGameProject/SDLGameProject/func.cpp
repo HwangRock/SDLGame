@@ -5,7 +5,7 @@
 #include "SDL_image.h"
 
 int g_input;
-double g_elapsed_time_ms;// 흘러간 시간 기록
+double g_elapsed_time_ms;
 
 std::string g_output;
 
@@ -14,6 +14,12 @@ int g_Y;
 
 int sizeH;
 int sizeW;
+
+SDL_Rect catPos;
+SDL_Rect dogPos;
+SDL_Texture* catTexture;
+SDL_Texture* dogTexture;
+
 
 
 
