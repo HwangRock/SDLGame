@@ -55,17 +55,17 @@ class Cat :Pet
 public:
 	Cat(int x, int y)
 	{
-		catPos.x = x;
-		catPos.y = y;
-		catPos.w = 80;
-		catPos.h = 80;
+		pos.x = x;
+		pos.y = y;
+		pos.w = 80;
+		pos.h = 80;
 	}
 	void Draw()
 	{
-		SDL_RenderCopy(g_renderer, catTexture, &catRect, &catPos);
+		SDL_RenderCopy(g_renderer, catTexture, &catRect, &pos);
 		SDL_RenderPresent(g_renderer);
 	}
-	SDL_Rect catPos;
+	SDL_Rect pos;
 };
 #pragma endregion
 
@@ -166,11 +166,11 @@ void Update()
 	}
 	std::cout << "\n";
 	//left
-	if (catInput == 1) { cat.catPos.x -= 10; }
+	if (catInput == 1) { cat.pos.x -= 10; }
 	//right
-	else if (catInput == 2) { cat.catPos.x += 10; }
+	else if (catInput == 2) { cat.pos.x += 10; }
 	//up
-	else if (catInput == 3) { cat.catPos.y -= 10; }
+	else if (catInput == 3) { cat.pos.y -= 10; }
 	
 
 
@@ -184,13 +184,13 @@ void Update()
 		dog.dogPos.x = 0;
 	}
 
-	if (cat.catPos.x > win_w - cat.catPos.w)
+	if (cat.pos.x > win_w - cat.pos.w)
 	{
-		cat.catPos.x = win_w - cat.catPos.w;
+		cat.pos.x = win_w - cat.pos.w;
 	}
-	else if (cat.catPos.x < 0)
+	else if (cat.pos.x < 0)
 	{
-		cat.catPos.x = 0;
+		cat.pos.x = 0;
 	}
 
 	for (int i = 0; i < walls.size(); i++)

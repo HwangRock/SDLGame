@@ -1,11 +1,28 @@
-﻿  func.cpp
-C:\Users\yunji.DESKTOP-CLMOD1E\Documents\GitHub\SDLGame\SDLGameProject\SDLGameProject\func.cpp(264,5): warning C4267: '초기화 중': 'size_t'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-C:\Users\yunji.DESKTOP-CLMOD1E\Documents\GitHub\SDLGame\SDLGameProject\SDLGameProject\func.cpp(290,5): warning C4267: '초기화 중': 'size_t'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-C:\Users\yunji.DESKTOP-CLMOD1E\Documents\GitHub\SDLGame\SDLGameProject\SDLGameProject\func.cpp(318,5): warning C4267: '초기화 중': 'size_t'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-C:\Users\yunji.DESKTOP-CLMOD1E\Documents\GitHub\SDLGame\SDLGameProject\SDLGameProject\func.cpp(346,5): warning C4267: '초기화 중': 'size_t'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+﻿  DogCatGame.cpp
+C:\Users\yunji\SDLGame\SDLGame\SDLGameProject\SDLGameProject\DogCatGame.cpp(398,57): warning C4244: '인수': 'double'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+C:\Users\yunji\SDLGame\SDLGame\SDLGameProject\SDLGameProject\DogCatGame.cpp(400,27): warning C4244: '인수': 'double'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+C:\Users\yunji\SDLGame\SDLGame\SDLGameProject\SDLGameProject\DogCatGame.cpp(401,22): warning C4244: '인수': 'double'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+C:\Users\yunji\SDLGame\SDLGame\SDLGameProject\SDLGameProject\DogCatGame.cpp(405,58): warning C4244: '인수': 'double'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+C:\Users\yunji\SDLGame\SDLGame\SDLGameProject\SDLGameProject\DogCatGame.cpp(407,28): warning C4244: '인수': 'double'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+C:\Users\yunji\SDLGame\SDLGame\SDLGameProject\SDLGameProject\DogCatGame.cpp(408,22): warning C4244: '인수': 'double'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+C:\Users\yunji\SDLGame\SDLGame\SDLGameProject\SDLGameProject\DogCatGame.cpp(411,57): warning C4244: '인수': 'double'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+C:\Users\yunji\SDLGame\SDLGame\SDLGameProject\SDLGameProject\DogCatGame.cpp(412,22): warning C4244: '인수': 'double'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+C:\Users\yunji\SDLGame\SDLGame\SDLGameProject\SDLGameProject\DogCatGame.cpp(413,28): warning C4244: '인수': 'double'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+C:\Users\yunji\SDLGame\SDLGame\SDLGameProject\SDLGameProject\DogCatGame.cpp(414,22): warning C4244: '인수': 'double'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+C:\Users\yunji\SDLGame\SDLGame\SDLGameProject\SDLGameProject\DogCatGame.cpp(417,57): warning C4244: '인수': 'double'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+C:\Users\yunji\SDLGame\SDLGame\SDLGameProject\SDLGameProject\DogCatGame.cpp(419,28): warning C4244: '인수': 'double'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+C:\Users\yunji\SDLGame\SDLGame\SDLGameProject\SDLGameProject\DogCatGame.cpp(423,67): warning C4244: '인수': 'double'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+C:\Users\yunji\SDLGame\SDLGame\SDLGameProject\SDLGameProject\DogCatGame.cpp(425,37): warning C4244: '인수': 'double'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+C:\Users\yunji\SDLGame\SDLGame\SDLGameProject\SDLGameProject\DogCatGame.cpp(426,32): warning C4244: '인수': 'double'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+C:\Users\yunji\SDLGame\SDLGame\SDLGameProject\SDLGameProject\DogCatGame.cpp(435,42): warning C4244: '인수': 'double'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+C:\Users\yunji\SDLGame\SDLGame\SDLGameProject\SDLGameProject\DogCatGame.cpp(436,42): warning C4244: '인수': 'double'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+C:\Users\yunji\SDLGame\SDLGame\SDLGameProject\SDLGameProject\DogCatGame.cpp(497,5): warning C4267: '초기화 중': 'size_t'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+C:\Users\yunji\SDLGame\SDLGame\SDLGameProject\SDLGameProject\DogCatGame.cpp(523,5): warning C4267: '초기화 중': 'size_t'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+C:\Users\yunji\SDLGame\SDLGame\SDLGameProject\SDLGameProject\DogCatGame.cpp(555,5): warning C4267: '초기화 중': 'size_t'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+C:\Users\yunji\SDLGame\SDLGame\SDLGameProject\SDLGameProject\DogCatGame.cpp(583,5): warning C4267: '초기화 중': 'size_t'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
   코드를 생성하고 있습니다.
-  11 of 165 functions ( 6.7%) were compiled, the rest were copied from previous compilation.
-    0 functions were new in current compilation
-    0 functions had inline decision re-evaluated but remain unchanged
+  4 of 191 functions ( 2.1%) were compiled, the rest were copied from previous compilation.
+    1 functions were new in current compilation
+    1 functions had inline decision re-evaluated but remain unchanged
   코드를 생성했습니다.
-  SDLGameProject.vcxproj -> C:\Users\yunji.DESKTOP-CLMOD1E\Documents\GitHub\SDLGame\SDLGameProject\x64\Release\SDLGameProject.exe
+  SDLGameProject.vcxproj -> C:\Users\yunji\SDLGame\SDLGame\SDLGameProject\x64\Release\SDLGameProject.exe
