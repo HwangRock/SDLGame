@@ -3,8 +3,11 @@
 #include <iostream>
 #include <string>
 #include "SDL.h"
-#include "Room.h"
-#include "Ball.h"
+
+
+#include "Pet.h"
+#include "Terrain.h"
+
 #include "SDL_ttf.h"
 #include "SDL_mixer.h"
 
@@ -21,26 +24,41 @@ public:
 	void Update();
 	void HandleEvents();
 
-protected:
-	void AddNewBall();
 
 protected:
 
-	// Room
-	Room room_;
+	//Innput
+	int catInput;
+	int dogInput;
+	int catKeyUp;
+	int dogKeyUp;
+	int catKeyDown;
+	int dogKeyDown;
+	std::vector<int> cat_input;
+	std::vector<int> dog_input;
 
 
-	// Balls
-	int num_of_balls_;
-	Ball* balls_[MAX_BALL_NUM];
+	//Sprite
+	SDL_Rect dogRect;
+	SDL_Rect catRect;
+	SDL_Texture* catTexture;
+	SDL_Texture* dogTexture;
+	SDL_Texture* wallTexture;
+	SDL_Rect wallRect;
 
-	// Ball Texture
-	SDL_Texture* ball_texture_;
-	SDL_Rect ball_src_rectangle_;
+	//Pets
+	Pet* dog=new Pet(200,200,50);
+	Pet* cat=new Pet(100,100,50);
 
 	// Mouse
 	int mouse_win_x_;
 	int mouse_win_y_;
 
+	//Window size
+	int win_w, win_h;
+
+
+	// 중력 가속도
+	float gravity = 0.098f;
 
 };
