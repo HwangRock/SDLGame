@@ -44,9 +44,9 @@ Pet::Update(double timestep_s, std::vector<Terrain>& walls)
 	{
 		if (SDL_HasIntersection(&pos, &wall.pos))
 		{
-
-			if (pos.y + pos.h > wall.pos.y + 5 &&
-				pos.y < wall.pos.y + wall.pos.h - 5)
+			//주의)벽의 height가 너무 작으면 제대로 작동하지 않을 것 같습니다..
+			if (pos.y + pos.h > wall.pos.y + 10 &&
+				pos.y < wall.pos.y + wall.pos.h - 10)
 			{
 				//벽왼쪽에 있음
 				if (pos.x < wall.pos.x + wall.pos.w / 2)
@@ -68,6 +68,8 @@ Pet::Update(double timestep_s, std::vector<Terrain>& walls)
 				{
 					// 벽 위에 있음
 					pos.y = wall.pos.y - pos.h;
+					v[1] = 0;
+					jumping = false;
 				}
 				else
 				{
@@ -77,8 +79,7 @@ Pet::Update(double timestep_s, std::vector<Terrain>& walls)
 			}
 
 
-			v[1] = 0;
-			jumping = false;
+			
 		}
 	}
 

@@ -97,11 +97,11 @@ DogCatGame::Update()
 	//DOG MOVING
 	dogInput = dog_input[dog_input.size() - 1];
 	//left
-	if (dogInput == 1) { dog->pos.x -= 10; }
+	if (dogInput == 1) { dog->pos.x -= 5; }
 	//right
-	else if (dogInput == 2) { dog->pos.x += 10; }
+	else if (dogInput == 2) { dog->pos.x += 5; }
 	//up
-	else if (dogInput == 3) { dog->pos.y -= 10; }
+	else if (dogInput == 3) { dog->pos.y -= 5; }
 
 	dog->pos.y += dog->v[1];
 
@@ -110,11 +110,11 @@ DogCatGame::Update()
 	//CAT MOVING
 	catInput = cat_input[cat_input.size() - 1];
 	//left
-	if (catInput == 1) { cat->pos.x -= 10;  }
+	if (catInput == 1) { cat->pos.x -= 5;  }
 	//right
-	else if (catInput == 2) { cat->pos.x += 10; }
+	else if (catInput == 2) { cat->pos.x += 5; }
 	//up
-	else if (catInput == 3) { cat->pos.y -= 10; }
+	else if (catInput == 3) { cat->pos.y -= 5; }
 
 	cat->pos.y += 3;
 	
