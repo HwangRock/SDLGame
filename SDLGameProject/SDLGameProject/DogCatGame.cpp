@@ -93,31 +93,36 @@ void
 DogCatGame::Update()
 {
 	dog->v[1] += gravity;
-	
+	cat->v[1] += gravity;
+
 	//DOG MOVING
+
+	
 	dogInput = dog_input[dog_input.size() - 1];
 	//left
 	if (dogInput == 1) { dog->pos.x -= 5; }
 	//right
 	else if (dogInput == 2) { dog->pos.x += 5; }
 	//up
-	else if (dogInput == 3) { dog->pos.y -= 5; }
-
+	//else if (dogInput == 3) { dog->pos.y -= 5; }
+	
 	dog->pos.y += dog->v[1];
 
 
 
 	//CAT MOVING
+	
 	catInput = cat_input[cat_input.size() - 1];
 	//left
-	if (catInput == 1) { cat->pos.x -= 5;  }
+	if (catInput == 1) { cat->pos.x -= 5; }
 	//right
 	else if (catInput == 2) { cat->pos.x += 5; }
 	//up
-	else if (catInput == 3) { cat->pos.y -= 5; }
-
-	cat->pos.y += 3;
+	//else if (catInput == 3) { cat->pos.y -= 5; }
+	cat->pos.y += cat->v[1];
 	
+
+
 	dog->Update(g_timestep_s,walls);
 	cat->Update(g_timestep_s,walls);
 }
@@ -161,14 +166,26 @@ void DogCatGame::HandleEvents()
 		case SDL_QUIT:
 			g_flag_running = false;
 			break;
+
+
+
+
 		case SDL_KEYDOWN:
-			if (event.key.keysym.sym == SDLK_LEFT){	dogKeyDown = 1;		}
-			else if (event.key.keysym.sym == SDLK_RIGHT){ dogKeyDown = 2;	}
+			if (event.key.keysym.sym == SDLK_LEFT)
+			{	
+				dogKeyDown = 1;
+				dog->v[0] = -1.0f;
+			}
+			else if (event.key.keysym.sym == SDLK_RIGHT)
+			{ 
+				dogKeyDown = 2;
+				dog->v[0] = 1.0f;
+			}
 			else if (event.key.keysym.sym == SDLK_UP)
 			{ 
 				if (dog->jumping == false)
 				{
-					dogKeyDown = 3;
+					//dogKeyDown = 3;
 					dog->v[1] = dog->jumpSpeed();
 					dog->jumping = true;
 				}
@@ -187,9 +204,20 @@ void DogCatGame::HandleEvents()
 				dogKeyDown = 0;
 			}
 
-			if (event.key.keysym.sym == SDLK_a){	catKeyDown = 1;	}
-			else if (event.key.keysym.sym == SDLK_d){	catKeyDown = 2;	}
-			else if (event.key.keysym.sym == SDLK_w){	catKeyDown = 3;	}
+			if (event.key.keysym.sym == SDLK_a)
+			{ cat->v[0] = -1.0f; catKeyDown = 1;	}
+			else if (event.key.keysym.sym == SDLK_d)
+			{ cat->v[0] = 1.0f; catKeyDown = 2;	}
+			else if (event.key.keysym.sym == SDLK_w)
+			{	
+				if (cat->jumping == false)
+				{
+					//catKeyDown = 3;
+					cat->v[1] = cat->jumpSpeed();
+					cat->jumping = true;
+				}
+				catKeyDown = 3;	
+			}
 
 			if (catKeyDown != 0)
 			{
@@ -205,10 +233,29 @@ void DogCatGame::HandleEvents()
 			}
 			break;
 
+
+
+
+
+
+
+
 		case SDL_KEYUP:
-			if (event.key.keysym.sym == SDLK_LEFT){	dogKeyUp = 1;	}
-			else if (event.key.keysym.sym == SDLK_RIGHT){	dogKeyUp = 2;	}
-			else if (event.key.keysym.sym == SDLK_UP){	dogKeyUp = 3;	}
+			
+			
+
+			if (event.key.keysym.sym == SDLK_LEFT)
+			{
+				dogKeyUp = 1;	
+			}
+			else if (event.key.keysym.sym == SDLK_RIGHT)
+			{
+				dogKeyUp = 2;	
+			}
+			else if (event.key.keysym.sym == SDLK_UP)
+			{	
+				//dogKeyUp = 3;	
+			}
 
 			if (dogKeyUp != 0)
 			{
@@ -216,6 +263,7 @@ void DogCatGame::HandleEvents()
 				{
 					if (dog_input[i] == dogKeyUp)
 					{
+						//dog->v[0] = 0.0f;
 						dog_input.erase(dog_input.begin() + i);
 						dogKeyUp = 0;
 						break;
@@ -225,9 +273,14 @@ void DogCatGame::HandleEvents()
 			}
 
 
-			if (event.key.keysym.sym == SDLK_a){	catKeyUp = 1;	}
-			else if (event.key.keysym.sym == SDLK_d){	catKeyUp = 2;	}
-			else if (event.key.keysym.sym == SDLK_w){	catKeyUp = 3;	}
+			if (event.key.keysym.sym == SDLK_a)
+			{ catKeyUp = 1;	}
+			else if (event.key.keysym.sym == SDLK_d)
+			{  catKeyUp = 2;	}
+			else if (event.key.keysym.sym == SDLK_w)
+			{ 
+				//catKeyUp = 3;	
+			}
 
 			if (catKeyUp != 0)
 			{
@@ -235,6 +288,7 @@ void DogCatGame::HandleEvents()
 				{
 					if (cat_input[i] == catKeyUp)
 					{
+						//cat->v[0] = 0.0f;
 						cat_input.erase(cat_input.begin() + i);
 						catKeyUp = 0;
 						break;
