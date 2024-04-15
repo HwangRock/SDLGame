@@ -3,9 +3,11 @@
 #include <iostream>
 
 
-Pet::Pet(double x, double y, double size)
+Pet::Pet(double x, double y, double size, bool isDog)
 {
 	size_ = size;
+
+	isDog_ = isDog;
 
 	mass_ = 2; // 2kg
 	coeff_of_restitution_ = 0.7;
@@ -28,6 +30,11 @@ Pet::Reset()
 	v[0] = 0;
 	v[1] = 0;
 
+	nowInput = 0;
+	keyDownNum = 0;
+	keyUpNum = 0;
+	inputs.push_back(0);
+
 	jumping = false;
 }
 
@@ -38,7 +45,22 @@ Pet::Update(double timestep_s, std::vector<Terrain>& walls)
 	double dt = timestep_s;	// seconds
 
 
+	//MOVING/////////////////////////////////////////////////
 
+	v[1] += gravity;
+
+	nowInput = inputs[inputs.size() - 1];
+	//left
+	if (nowInput == 1) { pos.x -= 5; }
+	//right
+	else if (nowInput == 2) { pos.x += 5; }
+	//up
+	pos.y += v[1];
+
+
+
+
+	//LIMIT//////////////////////////////////////////////////
 	// º® °¨Áö
 	for (const Terrain& wall : walls)
 	{
@@ -144,4 +166,125 @@ Pet::Update(double timestep_s, std::vector<Terrain>& walls)
 	v_[0] = v_[0] + dt * a[0];
 	v_[1] = v_[1] + dt * a[1];
 	*/
+}
+
+void
+Pet::HandleEvent(SDL_Event event) 
+{
+	switch (event.type)
+	{
+	case SDL_KEYDOWN:
+		if (isDog_)
+		{
+			if (event.key.keysym.sym == SDLK_LEFT)
+			{
+				keyDownNum = 1;
+				v[0] = -1.0f;
+			}
+			else if (event.key.keysym.sym == SDLK_RIGHT)
+			{
+				keyDownNum = 2;
+				v[0] = 1.0f;
+			}
+			else if (event.key.keysym.sym == SDLK_UP)
+			{
+				if (jumping == false)
+				{
+					v[1] = jumpSpeed();
+					jumping = true;
+				}
+			}
+		}
+		else
+		{
+			if (event.key.keysym.sym == SDLK_a)
+			{
+				v[0] = -1.0f; keyDownNum = 1;
+			}
+			else if (event.key.keysym.sym == SDLK_d)
+			{
+				v[0] = 1.0f; keyDownNum = 2;
+			}
+			else if (event.key.keysym.sym == SDLK_w)
+			{
+				if (jumping == false)
+				{
+					v[1] = jumpSpeed();
+					jumping = true;
+				}
+				keyDownNum = 3;
+			}
+		}
+
+		if (keyDownNum != 0)
+		{
+			for (int i = inputs.size() - 1; i >= 0; i--)
+			{
+				if (inputs[i] != keyDownNum && keyDownNum != 0)
+				{
+					if (i == 0) { inputs.push_back(keyDownNum); }
+				}
+				else { break; }
+			}
+			keyDownNum = 0;
+		}
+		break;
+
+
+	case SDL_KEYUP:
+
+		if (isDog_)
+		{
+			if (event.key.keysym.sym == SDLK_LEFT)
+			{
+				keyUpNum = 1;
+			}
+			else if (event.key.keysym.sym == SDLK_RIGHT)
+			{
+				keyUpNum = 2;
+			}
+			else if (event.key.keysym.sym == SDLK_UP)
+			{
+				//dogKeyUp = 3;	
+			}
+		}
+		else
+		{
+			if (event.key.keysym.sym == SDLK_a)
+			{
+				keyUpNum = 1;
+			}
+			else if (event.key.keysym.sym == SDLK_d)
+			{
+				keyUpNum = 2;
+			}
+			else if (event.key.keysym.sym == SDLK_w)
+			{
+				//catKeyUp = 3;	
+			}
+		}
+		
+
+		if (keyUpNum != 0)
+		{
+			for (int i = inputs.size() - 1; i >= 0; i--)
+			{
+				if (inputs[i] == keyUpNum)
+				{
+					//dog->v[0] = 0.0f;
+					inputs.erase(inputs.begin() + i);
+					keyUpNum = 0;
+					break;
+				}
+
+			}
+		}
+
+
+		break;
+	}
+
+	
+
+
 }

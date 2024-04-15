@@ -27,15 +27,6 @@ public:
 
 protected:
 
-	//Innput
-	int catInput;
-	int dogInput;
-	int catKeyUp;
-	int dogKeyUp;
-	int catKeyDown;
-	int dogKeyDown;
-	std::vector<int> cat_input;
-	std::vector<int> dog_input;
 
 
 	//Sprite
@@ -47,8 +38,8 @@ protected:
 	SDL_Rect wallRect;
 
 	//Pets
-	Pet* dog=new Pet(200,200,50);
-	Pet* cat=new Pet(100,100,50);
+	Pet* dog=new Pet(200,200,50,true);
+	Pet* cat=new Pet(100,100,50,false);
 
 	// Mouse
 	int mouse_win_x_;

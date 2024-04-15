@@ -10,10 +10,12 @@ public:
 	double v[2];
 	bool jumping = false;
 
-	Pet(double x, double y, double size);
+	Pet(double x, double y, double size,bool isDog);
 
 	void Reset();
 	virtual void Update(double timestep_s,std::vector<Terrain>& walls);
+
+	void HandleEvent(SDL_Event event);
 
 	void setPos(double x, double y) { pos_[0] = x; pos_[1] = y; }
 	//void setVelocity(double x, double y) { v[0] = x; v[1] = y; }
@@ -27,6 +29,8 @@ public:
 
 protected:
 
+	bool isDog_;
+
 	float jump_speed = -2.0f;
 
 	double size_;
@@ -37,5 +41,14 @@ protected:
 	// position x,y
 	double pos_[2];
 	
+
+	float gravity = 0.098f;
+
+	//key input
+	int nowInput;
+	int keyUpNum;
+	int keyDownNum;
+	std::vector<int> inputs;
+
 
 };

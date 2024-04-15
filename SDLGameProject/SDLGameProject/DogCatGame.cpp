@@ -18,11 +18,14 @@ extern float g_timestep_s;
 
 
 
-Terrain wall1(300, 100, 20, 100);
-Terrain wall2(50, 100, 20, 100);
+
 Terrain wall3(400, 200, 20, 500);
-Terrain wall4(100, 300, 600, 200);
-std::vector<Terrain>walls = { wall1,wall2,wall3,wall4 };
+Terrain wall4(100, 300, 600, 50);
+Terrain default1(0, 680, 1000, 20);
+Terrain default2(0, 0, 1000, 20);
+Terrain default3(0, 0, 20, 700);
+Terrain default4(980, 0, 20, 700);
+std::vector<Terrain>walls = { wall3,wall4,default1,default2,default3,default4 };
 
 
 
@@ -32,18 +35,6 @@ std::vector<Terrain>walls = { wall1,wall2,wall3,wall4 };
 DogCatGame::DogCatGame()
 {
 	g_flag_running = true;
-
-
-	//Input
-	catInput = 0;
-	dogInput = 0;
-	catKeyDown = 0;
-	dogKeyDown = 0;
-	catKeyUp = 0;
-	dogKeyUp = 0;
-
-	cat_input.push_back(0);
-	dog_input.push_back(0);
 
 
 	//Window
@@ -92,36 +83,6 @@ DogCatGame::~DogCatGame()
 void
 DogCatGame::Update()
 {
-	dog->v[1] += gravity;
-	cat->v[1] += gravity;
-
-	//DOG MOVING
-
-	
-	dogInput = dog_input[dog_input.size() - 1];
-	//left
-	if (dogInput == 1) { dog->pos.x -= 5; }
-	//right
-	else if (dogInput == 2) { dog->pos.x += 5; }
-	//up
-	//else if (dogInput == 3) { dog->pos.y -= 5; }
-	
-	dog->pos.y += dog->v[1];
-
-
-
-	//CAT MOVING
-	
-	catInput = cat_input[cat_input.size() - 1];
-	//left
-	if (catInput == 1) { cat->pos.x -= 5; }
-	//right
-	else if (catInput == 2) { cat->pos.x += 5; }
-	//up
-	//else if (catInput == 3) { cat->pos.y -= 5; }
-	cat->pos.y += cat->v[1];
-	
-
 
 	dog->Update(g_timestep_s,walls);
 	cat->Update(g_timestep_s,walls);
@@ -161,6 +122,10 @@ void DogCatGame::HandleEvents()
 	SDL_Event event;
 	if (SDL_PollEvent(&event))
 	{
+		dog->HandleEvent(event);
+		cat->HandleEvent(event);
+
+
 		switch (event.type)
 		{
 		case SDL_QUIT:
@@ -168,136 +133,14 @@ void DogCatGame::HandleEvents()
 			break;
 
 
-
-
 		case SDL_KEYDOWN:
-			if (event.key.keysym.sym == SDLK_LEFT)
-			{	
-				dogKeyDown = 1;
-				dog->v[0] = -1.0f;
-			}
-			else if (event.key.keysym.sym == SDLK_RIGHT)
-			{ 
-				dogKeyDown = 2;
-				dog->v[0] = 1.0f;
-			}
-			else if (event.key.keysym.sym == SDLK_UP)
-			{ 
-				if (dog->jumping == false)
-				{
-					//dogKeyDown = 3;
-					dog->v[1] = dog->jumpSpeed();
-					dog->jumping = true;
-				}
-			}
-
-			if (dogKeyDown != 0)
-			{
-				for (int i = dog_input.size() - 1; i >= 0; i--)
-				{
-					if (dog_input[i] != dogKeyDown && dogKeyDown != 0)
-					{
-						if (i == 0) { dog_input.push_back(dogKeyDown); }
-					}
-					else { break; }
-				}
-				dogKeyDown = 0;
-			}
-
-			if (event.key.keysym.sym == SDLK_a)
-			{ cat->v[0] = -1.0f; catKeyDown = 1;	}
-			else if (event.key.keysym.sym == SDLK_d)
-			{ cat->v[0] = 1.0f; catKeyDown = 2;	}
-			else if (event.key.keysym.sym == SDLK_w)
-			{	
-				if (cat->jumping == false)
-				{
-					//catKeyDown = 3;
-					cat->v[1] = cat->jumpSpeed();
-					cat->jumping = true;
-				}
-				catKeyDown = 3;	
-			}
-
-			if (catKeyDown != 0)
-			{
-				for (int i = cat_input.size() - 1; i >= 0; i--)
-				{
-					if (cat_input[i] != catKeyDown && catKeyDown != 0)
-					{
-						if (i == 0) { cat_input.push_back(catKeyDown); }
-					}
-					else { break; }
-				}
-				catKeyDown = 0;
-			}
 			break;
-
-
-
-
-
-
 
 
 		case SDL_KEYUP:
-			
-			
-
-			if (event.key.keysym.sym == SDLK_LEFT)
-			{
-				dogKeyUp = 1;	
-			}
-			else if (event.key.keysym.sym == SDLK_RIGHT)
-			{
-				dogKeyUp = 2;	
-			}
-			else if (event.key.keysym.sym == SDLK_UP)
-			{	
-				//dogKeyUp = 3;	
-			}
-
-			if (dogKeyUp != 0)
-			{
-				for (int i = dog_input.size() - 1; i >= 0; i--)
-				{
-					if (dog_input[i] == dogKeyUp)
-					{
-						//dog->v[0] = 0.0f;
-						dog_input.erase(dog_input.begin() + i);
-						dogKeyUp = 0;
-						break;
-					}
-
-				}
-			}
-
-
-			if (event.key.keysym.sym == SDLK_a)
-			{ catKeyUp = 1;	}
-			else if (event.key.keysym.sym == SDLK_d)
-			{  catKeyUp = 2;	}
-			else if (event.key.keysym.sym == SDLK_w)
-			{ 
-				//catKeyUp = 3;	
-			}
-
-			if (catKeyUp != 0)
-			{
-				for (int i = cat_input.size() - 1; i >= 0; i--)
-				{
-					if (cat_input[i] == catKeyUp)
-					{
-						//cat->v[0] = 0.0f;
-						cat_input.erase(cat_input.begin() + i);
-						catKeyUp = 0;
-						break;
-					}
-
-				}
-			}
-
 			break;
+
+
 		case SDL_MOUSEBUTTONDOWN:
 
 			// If the mouse left button is pressed. 
