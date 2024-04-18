@@ -7,9 +7,18 @@
 
 #include "Pet.h"
 #include "Terrain.h"
+#include "Button.h"
 
 #include "SDL_ttf.h"
 #include "SDL_mixer.h"
+
+
+#include <vector>
+#include <windows.h>
+
+#include "SDL_image.h"
+#include "math.h"
+
 
 class Stage1 : public PhaseInterface
 {
@@ -28,7 +37,9 @@ private:
 	SDL_Texture* catTexture;
 	SDL_Texture* dogTexture;
 	SDL_Texture* wallTexture;
+	SDL_Texture* buttonTexture;
 	SDL_Rect wallRect;
+	SDL_Rect buttonRect;
 
 	//Pets
 	Pet* dog = new Pet(200, 200, 50, true);

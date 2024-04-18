@@ -3,14 +3,11 @@
 
 
 //add
-#include <iostream>
 #include <vector>
 #include <windows.h>
 
-#include "DogCatGame.h" 
 #include "SDL_image.h"
 #include "G2W.h"
-#include "math.h"
 
 
 
@@ -20,14 +17,29 @@ extern SDL_Renderer* g_renderer;
 extern SDL_Window* g_window;
 extern float g_timestep_s;
 
-Terrain wall3(400, 200, 20, 500);
-Terrain wall4(100, 300, 600, 50);
+Terrain floorUp(200, 200, 800, 25);
+Terrain floorDown(0, 500, 600, 25);
+
+Terrain Wall(400-25, 150, 25, 50);
+Terrain Scaffolding1(200, 150, 200, 25);
+Terrain Scaffolding2(600, 100, 100, 25);
+Terrain Scaffolding3(500, 600, 100, 25);
+
 Terrain default1(0, 680, 1000, 20);
 Terrain default2(0, 0, 1000, 20);
 Terrain default3(0, 0, 20, 700);
 Terrain default4(980, 0, 20, 700);
-std::vector<Terrain>walls = { wall3,wall4,default1,default2,default3,default4 };
+std::vector<Terrain>walls = 
+{ 
+	floorUp,floorDown,
+	default1,default2,default3,default4, 
+	Wall, Scaffolding1, Scaffolding2,Scaffolding3
 
+};
+
+
+Button button1(150, 25,500,480,700,600,700,400);
+std::vector<Button>buttons = {button1};
 
 
 //InitGame
@@ -60,7 +72,12 @@ Stage1::Stage1()
 	SDL_FreeSurface(surface_wall);
 	wallRect = { 0,0,680,808 };
 
-
+	//Button
+	SDL_Surface* surface_button = IMG_Load("../Resources/ball.png");
+	buttonTexture = SDL_CreateTextureFromSurface(g_renderer, surface_button);
+	SDL_FreeSurface(surface_button);
+	buttonRect = { 0,0,61,31 };
+	
 
 
 	mouse_win_x_ = 0;
@@ -75,9 +92,10 @@ Stage1::~Stage1()
 
 void Stage1::Update()
 {
-	dog->Update(g_timestep_s, walls);
-	cat->Update(g_timestep_s, walls);
+	dog->Update(g_timestep_s, walls,buttons);
+	cat->Update(g_timestep_s, walls,buttons);
 
+	
 }
 
 
@@ -98,6 +116,18 @@ void Stage1::Render()
 	{
 		SDL_RenderCopy(g_renderer, wallTexture, &wallRect, &wall.pos);
 	}
+
+
+	//Button
+	for (Button btn : buttons)
+	{
+		//btn
+		SDL_RenderCopy(g_renderer, buttonTexture, &buttonRect, &btn.buttonPos);
+		//Button wall
+		SDL_RenderCopy(g_renderer, wallTexture, &wallRect, &btn.nowPos);
+	}
+	
+
 
 
 

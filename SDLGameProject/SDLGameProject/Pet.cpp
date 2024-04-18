@@ -40,7 +40,7 @@ Pet::Reset()
 
 
 void
-Pet::Update(double timestep_s, std::vector<Terrain>& walls)
+Pet::Update(double timestep_s, std::vector<Terrain>& walls,std::vector<Button>&buttons)
 {
 	double dt = timestep_s;	// seconds
 
@@ -60,7 +60,7 @@ Pet::Update(double timestep_s, std::vector<Terrain>& walls)
 
 
 
-	//LIMIT//////////////////////////////////////////////////
+	//MOVING LIMIT//////////////////////////////////////////////////
 	// 벽 감지
 	for (const Terrain& wall : walls)
 	{
@@ -100,10 +100,27 @@ Pet::Update(double timestep_s, std::vector<Terrain>& walls)
 				}
 			}
 
-
-			
 		}
 	}
+	
+	//PRESS BUTTON/////////////////////////////////////////////////////////////
+	for (Button& btn : buttons)
+	{
+		if (SDL_HasIntersection(&pos, &btn.buttonPos))
+		{
+			std::cout << "pressed\n";
+			btn.SetPress(true);
+			btn.Update(timestep_s);
+		}
+		else 
+		{ 
+			std::cout << "not pressed\n";
+			btn.SetPress(false); 
+			btn.Update(timestep_s);
+		}
+	}
+
+
 
 
 
@@ -116,51 +133,6 @@ Pet::Update(double timestep_s, std::vector<Terrain>& walls)
 	// Move
 	p_[0] = p_[0] + dt * v_[0];
 	p_[1] = p_[1] + dt * v_[1];
-
-
-	// Collision with Ground
-	if (p_[1] - radius_ < room_->ground_height() && v_[1] < 0)
-	{
-		p_[1] = radius_ + room_->ground_height();
-
-		v_[1] = -1 * v_[1];
-
-		// Coefficient of restitution
-		v_[1] = coeff_of_restitution_ * v_[1];
-	}
-
-	// Collision with Ceilling
-	else if (p_[1] + radius_ > room_->height() && v_[1] > 0)
-	{
-		p_[1] = room_->height() - radius_;
-
-		v_[1] = -1 * v_[1];
-
-		// Coefficient of restitution
-		v_[1] = coeff_of_restitution_ * v_[1];
-	}
-
-	// Collision with Left Wall
-	if (p_[0] - radius_ < room_->left_wall_x() && v_[0] < 0)
-	{
-		p_[0] = room_->left_wall_x() + radius_;
-
-		v_[0] = -1 * v_[0];
-
-		// Coefficient of restitution
-		v_[0] = coeff_of_restitution_ * v_[0];
-	}
-
-	// Collision with Right Wall
-	else if (p_[0] + radius_ > room_->right_wall_x() && v_[0] > 0)
-	{
-		p_[0] = room_->right_wall_x() - radius_;
-
-		v_[0] = -1 * v_[0];
-
-		// Coefficient of restitution
-		v_[0] = coeff_of_restitution_ * v_[0];
-	}
 
 	//속도 = 이전속도 + 시간(dt) * 가속도;
 	v_[0] = v_[0] + dt * a[0];

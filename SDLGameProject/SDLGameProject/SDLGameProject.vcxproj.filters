@@ -15,19 +15,10 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="G2W.cpp">
-      <Filter>소스 파일</Filter>
-    </ClCompile>
-    <ClCompile Include="DogCatGame.cpp">
-      <Filter>소스 파일</Filter>
-    </ClCompile>
-    <ClCompile Include="main_DogCatGame.cpp">
-      <Filter>소스 파일</Filter>
-    </ClCompile>
     <ClCompile Include="Pet.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
-    <ClCompile Include="Terrain.cpp">
+    <ClCompile Include="Main.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
     <ClCompile Include="Game.cpp">
@@ -42,21 +33,18 @@
     <ClCompile Include="GameStage1.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
-    <ClCompile Include="Main.cpp">
+    <ClCompile Include="Terrain.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="G2W.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="Button.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="G2W.h">
-      <Filter>소스 파일</Filter>
-    </ClInclude>
-    <ClInclude Include="DogCatGame.h">
-      <Filter>소스 파일</Filter>
-    </ClInclude>
     <ClInclude Include="Pet.h">
-      <Filter>소스 파일</Filter>
-    </ClInclude>
-    <ClInclude Include="Terrain.h">
       <Filter>소스 파일</Filter>
     </ClInclude>
     <ClInclude Include="Game.h">
@@ -69,6 +57,15 @@
       <Filter>소스 파일</Filter>
     </ClInclude>
     <ClInclude Include="GameStage1.h">
+      <Filter>소스 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="Terrain.h">
+      <Filter>소스 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="G2W.h">
+      <Filter>소스 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="Button.h">
       <Filter>소스 파일</Filter>
     </ClInclude>
   </ItemGroup>
