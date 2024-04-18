@@ -13,9 +13,6 @@
       <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
     </Filter>
-    <Filter Include="소스 파일\notUsed">
-      <UniqueIdentifier>{e1144da4-58c1-4cf2-a31f-cdd16477b7e9}</UniqueIdentifier>
-    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="G2W.cpp">
@@ -24,19 +21,28 @@
     <ClCompile Include="DogCatGame.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
-    <ClCompile Include="func.cpp">
-      <Filter>소스 파일\notUsed</Filter>
-    </ClCompile>
     <ClCompile Include="main_DogCatGame.cpp">
       <Filter>소스 파일</Filter>
-    </ClCompile>
-    <ClCompile Include="main.cpp">
-      <Filter>소스 파일\notUsed</Filter>
     </ClCompile>
     <ClCompile Include="Pet.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
     <ClCompile Include="Terrain.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="Game.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="GameEnding.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="GameIntro.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="GameStage1.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="Main.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
   </ItemGroup>
@@ -47,13 +53,22 @@
     <ClInclude Include="DogCatGame.h">
       <Filter>소스 파일</Filter>
     </ClInclude>
-    <ClInclude Include="func.h">
-      <Filter>소스 파일\notUsed</Filter>
-    </ClInclude>
     <ClInclude Include="Pet.h">
       <Filter>소스 파일</Filter>
     </ClInclude>
     <ClInclude Include="Terrain.h">
+      <Filter>소스 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="Game.h">
+      <Filter>소스 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="GameEnding.h">
+      <Filter>소스 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="GameIntro.h">
+      <Filter>소스 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="GameStage1.h">
       <Filter>소스 파일</Filter>
     </ClInclude>
   </ItemGroup>

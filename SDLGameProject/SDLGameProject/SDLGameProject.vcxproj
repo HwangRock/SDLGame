@@ -144,24 +144,30 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="func.cpp">
-      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|x64'">true</ExcludedFromBuild>
-    </ClCompile>
     <ClCompile Include="G2W.cpp" />
-    <ClCompile Include="main.cpp">
+    <ClCompile Include="Game.cpp" />
+    <ClCompile Include="GameEnding.cpp" />
+    <ClCompile Include="GameIntro.cpp" />
+    <ClCompile Include="GameStage1.cpp" />
+    <ClCompile Include="main_DogCatGame.cpp">
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|x64'">true</ExcludedFromBuild>
     </ClCompile>
-    <ClCompile Include="main_DogCatGame.cpp" />
-    <ClCompile Include="DogCatGame.cpp" />
+    <ClCompile Include="DogCatGame.cpp">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|x64'">true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="Main.cpp" />
     <ClCompile Include="Pet.cpp" />
     <ClCompile Include="Terrain.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="func.h">
+    <ClInclude Include="G2W.h" />
+    <ClInclude Include="DogCatGame.h">
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|x64'">true</ExcludedFromBuild>
     </ClInclude>
-    <ClInclude Include="G2W.h" />
-    <ClInclude Include="DogCatGame.h" />
+    <ClInclude Include="Game.h" />
+    <ClInclude Include="GameEnding.h" />
+    <ClInclude Include="GameIntro.h" />
+    <ClInclude Include="GameStage1.h" />
     <ClInclude Include="Pet.h" />
     <ClInclude Include="Terrain.h" />
   </ItemGroup>
