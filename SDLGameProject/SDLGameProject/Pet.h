@@ -1,6 +1,7 @@
 #pragma once
 #include <vector>
 #include "Terrain.h"
+#include "Button.h"
 #include "SDL.h"
 
 class Pet
@@ -13,7 +14,7 @@ public:
 	Pet(double x, double y, double size,bool isDog);
 
 	void Reset();
-	virtual void Update(double timestep_s,std::vector<Terrain>& walls);
+	virtual void Update(double timestep_s,std::vector<Terrain>& walls, std::vector<Button>& buttons);
 
 	void HandleEvent(SDL_Event event);
 
