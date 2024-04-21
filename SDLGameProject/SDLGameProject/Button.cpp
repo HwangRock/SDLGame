@@ -3,28 +3,28 @@
 #include <iostream>
 
 
-Button::Button(
-	double w, double h, 
-	double btnX,double btnY, 
-	double startX,double startY,
-	double endX,double endY)
+Button::Button
+(
+	int btnNum, int scaffoldNum,
+	std::vector<std::vector<int>>buttonP,
+	std::vector<std::vector<int>>startP,
+	std::vector<std::vector<int>>endP,
+	std::vector<SDL_Rect> scaffold
+)
 {
-	buttonPos.x = btnX;
-	buttonPos.y = btnY;
-	buttonPos.w =20;
-	buttonPos.h = 20;
 
-	startPos.x = startX;
-	startPos.y = startY;
-	startPos.w = w;
-	startPos.h = h;
+	for (int i = 0; i < btnNum; i++)
+	{
+		buttonPos.push_back({ buttonP[i][0],buttonP[i][1],20,20 });
+	}
+	
+	for (int i = 0; i < scaffoldNum; i++)
+	{
+		startPos.push_back({ startP[i][0],startP[i][1],scaffold[i].w,scaffold[i].h });
+		endPos.push_back({ endP[i][0],endP[i][1],scaffold[i].w,scaffold[i].h });
+	}
 
-
-	endPos.x = endX;
-	endPos.y = endY;
-	endPos.w = w;
-	endPos.h = h;
-
+	scaffold_= scaffold;
 
 	Reset();
 }
@@ -32,41 +32,41 @@ Button::Button(
 void
 Button::Reset()
 {
-	nowPos.x = startPos.x;
-	nowPos.y = startPos.y;
-	nowPos.w = startPos.w;
-	nowPos.h = startPos.h;
-
+	for (int i = 0; i < scaffold_.size(); i++)
+	{
+		scaffold_[i].x = startPos[i].x;
+		scaffold_[i].y = startPos[i].y;
+		
+	}	
 	isPressed = false;
-	progress_ = 1/16;
 }
 
 
 void
-Button::Update(double timestep_s)
+Button::Update()
 {
-	double dt = timestep_s;	// seconds
+	//double dt = timestep_s;	// seconds
 
-	//std::cout << isPressed << "\n";
-
-	if (isPressed == true)
+	for (int i = 0; i < scaffold_.size(); i++)
 	{
-		//std::cout << "pressed" << "\n";
-		if (Distance(nowPos,endPos)>2)
+		if (isPressed == true)
 		{
-			//moving to endPos
-			Move(nowPos, endPos);
+			if (Distance(scaffold_[i], endPos[i]) > 0.05)
+			{
+				//moving to endPos
+				Move(scaffold_[i], endPos[i],i);
+			}
+		}
+		else
+		{
+			if (Distance(scaffold_[i], startPos[i]) > 0.05)
+			{
+				//moving back to startPos
+				Move(scaffold_[i], startPos[i],i);
+			}
 		}
 	}
-	else
-	{
-		//std::cout << "not pressed" << "\n";
-		if (Distance(nowPos, startPos) > 2)
-		{
-			//moving back to startPos
-			Move(nowPos, startPos);
-		}
-	}
+	
 
 	
 }
@@ -77,7 +77,7 @@ double Button::Distance(SDL_Rect& rect1, SDL_Rect& rect2)
 	return distance;
 }
 
-void Button::Move(SDL_Rect& from, SDL_Rect& to)
+void Button::Move(SDL_Rect& from, SDL_Rect& to,int index)
 {
 	// 현재 위치에서 목표 위치까지의 벡터
 	double dx = to.x - from.x;
@@ -94,8 +94,8 @@ void Button::Move(SDL_Rect& from, SDL_Rect& to)
 	double unitY = dy / distance;
 
 	// 새로운 위치 계산
-	nowPos.x = from.x + static_cast<int>(moveDistance * unitX);
-	nowPos.y = from.y + static_cast<int>(moveDistance * unitY);
+	scaffold_[index].x = from.x + static_cast<int>(moveDistance * unitX);
+	scaffold_[index].y = from.y + static_cast<int>(moveDistance * unitY);
 }
 
 void Button::SetPress(bool b)

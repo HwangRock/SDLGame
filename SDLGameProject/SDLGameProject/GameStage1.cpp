@@ -17,30 +17,6 @@ extern SDL_Renderer* g_renderer;
 extern SDL_Window* g_window;
 extern float g_timestep_s;
 
-Terrain floorUp(200, 200, 800, 25);
-Terrain floorDown(0, 500, 600, 25);
-
-Terrain Wall(400-25, 150, 25, 50);
-Terrain Scaffolding1(200, 150, 200, 25);
-Terrain Scaffolding2(600, 100, 100, 25);
-Terrain Scaffolding3(500, 600, 100, 25);
-
-Terrain default1(0, 680, 1000, 20);
-Terrain default2(0, 0, 1000, 20);
-Terrain default3(0, 0, 20, 700);
-Terrain default4(980, 0, 20, 700);
-std::vector<Terrain>walls = 
-{ 
-	floorUp,floorDown,
-	default1,default2,default3,default4, 
-	Wall, Scaffolding1, Scaffolding2,Scaffolding3
-
-};
-
-
-Button button1(150, 25,500,480,700,600,700,400);
-std::vector<Button>buttons = {button1};
-
 
 //InitGame
 Stage1::Stage1()
@@ -121,10 +97,14 @@ void Stage1::Render()
 	//Button
 	for (Button btn : buttons)
 	{
-		//btn
-		SDL_RenderCopy(g_renderer, buttonTexture, &buttonRect, &btn.buttonPos);
-		//Button wall
-		SDL_RenderCopy(g_renderer, wallTexture, &wallRect, &btn.nowPos);
+		for (int i = 0; i < btn.buttonPos.size(); i++)
+		{
+			//btn
+			SDL_RenderCopy(g_renderer, buttonTexture, &buttonRect, &btn.buttonPos[i]);
+			//Button connected wall
+			SDL_RenderCopy(g_renderer, wallTexture, &wallRect, &btn.scaffold_[i]);
+		}
+
 	}
 	
 
@@ -174,12 +154,9 @@ void Stage1::HandleEvents()
 				double mouse_game_x = W2G_X(mouse_win_x_);
 				double mouse_game_y = W2G_Y(mouse_win_y_);
 
+				g_current_game_phase = PHASE_STAGE2;
 			}
-			// If the mouse left button is pressed. 
-			if (event.button.button == SDL_BUTTON_LEFT)
-			{
-				g_current_game_phase = PHASE_ENDING;
-			}
+
 
 
 		case SDL_MOUSEMOTION:

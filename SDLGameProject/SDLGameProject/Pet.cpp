@@ -3,9 +3,9 @@
 #include <iostream>
 
 
-Pet::Pet(double x, double y, double size, bool isDog)
+Pet::Pet(double x, double y,bool isDog)
 {
-	size_ = size;
+	size_ = 30;
 
 	isDog_ = isDog;
 
@@ -17,8 +17,8 @@ Pet::Pet(double x, double y, double size, bool isDog)
 
 	pos.x = x;
 	pos.y = y;
-	pos.w = size;
-	pos.h = size;
+	pos.w = 30;
+	pos.h = 30;
 
 
 	Reset();
@@ -51,9 +51,9 @@ Pet::Update(double timestep_s, std::vector<Terrain>& walls,std::vector<Button>&b
 
 	nowInput = inputs[inputs.size() - 1];
 	//left
-	if (nowInput == 1) { pos.x -= 5; }
+	if (nowInput == 1) { pos.x -= 2; }
 	//right
-	else if (nowInput == 2) { pos.x += 5; }
+	else if (nowInput == 2) { pos.x += 2; }
 	//up
 	pos.y += v[1];
 
@@ -106,18 +106,26 @@ Pet::Update(double timestep_s, std::vector<Terrain>& walls,std::vector<Button>&b
 	//PRESS BUTTON/////////////////////////////////////////////////////////////
 	for (Button& btn : buttons)
 	{
-		if (SDL_HasIntersection(&pos, &btn.buttonPos))
+		for (int i = 0; i < btn.buttonPos.size(); i++)
 		{
-			std::cout << "pressed\n";
-			btn.SetPress(true);
-			btn.Update(timestep_s);
+			if (SDL_HasIntersection(&pos, &btn.buttonPos[i]))
+			{
+				if (btn.isPressed == false)
+				{
+					std::cout << "pressed\n";
+					btn.SetPress(true);
+					btn.Update();
+
+				}
+			}
+			else
+			{
+				std::cout << "not pressed\n";
+				btn.SetPress(false);
+				btn.Update();
+			}
 		}
-		else 
-		{ 
-			std::cout << "not pressed\n";
-			btn.SetPress(false); 
-			btn.Update(timestep_s);
-		}
+		
 	}
 
 

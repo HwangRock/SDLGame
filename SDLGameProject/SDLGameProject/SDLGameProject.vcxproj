@@ -150,6 +150,9 @@
     <ClCompile Include="GameEnding.cpp" />
     <ClCompile Include="GameIntro.cpp" />
     <ClCompile Include="GameStage1.cpp" />
+    <ClCompile Include="GameStage2.cpp" />
+    <ClCompile Include="GameStage3.cpp" />
+    <ClCompile Include="GameStage4.cpp" />
     <ClCompile Include="Main.cpp" />
     <ClCompile Include="Pet.cpp" />
     <ClCompile Include="Terrain.cpp" />
@@ -161,6 +164,9 @@
     <ClInclude Include="GameEnding.h" />
     <ClInclude Include="GameIntro.h" />
     <ClInclude Include="GameStage1.h" />
+    <ClInclude Include="GameStage2.h" />
+    <ClInclude Include="GameStage3.h" />
+    <ClInclude Include="GameStage4.h" />
     <ClInclude Include="Pet.h" />
     <ClInclude Include="Terrain.h" />
   </ItemGroup>

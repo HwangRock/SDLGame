@@ -2,6 +2,9 @@
 #include "Game.h"
 #include "GameIntro.h"
 #include "GameStage1.h"
+#include "GameStage2.h"
+#include "GameStage3.h"
+#include "GameStage4.h"
 #include "GameEnding.h"
 
 
@@ -37,10 +40,13 @@ int main(int argc, char* argv[])
 
 	InitGame();
 
-	PhaseInterface* game_phases[3];
+	PhaseInterface* game_phases[6];
 	game_phases[0] = new Intro;
 	game_phases[1] = new Stage1;
-	game_phases[2] = new Ending;
+	game_phases[2] = new Stage2;
+	game_phases[3] = new Stage3;
+	game_phases[4] = new Stage4;
+	game_phases[5] = new Ending;
 
 	g_current_game_phase = PHASE_INTRO;
 
@@ -61,9 +67,12 @@ int main(int argc, char* argv[])
 
 
 	//END////////////////////////////////////////////
-	delete game_phases[0];
-	delete game_phases[1];
-	delete game_phases[2];
+	
+
+	for (int i = 0; i < 6; i++)
+	{
+		delete game_phases[i];
+	}
 
 	ClearGame();
 

@@ -11,7 +11,10 @@
 // Game Phases
 const int PHASE_INTRO = 0;
 const int PHASE_STAGE1 = 1;
-const int PHASE_ENDING = 2;
+const int PHASE_STAGE2 = 2;
+const int PHASE_STAGE3 = 3;
+const int PHASE_STAGE4 = 4;
+const int PHASE_ENDING = 5;
 
 void InitGame();
 void ClearGame();

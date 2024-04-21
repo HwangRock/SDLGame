@@ -11,7 +11,7 @@ public:
 	double v[2];
 	bool jumping = false;
 
-	Pet(double x, double y, double size,bool isDog);
+	Pet(double x, double y, bool isDog);
 
 	void Reset();
 	virtual void Update(double timestep_s,std::vector<Terrain>& walls, std::vector<Button>& buttons);
@@ -32,7 +32,7 @@ protected:
 
 	bool isDog_;
 
-	float jump_speed = -2.0f;
+	float jump_speed = -3.5f;
 
 	double size_;
 	double mass_;	// kg
