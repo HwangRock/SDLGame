@@ -96,7 +96,8 @@ Pet::Update(double timestep_s, std::vector<Terrain>& walls,std::vector<Button>&b
 				else
 				{
 					// 벽 아래에 있음
-					pos.y = wall.pos.y + wall.pos.h;
+					//pos.y = wall.pos.y + wall.pos.h;
+					pos.y = std::max(wall.pos.y + wall.pos.h, pos.y);
 				}
 			}
 
@@ -106,6 +107,52 @@ Pet::Update(double timestep_s, std::vector<Terrain>& walls,std::vector<Button>&b
 	//PRESS BUTTON/////////////////////////////////////////////////////////////
 	for (Button& btn : buttons)
 	{
+		//함수로 수정 필요
+		for (int i = 0; i < btn.scaffold_.size(); i++)
+		{
+			if (SDL_HasIntersection(&pos, &btn.scaffold_[i]))
+			{
+				//주의)벽의 height가 너무 작으면 제대로 작동하지 않을 것 같습니다..
+				if (pos.y + pos.h > btn.scaffold_[i].y + 10 &&
+					pos.y < btn.scaffold_[i].y + btn.scaffold_[i].h - 10)
+				{
+					//벽왼쪽에 있음
+					if (pos.x < btn.scaffold_[i].x + btn.scaffold_[i].w / 2)
+					{
+						//pos.x = min(pos.x, wall.pos.x - pos.w);
+						pos.x = btn.scaffold_[i].x - pos.w;
+					}
+					//벽 오른쪽에 있음
+					else if (pos.x + pos.w > btn.scaffold_[i].x)
+					{
+						//pos.x = max(pos.x, wall.pos.x + wall.pos.w);
+						pos.x = btn.scaffold_[i].x + btn.scaffold_[i].w;
+					}
+
+				}
+				else
+				{
+					if (pos.y + pos.h <= btn.scaffold_[i].y + btn.scaffold_[i].h / 2)
+					{
+						// 벽 위에 있음
+						pos.y = btn.scaffold_[i].y - pos.h;
+						v[1] = 0;
+						jumping = false;
+					}
+					else
+					{
+						// 벽 아래에 있음
+						//pos.y = btn.scaffold_[i].y + btn.scaffold_[i].h;
+						pos.y = std::max(btn.scaffold_[i].y + btn.scaffold_[i].h, pos.y);
+					}
+				}
+
+			}
+		}
+
+
+
+
 		for (int i = 0; i < btn.buttonPos.size(); i++)
 		{
 			if (SDL_HasIntersection(&pos, &btn.buttonPos[i]))
