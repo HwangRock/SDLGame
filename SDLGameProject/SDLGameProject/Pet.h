@@ -10,6 +10,8 @@ public:
 	SDL_Rect pos;
 	double v[2];
 	bool jumping = false;
+	int isPressing;//is it pressing button
+
 
 	Pet(double x, double y, bool isDog);
 
@@ -50,6 +52,8 @@ protected:
 	int keyUpNum;
 	int keyDownNum;
 	std::vector<int> inputs;
+
+	
 
 
 };

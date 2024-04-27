@@ -6,22 +6,21 @@
 class Button
 {
 public:
-	std::vector<SDL_Rect>scaffold_;
+	SDL_Rect scaffold_;
 	bool isPressed;
-
-	std::vector<SDL_Rect> buttonPos;
+	int wait;
+	SDL_Rect buttonPos;
 
 	Button
 	(
-		int btnNum, int scaffoldNum,
-		std::vector<std::vector<int>>buttonP,
-		std::vector<std::vector<int>>startP,
-		std::vector<std::vector<int>>endP,
-		std::vector<SDL_Rect> scaffold
+		SDL_Rect buttonP,
+		SDL_Rect startP,
+		SDL_Rect endP,
+		SDL_Rect scaffold
 	);
 
 	double Distance(SDL_Rect& rect1, SDL_Rect& rect2);
-	void Move(SDL_Rect& from, SDL_Rect& to,int index);
+	//void Move(SDL_Rect& from, SDL_Rect& to);
 	void SetPress(bool b);
 
 	void Reset();
@@ -30,10 +29,10 @@ public:
 
 protected:
 
-	double moveSpeed_=0.02;
-
+	double moveSpeed_=0.05;
 	
-	std::vector<SDL_Rect> startPos;
-	std::vector<SDL_Rect> endPos;
+	
+	SDL_Rect startPos;
+	SDL_Rect endPos;
 
 };

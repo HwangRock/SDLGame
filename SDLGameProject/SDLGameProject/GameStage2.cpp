@@ -95,6 +95,7 @@ void Stage2::Render()
 
 
 	//Button
+	/*
 	for (Button btn : buttons)
 	{
 		for (int i = 0; i < btn.buttonPos.size(); i++)
@@ -106,7 +107,7 @@ void Stage2::Render()
 		}
 
 	}
-
+	*/
 
 
 

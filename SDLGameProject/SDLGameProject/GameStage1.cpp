@@ -71,6 +71,19 @@ void Stage1::Update()
 	dog->Update(g_timestep_s, walls,buttons);
 	cat->Update(g_timestep_s, walls,buttons);
 
+	for (int i = 0; i < buttons.size(); i++) 
+	{
+		if(dog->isPressing!=i&&cat->isPressing!=i)
+		{
+			buttons[i].SetPress(false);
+			buttons[i].Update();
+		}
+		else
+		{
+			buttons[i].SetPress(true);
+			buttons[i].Update();
+		}
+	}
 	
 }
 
@@ -97,19 +110,12 @@ void Stage1::Render()
 	//Button
 	for (Button btn : buttons)
 	{
-		for (int i = 0; i < btn.buttonPos.size(); i++)
-		{
-			//btn
-			SDL_RenderCopy(g_renderer, buttonTexture, &buttonRect, &btn.buttonPos[i]);
-			//Button connected wall
-			SDL_RenderCopy(g_renderer, wallTexture, &wallRect, &btn.scaffold_[i]);
-		}
+		//btn
+		SDL_RenderCopy(g_renderer, buttonTexture, &buttonRect, &btn.buttonPos);
+		//Button connected wall
+		SDL_RenderCopy(g_renderer, wallTexture, &wallRect, &btn.scaffold_);
 
 	}
-	
-
-
-
 
 
 	SDL_RenderPresent(g_renderer); // draw to the screen

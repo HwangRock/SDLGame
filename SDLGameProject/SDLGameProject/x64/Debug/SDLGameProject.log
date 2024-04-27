@@ -1,0 +1,24 @@
+﻿  Button.cpp
+C:\Users\yunji\SDLGame\SDLGame\SDLGameProject\SDLGameProject\Terrain.h(2,10): fatal error C1083: 포함 파일을 열 수 없습니다. 'SDL.h': No such file or directory
+  G2W.cpp
+  Game.cpp
+C:\Users\yunji\SDLGame\SDLGame\SDLGameProject\SDLGameProject\Game.h(6,10): fatal error C1083: 포함 파일을 열 수 없습니다. 'SDL.h': No such file or directory
+  GameEnding.cpp
+C:\Users\yunji\SDLGame\SDLGame\SDLGameProject\SDLGameProject\Game.h(6,10): fatal error C1083: 포함 파일을 열 수 없습니다. 'SDL.h': No such file or directory
+  GameIntro.cpp
+C:\Users\yunji\SDLGame\SDLGame\SDLGameProject\SDLGameProject\Game.h(6,10): fatal error C1083: 포함 파일을 열 수 없습니다. 'SDL.h': No such file or directory
+  GameStage1.cpp
+C:\Users\yunji\SDLGame\SDLGame\SDLGameProject\SDLGameProject\Game.h(6,10): fatal error C1083: 포함 파일을 열 수 없습니다. 'SDL.h': No such file or directory
+  GameStage2.cpp
+C:\Users\yunji\SDLGame\SDLGame\SDLGameProject\SDLGameProject\Game.h(6,10): fatal error C1083: 포함 파일을 열 수 없습니다. 'SDL.h': No such file or directory
+  GameStage3.cpp
+C:\Users\yunji\SDLGame\SDLGame\SDLGameProject\SDLGameProject\Game.h(6,10): fatal error C1083: 포함 파일을 열 수 없습니다. 'SDL.h': No such file or directory
+  GameStage4.cpp
+C:\Users\yunji\SDLGame\SDLGame\SDLGameProject\SDLGameProject\Game.h(6,10): fatal error C1083: 포함 파일을 열 수 없습니다. 'SDL.h': No such file or directory
+  Main.cpp
+C:\Users\yunji\SDLGame\SDLGame\SDLGameProject\SDLGameProject\Game.h(6,10): fatal error C1083: 포함 파일을 열 수 없습니다. 'SDL.h': No such file or directory
+  Pet.cpp
+C:\Users\yunji\SDLGame\SDLGame\SDLGameProject\SDLGameProject\Terrain.h(2,10): fatal error C1083: 포함 파일을 열 수 없습니다. 'SDL.h': No such file or directory
+  Terrain.cpp
+C:\Users\yunji\SDLGame\SDLGame\SDLGameProject\SDLGameProject\Terrain.h(2,10): fatal error C1083: 포함 파일을 열 수 없습니다. 'SDL.h': No such file or directory
+  코드를 생성하고 있습니다...

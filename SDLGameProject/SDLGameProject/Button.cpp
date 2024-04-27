@@ -5,25 +5,15 @@
 
 Button::Button
 (
-	int btnNum, int scaffoldNum,
-	std::vector<std::vector<int>>buttonP,
-	std::vector<std::vector<int>>startP,
-	std::vector<std::vector<int>>endP,
-	std::vector<SDL_Rect> scaffold
+	SDL_Rect buttonP,
+	SDL_Rect startP,
+	SDL_Rect endP,
+	SDL_Rect scaffold
 )
 {
-
-	for (int i = 0; i < btnNum; i++)
-	{
-		buttonPos.push_back({ buttonP[i][0],buttonP[i][1],20,20 });
-	}
-	
-	for (int i = 0; i < scaffoldNum; i++)
-	{
-		startPos.push_back({ startP[i][0],startP[i][1],scaffold[i].w,scaffold[i].h });
-		endPos.push_back({ endP[i][0],endP[i][1],scaffold[i].w,scaffold[i].h });
-	}
-
+	buttonPos = buttonP;
+	startPos = startP;
+	endPos = endP;
 	scaffold_= scaffold;
 
 	Reset();
@@ -32,12 +22,9 @@ Button::Button
 void
 Button::Reset()
 {
-	for (int i = 0; i < scaffold_.size(); i++)
-	{
-		scaffold_[i].x = startPos[i].x;
-		scaffold_[i].y = startPos[i].y;
-		
-	}	
+	scaffold_.x = startPos.x;
+	scaffold_.y = startPos.y;
+	wait = 0;
 	isPressed = false;
 }
 
@@ -47,28 +34,30 @@ Button::Update()
 {
 	//double dt = timestep_s;	// seconds
 
-	for (int i = 0; i < scaffold_.size(); i++)
+	
+	if (isPressed == true)
 	{
-		if (isPressed == true)
+		if (Distance(scaffold_, endPos) >=1)
 		{
-			if (Distance(scaffold_[i], endPos[i]) > 0.05)
-			{
-				//moving to endPos
-				Move(scaffold_[i], endPos[i],i);
-			}
+			std::cout << "move to end!!"<<"\n";
+
+			
+			if (wait != 3) { wait++; }
+			else { scaffold_.y -= 2; wait = 0; }
 		}
-		else
+	}
+	else
+	{
+		if (Distance(scaffold_, startPos) >=1)
 		{
-			if (Distance(scaffold_[i], startPos[i]) > 0.05)
-			{
-				//moving back to startPos
-				Move(scaffold_[i], startPos[i],i);
-			}
+			std::cout << "move to start!" << "\n";
+			if (wait != 3) { wait++; }
+			else { scaffold_.y += 2; wait = 0; }
 		}
 	}
 	
 
-	
+	std::cout << Distance(scaffold_, startPos)<<" " << Distance(scaffold_, endPos)<<"\n";
 }
 
 double Button::Distance(SDL_Rect& rect1, SDL_Rect& rect2)
@@ -77,14 +66,15 @@ double Button::Distance(SDL_Rect& rect1, SDL_Rect& rect2)
 	return distance;
 }
 
-void Button::Move(SDL_Rect& from, SDL_Rect& to,int index)
+/*
+void Button::Move(SDL_Rect& from, SDL_Rect& to)
 {
 	// 현재 위치에서 목표 위치까지의 벡터
 	double dx = to.x - from.x;
 	double dy = to.y - from.y;
 
 	// 벡터의 크기 계산
-	double distance = std::sqrt(dx * dx + dy * dy);
+	double distance = Distance(from,to);
 
 	// 이동 거리 계산
 	double moveDistance = moveSpeed_ * distance;
@@ -94,9 +84,11 @@ void Button::Move(SDL_Rect& from, SDL_Rect& to,int index)
 	double unitY = dy / distance;
 
 	// 새로운 위치 계산
-	scaffold_[index].x = from.x + static_cast<int>(moveDistance * unitX);
-	scaffold_[index].y = from.y + static_cast<int>(moveDistance * unitY);
+	scaffold_.x = from.x + static_cast<int>(moveDistance * unitX);
+	scaffold_.y = from.y + static_cast<int>(moveDistance * unitY);
 }
+*/
+
 
 void Button::SetPress(bool b)
 {

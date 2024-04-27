@@ -34,8 +34,8 @@ Pet::Reset()
 	keyDownNum = 0;
 	keyUpNum = 0;
 	inputs.push_back(0);
-
 	jumping = false;
+	isPressing = -1;
 }
 
 
@@ -104,76 +104,92 @@ Pet::Update(double timestep_s, std::vector<Terrain>& walls,std::vector<Button>&b
 		}
 	}
 	
+
+
+
+
+
 	//PRESS BUTTON/////////////////////////////////////////////////////////////
-	for (Button& btn : buttons)
+	for (int i = 0; i < buttons.size(); i++)
 	{
 		//함수로 수정 필요
-		for (int i = 0; i < btn.scaffold_.size(); i++)
+
+		if (SDL_HasIntersection(&pos, &buttons[i].scaffold_))
 		{
-			if (SDL_HasIntersection(&pos, &btn.scaffold_[i]))
+			//주의)벽의 height가 너무 작으면 제대로 작동하지 않을 것 같습니다..
+			if (pos.y + pos.h > buttons[i].scaffold_.y + 10 &&
+				pos.y < buttons[i].scaffold_.y + buttons[i].scaffold_.h - 10)
 			{
-				//주의)벽의 height가 너무 작으면 제대로 작동하지 않을 것 같습니다..
-				if (pos.y + pos.h > btn.scaffold_[i].y + 10 &&
-					pos.y < btn.scaffold_[i].y + btn.scaffold_[i].h - 10)
+				//벽왼쪽에 있음
+				if (pos.x < buttons[i].scaffold_.x + buttons[i].scaffold_.w / 2)
 				{
-					//벽왼쪽에 있음
-					if (pos.x < btn.scaffold_[i].x + btn.scaffold_[i].w / 2)
-					{
-						//pos.x = min(pos.x, wall.pos.x - pos.w);
-						pos.x = btn.scaffold_[i].x - pos.w;
-					}
-					//벽 오른쪽에 있음
-					else if (pos.x + pos.w > btn.scaffold_[i].x)
-					{
-						//pos.x = max(pos.x, wall.pos.x + wall.pos.w);
-						pos.x = btn.scaffold_[i].x + btn.scaffold_[i].w;
-					}
-
+					//pos.x = min(pos.x, wall.pos.x - pos.w);
+					pos.x = buttons[i].scaffold_.x - pos.w;
 				}
-				else
+				//벽 오른쪽에 있음
+				else if (pos.x + pos.w > buttons[i].scaffold_.x)
 				{
-					if (pos.y + pos.h <= btn.scaffold_[i].y + btn.scaffold_[i].h / 2)
-					{
-						// 벽 위에 있음
-						pos.y = btn.scaffold_[i].y - pos.h;
-						v[1] = 0;
-						jumping = false;
-					}
-					else
-					{
-						// 벽 아래에 있음
-						//pos.y = btn.scaffold_[i].y + btn.scaffold_[i].h;
-						pos.y = std::max(btn.scaffold_[i].y + btn.scaffold_[i].h, pos.y);
-					}
+					//pos.x = max(pos.x, wall.pos.x + wall.pos.w);
+					pos.x = buttons[i].scaffold_.x + buttons[i].scaffold_.w;
 				}
 
-			}
-		}
-
-
-
-
-		for (int i = 0; i < btn.buttonPos.size(); i++)
-		{
-			if (SDL_HasIntersection(&pos, &btn.buttonPos[i]))
-			{
-				if (btn.isPressed == false)
-				{
-					std::cout << "pressed\n";
-					btn.SetPress(true);
-					btn.Update();
-
-				}
 			}
 			else
 			{
-				std::cout << "not pressed\n";
-				btn.SetPress(false);
-				btn.Update();
+				if (pos.y + pos.h <= buttons[i].scaffold_.y + buttons[i].scaffold_.h / 2)
+				{
+					// 벽 위에 있음
+					pos.y = buttons[i].scaffold_.y - pos.h;
+					v[1] = 0;
+					jumping = false;
+				}
+				else
+				{
+					// 벽 아래에 있음
+					//pos.y = buttons[i].scaffold_.y + buttons[i].scaffold_.h;
+					pos.y = std::max(buttons[i].scaffold_.y + buttons[i].scaffold_.h, pos.y);
+				}
 			}
+
 		}
-		
+
+
+
+
+
+
+		if (SDL_HasIntersection(&pos, &buttons[i].buttonPos))
+		{
+			//Press button
+			if (isDog_ == true)
+			{
+				std::cout << "dog press\n";
+			}
+			else
+			{
+				std::cout << "cat press\n";
+			}
+
+			//buttons[i].SetPress(true);
+			//buttons[i].Update();
+
+			isPressing = i;
+		}
+		else
+		{
+			isPressing = -1;
+
+			//buttons[i].SetPress(false);
+			//buttons[i].Update();
+		}
+
+
 	}
+	
+		
+		
+		
+	
 
 
 
