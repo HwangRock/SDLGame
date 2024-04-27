@@ -110,11 +110,17 @@ void Stage1::Render()
 	//Button
 	for (Button btn : buttons)
 	{
-		//btn
-		SDL_RenderCopy(g_renderer, buttonTexture, &buttonRect, &btn.buttonPos);
-		//Button connected wall
-		SDL_RenderCopy(g_renderer, wallTexture, &wallRect, &btn.scaffold_);
-
+		for (int i = 0; i < btn.buttonPos.size(); i++)
+		{
+			//btn
+			SDL_RenderCopy(g_renderer, buttonTexture, &buttonRect, &btn.buttonPos[i]);
+		}
+		for (int i = 0; i < btn.scaffold_.size(); i++)
+		{
+			//Button connected scaffolds
+			SDL_RenderCopy(g_renderer, wallTexture, &wallRect, &btn.scaffold_[i]);
+		}
+		
 	}
 
 

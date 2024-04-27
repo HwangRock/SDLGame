@@ -5,10 +5,11 @@
 
 Button::Button
 (
-	SDL_Rect buttonP,
-	SDL_Rect startP,
-	SDL_Rect endP,
-	SDL_Rect scaffold
+	int buttonNum,int scaffoldNum,
+	std::vector<SDL_Rect> buttonP,
+	std::vector<SDL_Rect> startP,
+	std::vector<SDL_Rect> endP,
+	std::vector<SDL_Rect> scaffold
 )
 {
 	buttonPos = buttonP;
@@ -22,8 +23,12 @@ Button::Button
 void
 Button::Reset()
 {
-	scaffold_.x = startPos.x;
-	scaffold_.y = startPos.y;
+	for (int i = 0; i < scaffold_.size(); i++)
+	{
+		scaffold_[i].x = startPos[i].x;
+		scaffold_[i].y = startPos[i].y;
+	}
+	
 	wait = 0;
 	isPressed = false;
 }
@@ -34,30 +39,46 @@ Button::Update()
 {
 	//double dt = timestep_s;	// seconds
 
-	
+	//아직 제약이 많음. 무조건 위로 올라갔다 내려오는거, 두개의 발판 동시에 움직이는 경우에는 발판이 이동하는 거리가 똑같아야함
 	if (isPressed == true)
 	{
-		if (Distance(scaffold_, endPos) >=1)
+		if (Distance(scaffold_[0], endPos[0]) >= 1)
 		{
-			std::cout << "move to end!!"<<"\n";
+			std::cout << "move to end!!" << "\n";
 
-			
+
 			if (wait != 3) { wait++; }
-			else { scaffold_.y -= 2; wait = 0; }
+			else 
+			{ 
+				for (int i = 0; i < scaffold_.size(); i++)
+				{
+					scaffold_[i].y -= 2;
+				}
+				wait = 0; 
+			}
 		}
 	}
 	else
 	{
-		if (Distance(scaffold_, startPos) >=1)
+		if (Distance(scaffold_[0], startPos[0]) >= 1)
 		{
 			std::cout << "move to start!" << "\n";
 			if (wait != 3) { wait++; }
-			else { scaffold_.y += 2; wait = 0; }
+			else 
+			{ 
+				for (int i = 0; i < scaffold_.size(); i++)
+				{
+					scaffold_[i].y += 2;
+				}
+				wait = 0; 
+			}
 		}
 	}
 	
+	
+	
 
-	std::cout << Distance(scaffold_, startPos)<<" " << Distance(scaffold_, endPos)<<"\n";
+	//std::cout << Distance(scaffold_, startPos)<<" " << Distance(scaffold_, endPos)<<"\n";
 }
 
 double Button::Distance(SDL_Rect& rect1, SDL_Rect& rect2)
