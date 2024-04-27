@@ -67,39 +67,7 @@ Pet::Update(double timestep_s, std::vector<Terrain>& walls,std::vector<Button>&b
 		if (SDL_HasIntersection(&pos, &wall.pos))
 		{
 			//주의)벽의 height가 너무 작으면 제대로 작동하지 않을 것 같습니다..
-			if (pos.y + pos.h > wall.pos.y + 10 &&
-				pos.y < wall.pos.y + wall.pos.h - 10)
-			{
-				//벽왼쪽에 있음
-				if (pos.x < wall.pos.x + wall.pos.w / 2)
-				{
-					//pos.x = min(pos.x, wall.pos.x - pos.w);
-					pos.x = wall.pos.x - pos.w;
-				}
-				//벽 오른쪽에 있음
-				else if (pos.x + pos.w > wall.pos.x)
-				{
-					//pos.x = max(pos.x, wall.pos.x + wall.pos.w);
-					pos.x = wall.pos.x + wall.pos.w;
-				}
-
-			}
-			else
-			{
-				if (pos.y + pos.h <= wall.pos.y + wall.pos.h / 2)
-				{
-					// 벽 위에 있음
-					pos.y = wall.pos.y - pos.h;
-					v[1] = 0;
-					jumping = false;
-				}
-				else
-				{
-					// 벽 아래에 있음
-					//pos.y = wall.pos.y + wall.pos.h;
-					pos.y = std::max(wall.pos.y + wall.pos.h, pos.y);
-				}
-			}
+			BlockMoving(wall.pos);
 
 		}
 	}
@@ -115,72 +83,28 @@ Pet::Update(double timestep_s, std::vector<Terrain>& walls,std::vector<Button>&b
 		
 		for (int j = 0; j < buttons[i].scaffold_.size(); j++)
 		{
-
-			//함수로 수정 필요
 			if (SDL_HasIntersection(&pos, &buttons[i].scaffold_[j]))
 			{
-				//주의)벽의 height가 너무 작으면 제대로 작동하지 않을 것 같습니다..
-				if (pos.y + pos.h > buttons[i].scaffold_[j].y + 10 &&
-					pos.y < buttons[i].scaffold_[j].y + buttons[i].scaffold_[j].h - 10)
-				{
-					//벽왼쪽에 있음
-					if (pos.x < buttons[i].scaffold_[j].x + buttons[i].scaffold_[j].w / 2)
-					{
-						//pos.x = min(pos.x, wall.pos.x - pos.w);
-						pos.x = buttons[i].scaffold_[j].x - pos.w;
-					}
-					//벽 오른쪽에 있음
-					else if (pos.x + pos.w > buttons[i].scaffold_[j].x)
-					{
-						//pos.x = max(pos.x, wall.pos.x + wall.pos.w);
-						pos.x = buttons[i].scaffold_[j].x + buttons[i].scaffold_[j].w;
-					}
-
-				}
-				else
-				{
-					if (pos.y + pos.h <= buttons[i].scaffold_[j].y + buttons[i].scaffold_[j].h / 2)
-					{
-						// 벽 위에 있음
-						pos.y = buttons[i].scaffold_[j].y - pos.h;
-						v[1] = 0;
-						jumping = false;
-					}
-					else
-					{
-						// 벽 아래에 있음
-						//pos.y = buttons[i].scaffold_[j].y + buttons[i].scaffold_[j].h;
-						pos.y = std::max(buttons[i].scaffold_[j].y + buttons[i].scaffold_[j].h, pos.y);
-					}
-				}
-
+				BlockMoving(buttons[i].scaffold_[j]);
 			}
-
-
-
-
 		}
 		
-
-
-
-
 
 		for (int j = 0; j < buttons[i].buttonPos.size(); j++)
 		{
 			if (SDL_HasIntersection(&pos, &buttons[i].buttonPos[j]))
 			{
-				//Press button
+				//Pressing button
 				std::cout << "press\n";
 				isPressing = i;
 				break;
 			}
 			else
 			{
+				//Not pressing button
 				isPressing = -1;
 			}
 		}
-		
 
 
 	}
@@ -208,6 +132,43 @@ Pet::Update(double timestep_s, std::vector<Terrain>& walls,std::vector<Button>&b
 	v_[0] = v_[0] + dt * a[0];
 	v_[1] = v_[1] + dt * a[1];
 	*/
+}
+
+void Pet::BlockMoving(SDL_Rect obst)
+{
+	if (pos.y + pos.h > obst.y + 10 &&
+		pos.y < obst.y + obst.h - 10)
+	{
+		//벽왼쪽에 있음
+		if (pos.x < obst.x + obst.w / 2)
+		{
+			//pos.x = min(pos.x, obst.x - pos.w);
+			pos.x = obst.x - pos.w;
+		}
+		//벽 오른쪽에 있음
+		else if (pos.x + pos.w > obst.x)
+		{
+			//pos.x = max(pos.x, obst.x + obst.w);
+			pos.x = obst.x + obst.w;
+		}
+
+	}
+	else
+	{
+		if (pos.y + pos.h <= obst.y + obst.h / 2)
+		{
+			// 벽 위에 있음
+			pos.y = obst.y - pos.h;
+			v[1] = 0;
+			jumping = false;
+		}
+		else
+		{
+			// 벽 아래에 있음
+			//pos.y = obst.y + obst.h;
+			pos.y = std::max(obst.y + obst.h, pos.y);
+		}
+	}
 }
 
 void
