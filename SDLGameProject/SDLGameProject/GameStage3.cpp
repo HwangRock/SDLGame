@@ -69,8 +69,8 @@ Stage3::~Stage3()
 
 void Stage3::Update()
 {
-	dog->Update(g_timestep_s, walls, buttons);
-	cat->Update(g_timestep_s, walls, buttons);
+	dog->Update(g_timestep_s, walls, buttons,blindTexture);
+	cat->Update(g_timestep_s, walls, buttons,blindTexture);
 
 
 }

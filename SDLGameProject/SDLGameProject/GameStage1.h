@@ -38,8 +38,10 @@ private:
 	SDL_Texture* dogTexture;
 	SDL_Texture* wallTexture;
 	SDL_Texture* buttonTexture;
+	SDL_Texture* blindTexture;
 	SDL_Rect wallRect;
 	SDL_Rect buttonRect;
+	SDL_Rect blindRect;
 
 	//Pets
 	Pet* dog = new Pet(200, 200, true);
@@ -88,7 +90,11 @@ private:
 		*default1,*default2,*default3,*default4,
 	};
 
-	
+	//Blind(sniff)
+	SDL_Rect blind1 = { 100,650,30,30 };
+	SDL_Rect blind2 = { 200,650,30,30 };
+	std::vector<SDL_Rect> blinds = { blind1,blind2 };
+
 };
 
 

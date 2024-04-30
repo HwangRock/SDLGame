@@ -35,12 +35,17 @@ Pet::Reset()
 	keyUpNum = 0;
 	inputs.push_back(0);
 	jumping = false;
+	
+	beBlurry_ = true;
+	isSkill_ = true;
+	blindOpacity_ = -1;
+	
 	isPressing = -1;
 }
 
 
 void
-Pet::Update(double timestep_s, std::vector<Terrain>& walls,std::vector<Button>&buttons)
+Pet::Update(double timestep_s, std::vector<Terrain>& walls,std::vector<Button>&buttons,SDL_Texture *blindTexture)
 {
 	double dt = timestep_s;	// seconds
 
@@ -66,7 +71,7 @@ Pet::Update(double timestep_s, std::vector<Terrain>& walls,std::vector<Button>&b
 	{
 		if (SDL_HasIntersection(&pos, &wall.pos))
 		{
-			//주의)벽의 height가 너무 작으면 제대로 작동하지 않을 것 같습니다..
+			//주의) 벽의 height가 너무 작으면 제대로 작동하지 않을 것 같습니다..
 			BlockMoving(wall.pos);
 
 		}
@@ -110,7 +115,33 @@ Pet::Update(double timestep_s, std::vector<Terrain>& walls,std::vector<Button>&b
 	}
 	
 		
+	//SNIFF////////////////////////////////////////////////////////////
+	if (isDog_ == true && blindOpacity_ != -1)
+	{
+		SDL_SetTextureAlphaMod(blindTexture, blindOpacity_);
 		
+		
+		if (blindOpacity_ == 0)
+		{
+			beBlurry_ = false;
+		}
+		
+		
+		if (beBlurry_ == true)
+		{
+			blindOpacity_--;
+		}
+		else
+		{
+			blindOpacity_++;
+		}
+		
+		if (blindOpacity_ == 255)
+		{
+			blindOpacity_ = -1;
+
+		}
+	}
 		
 	
 
@@ -195,6 +226,15 @@ Pet::HandleEvent(SDL_Event event)
 				{
 					v[1] = jumpSpeed();
 					jumping = true;
+				}
+			}
+			else if (event.key.keysym.sym == SDLK_RSHIFT)
+			{
+				if (isSkill_ == true)
+				{
+					//Use Sniffing Skill
+					blindOpacity_ = 254;
+					isSkill_ = false;
 				}
 			}
 		}

@@ -54,6 +54,12 @@ Stage1::Stage1()
 	SDL_FreeSurface(surface_button);
 	buttonRect = { 0,0,61,31 };
 	
+	//Blind
+	SDL_Surface* surface_blind = IMG_Load("../Resources/star.png");
+	SDL_SetSurfaceBlendMode(surface_blind, SDL_BLENDMODE_BLEND);
+	blindTexture= SDL_CreateTextureFromSurface(g_renderer, surface_blind);
+	SDL_FreeSurface(surface_blind);
+	blindRect = { 0,0,269,269 };
 
 
 	mouse_win_x_ = 0;
@@ -68,8 +74,8 @@ Stage1::~Stage1()
 
 void Stage1::Update()
 {
-	dog->Update(g_timestep_s, walls,buttons);
-	cat->Update(g_timestep_s, walls,buttons);
+	dog->Update(g_timestep_s, walls,buttons,blindTexture);
+	cat->Update(g_timestep_s, walls,buttons, blindTexture);
 
 	for (int i = 0; i < buttons.size(); i++) 
 	{
@@ -123,6 +129,12 @@ void Stage1::Render()
 		
 	}
 
+	//Blind
+	for (SDL_Rect bln : blinds)
+	{
+		SDL_RenderCopy(g_renderer, blindTexture, &blindRect, &bln);
+
+	}
 
 	SDL_RenderPresent(g_renderer); // draw to the screen
 }

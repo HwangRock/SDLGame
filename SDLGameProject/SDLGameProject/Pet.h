@@ -16,7 +16,9 @@ public:
 	Pet(double x, double y, bool isDog);
 
 	void Reset();
-	virtual void Update(double timestep_s,std::vector<Terrain>& walls, std::vector<Button>& buttons);
+	virtual void Update
+	(double timestep_s,std::vector<Terrain>& walls, std::vector<Button>& buttons, 
+		SDL_Texture* blindTexture);
 
 	void HandleEvent(SDL_Event event);
 
@@ -35,8 +37,17 @@ protected:
 
 	bool isDog_;
 
+	// dog skill variables
+	bool beBlurry_;
+	bool isSkill_;//skill사용가능 여부, dog만 사용
+	int blindOpacity_;//0~255 투명도 정도, -1이면 냄새 안맡고 있는중
+
+
+
+
 	float jump_speed = -3.5f;
 
+	
 	double size_;
 	double mass_;	// kg
 	double coeff_of_restitution_; // from 0 o 1 ?????

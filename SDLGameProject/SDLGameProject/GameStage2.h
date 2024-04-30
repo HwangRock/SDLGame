@@ -40,6 +40,7 @@ private:
 	SDL_Texture* dogTexture;
 	SDL_Texture* wallTexture;
 	SDL_Texture* buttonTexture;
+	SDL_Texture* blindTexture;
 	SDL_Rect wallRect;
 	SDL_Rect buttonRect;
 
@@ -89,7 +90,7 @@ private:
 
 	std::vector<Button>buttons =
 	{ };
-
+	std::vector<SDL_Rect> blinds = { };
 
 };
 
