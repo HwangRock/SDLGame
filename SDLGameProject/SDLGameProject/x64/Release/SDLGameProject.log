@@ -1,17 +1,7 @@
-﻿  Cat.cpp
-C:\Users\yunji\SDLGame\SDLGame\SDLGameProject\SDLGameProject\Cat.cpp(88,4): warning C4267: '초기화 중': 'size_t'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-C:\Users\yunji\SDLGame\SDLGame\SDLGameProject\SDLGameProject\Cat.cpp(121,4): warning C4267: '초기화 중': 'size_t'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-  Dog.cpp
-C:\Users\yunji\SDLGame\SDLGame\SDLGameProject\SDLGameProject\Dog.cpp(115,4): warning C4267: '초기화 중': 'size_t'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-C:\Users\yunji\SDLGame\SDLGame\SDLGameProject\SDLGameProject\Dog.cpp(148,4): warning C4267: '초기화 중': 'size_t'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-  Main.cpp
-  Map2.cpp
-  Map3.cpp
-  Map4.cpp
-  Stage.cpp
+﻿  Main.cpp
   Map1.cpp
   코드를 생성하고 있습니다.
-  10 of 371 functions ( 2.7%) were compiled, the rest were copied from previous compilation.
+  1 of 371 functions ( 0.3%) were compiled, the rest were copied from previous compilation.
     0 functions were new in current compilation
     0 functions had inline decision re-evaluated but remain unchanged
   코드를 생성했습니다.

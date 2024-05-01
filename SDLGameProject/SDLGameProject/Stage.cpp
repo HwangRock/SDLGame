@@ -41,6 +41,12 @@ StageInterface::StageInterface()
 	SDL_FreeSurface(g_surface_cat);
 	catRect = { 0,0,90,90 };
 
+	//Liquid Cat
+	SDL_Surface* g_surface_liquidCat = IMG_Load("../Resources/liquidCat.png");
+	liquidCatTexture = SDL_CreateTextureFromSurface(g_renderer, g_surface_liquidCat);
+	SDL_FreeSurface(g_surface_liquidCat);
+
+
 	//Wall
 	SDL_Surface* surface_wall = IMG_Load("../Resources/sky.jpg");
 	wallTexture = SDL_CreateTextureFromSurface(g_renderer, surface_wall);
@@ -122,7 +128,12 @@ void StageInterface::Render()
 
 
 	//Dog and Cat
-	SDL_RenderCopy(g_renderer, catTexture, &catRect, &cat->pos);
+	if (cat->isLiquid == true)
+	{
+		SDL_RenderCopy(g_renderer, liquidCatTexture, &catRect, &cat->pos);
+	}
+	else 
+	{ SDL_RenderCopy(g_renderer, catTexture, &catRect, &cat->pos); }
 	SDL_RenderCopy(g_renderer, dogTexture, &dogRect, &dog->pos);
 
 

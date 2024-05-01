@@ -50,6 +50,7 @@ private:
 	SDL_Rect catRect;
 	SDL_Texture* catTexture;
 	SDL_Texture* dogTexture;
+	SDL_Texture* liquidCatTexture;
 	SDL_Texture* wallTexture;
 	SDL_Texture* buttonTexture;
 	SDL_Texture* blindTexture;

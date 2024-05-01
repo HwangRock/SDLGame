@@ -4,6 +4,7 @@
 void Cat::Reset()
 {
 	Pet::Reset();
+	isLiquid = false;
 }
 
 void Cat::Update(
@@ -29,6 +30,8 @@ void Cat::Update(
 	{
 		if (SDL_HasIntersection(&pos, &liquidWalls[j]))
 		{
+			isLiquid = true;
+
 			SDL_Rect newWall;
 
 			if (liquidWalls[j].w > liquidWalls[j].h)
@@ -49,6 +52,13 @@ void Cat::Update(
 				newWall.h = liquidWalls[j].h;
 			}
 			BlockMoving(newWall);
+		}
+		else 
+		{
+			if (j == liquidWalls.size() - 1)
+			{
+				isLiquid = false;
+			}
 		}
 	
 

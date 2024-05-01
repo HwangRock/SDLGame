@@ -26,6 +26,9 @@ public:
 	);
 	void HandleEvent(SDL_Event event);
 
+
+	bool isLiquid;
+
 protected:
 	
 

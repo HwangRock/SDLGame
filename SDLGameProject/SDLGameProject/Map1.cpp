@@ -16,7 +16,7 @@ public:
 	virtual void SetVar()
 	{
 		//Terrain
-		Terrain* floorUp = new Terrain(200, 200, 800, 25);
+		Terrain* floorUp = new Terrain(150, 200, 800, 25);
 		Terrain* floorDown = new Terrain(0, 500, 600, 25);
 
 		Terrain* Wall = new Terrain(400 - 25, 150, 25, 50);
