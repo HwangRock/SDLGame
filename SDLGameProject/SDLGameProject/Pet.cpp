@@ -45,7 +45,14 @@ Pet::Reset()
 
 
 void
-Pet::Update(double timestep_s, std::vector<Terrain>& walls,std::vector<Button>&buttons,SDL_Texture *blindTexture)
+Pet::Update(
+	double timestep_s, 
+	std::vector<Terrain>& walls,
+	std::vector<Button>&buttons,
+	SDL_Texture *blindTexture,
+	std::vector<SDL_Rect>&liquidWalls,
+	std::vector<SDL_Rect>& liquidAisle
+)
 {
 	double dt = timestep_s;	// seconds
 
@@ -143,7 +150,60 @@ Pet::Update(double timestep_s, std::vector<Terrain>& walls,std::vector<Button>&b
 		}
 	}
 		
-	
+	//LIQUID////////////////////////////////////////////////////////////
+	if (isDog_ == true)
+	{
+		//same with normal walls
+		for (int j = 0; j < liquidWalls.size(); j++)
+		{
+			if (SDL_HasIntersection(&pos, &liquidWalls[j]))
+			{
+				BlockMoving(liquidWalls[j]);
+			}
+		}
+		for (int j = 0; j < liquidAisle.size(); j++)
+		{
+			if (SDL_HasIntersection(&pos, &liquidAisle[j]))
+			{
+				BlockMoving(liquidAisle[j]);
+			}
+		}
+	}
+	else
+	{
+		//CAT LIQUID SKILL
+
+		//sprite change
+
+		//skill
+		for (int j = 0; j < liquidWalls.size(); j++)
+		{
+			if (SDL_HasIntersection(&pos, &liquidWalls[j]))
+			{
+				SDL_Rect newWall;
+
+				if (liquidWalls[j].w > liquidWalls[j].h)
+				{
+					//floor
+					newWall.x = liquidWalls[j].x;
+					newWall.y = liquidWalls[j].y + liquidWalls[j].h / 4;
+					newWall.w = liquidWalls[j].w;
+					newWall.h = liquidWalls[j].h / 2;
+
+				}
+				else
+				{
+					//wall
+					newWall.x = liquidWalls[j].x+ liquidWalls[j].w/4;
+					newWall.y = liquidWalls[j].y;
+					newWall.w = liquidWalls[j].w/2;
+					newWall.h = liquidWalls[j].h;
+				}
+				BlockMoving(newWall);
+			}
+		}
+
+	}
 
 
 
@@ -167,8 +227,8 @@ Pet::Update(double timestep_s, std::vector<Terrain>& walls,std::vector<Button>&b
 
 void Pet::BlockMoving(SDL_Rect obst)
 {
-	if (pos.y + pos.h > obst.y + 10 &&
-		pos.y < obst.y + obst.h - 10)
+	if (pos.y + pos.h > obst.y + 6 &&
+		pos.y < obst.y + obst.h - 6)
 	{
 		//벽왼쪽에 있음
 		if (pos.x < obst.x + obst.w / 2)
@@ -189,7 +249,7 @@ void Pet::BlockMoving(SDL_Rect obst)
 		if (pos.y + pos.h <= obst.y + obst.h / 2)
 		{
 			// 벽 위에 있음
-			pos.y = obst.y - pos.h;
+			pos.y = std::min(obst.y - pos.h,pos.y);
 			v[1] = 0;
 			jumping = false;
 		}

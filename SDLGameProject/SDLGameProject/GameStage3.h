@@ -78,7 +78,8 @@ private:
 	{ };
 
 	std::vector<SDL_Rect> blinds = {  };
-
+	std::vector<SDL_Rect>liquidWalls = { };
+	std::vector<SDL_Rect>liquidAisles = { };
 };
 
 

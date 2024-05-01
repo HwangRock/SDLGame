@@ -18,7 +18,7 @@ public:
 	void Reset();
 	virtual void Update
 	(double timestep_s,std::vector<Terrain>& walls, std::vector<Button>& buttons, 
-		SDL_Texture* blindTexture);
+		SDL_Texture* blindTexture, std::vector<SDL_Rect>& liquidWalls,std::vector<SDL_Rect>&liquidAisle);
 
 	void HandleEvent(SDL_Event event);
 

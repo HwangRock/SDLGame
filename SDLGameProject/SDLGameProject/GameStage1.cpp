@@ -8,7 +8,7 @@
 
 #include "SDL_image.h"
 #include "G2W.h"
-
+#include "SetGame.h"
 
 
 extern int g_current_game_phase;
@@ -23,6 +23,15 @@ Stage1::Stage1()
 {
 	g_flag_running = true;
 
+
+	//Set variables
+
+	//TEST
+	hello = setGame->SetTerrains();
+	for(int n : hello)
+	{
+		std::cout << n << " ";
+	}
 
 	//Window
 	SDL_GetWindowSize(g_window, &win_w, &win_h);
@@ -74,8 +83,8 @@ Stage1::~Stage1()
 
 void Stage1::Update()
 {
-	dog->Update(g_timestep_s, walls,buttons,blindTexture);
-	cat->Update(g_timestep_s, walls,buttons, blindTexture);
+	dog->Update(g_timestep_s, walls,buttons,blindTexture,liquidWalls, liquidAisles);
+	cat->Update(g_timestep_s, walls,buttons,blindTexture,liquidWalls, liquidAisles);
 
 	for (int i = 0; i < buttons.size(); i++) 
 	{
@@ -110,6 +119,11 @@ void Stage1::Render()
 	for (Terrain wall : walls)
 	{
 		SDL_RenderCopy(g_renderer, wallTexture, &wallRect, &wall.pos);
+	}
+	//LiquidWall
+	for (SDL_Rect wall : liquidWalls)
+	{
+		SDL_RenderCopy(g_renderer, wallTexture, &wallRect, &wall);
 	}
 
 

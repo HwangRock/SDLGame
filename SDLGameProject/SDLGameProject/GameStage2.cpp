@@ -68,8 +68,8 @@ Stage2::~Stage2()
 
 void Stage2::Update()
 {
-	dog->Update(g_timestep_s, walls, buttons,blindTexture);
-	cat->Update(g_timestep_s, walls, buttons,blindTexture);
+	dog->Update(g_timestep_s, walls, buttons, blindTexture, liquidWalls, liquidAisles);
+	cat->Update(g_timestep_s, walls, buttons, blindTexture, liquidWalls, liquidAisles);
 
 
 }
