@@ -3,11 +3,9 @@
 #include <iostream>
 
 
-Pet::Pet(double x, double y,bool isDog)
+Pet::Pet(double x, double y)
 {
 	size_ = 30;
-
-	isDog_ = isDog;
 
 	mass_ = 2; // 2kg
 	coeff_of_restitution_ = 0.7;
@@ -35,11 +33,7 @@ Pet::Reset()
 	keyUpNum = 0;
 	inputs.push_back(0);
 	jumping = false;
-	
-	beBlurry_ = true;
-	isSkill_ = true;
-	blindOpacity_ = -1;
-	
+
 	isPressing = -1;
 }
 
@@ -58,7 +52,6 @@ Pet::Update(
 
 
 	//MOVING/////////////////////////////////////////////////
-
 	v[1] += gravity;
 
 	nowInput = inputs[inputs.size() - 1];
@@ -84,8 +77,6 @@ Pet::Update(
 		}
 	}
 	
-
-
 
 
 
@@ -121,92 +112,6 @@ Pet::Update(
 
 	}
 	
-		
-	//SNIFF////////////////////////////////////////////////////////////
-	if (isDog_ == true && blindOpacity_ != -1)
-	{
-		SDL_SetTextureAlphaMod(blindTexture, blindOpacity_);
-		
-		
-		if (blindOpacity_ == 0)
-		{
-			beBlurry_ = false;
-		}
-		
-		
-		if (beBlurry_ == true)
-		{
-			blindOpacity_--;
-		}
-		else
-		{
-			blindOpacity_++;
-		}
-		
-		if (blindOpacity_ == 255)
-		{
-			blindOpacity_ = -1;
-
-		}
-	}
-		
-	//LIQUID////////////////////////////////////////////////////////////
-	if (isDog_ == true)
-	{
-		//same with normal walls
-		for (int j = 0; j < liquidWalls.size(); j++)
-		{
-			if (SDL_HasIntersection(&pos, &liquidWalls[j]))
-			{
-				BlockMoving(liquidWalls[j]);
-			}
-		}
-		for (int j = 0; j < liquidAisle.size(); j++)
-		{
-			if (SDL_HasIntersection(&pos, &liquidAisle[j]))
-			{
-				BlockMoving(liquidAisle[j]);
-			}
-		}
-	}
-	else
-	{
-		//CAT LIQUID SKILL
-
-		//sprite change
-
-		//skill
-		for (int j = 0; j < liquidWalls.size(); j++)
-		{
-			if (SDL_HasIntersection(&pos, &liquidWalls[j]))
-			{
-				SDL_Rect newWall;
-
-				if (liquidWalls[j].w > liquidWalls[j].h)
-				{
-					//floor
-					newWall.x = liquidWalls[j].x;
-					newWall.y = liquidWalls[j].y + liquidWalls[j].h / 4;
-					newWall.w = liquidWalls[j].w;
-					newWall.h = liquidWalls[j].h / 2;
-
-				}
-				else
-				{
-					//wall
-					newWall.x = liquidWalls[j].x+ liquidWalls[j].w/4;
-					newWall.y = liquidWalls[j].y;
-					newWall.w = liquidWalls[j].w/2;
-					newWall.h = liquidWalls[j].h;
-				}
-				BlockMoving(newWall);
-			}
-		}
-
-	}
-
-
-
 
 
 	/*
@@ -265,128 +170,7 @@ void Pet::BlockMoving(SDL_Rect obst)
 void
 Pet::HandleEvent(SDL_Event event) 
 {
-	switch (event.type)
-	{
-	case SDL_KEYDOWN:
-		if (isDog_)
-		{
-			if (event.key.keysym.sym == SDLK_LEFT)
-			{
-				keyDownNum = 1;
-				v[0] = -1.0f;
-			}
-			else if (event.key.keysym.sym == SDLK_RIGHT)
-			{
-				keyDownNum = 2;
-				v[0] = 1.0f;
-			}
-			else if (event.key.keysym.sym == SDLK_UP)
-			{
-				if (jumping == false)
-				{
-					v[1] = jumpSpeed();
-					jumping = true;
-				}
-			}
-			else if (event.key.keysym.sym == SDLK_RSHIFT)
-			{
-				if (isSkill_ == true)
-				{
-					//Use Sniffing Skill
-					blindOpacity_ = 254;
-					isSkill_ = false;
-				}
-			}
-		}
-		else
-		{
-			if (event.key.keysym.sym == SDLK_a)
-			{
-				v[0] = -1.0f; keyDownNum = 1;
-			}
-			else if (event.key.keysym.sym == SDLK_d)
-			{
-				v[0] = 1.0f; keyDownNum = 2;
-			}
-			else if (event.key.keysym.sym == SDLK_w)
-			{
-				if (jumping == false)
-				{
-					v[1] = jumpSpeed();
-					jumping = true;
-				}
-				keyDownNum = 3;
-			}
-		}
-
-		if (keyDownNum != 0)
-		{
-			for (int i = inputs.size() - 1; i >= 0; i--)
-			{
-				if (inputs[i] != keyDownNum && keyDownNum != 0)
-				{
-					if (i == 0) { inputs.push_back(keyDownNum); }
-				}
-				else { break; }
-			}
-			keyDownNum = 0;
-		}
-		break;
-
-
-	case SDL_KEYUP:
-
-		if (isDog_)
-		{
-			if (event.key.keysym.sym == SDLK_LEFT)
-			{
-				keyUpNum = 1;
-			}
-			else if (event.key.keysym.sym == SDLK_RIGHT)
-			{
-				keyUpNum = 2;
-			}
-			else if (event.key.keysym.sym == SDLK_UP)
-			{
-				//dogKeyUp = 3;	
-			}
-		}
-		else
-		{
-			if (event.key.keysym.sym == SDLK_a)
-			{
-				keyUpNum = 1;
-			}
-			else if (event.key.keysym.sym == SDLK_d)
-			{
-				keyUpNum = 2;
-			}
-			else if (event.key.keysym.sym == SDLK_w)
-			{
-				//catKeyUp = 3;	
-			}
-		}
-		
-
-		if (keyUpNum != 0)
-		{
-			for (int i = inputs.size() - 1; i >= 0; i--)
-			{
-				if (inputs[i] == keyUpNum)
-				{
-					//dog->v[0] = 0.0f;
-					inputs.erase(inputs.begin() + i);
-					keyUpNum = 0;
-					break;
-				}
-
-			}
-		}
-
-
-		break;
-	}
-
+	
 	
 
 

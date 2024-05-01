@@ -51,6 +51,12 @@
     <ClCompile Include="Map4.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
+    <ClCompile Include="Dog.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="Cat.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Pet.h">
@@ -72,6 +78,12 @@
       <Filter>소스 파일</Filter>
     </ClInclude>
     <ClInclude Include="Button.h">
+      <Filter>소스 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="Dog.h">
+      <Filter>소스 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="Cat.h">
       <Filter>소스 파일</Filter>
     </ClInclude>
   </ItemGroup>

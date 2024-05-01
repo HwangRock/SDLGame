@@ -8,6 +8,8 @@
 #include "Pet.h"
 #include "Terrain.h"
 #include "Button.h"
+#include "Dog.h"
+#include "Cat.h"
 
 #include "SDL_ttf.h"
 #include "SDL_mixer.h"
@@ -56,8 +58,10 @@ private:
 	SDL_Rect blindRect;
 
 	//Pets
-	Pet* dog = new Pet(700, 100, true);
-	Pet* cat = new Pet(600, 100, false);
+	//Pet* dog = new Pet(700, 100, true);
+	//Pet* cat = new Pet(600, 100, false);
+	Dog* dog = new Dog(700, 100);
+	Cat* cat = new Cat(600, 100);
 
 	// Mouse
 	int mouse_win_x_;
