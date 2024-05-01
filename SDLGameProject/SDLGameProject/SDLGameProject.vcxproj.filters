@@ -30,31 +30,25 @@
     <ClCompile Include="GameIntro.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
-    <ClCompile Include="GameStage1.cpp">
+    <ClCompile Include="Stage.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
     <ClCompile Include="Terrain.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
-    <ClCompile Include="G2W.cpp">
-      <Filter>소스 파일</Filter>
-    </ClCompile>
     <ClCompile Include="Button.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
-    <ClCompile Include="GameStage2.cpp">
-      <Filter>소스 파일</Filter>
-    </ClCompile>
-    <ClCompile Include="GameStage3.cpp">
-      <Filter>소스 파일</Filter>
-    </ClCompile>
-    <ClCompile Include="GameStage4.cpp">
-      <Filter>소스 파일</Filter>
-    </ClCompile>
-    <ClCompile Include="SetGame.cpp">
-      <Filter>소스 파일</Filter>
-    </ClCompile>
     <ClCompile Include="Map1.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="Map2.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="Map3.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="Map4.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
   </ItemGroup>
@@ -71,31 +65,13 @@
     <ClInclude Include="GameIntro.h">
       <Filter>소스 파일</Filter>
     </ClInclude>
-    <ClInclude Include="GameStage1.h">
+    <ClInclude Include="Stage.h">
       <Filter>소스 파일</Filter>
     </ClInclude>
     <ClInclude Include="Terrain.h">
       <Filter>소스 파일</Filter>
     </ClInclude>
-    <ClInclude Include="G2W.h">
-      <Filter>소스 파일</Filter>
-    </ClInclude>
     <ClInclude Include="Button.h">
-      <Filter>소스 파일</Filter>
-    </ClInclude>
-    <ClInclude Include="GameStage2.h">
-      <Filter>소스 파일</Filter>
-    </ClInclude>
-    <ClInclude Include="GameStage3.h">
-      <Filter>소스 파일</Filter>
-    </ClInclude>
-    <ClInclude Include="GameStage4.h">
-      <Filter>소스 파일</Filter>
-    </ClInclude>
-    <ClInclude Include="SetGame.h">
-      <Filter>소스 파일</Filter>
-    </ClInclude>
-    <ClInclude Include="Map1.h">
       <Filter>소스 파일</Filter>
     </ClInclude>
   </ItemGroup>

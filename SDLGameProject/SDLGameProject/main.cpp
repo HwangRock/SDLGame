@@ -1,11 +1,12 @@
 
 #include "Game.h"
 #include "GameIntro.h"
-#include "GameStage1.h"
-#include "GameStage2.h"
-#include "GameStage3.h"
-#include "GameStage4.h"
 #include "GameEnding.h"
+#include "Stage.h"
+#include "Map1.cpp"
+#include "Map2.cpp"
+#include "Map3.cpp"
+#include "Map4.cpp"
 
 
 /////////////////////////////////////////////////
@@ -31,7 +32,7 @@ std::vector<SDL_Rect> blinds = {};
 //Liquid wall(cat skill)
 std::vector<SDL_Rect>liquidWalls = {};
 std::vector<SDL_Rect>liquidAisles = {};
-
+int chapterNum;
 
 
 
@@ -46,7 +47,7 @@ int main(int argc, char* argv[])
 		exit(1);
 	}
 
-	g_window = SDL_CreateWindow("thisWindow", 100, 100, 1000, 700, 0);
+	g_window = SDL_CreateWindow("thisWindow", 100, 100, 1280, 720, 0);
 	g_renderer = SDL_CreateRenderer(g_window, -1, 0);
 
 
@@ -57,10 +58,10 @@ int main(int argc, char* argv[])
 
 	PhaseInterface* game_phases[6];
 	game_phases[0] = new Intro;
-	game_phases[1] = new Stage1;
-	game_phases[2] = new Stage2;
-	game_phases[3] = new Stage3;
-	game_phases[4] = new Stage4;
+	game_phases[1] = new Map1;
+	game_phases[2] = new Map2;
+	game_phases[3] = new Map3;
+	game_phases[4] = new Map4;
 	game_phases[5] = new Ending;
 
 	g_current_game_phase = PHASE_INTRO;

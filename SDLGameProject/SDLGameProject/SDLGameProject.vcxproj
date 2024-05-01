@@ -145,37 +145,27 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="Button.cpp" />
-    <ClCompile Include="G2W.cpp" />
     <ClCompile Include="Game.cpp" />
     <ClCompile Include="GameEnding.cpp" />
     <ClCompile Include="GameIntro.cpp" />
-    <ClCompile Include="GameStage1.cpp" />
-    <ClCompile Include="GameStage2.cpp" />
-    <ClCompile Include="GameStage3.cpp" />
-    <ClCompile Include="GameStage4.cpp" />
+    <ClCompile Include="Map2.cpp" />
+    <ClCompile Include="Map3.cpp" />
+    <ClCompile Include="Map4.cpp" />
+    <ClCompile Include="Stage.cpp" />
     <ClCompile Include="Main.cpp" />
     <ClCompile Include="Map1.cpp">
-      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|x64'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|x64'">false</ExcludedFromBuild>
     </ClCompile>
     <ClCompile Include="Pet.cpp" />
-    <ClCompile Include="SetGame.cpp" />
     <ClCompile Include="Terrain.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Button.h" />
-    <ClInclude Include="G2W.h" />
     <ClInclude Include="Game.h" />
     <ClInclude Include="GameEnding.h" />
     <ClInclude Include="GameIntro.h" />
-    <ClInclude Include="GameStage1.h" />
-    <ClInclude Include="GameStage2.h" />
-    <ClInclude Include="GameStage3.h" />
-    <ClInclude Include="GameStage4.h" />
-    <ClInclude Include="Map1.h">
-      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|x64'">true</ExcludedFromBuild>
-    </ClInclude>
+    <ClInclude Include="Stage.h" />
     <ClInclude Include="Pet.h" />
-    <ClInclude Include="SetGame.h" />
     <ClInclude Include="Terrain.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

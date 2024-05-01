@@ -17,8 +17,8 @@ Pet::Pet(double x, double y,bool isDog)
 
 	pos.x = x;
 	pos.y = y;
-	pos.w = 30;
-	pos.h = 30;
+	pos.w = 50;
+	pos.h = 50;
 
 
 	Reset();
@@ -227,8 +227,8 @@ Pet::Update(
 
 void Pet::BlockMoving(SDL_Rect obst)
 {
-	if (pos.y + pos.h > obst.y + 6 &&
-		pos.y < obst.y + obst.h - 6)
+	if (pos.y + pos.h > obst.y + 10 &&
+		pos.y < obst.y + obst.h - 10)
 	{
 		//벽왼쪽에 있음
 		if (pos.x < obst.x + obst.w / 2)
