@@ -21,6 +21,21 @@ int g_current_game_phase;
 // 초단위 timestep (1/60초). Frame time과 시뮬레이션의 timestep으로 사용된다.
 float g_timestep_s = 1.0f / 60.0f;
 
+
+
+//Game Variables//////////////////////////////////////
+std::vector<Terrain> walls = {};
+std::vector<Button>buttons = {};
+//Blind(sniff, dog skill)
+std::vector<SDL_Rect> blinds = {};
+//Liquid wall(cat skill)
+std::vector<SDL_Rect>liquidWalls = {};
+std::vector<SDL_Rect>liquidAisles = {};
+
+
+
+
+
 int main(int argc, char* argv[])
 {
 	SDL_Init(SDL_INIT_EVERYTHING);

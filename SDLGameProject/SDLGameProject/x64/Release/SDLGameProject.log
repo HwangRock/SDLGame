@@ -1,17 +1,7 @@
-﻿  GameStage1.cpp
-  GameStage2.cpp
-  GameStage3.cpp
-  GameStage4.cpp
-  Main.cpp
-  Pet.cpp
-C:\Users\yunji\SDLGame\SDLGame\SDLGameProject\SDLGameProject\Pet.cpp(18,10): warning C4244: '=': 'double'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-C:\Users\yunji\SDLGame\SDLGame\SDLGameProject\SDLGameProject\Pet.cpp(19,10): warning C4244: '=': 'double'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-C:\Users\yunji\SDLGame\SDLGame\SDLGameProject\SDLGameProject\Pet.cpp(70,15): warning C4244: '+=': 'double'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-C:\Users\yunji\SDLGame\SDLGame\SDLGameProject\SDLGameProject\Pet.cpp(324,4): warning C4267: '초기화 중': 'size_t'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-C:\Users\yunji\SDLGame\SDLGame\SDLGameProject\SDLGameProject\Pet.cpp(373,4): warning C4267: '초기화 중': 'size_t'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+﻿  Main.cpp
   코드를 생성하고 있습니다.
-  23 of 368 functions ( 6.2%) were compiled, the rest were copied from previous compilation.
-    1 functions were new in current compilation
-    11 functions had inline decision re-evaluated but remain unchanged
+  0 of 416 functions ( 0.0%) were compiled, the rest were copied from previous compilation.
+    0 functions were new in current compilation
+    0 functions had inline decision re-evaluated but remain unchanged
   코드를 생성했습니다.
   SDLGameProject.vcxproj -> C:\Users\yunji\SDLGame\SDLGame\SDLGameProject\x64\Release\SDLGameProject.exe

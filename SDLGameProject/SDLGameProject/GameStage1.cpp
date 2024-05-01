@@ -24,15 +24,6 @@ Stage1::Stage1()
 	g_flag_running = true;
 
 
-	//Set variables
-
-	//TEST
-	hello = setGame->SetTerrains();
-	for(int n : hello)
-	{
-		std::cout << n << " ";
-	}
-
 	//Window
 	SDL_GetWindowSize(g_window, &win_w, &win_h);
 
@@ -73,12 +64,28 @@ Stage1::Stage1()
 
 	mouse_win_x_ = 0;
 	mouse_win_y_ = 0;
+
+	Start();
 }
 
 Stage1::~Stage1()
 {
 	SDL_DestroyTexture(dogTexture);
 	SDL_DestroyTexture(catTexture);
+}
+
+void Stage1:: Start() 
+{
+	//Set variables
+
+	//TEST
+	walls = setGame->SetTerrains();
+	buttons = setGame->SetButtons();
+	blinds = setGame->SetBlinds();
+	liquidWalls = setGame->SetLiquidWalls();
+	liquidAisles = setGame->SetLiquidAisles();
+	
+
 }
 
 void Stage1::Update()
