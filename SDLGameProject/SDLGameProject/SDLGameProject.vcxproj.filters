@@ -57,6 +57,9 @@
     <ClCompile Include="Cat.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
+    <ClCompile Include="LiquidWall.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Pet.h">
@@ -84,6 +87,9 @@
       <Filter>소스 파일</Filter>
     </ClInclude>
     <ClInclude Include="Cat.h">
+      <Filter>소스 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="LiquidWall.h">
       <Filter>소스 파일</Filter>
     </ClInclude>
   </ItemGroup>

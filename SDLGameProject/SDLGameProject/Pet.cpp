@@ -44,7 +44,7 @@ Pet::Update(
 	std::vector<Terrain>& walls,
 	std::vector<Button>&buttons,
 	SDL_Texture *blindTexture,
-	std::vector<SDL_Rect>&liquidWalls,
+	std::vector<LiquidWall>&liquidWalls,
 	std::vector<SDL_Rect>& liquidAisle
 )
 {

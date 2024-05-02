@@ -150,6 +150,7 @@
     <ClCompile Include="Game.cpp" />
     <ClCompile Include="GameEnding.cpp" />
     <ClCompile Include="GameIntro.cpp" />
+    <ClCompile Include="LiquidWall.cpp" />
     <ClCompile Include="Map2.cpp" />
     <ClCompile Include="Map3.cpp" />
     <ClCompile Include="Map4.cpp" />
@@ -168,6 +169,7 @@
     <ClInclude Include="Game.h" />
     <ClInclude Include="GameEnding.h" />
     <ClInclude Include="GameIntro.h" />
+    <ClInclude Include="LiquidWall.h" />
     <ClInclude Include="Stage.h" />
     <ClInclude Include="Pet.h" />
     <ClInclude Include="Terrain.h" />

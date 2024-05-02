@@ -30,7 +30,7 @@ std::vector<Button>buttons = {};
 //Blind(sniff, dog skill)
 std::vector<SDL_Rect> blinds = {};
 //Liquid wall(cat skill)
-std::vector<SDL_Rect>liquidWalls = {};
+std::vector<LiquidWall>liquidWalls = {};
 std::vector<SDL_Rect>liquidAisles = {};
 int chapterNum;
 
