@@ -33,6 +33,7 @@ Pet::Reset()
 	keyUpNum = 0;
 	inputs.push_back(0);
 	jumping = false;
+	isDead = false;
 
 	isPressing = -1;
 }

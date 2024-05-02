@@ -148,8 +148,13 @@
     <ClCompile Include="Cat.cpp" />
     <ClCompile Include="Dog.cpp" />
     <ClCompile Include="Game.cpp" />
+    <ClCompile Include="GameClear.cpp" />
     <ClCompile Include="GameEnding.cpp" />
+    <ClCompile Include="GameESC.cpp" />
     <ClCompile Include="GameIntro.cpp" />
+    <ClCompile Include="GameManual.cpp" />
+    <ClCompile Include="GameFinish.cpp" />
+    <ClCompile Include="GameOver.cpp" />
     <ClCompile Include="LiquidWall.cpp" />
     <ClCompile Include="Map2.cpp" />
     <ClCompile Include="Map3.cpp" />

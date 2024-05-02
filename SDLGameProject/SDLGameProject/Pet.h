@@ -53,6 +53,7 @@ protected:
 	// position x,y
 	double pos_[2];
 	
+	bool isDead;
 
 	float gravity = 0.098f;
 
