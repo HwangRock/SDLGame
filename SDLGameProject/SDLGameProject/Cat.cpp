@@ -15,7 +15,8 @@ void Cat::Update(
 	SDL_Texture* blindTexture,
 	std::vector<LiquidWall>& liquidWalls,
 	std::vector<SDL_Rect>& liquidAisle,
-	std::vector<ClimbWall>& climbWalls
+	std::vector<ClimbWall>& climbWalls,
+	SDL_Rect goal
 )
 {
 
@@ -41,7 +42,7 @@ void Cat::Update(
 
 
 	//UPDATE///////////////////////////////////////////////////
-	Pet::Update(timestep_s, walls, buttons, blindTexture, liquidWalls, liquidAisle,climbWalls);
+	Pet::Update(timestep_s, walls, buttons, blindTexture, liquidWalls, liquidAisle,climbWalls,goal);
 	
 
 

@@ -70,6 +70,9 @@ public:
 		liquidWalls = { };
 		liquidAisles = { };
 		climbWalls = {};
+
+		goal = { 800,50,50,80 };
+		start={200,50,50,80};
 	}
 
 

@@ -1,10 +1,14 @@
 #pragma once
 #include <vector>
+
 #include "Terrain.h"
 #include "Button.h"
-#include "SDL.h"
 #include "LiquidWall.h"
 #include "ClimbWall.cpp"
+
+#include "SDL.h"
+
+
 
 class Pet
 {
@@ -13,7 +17,7 @@ public:
 	double v[2];
 	bool jumping = false;
 	int isPressing;//is it pressing button
-
+	bool isInGoal;//does it reach in goal
 
 	Pet(double x, double y);
 
@@ -26,7 +30,8 @@ public:
 		SDL_Texture* blindTexture, 
 		std::vector<LiquidWall>& liquidWalls,
 		std::vector<SDL_Rect>&liquidAisle,
-		std::vector<ClimbWall>& climbWalls
+		std::vector<ClimbWall>& climbWalls,
+		SDL_Rect goal
 	);
 
 	void HandleEvent(SDL_Event event);
@@ -56,6 +61,7 @@ protected:
 	double pos_[2];
 	
 	bool isDead;
+	
 
 	float gravity = 0.098f;
 

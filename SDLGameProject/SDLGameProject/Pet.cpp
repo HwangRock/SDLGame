@@ -1,5 +1,6 @@
 #include "Pet.h"
 #include "SDL_image.h"
+#include <math.h>
 #include <iostream>
 
 
@@ -34,6 +35,7 @@ Pet::Reset()
 	inputs.push_back(0);
 	jumping = false;
 	isDead = false;
+	isInGoal = false;
 
 	isPressing = -1;
 }
@@ -47,7 +49,8 @@ Pet::Update(
 	SDL_Texture *blindTexture,
 	std::vector<LiquidWall>&liquidWalls,
 	std::vector<SDL_Rect>& liquidAisle,
-	std::vector<ClimbWall>& climbWalls
+	std::vector<ClimbWall>& climbWalls,
+	SDL_Rect goal
 )
 {
 	double dt = timestep_s;	// seconds
@@ -110,9 +113,14 @@ Pet::Update(
 				isPressing = -1;
 			}
 		}
-
-
 	}
+
+	//GOAL//////////////////////////////////
+	if (SDL_HasIntersection(&pos, &goal))
+	{
+		isInGoal = true;
+	}
+	else { isInGoal = false; }
 	
 
 

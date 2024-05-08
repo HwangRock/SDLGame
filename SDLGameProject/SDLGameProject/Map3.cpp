@@ -41,7 +41,9 @@ public:
 		liquidWalls = { };
 		liquidAisles = { };
 
-		std::cout << "map3 SetVar\n";
+		goal = { 800,50,50,100 };
+		start={50,600,50,80};
+
 	}
 protected:
 

@@ -60,6 +60,9 @@ public:
 
 		ClimbWall* cwall = new ClimbWall({ 25,100,30,400 });
 		climbWalls = {*cwall};
+
+		goal = { 800,50,50,100 };
+		start={50,600,50,80};
 	}
 protected:
 

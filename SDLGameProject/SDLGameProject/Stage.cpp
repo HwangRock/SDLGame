@@ -67,12 +67,17 @@ StageInterface::StageInterface()
 	blindRect = { 0,0,269,269 };
 
 
-	//climb_Wall
+	//Climb Wall
 	SDL_Surface* surface_cwall = IMG_Load("../Resources/ending.png");
 	cwallTexture = SDL_CreateTextureFromSurface(g_renderer, surface_cwall);
 	SDL_FreeSurface(surface_cwall);
 	cwallRect = { 0,0,1017,1017};
 
+	//Goal
+	SDL_Surface* surface_goal = IMG_Load("../Resources/ending.png");
+	goalTexture = SDL_CreateTextureFromSurface(g_renderer, surface_goal);
+	SDL_FreeSurface(surface_goal);
+	goalRect = { 0,0,1017,1017 };
 
 
 
@@ -100,18 +105,37 @@ void StageInterface:: SetVar()
 	*/
 
 }
+void StageInterface::Reset()
+{
+	
 
+	dog->pos.x = start.x;
+	dog->pos.y = start.y;
+	cat->pos.x = start.x;
+	cat->pos.y = start.y;
+
+}
 void StageInterface::Update()
 {
 	if (isFirst == true)
 	{
 		SetVar();
+		Reset();
 		isFirst = false;
 	}
 
-	dog->Update(g_timestep_s, walls,buttons,blindTexture,liquidWalls, liquidAisles,climbWalls);
-	cat->Update(g_timestep_s, walls,buttons,blindTexture,liquidWalls, liquidAisles,climbWalls);
+	dog->Update(g_timestep_s, walls,buttons,blindTexture,liquidWalls, liquidAisles,climbWalls,goal);
+	cat->Update(g_timestep_s, walls,buttons,blindTexture,liquidWalls, liquidAisles,climbWalls, goal);
 
+
+	//Reach the Goal//////////////////////////////////////////
+	if (cat->isInGoal == true && dog->isInGoal == true)
+	{
+		//if all of them reach the goal, go to next chapter
+		NextChapter();
+	}
+
+	//Button Press////////////////////////////////////////////
 	for (int i = 0; i < buttons.size(); i++) 
 	{
 		if(dog->isPressing!=i&&cat->isPressing!=i)
@@ -166,6 +190,11 @@ void StageInterface::Render()
 		
 	}
 
+	//Goal,Start
+	SDL_RenderCopy(g_renderer, goalTexture, &goalRect, &goal);
+	SDL_RenderCopy(g_renderer, goalTexture, &goalRect, &start);
+
+
 	//Dog and Cat
 	if (cat->isLiquid == true)
 	{
@@ -192,7 +221,43 @@ void StageInterface::Render()
 		SDL_RenderCopy(g_renderer, cwallTexture, &cwallRect, &wall.wall_pos);
 	}
 
+	
+
+
 	SDL_RenderPresent(g_renderer); // draw to the screen
+}
+
+void StageInterface::NextChapter()
+{
+	isFirst = true;
+	dog->Reset();
+	cat->Reset();
+
+	switch (chapterNum)
+	{
+	case 0:
+		chapterNum = 1;
+		g_current_game_phase = PHASE_STAGE2;
+
+		break;
+	case 1:
+		chapterNum = 2;
+		g_current_game_phase = PHASE_STAGE3;
+
+		break;
+	case 2:
+		chapterNum = 3;
+		g_current_game_phase = PHASE_STAGE4;
+
+		break;
+	case 3:
+		chapterNum = 0;
+		g_current_game_phase = PHASE_ENDING;
+
+		break;
+	default:
+		break;
+	}
 }
 
 
@@ -230,40 +295,7 @@ void StageInterface::HandleEvents()
 				mouse_win_x_ = event.button.x;
 				mouse_win_y_ = event.button.y;
 
-
-				//double mouse_game_x = W2G_X(mouse_win_x_);
-				//double mouse_game_y = W2G_Y(mouse_win_y_);
-
-				std::cout << "chapter num=" << chapterNum<<" now phase=" <<g_current_game_phase<< "\n";
-
-
-				isFirst = true;
-
-				switch (chapterNum)
-				{
-				case 0:
-					chapterNum = 1;
-					g_current_game_phase = PHASE_STAGE2;
-					
-					break;
-				case 1:
-					chapterNum = 2;
-					g_current_game_phase = PHASE_STAGE3;
-					
-					break;
-				case 2:
-					chapterNum = 3;
-					g_current_game_phase = PHASE_STAGE4;
-					
-					break;
-				case 3:
-					chapterNum = 0;
-					g_current_game_phase = PHASE_ENDING;
-					
-					break;
-				default:
-					break;
-				}
+				NextChapter();
 				
 			}
 

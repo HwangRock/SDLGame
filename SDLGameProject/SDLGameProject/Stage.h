@@ -2,26 +2,25 @@
 
 #include <iostream>
 #include <string>
-#include "SDL.h"
-
-
-#include "Pet.h"
-#include "Terrain.h"
-#include "Button.h"
-#include "Dog.h"
-#include "Cat.h"
-#include "LiquidWall.h"
-#include "ClimbWall.cpp"
-
-#include "SDL_ttf.h"
-#include "SDL_mixer.h"
-
-
 #include <vector>
 #include <windows.h>
 
+#include "SDL.h"
+#include "SDL_ttf.h"
+#include "SDL_mixer.h"
 #include "SDL_image.h"
+
+
 #include "math.h"
+
+#include "Dog.h"
+#include "Cat.h"
+#include "Pet.h"
+
+#include "Terrain.h"
+#include "Button.h"
+#include "LiquidWall.h"
+#include "ClimbWall.cpp"
 
 #include "Game.h"
 
@@ -32,6 +31,8 @@ extern std::vector<SDL_Rect> blinds;
 extern std::vector<LiquidWall>liquidWalls;
 extern std::vector<SDL_Rect>liquidAisles;
 extern std::vector<ClimbWall>climbWalls;
+extern SDL_Rect goal;
+extern SDL_Rect start;
 extern int chapterNum;
 extern int win_w, win_h;     
 
@@ -42,11 +43,13 @@ public:
 	~StageInterface();
 
 	virtual void SetVar();
+	virtual void Reset();
 
 	virtual void HandleEvents();
 	virtual void Update();
 	virtual void Render();
 	
+	void NextChapter();
 
 private:
 	//Sprite
@@ -59,6 +62,8 @@ private:
 	SDL_Texture* buttonTexture;
 	SDL_Texture* blindTexture;
 	SDL_Texture* cwallTexture;
+	SDL_Texture* goalTexture;
+	SDL_Rect goalRect;
 	SDL_Rect cwallRect; 
 	SDL_Rect wallRect;
 	SDL_Rect buttonRect;
