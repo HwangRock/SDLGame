@@ -73,7 +73,7 @@ Pet::Update(
 		{
 			//주의) 벽의 height가 너무 작으면 제대로 작동하지 않을 것 같습니다..
 			BlockMoving(wall.pos);
-
+			
 		}
 	}
 	
@@ -163,6 +163,7 @@ void Pet::BlockMoving(SDL_Rect obst)
 			// 벽 아래에 있음
 			//pos.y = obst.y + obst.h;
 			pos.y = std::max(obst.y + obst.h, pos.y);
+			v[1] = 0;
 		}
 	}
 }

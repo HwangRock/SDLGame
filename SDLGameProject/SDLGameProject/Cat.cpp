@@ -89,7 +89,7 @@ void Cat::HandleEvent(SDL_Event event)
 				v[1] = jumpSpeed();
 				jumping = true;
 			}
-			keyDownNum = 3;
+			//keyDownNum = 3;
 		}
 		
 

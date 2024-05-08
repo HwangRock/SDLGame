@@ -23,6 +23,7 @@ extern SDL_Renderer* g_renderer;
 extern SDL_Window* g_window;
 
 
+
 class PhaseInterface
 {
 public:

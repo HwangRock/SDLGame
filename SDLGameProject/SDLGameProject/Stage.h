@@ -30,6 +30,7 @@ extern std::vector<SDL_Rect> blinds;
 extern std::vector<SDL_Rect>liquidWalls;
 extern std::vector<SDL_Rect>liquidAisles;
 extern int chapterNum;
+extern int win_w, win_h;     
 
 class StageInterface : public PhaseInterface
 {
@@ -68,8 +69,6 @@ private:
 	int mouse_win_x_;
 	int mouse_win_y_;
 
-	//Window size
-	int win_w, win_h;
 
 
 	// gravity

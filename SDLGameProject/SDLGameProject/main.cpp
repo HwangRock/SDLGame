@@ -33,6 +33,7 @@ std::vector<SDL_Rect> blinds = {};
 std::vector<SDL_Rect>liquidWalls = {};
 std::vector<SDL_Rect>liquidAisles = {};
 int chapterNum;
+int win_w, win_h;
 
 
 
@@ -54,7 +55,7 @@ int main(int argc, char* argv[])
 
 	g_last_time_ms = SDL_GetTicks();
 
-	InitGame();
+	InitGame(); 
 
 	PhaseInterface* game_phases[6];
 	game_phases[0] = new Intro;
