@@ -127,15 +127,7 @@ void StageInterface::Render()
 	SDL_RenderClear(g_renderer); // clear the renderer to the draw color
 
 
-	//Dog and Cat
-	if (cat->isLiquid == true)
-	{
-		SDL_RenderCopy(g_renderer, liquidCatTexture, &catRect, &cat->pos);
-	}
-	else 
-	{ SDL_RenderCopy(g_renderer, catTexture, &catRect, &cat->pos); }
-	SDL_RenderCopy(g_renderer, dogTexture, &dogRect, &dog->pos);
-
+	
 
 	//Wall
 	for (Terrain wall : walls)
@@ -143,9 +135,9 @@ void StageInterface::Render()
 		SDL_RenderCopy(g_renderer, wallTexture, &wallRect, &wall.pos);
 	}
 	//LiquidWall
-	for (SDL_Rect wall : liquidWalls)
+	for (LiquidWall wall : liquidWalls)
 	{
-		SDL_RenderCopy(g_renderer, wallTexture, &wallRect, &wall);
+		SDL_RenderCopy(g_renderer, wallTexture, &wallRect, &wall.pos_);
 	}
 
 
@@ -164,6 +156,19 @@ void StageInterface::Render()
 		}
 		
 	}
+
+	//Dog and Cat
+	if (cat->isLiquid == true)
+	{
+		SDL_RenderCopy(g_renderer, liquidCatTexture, &catRect, &cat->pos);
+	}
+	else
+	{
+		SDL_RenderCopy(g_renderer, catTexture, &catRect, &cat->pos);
+	}
+	SDL_RenderCopy(g_renderer, dogTexture, &dogRect, &dog->pos);
+
+
 
 	//Blind
 	for (SDL_Rect bln : blinds)

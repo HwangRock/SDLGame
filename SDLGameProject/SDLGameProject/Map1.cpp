@@ -16,7 +16,8 @@ public:
 	virtual void SetVar()
 	{
 		//Terrain
-		Terrain* floorUp = new Terrain(150, 200, 800, 25);
+		Terrain* floorUp1 = new Terrain(150, 200, 50, 25);
+		Terrain* floorUp2 = new Terrain(400, 200, 800, 25);
 		Terrain* floorDown = new Terrain(0, 500, 600, 25);
 
 		Terrain* Wall = new Terrain(400 - 25, 150, 25, 50);
@@ -30,7 +31,7 @@ public:
 
 		walls =
 		{
-			*floorUp,*floorDown,*Wall,
+			*floorUp1,*floorUp2,*floorDown,*Wall,
 			*Scaffolding2,*Scaffolding3,
 			*default1,*default2,*default3,*default4,
 		};
@@ -49,8 +50,9 @@ public:
 		SDL_Rect blind2 = { 200,650,30,30 };
 		blinds = { blind1,blind2 };
 
-		SDL_Rect lwall1 = { 200, 150, 200, 25 };
-		liquidWalls = { lwall1 };
+		LiquidWall* lwall1 = new LiquidWall({ 200,150,200,25 }, "down");
+		LiquidWall* lwall2 = new LiquidWall({ 200,200,200,25 }, "up");
+		liquidWalls = { *lwall1,*lwall2 };
 
 		SDL_Rect laisle1 = { 200,175,200,30 };
 		liquidAisles = { laisle1 };

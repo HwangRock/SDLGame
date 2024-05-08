@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 ﻿  Pet.cpp
 C:\Users\yunji\SDLGame\SDLGame\SDLGameProject\SDLGameProject\Pet.cpp(16,10): warning C4244: '=': 'double'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
 C:\Users\yunji\SDLGame\SDLGame\SDLGameProject\SDLGameProject\Pet.cpp(17,10): warning C4244: '=': 'double'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
@@ -6,5 +7,13 @@ C:\Users\yunji\SDLGame\SDLGame\SDLGameProject\SDLGameProject\Pet.cpp(63,15): war
   4 of 371 functions ( 1.1%) were compiled, the rest were copied from previous compilation.
     0 functions were new in current compilation
     0 functions had inline decision re-evaluated but remain unchanged
+=======
+﻿  Cat.cpp
+C:\Users\yunji.DESKTOP-CLMOD1E\Documents\GitHub\SDLGame\SDLGameProject\SDLGameProject\Cat.cpp(81,4): warning C4267: '초기화 중': 'size_t'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+C:\Users\yunji.DESKTOP-CLMOD1E\Documents\GitHub\SDLGame\SDLGameProject\SDLGameProject\Cat.cpp(114,4): warning C4267: '초기화 중': 'size_t'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+  코드를 생성하고 있습니다.
+  Previous IPDB and IOBJ mismatch, fall back to full compilation.
+  All 480 functions were compiled because no usable IPDB/IOBJ from previous compilation was found.
+>>>>>>> f6e43c1982e924dacb8d1ce9e07ac3ccea4cf60c
   코드를 생성했습니다.
-  SDLGameProject.vcxproj -> C:\Users\yunji\SDLGame\SDLGame\SDLGameProject\x64\Release\SDLGameProject.exe
+  SDLGameProject.vcxproj -> C:\Users\yunji.DESKTOP-CLMOD1E\Documents\GitHub\SDLGame\SDLGameProject\x64\Release\SDLGameProject.exe

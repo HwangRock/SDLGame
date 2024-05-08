@@ -12,7 +12,7 @@ void Cat::Update(
 	std::vector<Terrain>& walls,
 	std::vector<Button>& buttons,
 	SDL_Texture* blindTexture,
-	std::vector<SDL_Rect>& liquidWalls,
+	std::vector<LiquidWall>& liquidWalls,
 	std::vector<SDL_Rect>& liquidAisle
 )
 {
@@ -28,29 +28,12 @@ void Cat::Update(
 	//skill
 	for (int j = 0; j < liquidWalls.size(); j++)
 	{
-		if (SDL_HasIntersection(&pos, &liquidWalls[j]))
+		if (SDL_HasIntersection(&pos, &liquidWalls[j].pos_))
 		{
 			isLiquid = true;
 
 			SDL_Rect newWall;
-
-			if (liquidWalls[j].w > liquidWalls[j].h)
-			{
-				//floor
-				newWall.x = liquidWalls[j].x;
-				newWall.y = liquidWalls[j].y + liquidWalls[j].h / 4;
-				newWall.w = liquidWalls[j].w;
-				newWall.h = liquidWalls[j].h / 2;
-
-			}
-			else
-			{
-				//wall
-				newWall.x = liquidWalls[j].x + liquidWalls[j].w / 4;
-				newWall.y = liquidWalls[j].y;
-				newWall.w = liquidWalls[j].w / 2;
-				newWall.h = liquidWalls[j].h;
-			}
+			newWall = liquidWalls[j].returnWall();
 			BlockMoving(newWall);
 		}
 		else 
@@ -89,7 +72,11 @@ void Cat::HandleEvent(SDL_Event event)
 				v[1] = jumpSpeed();
 				jumping = true;
 			}
+<<<<<<< HEAD
 			//keyDownNum = 3;
+=======
+			
+>>>>>>> f6e43c1982e924dacb8d1ce9e07ac3ccea4cf60c
 		}
 		
 

@@ -16,7 +16,7 @@ void Dog::Update(
 	std::vector<Terrain>& walls,
 	std::vector<Button>& buttons,
 	SDL_Texture* blindTexture,
-	std::vector<SDL_Rect>& liquidWalls,
+	std::vector<LiquidWall>& liquidWalls,
 	std::vector<SDL_Rect>& liquidAisle
 )
 {
@@ -52,9 +52,9 @@ void Dog::Update(
 	//same with normal walls
 	for (int j = 0; j < liquidWalls.size(); j++)
 	{
-		if (SDL_HasIntersection(&pos, &liquidWalls[j]))
+		if (SDL_HasIntersection(&pos, &liquidWalls[j].pos_))
 		{
-			BlockMoving(liquidWalls[j]);
+			BlockMoving(liquidWalls[j].pos_);
 		}
 	}
 	for (int j = 0; j < liquidAisle.size(); j++)

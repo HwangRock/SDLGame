@@ -10,6 +10,7 @@
 #include "Button.h"
 #include "Dog.h"
 #include "Cat.h"
+#include "LiquidWall.h"
 
 #include "SDL_ttf.h"
 #include "SDL_mixer.h"
@@ -27,7 +28,7 @@
 extern std::vector<Terrain> walls;
 extern std::vector<Button> buttons;
 extern std::vector<SDL_Rect> blinds;
-extern std::vector<SDL_Rect>liquidWalls;
+extern std::vector<LiquidWall>liquidWalls;
 extern std::vector<SDL_Rect>liquidAisles;
 extern int chapterNum;
 extern int win_w, win_h;     

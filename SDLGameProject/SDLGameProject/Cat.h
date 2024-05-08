@@ -2,6 +2,7 @@
 #include <vector>
 #include "Terrain.h"
 #include "Button.h"
+#include "LiquidWall.h"
 #include "SDL.h"
 #include "Pet.h"
 
@@ -21,7 +22,7 @@ public:
 		std::vector<Terrain>& walls,
 		std::vector<Button>& buttons,
 		SDL_Texture* blindTexture,
-		std::vector<SDL_Rect>& liquidWalls,
+		std::vector<LiquidWall>& liquidWalls,
 		std::vector<SDL_Rect>& liquidAisle
 	);
 	void HandleEvent(SDL_Event event);
