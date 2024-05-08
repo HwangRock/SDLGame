@@ -3,6 +3,7 @@
 #include "Terrain.h"
 #include "Button.h"
 #include "LiquidWall.h"
+#include "ClimbWall.cpp"
 #include "SDL.h"
 #include "Pet.h"
 
@@ -23,12 +24,14 @@ public:
 		std::vector<Button>& buttons,
 		SDL_Texture* blindTexture,
 		std::vector<LiquidWall>& liquidWalls,
-		std::vector<SDL_Rect>& liquidAisle
+		std::vector<SDL_Rect>& liquidAisle,
+		std::vector<ClimbWall>& climbWalls
 	);
 	void HandleEvent(SDL_Event event);
 
 
 	bool isLiquid;
+	bool isClimbWall;
 
 protected:
 	

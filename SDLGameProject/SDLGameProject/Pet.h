@@ -4,6 +4,7 @@
 #include "Button.h"
 #include "SDL.h"
 #include "LiquidWall.h"
+#include "ClimbWall.cpp"
 
 class Pet
 {
@@ -24,7 +25,8 @@ public:
 		std::vector<Button>& buttons, 
 		SDL_Texture* blindTexture, 
 		std::vector<LiquidWall>& liquidWalls,
-		std::vector<SDL_Rect>&liquidAisle
+		std::vector<SDL_Rect>&liquidAisle,
+		std::vector<ClimbWall>& climbWalls
 	);
 
 	void HandleEvent(SDL_Event event);

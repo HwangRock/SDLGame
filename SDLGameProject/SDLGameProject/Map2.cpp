@@ -52,6 +52,7 @@ public:
 		liquidWalls = {  };
 
 		liquidAisles = { };
+		climbWalls = {};
 	}
 protected:
 

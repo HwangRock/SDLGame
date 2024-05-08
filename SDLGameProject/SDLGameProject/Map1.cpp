@@ -56,7 +56,10 @@ public:
 
 		SDL_Rect laisle1 = { 200,175,200,30 };
 		liquidAisles = { laisle1 };
-	
+		
+
+		ClimbWall* cwall = new ClimbWall({ 25,100,30,400 });
+		climbWalls = {*cwall};
 	}
 protected:
 

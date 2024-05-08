@@ -32,6 +32,7 @@ std::vector<SDL_Rect> blinds = {};
 //Liquid wall(cat skill)
 std::vector<LiquidWall>liquidWalls = {};
 std::vector<SDL_Rect>liquidAisles = {};
+std::vector<ClimbWall>climbWalls = {};
 int chapterNum;
 int win_w, win_h;
 

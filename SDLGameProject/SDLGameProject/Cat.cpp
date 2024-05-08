@@ -5,6 +5,7 @@ void Cat::Reset()
 {
 	Pet::Reset();
 	isLiquid = false;
+	isClimbWall = false;
 }
 
 void Cat::Update(
@@ -13,10 +14,34 @@ void Cat::Update(
 	std::vector<Button>& buttons,
 	SDL_Texture* blindTexture,
 	std::vector<LiquidWall>& liquidWalls,
-	std::vector<SDL_Rect>& liquidAisle
+	std::vector<SDL_Rect>& liquidAisle,
+	std::vector<ClimbWall>& climbWalls
 )
 {
-	Pet::Update(timestep_s, walls, buttons, blindTexture, liquidWalls, liquidAisle);
+
+	//CLIMB WALL//////////////////////////////
+	for (int k = 0; k < climbWalls.size(); k++)
+	{
+		if (SDL_HasIntersection(&pos, &climbWalls[k].wall_pos))
+		{
+			BlockMoving(climbWalls[k].wall_pos);
+			isClimbWall = true;
+		}
+		else
+		{
+			if (k == climbWalls.size() - 1)
+			{
+				isClimbWall = false;
+			}
+		}
+	}
+
+	if (isClimbWall == false) { v[1] += gravity; }
+	
+
+
+	//UPDATE///////////////////////////////////////////////////
+	Pet::Update(timestep_s, walls, buttons, blindTexture, liquidWalls, liquidAisle,climbWalls);
 	
 
 

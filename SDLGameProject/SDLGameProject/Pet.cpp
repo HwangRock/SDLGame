@@ -46,14 +46,15 @@ Pet::Update(
 	std::vector<Button>&buttons,
 	SDL_Texture *blindTexture,
 	std::vector<LiquidWall>&liquidWalls,
-	std::vector<SDL_Rect>& liquidAisle
+	std::vector<SDL_Rect>& liquidAisle,
+	std::vector<ClimbWall>& climbWalls
 )
 {
 	double dt = timestep_s;	// seconds
 
 
 	//MOVING/////////////////////////////////////////////////
-	v[1] += gravity;
+	
 
 	nowInput = inputs[inputs.size() - 1];
 	//left

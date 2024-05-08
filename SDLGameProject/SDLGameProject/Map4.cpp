@@ -69,6 +69,7 @@ public:
 		
 		liquidWalls = { };
 		liquidAisles = { };
+		climbWalls = {};
 	}
 
 

@@ -17,10 +17,13 @@ void Dog::Update(
 	std::vector<Button>& buttons,
 	SDL_Texture* blindTexture,
 	std::vector<LiquidWall>& liquidWalls,
-	std::vector<SDL_Rect>& liquidAisle
+	std::vector<SDL_Rect>& liquidAisle,
+	std::vector<ClimbWall>& climbWalls
 )
 {
-	Pet::Update(timestep_s,walls,buttons,blindTexture,liquidWalls,liquidAisle);
+
+	v[1] += gravity;
+	Pet::Update(timestep_s,walls,buttons,blindTexture,liquidWalls,liquidAisle,climbWalls);
 
 	//SNIFF////////////////////////////////////////////////////////////
 	if (blindOpacity_ != -1)

@@ -170,6 +170,7 @@
   <ItemGroup>
     <ClInclude Include="Button.h" />
     <ClInclude Include="Cat.h" />
+    <ClInclude Include="ClimbWall.cpp" />
     <ClInclude Include="Dog.h" />
     <ClInclude Include="Game.h" />
     <ClInclude Include="GameEnding.h" />

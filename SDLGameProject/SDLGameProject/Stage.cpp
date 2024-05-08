@@ -67,6 +67,15 @@ StageInterface::StageInterface()
 	blindRect = { 0,0,269,269 };
 
 
+	//climb_Wall
+	SDL_Surface* surface_cwall = IMG_Load("../Resources/ending.png");
+	cwallTexture = SDL_CreateTextureFromSurface(g_renderer, surface_cwall);
+	SDL_FreeSurface(surface_cwall);
+	cwallRect = { 0,0,1017,1017};
+
+
+
+
 	mouse_win_x_ = 0;
 	mouse_win_y_ = 0;
 
@@ -100,8 +109,8 @@ void StageInterface::Update()
 		isFirst = false;
 	}
 
-	dog->Update(g_timestep_s, walls,buttons,blindTexture,liquidWalls, liquidAisles);
-	cat->Update(g_timestep_s, walls,buttons,blindTexture,liquidWalls, liquidAisles);
+	dog->Update(g_timestep_s, walls,buttons,blindTexture,liquidWalls, liquidAisles,climbWalls);
+	cat->Update(g_timestep_s, walls,buttons,blindTexture,liquidWalls, liquidAisles,climbWalls);
 
 	for (int i = 0; i < buttons.size(); i++) 
 	{
@@ -175,6 +184,12 @@ void StageInterface::Render()
 	{
 		SDL_RenderCopy(g_renderer, blindTexture, &blindRect, &bln);
 
+	}
+
+	//climbWall
+	for (ClimbWall wall : climbWalls)
+	{
+		SDL_RenderCopy(g_renderer, cwallTexture, &cwallRect, &wall.wall_pos);
 	}
 
 	SDL_RenderPresent(g_renderer); // draw to the screen

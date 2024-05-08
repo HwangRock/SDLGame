@@ -11,6 +11,7 @@
 #include "Dog.h"
 #include "Cat.h"
 #include "LiquidWall.h"
+#include "ClimbWall.cpp"
 
 #include "SDL_ttf.h"
 #include "SDL_mixer.h"
@@ -30,6 +31,7 @@ extern std::vector<Button> buttons;
 extern std::vector<SDL_Rect> blinds;
 extern std::vector<LiquidWall>liquidWalls;
 extern std::vector<SDL_Rect>liquidAisles;
+extern std::vector<ClimbWall>climbWalls;
 extern int chapterNum;
 extern int win_w, win_h;     
 
@@ -56,6 +58,8 @@ private:
 	SDL_Texture* wallTexture;
 	SDL_Texture* buttonTexture;
 	SDL_Texture* blindTexture;
+	SDL_Texture* cwallTexture;
+	SDL_Rect cwallRect; 
 	SDL_Rect wallRect;
 	SDL_Rect buttonRect;
 	SDL_Rect blindRect;
