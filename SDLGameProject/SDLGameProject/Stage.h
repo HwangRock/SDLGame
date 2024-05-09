@@ -14,7 +14,7 @@
 #include "math.h"
 
 #include "Dog.h"
-#include "Cat.h"
+#include "Cat.h" 
 #include "Pet.h"
 
 #include "Terrain.h"
@@ -24,7 +24,7 @@
 
 #include "Game.h"
 
-
+ 
 extern std::vector<Terrain> walls;
 extern std::vector<Button> buttons;
 extern std::vector<SDL_Rect> blinds;
@@ -51,7 +51,7 @@ public:
 	
 	void NextChapter();
 
-private:
+private:  
 	//Sprite
 	SDL_Rect dogRect;
 	SDL_Rect catRect;

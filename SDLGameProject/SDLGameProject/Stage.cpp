@@ -132,7 +132,11 @@ void StageInterface::Update()
 	if (cat->isInGoal == true && dog->isInGoal == true)
 	{
 		//if all of them reach the goal, go to next chapter
-		NextChapter();
+		isFirst = true;
+		dog->Reset();
+		cat->Reset();
+		g_current_game_phase = PHASE_CLEAR;
+
 	}
 
 	//Button Press////////////////////////////////////////////
@@ -279,6 +283,14 @@ void StageInterface::HandleEvents()
 
 
 		case SDL_KEYDOWN:
+			if (event.key.keysym.sym == SDLK_g)
+			{
+				//Game Over 테스트용. 임의로 g키를 누르면 바로 gameOver된다.
+				isFirst = true;
+				dog->Reset();
+				cat->Reset();
+				g_current_game_phase = PHASE_OVER;
+			}
 			break;
 
 

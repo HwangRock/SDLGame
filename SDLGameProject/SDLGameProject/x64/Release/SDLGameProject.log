@@ -1,1 +1,14 @@
-﻿  SDLGameProject.vcxproj -> C:\Users\yunji\SDLGame\SDLGame\SDLGameProject\x64\Release\SDLGameProject.exe
+﻿  GameClear.cpp
+  GameOver.cpp
+  Main.cpp
+  Map2.cpp
+  Map3.cpp
+  Map4.cpp
+  Stage.cpp
+  Map1.cpp
+  코드를 생성하고 있습니다.
+  3 of 551 functions ( 0.5%) were compiled, the rest were copied from previous compilation.
+    0 functions were new in current compilation
+    0 functions had inline decision re-evaluated but remain unchanged
+  코드를 생성했습니다.
+  SDLGameProject.vcxproj -> C:\Users\yunji\SDLGame\SDLGame\SDLGameProject\x64\Release\SDLGameProject.exe

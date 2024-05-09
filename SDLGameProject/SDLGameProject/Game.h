@@ -13,6 +13,8 @@ const int PHASE_STAGE2 = 2;
 const int PHASE_STAGE3 = 3;
 const int PHASE_STAGE4 = 4;
 const int PHASE_ENDING = 5;
+const int PHASE_OVER = 6;
+const int PHASE_CLEAR = 7;
 
 void InitGame();
 void ClearGame();
@@ -22,6 +24,7 @@ extern bool g_flag_running;
 extern SDL_Renderer* g_renderer;
 extern SDL_Window* g_window;
 
+extern int chapterNum;
 
 
 class PhaseInterface

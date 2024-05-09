@@ -153,7 +153,6 @@
     <ClCompile Include="GameESC.cpp" />
     <ClCompile Include="GameIntro.cpp" />
     <ClCompile Include="GameManual.cpp" />
-    <ClCompile Include="GameFinish.cpp" />
     <ClCompile Include="GameOver.cpp" />
     <ClCompile Include="LiquidWall.cpp" />
     <ClCompile Include="Map2.cpp" />

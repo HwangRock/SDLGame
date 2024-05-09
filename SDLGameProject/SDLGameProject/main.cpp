@@ -1,12 +1,19 @@
 
 #include "Game.h"
+#include "Stage.h"
+
 #include "GameIntro.h"
 #include "GameEnding.h"
-#include "Stage.h"
+#include "GameOver.cpp"
+#include "GameClear.cpp"
+#include "GameManual.cpp"
+
+
 #include "Map1.cpp"
 #include "Map2.cpp"
 #include "Map3.cpp"
 #include "Map4.cpp"
+
 
 
 /////////////////////////////////////////////////
@@ -60,13 +67,15 @@ int main(int argc, char* argv[])
 
 	InitGame(); 
 
-	PhaseInterface* game_phases[6];
+	PhaseInterface* game_phases[8];
 	game_phases[0] = new Intro;
 	game_phases[1] = new Map1;
 	game_phases[2] = new Map2;
 	game_phases[3] = new Map3;
 	game_phases[4] = new Map4;
 	game_phases[5] = new Ending;
+	game_phases[6] = new Over;
+	game_phases[7] = new Clear;
 
 	g_current_game_phase = PHASE_INTRO;
 
