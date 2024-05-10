@@ -16,32 +16,47 @@ public:
 	virtual void SetVar()
 	{
 		//Terrain
-		Terrain* floor1 = new Terrain(0, 100, 400, 25);
-		Terrain* floor2 = new Terrain(700, 150, 100, 25);
-		Terrain* floor3 = new Terrain(150, 300, 1000 - 100, 25);
-		Terrain* floor4 = new Terrain(0, 350, 60, 25);
-		Terrain* floor5 = new Terrain(0, 400, 100, 25);
-		Terrain* floor6 = new Terrain(250, 450, 150, 25);
-		Terrain* floor7 = new Terrain(350, 350, 350, 80);
-		Terrain* floor8 = new Terrain(800, 450, 100, 25);
-		Terrain* floor9 = new Terrain(600, 500, 1000 - 600, 25);
-		Terrain* floor10 = new Terrain(0, 500, 150, 25);
-		Terrain* floor11 = new Terrain(300, 550, 100, 25);
+		Terrain* floor1 = new Terrain(280, 670, 50, 30);
+		Terrain* floor2 = new Terrain(163, 615, 45, 90);
+		Terrain* floor3 = new Terrain(20, 540, 125, 20);
+		Terrain* floor4 = new Terrain(20, 450, 85, 22);
 
-		Terrain* wall1 = new Terrain(100, 700 - 50, 50, 50);
-		Terrain* wall2 = new Terrain(200, 700 - 100, 50, 100);
+		Terrain* floor5 = new Terrain(253, 520, 415, 20);
+		Terrain* floor6 = new Terrain(250, 400, 170, 15);
+		Terrain* floor7 = new Terrain(827, 417, 445, 15);
+		Terrain* floor8 = new Terrain(843, 264, 445, 14);
 
-		Terrain* default1 = new Terrain(0, 680, 1000, 20);
-		Terrain* default2 = new Terrain(0, 0, 1000, 20);
-		Terrain* default3 = new Terrain(0, 0, 20, 700);
-		Terrain* default4 = new Terrain(980, 0, 20, 700);
+		Terrain* floor9 = new Terrain(178, 208, 210, 70);
+		Terrain* floor10 = new Terrain(20, 370, 40, 15);
+		Terrain* extra1 = new Terrain(150, 300, 40, 15);
+		Terrain* extra2 = new Terrain(20, 250, 40, 15);
+		Terrain* floor11 = new Terrain(468, 230, 35, 35);
+		Terrain* floor12 = new Terrain(617, 230, 100, 35);
+
+		Terrain* floor13 = new Terrain(825, 230, 70, 35);
+		Terrain* floor14 = new Terrain(1032, 230, 80, 35);
+		Terrain* floor15 = new Terrain(1068, 93, 95, 20);
+		Terrain* floor16 = new Terrain(25, 100, 765, 20);
+
+		Terrain* default1 = new Terrain(0, 700, 1280, 20); //가로 아래
+		Terrain* default2 = new Terrain(0, 0, 1280, 20); //가로 위
+		Terrain* default3 = new Terrain(0, 0, 20, 720); //왼쪽 세로
+		Terrain* default4 = new Terrain(1260, 0, 20, 720); //오른쪽 세로
+
+		Terrain* climb1 = new Terrain(827, 417, 20, 70);
+		Terrain* climb2 = new Terrain(1260, 0, 15, 280);
+
+		Terrain* liquid1 = new Terrain(388, 320, 450, 20);
+		Terrain* liquid2 = new Terrain(388, 258, 455, 20);
 
 		walls =
 		{
-			*floor1,*floor2,*floor3,*floor4,*floor5,*floor6,*floor7,*floor8,*floor9,*floor10,*floor11,
-			*wall1,*wall2,
-			*default1,*default2,*default3,*default4
+			*floor1,*floor2,*floor3,*floor4,*floor5,*floor6,*floor7,*floor8,*floor9,
+			*floor10,*floor11,*floor12,*floor13,*floor14,*floor15,*floor16,
+			*default1,*default2,*default3,*default4,
+			*climb1,*climb2, *liquid1,* liquid2, *extra1,* extra2
 		};
+
 
 
 		//Button
@@ -60,6 +75,3 @@ public:
 protected:
 
 };
-
-
-
