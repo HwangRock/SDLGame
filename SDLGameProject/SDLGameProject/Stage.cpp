@@ -287,7 +287,7 @@ void StageInterface::HandleEvents()
 			{
 				//Game Over 테스트용. 임의로 g키를 누르면 바로 gameOver된다.
 				isFirst = true;
-				dog->Reset();
+				dog->Reset(); 
 				cat->Reset();
 				g_current_game_phase = PHASE_OVER;
 			}
