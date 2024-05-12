@@ -1,5 +1,5 @@
 #include "Cat.h"
-
+#include "Stage.h"
 
 void Cat::Reset()
 {
@@ -8,16 +8,7 @@ void Cat::Reset()
 	isClimbWall = false;
 }
 
-void Cat::Update(
-	double timestep_s,
-	std::vector<Terrain>& walls,
-	std::vector<Button>& buttons,
-	SDL_Texture* blindTexture,
-	std::vector<LiquidWall>& liquidWalls,
-	std::vector<SDL_Rect>& liquidAisle,
-	std::vector<ClimbWall>& climbWalls,
-	SDL_Rect goal
-)
+void Cat::Update(double timestep_s)
 {
 
 	//CLIMB WALL//////////////////////////////
@@ -42,7 +33,7 @@ void Cat::Update(
 
 
 	//UPDATE///////////////////////////////////////////////////
-	Pet::Update(timestep_s, walls, buttons, blindTexture, liquidWalls, liquidAisle,climbWalls,goal);
+	Pet::Update(timestep_s);
 	
 
 

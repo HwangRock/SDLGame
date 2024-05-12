@@ -18,16 +18,7 @@ public:
 
 
 	void Reset();
-	void Update(
-		double timestep_s,
-		std::vector<Terrain>& walls,
-		std::vector<Button>& buttons,
-		SDL_Texture* blindTexture,
-		std::vector<LiquidWall>& liquidWalls,
-		std::vector<SDL_Rect>& liquidAisle,
-		std::vector<ClimbWall>& climbWalls,
-		SDL_Rect goal
-	);
+	void Update( double timestep_s	);
 	void HandleEvent(SDL_Event event);
 
 protected:

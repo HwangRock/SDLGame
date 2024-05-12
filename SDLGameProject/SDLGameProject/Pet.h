@@ -22,17 +22,7 @@ public:
 	Pet(double x, double y);
 
 	void Reset();
-	virtual void Update
-	(
-		double timestep_s,
-		std::vector<Terrain>& walls, 
-		std::vector<Button>& buttons, 
-		SDL_Texture* blindTexture, 
-		std::vector<LiquidWall>& liquidWalls,
-		std::vector<SDL_Rect>&liquidAisle,
-		std::vector<ClimbWall>& climbWalls,
-		SDL_Rect goal
-	);
+	virtual void Update( double timestep_s	);
 
 	void HandleEvent(SDL_Event event);
 

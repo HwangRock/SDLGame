@@ -2,7 +2,7 @@
 #include "SDL_image.h"
 #include <math.h>
 #include <iostream>
-
+#include "Stage.h"
 
 Pet::Pet(double x, double y)
 {
@@ -42,16 +42,7 @@ Pet::Reset()
 
 
 void
-Pet::Update(
-	double timestep_s, 
-	std::vector<Terrain>& walls,
-	std::vector<Button>&buttons,
-	SDL_Texture *blindTexture,
-	std::vector<LiquidWall>&liquidWalls,
-	std::vector<SDL_Rect>& liquidAisle,
-	std::vector<ClimbWall>& climbWalls,
-	SDL_Rect goal
-)
+Pet::Update(double timestep_s)
 {
 	double dt = timestep_s;	// seconds
 
@@ -164,15 +155,16 @@ void Pet::BlockMoving(SDL_Rect obst)
 		if (pos.y + pos.h <= obst.y + obst.h / 2)
 		{
 			// 벽 위에 있음
-			pos.y = std::min(obst.y - pos.h,pos.y);
+			pos.y = obst.y - pos.h;
+			//pos.y = std::min(obst.y - pos.h,pos.y);
 			v[1] = 0;
 			jumping = false;
 		}
 		else
 		{
 			// 벽 아래에 있음
-			//pos.y = obst.y + obst.h;
-			pos.y = std::max(obst.y + obst.h, pos.y);
+			pos.y = obst.y + obst.h;
+			//pos.y = std::max(obst.y + obst.h, pos.y);
 			v[1] = 0;
 		}
 	}

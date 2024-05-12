@@ -124,8 +124,8 @@ void StageInterface::Update()
 		isFirst = false;
 	}
 
-	dog->Update(g_timestep_s, walls,buttons,blindTexture,liquidWalls, liquidAisles,climbWalls,goal);
-	cat->Update(g_timestep_s, walls,buttons,blindTexture,liquidWalls, liquidAisles,climbWalls, goal);
+	dog->Update(g_timestep_s);
+	cat->Update(g_timestep_s);
 
 
 	//Reach the Goal//////////////////////////////////////////

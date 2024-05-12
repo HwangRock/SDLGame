@@ -16,7 +16,7 @@
 #include "Dog.h"
 #include "Cat.h" 
 #include "Pet.h"
-
+ 
 #include "Terrain.h"
 #include "Button.h"
 #include "LiquidWall.h"
@@ -35,6 +35,8 @@ extern SDL_Rect goal;
 extern SDL_Rect start;
 extern int chapterNum;
 extern int win_w, win_h;     
+extern 	SDL_Texture* blindTexture;
+
 
 class StageInterface : public PhaseInterface
 {
@@ -60,7 +62,7 @@ private:
 	SDL_Texture* liquidCatTexture;
 	SDL_Texture* wallTexture;
 	SDL_Texture* buttonTexture;
-	SDL_Texture* blindTexture;
+
 	SDL_Texture* cwallTexture;
 	SDL_Texture* goalTexture;
 	SDL_Rect goalRect;

@@ -1,5 +1,5 @@
 #include "Dog.h"
-
+#include "Stage.h"
 
 
 void Dog::Reset()
@@ -11,20 +11,11 @@ void Dog::Reset()
 	blindOpacity_ = -1;
 }
 
-void Dog::Update(
-	double timestep_s,
-	std::vector<Terrain>& walls,
-	std::vector<Button>& buttons,
-	SDL_Texture* blindTexture,
-	std::vector<LiquidWall>& liquidWalls,
-	std::vector<SDL_Rect>& liquidAisle,
-	std::vector<ClimbWall>& climbWalls,
-	SDL_Rect goal
-)
+void Dog::Update(double timestep_s)
 {
 
 	v[1] += gravity;
-	Pet::Update(timestep_s,walls,buttons,blindTexture,liquidWalls,liquidAisle,climbWalls,goal);
+	Pet::Update(timestep_s);
 
 	//SNIFF////////////////////////////////////////////////////////////
 	if (blindOpacity_ != -1)
@@ -61,11 +52,11 @@ void Dog::Update(
 			BlockMoving(liquidWalls[j].pos_);
 		}
 	}
-	for (int j = 0; j < liquidAisle.size(); j++)
+	for (int j = 0; j < liquidAisles.size(); j++)
 	{
-		if (SDL_HasIntersection(&pos, &liquidAisle[j]))
+		if (SDL_HasIntersection(&pos, &liquidAisles[j]))
 		{
-			BlockMoving(liquidAisle[j]);
+			BlockMoving(liquidAisles[j]);
 		}
 	}
 	
