@@ -40,7 +40,7 @@ extern 	SDL_Texture* blindTexture;
 
 class StageInterface : public PhaseInterface
 {
-public:
+public: 
 	StageInterface();
 	~StageInterface();
 

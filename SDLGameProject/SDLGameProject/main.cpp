@@ -40,7 +40,7 @@ std::vector<SDL_Rect> blinds = {};
 std::vector<LiquidWall>liquidWalls = {};
 std::vector<SDL_Rect>liquidAisles = {};
 std::vector<ClimbWall>climbWalls = {};
-SDL_Texture* blindTexture;
+SDL_Texture* blindTexture; 
 SDL_Rect goal;
 SDL_Rect start;
 int chapterNum;

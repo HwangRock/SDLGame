@@ -16,52 +16,58 @@ public:
 	virtual void SetVar()
 	{
 		//Terrain
-		Terrain* floorUp1 = new Terrain(150, 200, 50, 25);
-		Terrain* floorUp2 = new Terrain(400, 200, 800, 25);
-		Terrain* floorDown = new Terrain(0, 500, 600, 25);
+		Terrain* floor1 = new Terrain(200, 175, 50, 25);
+		Terrain* floor2 = new Terrain(450, 125, 25, 75);
+		Terrain* floor3 = new Terrain(450, 175, win_w - 450, 25);
+		Terrain* floor4 = new Terrain(750, 100, 200, 25);
+		Terrain* floor5 = new Terrain(0, 425, 850, 25);
+		Terrain* floor6 = new Terrain(550, 575, 300, 25);
 
-		Terrain* Wall = new Terrain(400 - 25, 150, 25, 50);
-		Terrain* Scaffolding2 = new Terrain(600, 100, 100, 25);
-		Terrain* Scaffolding3 = new Terrain(500, 600, 100, 25);
 
-		Terrain* default1 = new Terrain(0, 680, 1000, 20);
-		Terrain* default2 = new Terrain(0, 0, 1000, 20);
-		Terrain* default3 = new Terrain(0, 0, 20, 700);
-		Terrain* default4 = new Terrain(980, 0, 20, 700);
+
+
+		Terrain* default1 = new Terrain(0, 0, 30, win_h);
+		Terrain* default2 = new Terrain(0, 0, win_w, 30);
+		Terrain* default3 = new Terrain(win_w - 30, 0, 30, win_h);
+		Terrain* default4 = new Terrain(0, win_h - 30, win_w, 30);
 
 		walls =
 		{
-			*floorUp1,*floorUp2,*floorDown,*Wall,
-			*Scaffolding2,*Scaffolding3,
+			*floor1,*floor2,*floor3,*floor4,*floor5,*floor6,
 			*default1,*default2,*default3,*default4,
 		};
 
 
 		//Button
-		Button* btn1 = new Button(2, 2,
-			{ {500, 480,20,20},{900,650,20,20} },
-			{ { 700,600,150,25 },{100,400,150,25} },
-			{ { 700, 500,150,25 },{100,300,150,25} },
-			{ { 700, 600,150, 25 },{100,400,150,25} });
-		buttons = { *btn1 };
+		Button* btn1 = new Button(2, 1,
+			{ {650, 375,20,20},{1170,660,20,20} },
+			{ { 950,600,200,25 } },
+			{ { 950, 475,200,25 }},
+			{ { 950,600,200,25 } });
+		Button* btn2 = new Button(1, 1,
+			{ {400, 150,20,20} },
+			{ { 50,400,150,25 } },
+			{ { 50, 175,150,25 } },
+			{ { 50, 400,150, 25 } });
+		buttons = { *btn1,*btn2 };
 
 
 		SDL_Rect blind1 = { 100,650,30,30 };
 		SDL_Rect blind2 = { 200,650,30,30 };
 		blinds = { blind1,blind2 };
 
-		LiquidWall* lwall1 = new LiquidWall({ 200,150,200,25 }, "down");
-		LiquidWall* lwall2 = new LiquidWall({ 200,200,200,25 }, "up");
+		LiquidWall* lwall1 = new LiquidWall({ 250,125,200,25 }, "down");
+		LiquidWall* lwall2 = new LiquidWall({ 250,175,200,25 }, "up");
 		liquidWalls = { *lwall1,*lwall2 };
 
-		SDL_Rect laisle1 = { 200,175,200,30 };
+		SDL_Rect laisle1 = { 250,150,200,30 };
 		liquidAisles = { laisle1 };
 		
 
-		ClimbWall* cwall = new ClimbWall({ 25,100,30,400 });
+		ClimbWall* cwall = new ClimbWall({ 0,0,50,450 });
 		climbWalls = {*cwall};
 
-		goal = { 800,50,50,100 };
+		goal = { 1100,100,50,100 };
 		start={50,600,50,80};
 	}
 protected:

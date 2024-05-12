@@ -122,7 +122,7 @@ void StageInterface::Update()
 		SetVar();
 		Reset();
 		isFirst = false;
-	}
+	} 
 
 	dog->Update(g_timestep_s);
 	cat->Update(g_timestep_s);
