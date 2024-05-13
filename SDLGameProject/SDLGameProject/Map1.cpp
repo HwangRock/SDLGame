@@ -40,7 +40,7 @@ public:
 
 		//Button
 		Button* btn1 = new Button(2, 1,
-			{ {650, 375,20,20},{300,660,20,20} },
+			{ {650, 375,20,20},{1150,660,20,20} },
 			{ { 950, 600,200,25 } },
 			{ { 950, 470,200,25 } },
 			{ { 950, 600,200,25 } });
@@ -52,9 +52,12 @@ public:
 		buttons = { *btn1,*btn2 };
 
 
-		SDL_Rect blind1 = { 100,650,30,30 };
-		SDL_Rect blind2 = { 200,650,30,30 };
-		blinds = { blind1,blind2 };
+		SDL_Rect blind1 = { 750, 80, 200, 30 };
+		SDL_Rect blind2 = { 750 ,170,200,30 };
+		SDL_Rect blind3 = { 550, 570, 300, 25 };
+		SDL_Rect blind4 = { 550, 650, 300, 25 };
+
+		blinds = { blind1,blind2,blind3,blind4 };
 
 		LiquidWall* lwall1 = new LiquidWall({ 250,125,200,25 }, "down");
 		LiquidWall* lwall2 = new LiquidWall({ 250,175,200,25 }, "up");

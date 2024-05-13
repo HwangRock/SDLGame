@@ -44,7 +44,7 @@ Button::Update()
 	//아직 제약이 많음. 무조건 위로 올라갔다 내려오는거, 두개의 발판 동시에 움직이는 경우에는 발판이 이동하는 거리가 똑같아야함
 	if (isPressed == true)
 	{
-		if (Distance(scaffold_[0], endPos[0]) >= 2)
+		if (Distance(scaffold_[0], endPos[0]) >= 5)
 		{
 			std::cout << "move to end!!" << "\n";
 

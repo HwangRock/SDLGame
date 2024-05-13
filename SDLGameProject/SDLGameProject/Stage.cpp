@@ -79,6 +79,12 @@ StageInterface::StageInterface()
 	SDL_FreeSurface(surface_goal);
 	goalRect = { 0,0,1017,1017 };
 
+	//etc
+	SDL_Surface* surface_sca = IMG_Load("../Resources/intro.png");
+	scaffoldTexture= SDL_CreateTextureFromSurface(g_renderer, surface_sca);
+	SDL_FreeSurface(surface_sca);
+	scaffoldRect = { 0,0,100,100 };
+
 	////////////////////////////////////////////////////////////////////////////////////////
 
 	mouse_win_x_ = 0;
@@ -148,10 +154,10 @@ void StageInterface::Update()
 				buttons[i].Update();
 				break;
 			}
-			else
+			else 
 			{
 				//std::cout << "no press=" << i << "\n";
-				//not pressing button
+				//not pressing button 
 				buttons[i].SetPress(false);
 				buttons[i].Update();
 			}
@@ -195,7 +201,7 @@ void StageInterface::Render()
 		for (int i = 0; i < btn.scaffold_.size(); i++)
 		{
 			//Button connected scaffolds
-			SDL_RenderCopy(g_renderer, wallTexture, &wallRect, &btn.scaffold_[i]);
+			SDL_RenderCopy(g_renderer, scaffoldTexture, &scaffoldRect, &btn.scaffold_[i]);
 		}
 		
 	}

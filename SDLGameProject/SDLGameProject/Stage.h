@@ -37,7 +37,7 @@ extern int chapterNum;
 extern int win_w, win_h;     
 extern 	SDL_Texture* blindTexture;
 
-
+ 
 class StageInterface : public PhaseInterface
 {
 public: 
@@ -65,6 +65,9 @@ private:
 
 	SDL_Texture* cwallTexture;
 	SDL_Texture* goalTexture;
+	SDL_Texture* scaffoldTexture;
+
+	SDL_Rect scaffoldRect;   
 	SDL_Rect goalRect;
 	SDL_Rect cwallRect;   
 	SDL_Rect wallRect;
@@ -73,16 +76,16 @@ private:
 
 	//Pets
 	//Pet* dog = new Pet(700, 100, true);
-	//Pet* cat = new Pet(600, 100, false);
-	Dog* dog = new Dog(700, 100);
+	//Pet* cat = new Pet(600, 1 00, false);
+	Dog* dog = new Dog(700, 100); 
 	Cat* cat = new Cat(600, 100);
 
 	// Mouse   
-	int mouse_win_x_;
+	int mouse_win_x_; 
 	int mouse_win_y_;
 
 
-
+	 
 	// gravity
 	float gravity = 0.098f;
 

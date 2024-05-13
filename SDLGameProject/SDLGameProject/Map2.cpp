@@ -60,17 +60,28 @@ public:
 
 
 		//Button
-		buttons = { };
+		Button* btn1 = new Button(1, 1,
+			{ {win_w-50, 400,20,20} },
+			{ { 100, 450,25,80 } },
+			{ { 100, 350,25,80 } },
+			{ { 100, 450,25,80 } });
+		Button* btn2 = new Button(1, 1,
+			{ { 1100, 50,20,20 } },
+			{ { 1000, 100,100,25 } },
+			{ { 1000, 50,100,25 } },
+			{ { 1000, 100,100,25 } });
+		buttons = { *btn1,*btn2 };
 
+		//Blind
 		blinds = { };
 
 		liquidWalls = {  };
-
 		liquidAisles = { };
+
 		climbWalls = {};
 
-		goal = { 800,50,50,100 };
-		start={50,600,50,80};
+		goal = {50,50,70,70 };
+		start={1200,650,50,80};
 	}
 protected:
 

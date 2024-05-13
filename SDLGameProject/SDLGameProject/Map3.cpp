@@ -45,19 +45,37 @@ public:
 
 
 		//Button
-
-		buttons = { };
+		Button* btnA = new Button(1, 1, 
+			{ {150,175,25,25} }, 
+			{ { 1000,350,25,50 }}, 
+			{ { 1000,300,25,50 }}, 
+			{ {1000,350,25,50} });
+		Button* btnB = new Button(1, 2,
+			{ {1200,550,25,25} },
+			{ {450,575,25,75},{1100,575,25,75} },
+			{ {450,500,25,75},{1100,500,25,75} },
+			{ {450,575,25,75},{1100,575,25,75} }
+			);
+		Button* btnC = new Button(1,1,
+			{ {600,675,25,25} },
+			{ {100,550,200,25} },
+			{ {100,500,200,25} },
+			{ {100,500,200,25} }
+		);
+		buttons = { *btnA,*btnB,*btnC};
 
 		//Hidden_강아지 스킬로 걷어낼 수 있는 숨겨진 지역, Blind로 표시하신 것 같아서 일단 Blind로 나두었습니다!
-		//SDL_Rect blind1 = { 10 * standard,7 * standard,3 * standard,2 * standard };
-		//SDL_Rect blind2 = { 16 * standard,9 * standard,3 * standard,2 * standard };
-		blinds = { };
+		SDL_Rect blind1 = { 400,50,100,100 };
+		SDL_Rect blind2 = { 650,100,100,100 };
+
+		blinds = { blind1,blind2};
 
 
 		liquidWalls = { };
 		liquidAisles = { };
 
 		start = { 100,50,50,50 };
+		goal = { 50,520,50,50 };
 
 	}
 protected:
