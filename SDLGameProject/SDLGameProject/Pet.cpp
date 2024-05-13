@@ -74,12 +74,10 @@ Pet::Update(double timestep_s)
 	}
 	
 
-
-
 	//PRESS BUTTON/////////////////////////////////////////////////////////////
 	for (int i = 0; i < buttons.size(); i++)
 	{
-		
+
 		for (int j = 0; j < buttons[i].scaffold_.size(); j++)
 		{
 			if (SDL_HasIntersection(&pos, &buttons[i].scaffold_[j]))
@@ -87,24 +85,26 @@ Pet::Update(double timestep_s)
 				BlockMoving(buttons[i].scaffold_[j]);
 			}
 		}
-		
 
-		for (int j = 0; j < buttons[i].buttonPos.size(); j++)
+		/*
+		for (int j = 0; j < buttons[i].buttonNum; j++)
 		{
 			if (SDL_HasIntersection(&pos, &buttons[i].buttonPos[j]))
 			{
 				//Pressing button
-				std::cout << "press\n";
 				isPressing = i;
 				break;
 			}
 			else
 			{
-				//Not pressing button
-				isPressing = -1;
+				//if (isPressing == i) 
+				//{ isPressing = -1; }
 			}
 		}
+		*/
 	}
+
+	
 
 	//GOAL//////////////////////////////////
 	if (SDL_HasIntersection(&pos, &goal))
@@ -155,7 +155,8 @@ void Pet::BlockMoving(SDL_Rect obst)
 		if (pos.y + pos.h <= obst.y + obst.h / 2)
 		{
 			// 벽 위에 있음
-			pos.y = obst.y - pos.h;
+			//pos.y = obst.y - pos.h;
+			pos.y = obst.y - pos.h < pos.y ? obst.y - pos.h : pos.y;
 			//pos.y = std::min(obst.y - pos.h,pos.y);
 			v[1] = 0;
 			jumping = false;
@@ -163,7 +164,8 @@ void Pet::BlockMoving(SDL_Rect obst)
 		else
 		{
 			// 벽 아래에 있음
-			pos.y = obst.y + obst.h;
+			//pos.y = obst.y + obst.h;
+			pos.y = obst.y + obst.h > pos.y ? obst.y + obst.h : pos.y;
 			//pos.y = std::max(obst.y + obst.h, pos.y);
 			v[1] = 0;
 		}

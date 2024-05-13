@@ -66,7 +66,7 @@ private:
 	SDL_Texture* cwallTexture;
 	SDL_Texture* goalTexture;
 	SDL_Rect goalRect;
-	SDL_Rect cwallRect; 
+	SDL_Rect cwallRect;   
 	SDL_Rect wallRect;
 	SDL_Rect buttonRect;
 	SDL_Rect blindRect;
@@ -77,7 +77,7 @@ private:
 	Dog* dog = new Dog(700, 100);
 	Cat* cat = new Cat(600, 100);
 
-	// Mouse
+	// Mouse   
 	int mouse_win_x_;
 	int mouse_win_y_;
 

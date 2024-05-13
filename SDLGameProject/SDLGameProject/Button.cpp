@@ -16,6 +16,8 @@ Button::Button
 	startPos = startP;
 	endPos = endP;
 	scaffold_= scaffold;
+	buttonNum_ = buttonNum;
+	scaffoldNum_ = scaffoldNum;
 
 	Reset();
 }
@@ -42,7 +44,7 @@ Button::Update()
 	//아직 제약이 많음. 무조건 위로 올라갔다 내려오는거, 두개의 발판 동시에 움직이는 경우에는 발판이 이동하는 거리가 똑같아야함
 	if (isPressed == true)
 	{
-		if (Distance(scaffold_[0], endPos[0]) >= 1)
+		if (Distance(scaffold_[0], endPos[0]) >= 2)
 		{
 			std::cout << "move to end!!" << "\n";
 
@@ -62,7 +64,7 @@ Button::Update()
 	{
 		if (Distance(scaffold_[0], startPos[0]) >= 1)
 		{
-			std::cout << "move to start!" << "\n";
+			//std::cout << "move to start!" << "\n";
 			if (wait != 3) { wait++; }
 			else 
 			{ 

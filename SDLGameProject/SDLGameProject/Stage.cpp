@@ -28,7 +28,7 @@ StageInterface::StageInterface()
 
 
 
-	//Drawing Texture//////////////////////////////
+	//Drawing Texture//////////////////////////////////////////////////////////////////
 	//Dog
 	SDL_Surface* g_surface_dog = IMG_Load("../Resources/dog_.png");
 	dogTexture = SDL_CreateTextureFromSurface(g_renderer, g_surface_dog);
@@ -79,7 +79,7 @@ StageInterface::StageInterface()
 	SDL_FreeSurface(surface_goal);
 	goalRect = { 0,0,1017,1017 };
 
-
+	////////////////////////////////////////////////////////////////////////////////////////
 
 	mouse_win_x_ = 0;
 	mouse_win_y_ = 0;
@@ -95,14 +95,6 @@ StageInterface::~StageInterface()
 
 void StageInterface:: SetVar() 
 {
-	//Set variables
-	/*
-	walls = setGame->SetTerrains();
-	buttons = setGame->SetButtons();
-	blinds = setGame->SetBlinds();
-	liquidWalls = setGame->SetLiquidWalls();
-	liquidAisles = setGame->SetLiquidAisles();
-	*/
 
 }
 void StageInterface::Reset()
@@ -139,20 +131,34 @@ void StageInterface::Update()
 
 	}
 
-	//Button Press////////////////////////////////////////////
-	for (int i = 0; i < buttons.size(); i++) 
+
+	//PRESS BUTTON/////////////////////////////////////////////////////////////
+	for (int i = 0; i < buttons.size(); i++)
 	{
-		if(dog->isPressing!=i&&cat->isPressing!=i)
+		for (int j = 0; j < buttons[i].buttonPos.size(); j++)
 		{
-			buttons[i].SetPress(false);
-			buttons[i].Update();
-		}
-		else
-		{
-			buttons[i].SetPress(true);
-			buttons[i].Update();
+			if (
+				SDL_HasIntersection(&dog->pos, &buttons[i].buttonPos[j])||
+				SDL_HasIntersection(&cat->pos, &buttons[i].buttonPos[j])
+				)
+			{
+				//std::cout <<"press=" << i << "\n";
+				//Pressing button
+				buttons[i].SetPress(true);
+				buttons[i].Update();
+				break;
+			}
+			else
+			{
+				//std::cout << "no press=" << i << "\n";
+				//not pressing button
+				buttons[i].SetPress(false);
+				buttons[i].Update();
+			}
 		}
 	}
+
+
 	
 }
 

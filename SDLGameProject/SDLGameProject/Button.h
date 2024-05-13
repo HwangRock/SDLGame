@@ -10,6 +10,8 @@ public:
 	bool isPressed;
 	int wait;
 	std::vector<SDL_Rect> buttonPos;
+	int buttonNum_;
+	int scaffoldNum_;
 
 	Button
 	(
