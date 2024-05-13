@@ -54,8 +54,7 @@ Button::Update()
 			{ 
 				for (int i = 0; i < scaffold_.size(); i++)
 				{
-					Move(scaffold_[i], endPos[0], scaffold_[i]);
-					//scaffold_[i].y -= 2;
+					Move(scaffold_[i], endPos[i], scaffold_[i]);
 				}
 				wait = 0; 
 			}
@@ -71,8 +70,7 @@ Button::Update()
 			{ 
 				for (int i = 0; i < scaffold_.size(); i++)
 				{
-					Move(scaffold_[i], startPos[0], scaffold_[i]);
-					//scaffold_[i].y += 2;
+					Move(scaffold_[i], startPos[i], scaffold_[i]);
 				}
 				wait = 0; 
 			}
@@ -91,28 +89,7 @@ double Button::Distance(SDL_Rect& rect1, SDL_Rect& rect2)
 	return distance;
 }
 
-/*
-void Button::Move(SDL_Rect& from, SDL_Rect& to)
-{
-	// 현재 위치에서 목표 위치까지의 벡터
-	double dx = to.x - from.x;
-	double dy = to.y - from.y;
 
-	// 벡터의 크기 계산
-	double distance = Distance(from,to);
-
-	// 이동 거리 계산
-	double moveDistance = moveSpeed_ * distance;
-
-	// 이동 방향 단위 벡터 계산
-	double unitX = dx / distance;
-	double unitY = dy / distance;
-
-	// 새로운 위치 계산
-	scaffold_.x = from.x + static_cast<int>(moveDistance * unitX);
-	scaffold_.y = from.y + static_cast<int>(moveDistance * unitY);
-}
-*/
 void Button::Move(SDL_Rect& start, SDL_Rect& end, SDL_Rect& obj)
 {
 	//vector
