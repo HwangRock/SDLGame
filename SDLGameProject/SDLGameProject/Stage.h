@@ -41,7 +41,7 @@ extern 	SDL_Texture* blindTexture;
 class StageInterface : public PhaseInterface
 {
 public: 
-	StageInterface();
+	StageInterface();  
 	~StageInterface();
 
 	virtual void SetVar();
@@ -67,11 +67,11 @@ private:
 	SDL_Texture* goalTexture;
 	SDL_Texture* scaffoldTexture;
 
-	SDL_Rect scaffoldRect;   
+	SDL_Rect scaffoldRect;     
 	SDL_Rect goalRect;
 	SDL_Rect cwallRect;   
 	SDL_Rect wallRect;
-	SDL_Rect buttonRect;
+	SDL_Rect buttonRect; 
 	SDL_Rect blindRect;
 
 	//Pets

@@ -54,7 +54,8 @@ Button::Update()
 			{ 
 				for (int i = 0; i < scaffold_.size(); i++)
 				{
-					scaffold_[i].y -= 2;
+					Move(scaffold_[i], endPos[0], scaffold_[i]);
+					//scaffold_[i].y -= 2;
 				}
 				wait = 0; 
 			}
@@ -70,7 +71,8 @@ Button::Update()
 			{ 
 				for (int i = 0; i < scaffold_.size(); i++)
 				{
-					scaffold_[i].y += 2;
+					Move(scaffold_[i], startPos[0], scaffold_[i]);
+					//scaffold_[i].y += 2;
 				}
 				wait = 0; 
 			}
@@ -111,6 +113,19 @@ void Button::Move(SDL_Rect& from, SDL_Rect& to)
 	scaffold_.y = from.y + static_cast<int>(moveDistance * unitY);
 }
 */
+void Button::Move(SDL_Rect& start, SDL_Rect& end, SDL_Rect& obj)
+{
+	//vector
+	double v_x = end.x - start.x;
+	double v_y = end.y - start.y;
+
+	double distance = Distance(start, end);
+
+
+	obj.x += v_x / distance;
+	obj.y += v_y / distance;
+
+}
 
 
 void Button::SetPress(bool b)
