@@ -25,8 +25,9 @@ Uint32 g_last_time_ms;
 
 // Game Phases
 int g_current_game_phase;
+int g_pre_game_phase;
 
-// ÃÊ´ÜÀ§ timestep (1/60ÃÊ). Frame time°ú ½Ã¹Ä·¹ÀÌ¼ÇÀÇ timestepÀ¸·Î »ç¿ëµÈ´Ù.
+// ì´ˆë‹¨ìœ„ timestep (1/60ì´ˆ). Frame timeê³¼ ì‹œë®¬ë ˆì´ì…˜ì˜ timestepìœ¼ë¡œ ì‚¬ìš©ëœë‹¤.
 float g_timestep_s = 1.0f / 60.0f;
 
 
@@ -77,15 +78,17 @@ int main(int argc, char* argv[])
 	game_phases[5] = new Ending;
 	game_phases[6] = new Over;
 	game_phases[7] = new Clear;
-
+	game_phases[8] = new ESC;
+	game_phases[9] = new Manual;
+	
 	g_current_game_phase = PHASE_INTRO;
-
+	g_pre_game_phase = PHASE_STAGE1;
 
 	//REPEAT//////////////////////////////////////////
 	while (g_flag_running)
 	{
 		Uint32 cur_time_ms = SDL_GetTicks();
-		if (cur_time_ms - g_last_time_ms < (1000 * g_timestep_s)) // ¹Ğ¸®¼¼ÅÏµå ´ÜÀ§·Î º¯È¯ÇÏ±â À§ÇØ 1000 °öÇÔ
+		if (cur_time_ms - g_last_time_ms < (1000 * g_timestep_s)) // ë°€ë¦¬ì„¸í„´ë“œ ë‹¨ìœ„ë¡œ ë³€í™˜í•˜ê¸° ìœ„í•´ 1000 ê³±í•¨
 			continue;
 
 		game_phases[g_current_game_phase]->HandleEvents();
