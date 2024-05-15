@@ -56,6 +56,7 @@ void Intro::HandleEvents()
 			// If the mouse left button is pressed. 
 			if (event.button.button == SDL_BUTTON_LEFT)
 			{
+				g_pre_game_phase = PHASE_STAGE1;
 				g_current_game_phase = PHASE_STAGE1;
 			}
 			break;
