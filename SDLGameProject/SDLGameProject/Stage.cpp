@@ -11,6 +11,7 @@
 
 
 extern int g_current_game_phase;
+extern int g_pre_game_phase;
 extern bool g_flag_running;
 extern SDL_Renderer* g_renderer;
 extern SDL_Window* g_window;
@@ -254,22 +255,22 @@ void StageInterface::NextChapter()
 	case 0:
 		chapterNum = 1;
 		g_current_game_phase = PHASE_STAGE2;
-
+		g_pre_game_phase = PHASE_STAGE2;
 		break;
 	case 1:
 		chapterNum = 2;
 		g_current_game_phase = PHASE_STAGE3;
-
+		g_pre_game_phase = PHASE_STAGE3;
 		break;
 	case 2:
 		chapterNum = 3;
 		g_current_game_phase = PHASE_STAGE4;
-
+		g_pre_game_phase = PHASE_STAGE4;
 		break;
 	case 3:
 		chapterNum = 0;
 		g_current_game_phase = PHASE_ENDING;
-
+		g_pre_game_phase = PHASE_STAGE1;
 		break;
 	default:
 		break;
@@ -297,14 +298,19 @@ void StageInterface::HandleEvents()
 		case SDL_KEYDOWN:
 			if (event.key.keysym.sym == SDLK_g)
 			{
-				//Game Over Å×½ºÆ®¿ë. ÀÓÀÇ·Î gÅ°¸¦ ´©¸£¸é ¹Ù·Î gameOverµÈ´Ù.
+				//Game Over í…ŒìŠ¤íŠ¸ìš©. ìž„ì˜ë¡œ gí‚¤ë¥¼ ëˆ„ë¥´ë©´ ë°”ë¡œ gameOverëœë‹¤.
 				isFirst = true;
 				dog->Reset(); 
 				cat->Reset();
 				g_current_game_phase = PHASE_OVER;
 			}
 			break;
-
+			
+			else if (event.key.keysym.sym == SDLK_ESCAPE)
+			{
+				g_current_game_phase = PHASE_ESC;
+			}
+			break;
 
 		case SDL_KEYUP:
 			break;
