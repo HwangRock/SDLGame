@@ -15,11 +15,14 @@ const int PHASE_STAGE4 = 4;
 const int PHASE_ENDING = 5;
 const int PHASE_OVER = 6;
 const int PHASE_CLEAR = 7;
+const int PHASE_ESC = 8;
+const int PHASE_MANUAL = 9;
 
 void InitGame();
 void ClearGame();
 
 extern int g_current_game_phase;
+extern int g_pre_game_phase;
 extern bool g_flag_running;
 extern SDL_Renderer* g_renderer;
 extern SDL_Window* g_window;
