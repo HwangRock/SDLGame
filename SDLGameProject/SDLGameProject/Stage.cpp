@@ -9,7 +9,6 @@
 #include "SDL_image.h"
 
 
-
 extern int g_current_game_phase;
 extern int g_pre_game_phase;
 extern bool g_flag_running;
@@ -31,60 +30,77 @@ StageInterface::StageInterface()
 
 	//Drawing Texture//////////////////////////////////////////////////////////////////
 	//Dog
-	SDL_Surface* g_surface_dog = IMG_Load("../Resources/dog_.png");
+	SDL_Surface* g_surface_dog = IMG_Load("../../Resources/dog_.png");
 	dogTexture = SDL_CreateTextureFromSurface(g_renderer, g_surface_dog);
 	SDL_FreeSurface(g_surface_dog);
 	dogRect = { 0,0,141,141 };
 
 	//Cat
-	SDL_Surface* g_surface_cat = IMG_Load("../Resources/cat_.png");
+	SDL_Surface* g_surface_cat = IMG_Load("../../Resources/cat_.png");
 	catTexture = SDL_CreateTextureFromSurface(g_renderer, g_surface_cat);
 	SDL_FreeSurface(g_surface_cat);
 	catRect = { 0,0,90,90 };
 
 	//Liquid Cat
-	SDL_Surface* g_surface_liquidCat = IMG_Load("../Resources/liquidCat.png");
+	SDL_Surface* g_surface_liquidCat = IMG_Load("../../Resources/liquidCat.png");
 	liquidCatTexture = SDL_CreateTextureFromSurface(g_renderer, g_surface_liquidCat);
 	SDL_FreeSurface(g_surface_liquidCat);
 
 
 	//Wall
-	SDL_Surface* surface_wall = IMG_Load("../Resources/sky.jpg");
+	SDL_Surface* surface_wall = IMG_Load("../../Resources/sky.jpg");
 	wallTexture = SDL_CreateTextureFromSurface(g_renderer, surface_wall);
 	SDL_FreeSurface(surface_wall);
 	wallRect = { 0,0,680,808 };
 
 	//Button
-	SDL_Surface* surface_button = IMG_Load("../Resources/ball.png");
+	SDL_Surface* surface_button = IMG_Load("../../Resources/ball.png");
 	buttonTexture = SDL_CreateTextureFromSurface(g_renderer, surface_button);
 	SDL_FreeSurface(surface_button);
 	buttonRect = { 0,0,61,31 };
 	
 	//Blind
-	SDL_Surface* surface_blind = IMG_Load("../Resources/star.png");
+	SDL_Surface* surface_blind = IMG_Load("../../Resources/star.png");
 	SDL_SetSurfaceBlendMode(surface_blind, SDL_BLENDMODE_BLEND);
 	blindTexture= SDL_CreateTextureFromSurface(g_renderer, surface_blind);
 	SDL_FreeSurface(surface_blind);
 	blindRect = { 0,0,269,269 };
 
-
 	//Climb Wall
-	SDL_Surface* surface_cwall = IMG_Load("../Resources/ending.png");
+	SDL_Surface* surface_cwall = IMG_Load("../../Resources/ending.png");
 	cwallTexture = SDL_CreateTextureFromSurface(g_renderer, surface_cwall);
 	SDL_FreeSurface(surface_cwall);
 	cwallRect = { 0,0,1017,1017};
 
 	//Goal
-	SDL_Surface* surface_goal = IMG_Load("../Resources/ending.png");
+	SDL_Surface* surface_goal = IMG_Load("../../Resources/ending.png");
 	goalTexture = SDL_CreateTextureFromSurface(g_renderer, surface_goal);
 	SDL_FreeSurface(surface_goal);
 	goalRect = { 0,0,1017,1017 };
 
 	//etc
-	SDL_Surface* surface_sca = IMG_Load("../Resources/intro.png");
+	SDL_Surface* surface_sca = IMG_Load("../../Resources/intro.png");
 	scaffoldTexture= SDL_CreateTextureFromSurface(g_renderer, surface_sca);
 	SDL_FreeSurface(surface_sca);
 	scaffoldRect = { 0,0,100,100 };
+
+	//water
+	SDL_Surface* surface_water = IMG_Load("../../Resources/water.png");
+	waterTexture = SDL_CreateTextureFromSurface(g_renderer, surface_water);
+	SDL_FreeSurface(surface_water);
+	waterRect = { 0,0,300,50 };
+
+	//milk
+	SDL_Surface* surface_milk = IMG_Load("../../Resources/milk.png");
+	milkTexture = SDL_CreateTextureFromSurface(g_renderer, surface_milk);
+	SDL_FreeSurface(surface_milk);
+	milkRect = { 0,0,300,50 };
+
+	//choco
+	SDL_Surface* surface_choco = IMG_Load("../../Resources/choco.png");
+	chocoTexture = SDL_CreateTextureFromSurface(g_renderer, surface_choco);
+	SDL_FreeSurface(surface_choco);
+	chocoRect = { 0,0,300,50 };
 
 	////////////////////////////////////////////////////////////////////////////////////////
 
@@ -237,8 +253,21 @@ void StageInterface::Render()
 	{
 		SDL_RenderCopy(g_renderer, cwallTexture, &cwallRect, &wall.wall_pos);
 	}
-
-	
+	//water
+	for (Water water : water)
+	{
+		SDL_RenderCopy(g_renderer, waterTexture, &waterRect, &water.water_pos);
+	}
+	//milk
+	for (Milk milk : milk)
+	{
+		SDL_RenderCopy(g_renderer, milkTexture, &milkRect, &milk.milk_pos);
+	}
+	//water
+	for (Choco choco : choco)
+	{
+		SDL_RenderCopy(g_renderer, chocoTexture, &chocoRect, &choco.choco_pos);
+	}
 
 
 	SDL_RenderPresent(g_renderer); // draw to the screen
@@ -298,7 +327,7 @@ void StageInterface::HandleEvents()
 		case SDL_KEYDOWN:
 			if (event.key.keysym.sym == SDLK_g)
 			{
-				//Game Over 테스트용. 임의로 g키를 누르면 바로 gameOver된다.
+				//game over test
 				isFirst = true;
 				dog->Reset(); 
 				cat->Reset();
