@@ -26,6 +26,8 @@
 #include "Choco.cpp"
 #include "Milk.cpp"
 
+#include "Key.cpp"
+
 #include "Game.h"
 
  
@@ -40,7 +42,10 @@ extern std::vector<Water>water;
 extern std::vector<Milk>milk;
 extern std::vector<Choco>choco;
 
-extern SDL_Rect goal;
+extern std::vector<Key>keys;
+
+extern std::vector<SDL_Rect> goal;
+
 extern SDL_Rect start; 
 extern int chapterNum;
 extern int win_w, win_h;     
@@ -90,6 +95,13 @@ private:
 	SDL_Rect milkRect;
 	SDL_Rect chocoRect;
 
+
+	SDL_Texture* keyTexture;
+	SDL_Texture* lockTexture;
+	SDL_Rect keyRect;
+	SDL_Rect lockRect;
+	  
+	  
 	//Pets
 	//Pet* dog = new Pet(700, 100, true);
 	//Pet* cat = new Pet(600, 1 00, false);

@@ -72,6 +72,9 @@
     <ClCompile Include="GameOver.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
+    <ClCompile Include="Key.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Pet.h">

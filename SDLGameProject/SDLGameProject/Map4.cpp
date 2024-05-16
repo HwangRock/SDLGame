@@ -85,8 +85,8 @@ public:
 		liquidWalls = { };
 		liquidAisles = { };
 		climbWalls = {};
-
-		goal = { 800,50,50,80 };
+		keys = {};
+		goal = { {800,50,50,80} };
 		start={300,300,50,80};
 	}
 

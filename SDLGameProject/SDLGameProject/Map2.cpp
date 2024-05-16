@@ -80,7 +80,11 @@ public:
 
 		climbWalls = {};
 
-		goal = {50,50,70,70 };
+		Key* key = new Key({200,450,25,25}, {600,600,30,30});
+		keys = {*key};
+		//keys = {};
+
+		goal = { {50,50,70,70} };
 		start={1200,650,50,80};
 	}
 protected:

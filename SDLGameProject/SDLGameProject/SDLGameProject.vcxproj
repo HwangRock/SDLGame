@@ -154,6 +154,7 @@
     <ClCompile Include="GameIntro.cpp" />
     <ClCompile Include="GameManual.cpp" />
     <ClCompile Include="GameOver.cpp" />
+    <ClCompile Include="Key.cpp" />
     <ClCompile Include="LiquidWall.cpp" />
     <ClCompile Include="Map2.cpp" />
     <ClCompile Include="Map3.cpp" />

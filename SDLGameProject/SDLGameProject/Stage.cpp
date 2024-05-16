@@ -102,6 +102,19 @@ StageInterface::StageInterface()
 	SDL_FreeSurface(surface_choco);
 	chocoRect = { 0,0,300,50 };
 
+
+	//Key
+	SDL_Surface* surface_key = IMG_Load("../Resources/star.png");
+	keyTexture = SDL_CreateTextureFromSurface(g_renderer, surface_key);
+	SDL_FreeSurface(surface_key);
+	keyRect = { 0,0,269,269 };
+
+	//lock
+	SDL_Surface* surface_lock = IMG_Load("../Resources/ball.png");
+	lockTexture = SDL_CreateTextureFromSurface(g_renderer, surface_lock);
+	SDL_FreeSurface(surface_lock);
+	lockRect = { 0,0,61,61 };
+
 	////////////////////////////////////////////////////////////////////////////////////////
 
 	mouse_win_x_ = 0;
@@ -224,9 +237,24 @@ void StageInterface::Render()
 	}
 
 	//Goal,Start
-	SDL_RenderCopy(g_renderer, goalTexture, &goalRect, &goal);
+	for (SDL_Rect g : goal)
+	{
+		SDL_RenderCopy(g_renderer, goalTexture, &goalRect, &g);
+	}
 	SDL_RenderCopy(g_renderer, goalTexture, &goalRect, &start);
 
+	//Key and Lock
+	for (Key key : keys)
+	{
+		if (key.isLocked == true)
+		{
+			SDL_RenderCopy(g_renderer, lockTexture, &lockRect, &key.lockPos);
+		}
+		if (key.isCollected == false)
+		{
+			SDL_RenderCopy(g_renderer, keyTexture, &keyRect, &key.keyPos);
+		}
+	}
 
 	//Dog and Cat
 	if (cat->isLiquid == true)

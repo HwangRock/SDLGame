@@ -44,7 +44,8 @@ void Dog::Update(double timestep_s)
 
 
 	//LIQUID////////////////////////////////////////////////////////////
-	//same with normal walls
+	//same with normal 
+
 	for (int j = 0; j < liquidWalls.size(); j++)
 	{
 		if (SDL_HasIntersection(&pos, &liquidWalls[j].pos_))
@@ -60,7 +61,24 @@ void Dog::Update(double timestep_s)
 		}
 	}
 	
-
+	//GOAL//////////////////////////////////
+	if (goal.size() == 1)
+	{
+		if (SDL_HasIntersection(&pos, &goal[0]))
+		{
+			isInGoal = true;
+		}
+		else { isInGoal = false; }
+	}
+	else
+	{
+		if (SDL_HasIntersection(&pos, &goal[0]))
+		{
+			isInGoal = true;
+		}
+		else { isInGoal = false; }
+	}
+	
 
 
 

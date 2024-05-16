@@ -3,6 +3,7 @@
 #include "Stage.h"
 #include "Terrain.h"
 #include "Button.h"
+#include "Key.cpp"
 #include <vector>
 
 class Map3 : public StageInterface
@@ -73,9 +74,11 @@ public:
 
 		liquidWalls = { };
 		liquidAisles = { };
+		
+		keys = {};
 
 		start = { 100,50,50,50 };
-		goal = { 50,520,50,50 };
+		goal = { {50,520,50,50},{50,650,50,50} };
 
 	}
 protected:

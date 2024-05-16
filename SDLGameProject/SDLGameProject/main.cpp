@@ -46,8 +46,12 @@ std::vector<Water>water= {};
 std::vector<Milk>milk = {};
 std::vector<Choco>choco = {};
 
+//Item
+std::vector<Key>keys = {};
+
 SDL_Texture* blindTexture; 
-SDL_Rect goal;
+
+std::vector <SDL_Rect> goal = {};//1개면 공통 문, 2개면 개.고양이 문
 SDL_Rect start;
 int chapterNum;
 int win_w, win_h;

@@ -72,9 +72,9 @@ public:
 		//choco
 
 		//milk
+		keys = {};
 
-
-		goal = { 1100,100,50,100 };
+		goal = { {1100,100,50,100} };
 		start={50,600,50,80};
 	}
 protected:

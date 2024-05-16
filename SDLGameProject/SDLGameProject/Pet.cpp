@@ -103,14 +103,22 @@ Pet::Update(double timestep_s)
 		*/
 	}
 
+	//KEY///////////////////////////////////
+	for (int i = 0; i < keys.size(); i++)
+	{
+		if (SDL_HasIntersection(&pos, &keys[i].keyPos))
+		{
+			keys[i].isCollected = true;
+		}
+		if (SDL_HasIntersection(&pos, &keys[i].lockPos))
+		{
+			if (keys[i].isCollected == true) { keys[i].isLocked = false; }
+			else if (keys[i].isLocked == true) { BlockMoving(keys[i].lockPos); }
+		}
+	}
 	
 
-	//GOAL//////////////////////////////////
-	if (SDL_HasIntersection(&pos, &goal))
-	{
-		isInGoal = true;
-	}
-	else { isInGoal = false; }
+	
 	
 
 
@@ -140,14 +148,14 @@ void Pet::BlockMoving(SDL_Rect obst)
 		{
 			//pos.x = min(pos.x, obst.x - pos.w);
 			pos.x = obst.x - pos.w;
-			jumping = true;
+			//jumping = true;
 		}
 		//벽 오른쪽에 있음
 		else if (pos.x + pos.w > obst.x)
 		{
 			//pos.x = max(pos.x, obst.x + obst.w);
 			pos.x = obst.x + obst.w;
-			jumping = true;
+			//jumping = true;
 		}
 
 	}
@@ -169,7 +177,7 @@ void Pet::BlockMoving(SDL_Rect obst)
 			pos.y = obst.y + obst.h > pos.y ? obst.y + obst.h : pos.y;
 			//pos.y = std::max(obst.y + obst.h, pos.y);
 			v[1] = 0;
-			jumping = true;
+			//jumping = true;
 		}
 	}
 }

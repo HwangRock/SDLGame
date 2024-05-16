@@ -64,6 +64,24 @@ void Cat::Update(double timestep_s)
 
 	}
 
+	//GOAL//////////////////////////////////
+	if (goal.size() == 1)
+	{
+		if (SDL_HasIntersection(&pos, &goal[0]))
+		{
+			isInGoal = true;
+		}
+		else { isInGoal = false; }
+	}
+	else
+	{
+		if (SDL_HasIntersection(&pos, &goal[1]))
+		{
+			isInGoal = true;
+		}
+		else { isInGoal = false; }
+	}
+
 }
 
 void Cat::HandleEvent(SDL_Event event)
