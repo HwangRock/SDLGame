@@ -41,6 +41,11 @@ std::vector<SDL_Rect> blinds = {};
 std::vector<LiquidWall>liquidWalls = {};
 std::vector<SDL_Rect>liquidAisles = {};
 std::vector<ClimbWall>climbWalls = {};
+//liquid
+std::vector<Water>water= {};
+std::vector<Milk>milk = {};
+std::vector<Choco>choco = {};
+
 SDL_Texture* blindTexture; 
 SDL_Rect goal;
 SDL_Rect start;
