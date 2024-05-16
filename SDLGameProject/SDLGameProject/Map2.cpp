@@ -38,10 +38,10 @@ public:
 		Terrain* floor15 = new Terrain(1068, 93, 95, 20);
 		Terrain* floor16 = new Terrain(25, 100, 765, 20);
 
-		Terrain* default1 = new Terrain(0, 700, 1280, 20); //가로 아래
-		Terrain* default2 = new Terrain(0, 0, 1280, 20); //가로 위
-		Terrain* default3 = new Terrain(0, 0, 20, 720); //왼쪽 세로
-		Terrain* default4 = new Terrain(1260, 0, 20, 720); //오른쪽 세로
+		Terrain* default1 = new Terrain(0, 700, 1280, 20); 
+		Terrain* default2 = new Terrain(0, 0, 1280, 20); 
+		Terrain* default3 = new Terrain(0, 0, 20, 720); 
+		Terrain* default4 = new Terrain(1260, 0, 20, 720);
 
 		Terrain* climb1 = new Terrain(827, 417, 20, 70);
 		Terrain* climb2 = new Terrain(1260, 0, 15, 280);
