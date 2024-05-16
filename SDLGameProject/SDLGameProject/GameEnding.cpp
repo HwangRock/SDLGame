@@ -58,6 +58,7 @@ void Ending::HandleEvents()
 			if (event.button.button == SDL_BUTTON_LEFT)
 			{
 				g_current_game_phase = PHASE_INTRO;
+				g_pre_game_phase = PHASE_STAGE1;
 			}
 			break;
 
