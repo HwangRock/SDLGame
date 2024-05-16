@@ -7,7 +7,7 @@
 #include "GameOver.cpp"
 #include "GameClear.cpp"
 #include "GameManual.cpp"
-
+#include "GameESC.cpp"
 
 #include "Map1.cpp"
 #include "Map2.cpp"
