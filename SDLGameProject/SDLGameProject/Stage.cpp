@@ -304,7 +304,6 @@ void StageInterface::HandleEvents()
 				cat->Reset();
 				g_current_game_phase = PHASE_OVER;
 			}
-			break;
 			
 			else if (event.key.keysym.sym == SDLK_ESCAPE)
 			{
