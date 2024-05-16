@@ -6,6 +6,10 @@
 #include "LiquidWall.h"
 #include "ClimbWall.cpp"
 
+#include "Water.cpp"
+#include "Milk.cpp"
+#include "Choco.cpp"
+
 #include "SDL.h"
 
 
