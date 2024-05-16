@@ -24,7 +24,7 @@ public:
 		Terrain* floor7 = new Terrain(400, 350, win_w - 400, 25);
 		Terrain* floor8 = new Terrain(950, 375, win_w - 950, 50);
 		Terrain* floor9 = new Terrain(0, 475, 800, 25);
-		Terrain* floor10 = new Terrain(950, 475, 200, 25);
+		Terrain* floor10 = new Terrain(950, 500, 200, 25);
 		Terrain* floor11 = new Terrain(0, 575, 450, 50);
 		Terrain* floor12 = new Terrain(450, 575, 150, 75);
 		Terrain* floor13 = new Terrain(675, 575, win_w - 675, win_h - 575);

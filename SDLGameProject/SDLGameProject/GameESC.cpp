@@ -5,7 +5,7 @@
 
 ESC::ESC()
 {
-	SDL_Surface* temp_surface = IMG_Load("../../Resources/esc_window.png");
+	SDL_Surface* temp_surface = IMG_Load("../Resources/esc_window.png");
 	texture_ = SDL_CreateTextureFromSurface(g_renderer, temp_surface);
 	SDL_FreeSurface(temp_surface);
 

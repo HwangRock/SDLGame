@@ -41,7 +41,7 @@ extern std::vector<Milk>milk;
 extern std::vector<Choco>choco;
 
 extern SDL_Rect goal;
-extern SDL_Rect start;
+extern SDL_Rect start; 
 extern int chapterNum;
 extern int win_w, win_h;     
 extern 	SDL_Texture* blindTexture;

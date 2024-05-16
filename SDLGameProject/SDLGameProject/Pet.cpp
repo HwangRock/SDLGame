@@ -60,19 +60,17 @@ Pet::Update(double timestep_s)
 
 
 
-
 	//MOVING LIMIT//////////////////////////////////////////////////
 	// 벽 감지
-	for (const Terrain& wall : walls)
+	for (int i = 0; i < walls.size(); i++)
 	{
-		if (SDL_HasIntersection(&pos, &wall.pos))
+		if (SDL_HasIntersection(&pos, &walls[i].pos))
 		{
 			//주의) 벽의 height가 너무 작으면 제대로 작동하지 않을 것 같습니다..
-			BlockMoving(wall.pos);
-			
+			BlockMoving(walls[i].pos);
+			break;
 		}
 	}
-	
 
 	//PRESS BUTTON/////////////////////////////////////////////////////////////
 	for (int i = 0; i < buttons.size(); i++)
@@ -83,6 +81,7 @@ Pet::Update(double timestep_s)
 			if (SDL_HasIntersection(&pos, &buttons[i].scaffold_[j]))
 			{
 				BlockMoving(buttons[i].scaffold_[j]);
+				break;
 			}
 		}
 
@@ -141,12 +140,14 @@ void Pet::BlockMoving(SDL_Rect obst)
 		{
 			//pos.x = min(pos.x, obst.x - pos.w);
 			pos.x = obst.x - pos.w;
+			jumping = true;
 		}
 		//벽 오른쪽에 있음
 		else if (pos.x + pos.w > obst.x)
 		{
 			//pos.x = max(pos.x, obst.x + obst.w);
 			pos.x = obst.x + obst.w;
+			jumping = true;
 		}
 
 	}
@@ -168,6 +169,7 @@ void Pet::BlockMoving(SDL_Rect obst)
 			pos.y = obst.y + obst.h > pos.y ? obst.y + obst.h : pos.y;
 			//pos.y = std::max(obst.y + obst.h, pos.y);
 			v[1] = 0;
+			jumping = true;
 		}
 	}
 }

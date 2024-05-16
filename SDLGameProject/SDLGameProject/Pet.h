@@ -40,7 +40,7 @@ public:
 	double pos_x() const { return pos_[0]; }
 	double pos_y() const { return pos_[1]; }
 	double jumpSpeed() const { return jump_speed; }
-
+	void resetInputs() { inputs.clear(); inputs.push_back(0); }
 protected:
 
 	float jump_speed = -3.5f;
