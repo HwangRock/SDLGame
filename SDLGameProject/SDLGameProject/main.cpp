@@ -4,16 +4,16 @@
 
 #include "GameIntro.h"
 #include "GameEnding.h"
+#include "GameManual.h"
+#include "GameESC.h"
+
 #include "GameOver.cpp"
 #include "GameClear.cpp"
-#include "GameManual.cpp"
-#include "GameESC.cpp"
 
 #include "Map1.cpp"
 #include "Map2.cpp"
 #include "Map3.cpp"
 #include "Map4.cpp"
-
 
 
 /////////////////////////////////////////////////
