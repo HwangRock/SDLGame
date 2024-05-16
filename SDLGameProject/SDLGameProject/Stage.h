@@ -22,6 +22,10 @@
 #include "LiquidWall.h"
 #include "ClimbWall.cpp"
 
+#include "Water.cpp"
+#include "Choco.cpp"
+#include "Milk.cpp"
+
 #include "Game.h"
 
  
@@ -31,6 +35,11 @@ extern std::vector<SDL_Rect> blinds;
 extern std::vector<LiquidWall>liquidWalls;
 extern std::vector<SDL_Rect>liquidAisles;
 extern std::vector<ClimbWall>climbWalls;
+
+extern std::vector<Water>water;
+extern std::vector<Milk>milk;
+extern std::vector<Choco>choco;
+
 extern SDL_Rect goal;
 extern SDL_Rect start;
 extern int chapterNum;
@@ -66,6 +75,10 @@ private:
 	SDL_Texture* cwallTexture;
 	SDL_Texture* goalTexture;
 	SDL_Texture* scaffoldTexture;
+	
+	SDL_Texture* waterTexture;
+	SDL_Texture* milkTexture;
+	SDL_Texture* chocoTexture;
 
 	SDL_Rect scaffoldRect;     
 	SDL_Rect goalRect;
@@ -73,6 +86,9 @@ private:
 	SDL_Rect wallRect;
 	SDL_Rect buttonRect; 
 	SDL_Rect blindRect;
+	SDL_Rect waterRect;
+	SDL_Rect milkRect;
+	SDL_Rect chocoRect;
 
 	//Pets
 	//Pet* dog = new Pet(700, 100, true);
