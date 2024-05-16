@@ -23,9 +23,6 @@ public:
 		Terrain* floor5 = new Terrain(0, 425, 850, 25);
 		Terrain* floor6 = new Terrain(550, 575, 300, 25);
 
-
-
-
 		Terrain* default1 = new Terrain(0, 0, 30, win_h);
 		Terrain* default2 = new Terrain(0, 0, win_w, 30);
 		Terrain* default3 = new Terrain(win_w - 30, 0, 30, win_h);
@@ -51,13 +48,12 @@ public:
 			{ { 50, 400,150,25 } });
 		buttons = { *btn1,*btn2 };
 
+		
+		/*
+		SDL_Rect blind1 = { 550, 570, 300, 25 };
+		SDL_Rect blind2 = { 550, 650, 300, 25 };
 
-		SDL_Rect blind1 = { 750, 80, 200, 30 };
-		SDL_Rect blind2 = { 750 ,170,200,30 };
-		SDL_Rect blind3 = { 550, 570, 300, 25 };
-		SDL_Rect blind4 = { 550, 650, 300, 25 };
-
-		blinds = { blind1,blind2,blind3,blind4 };
+		blinds = { blind1,blind2 };  */ 
 
 		LiquidWall* lwall1 = new LiquidWall({ 250,125,200,25 }, "down");
 		LiquidWall* lwall2 = new LiquidWall({ 250,175,200,25 }, "up");
@@ -65,10 +61,18 @@ public:
 
 		SDL_Rect laisle1 = { 250,150,200,30 };
 		liquidAisles = { laisle1 };
-		
 
 		ClimbWall* cwall = new ClimbWall({ 0,0,50,450 });
 		climbWalls = {*cwall};
+
+		//water
+		//Water* water1 = new Water({ 550, 570, 300, 25 });
+		//water = { *water1 };
+
+		//choco
+
+		//milk
+
 
 		goal = { 1100,100,50,100 };
 		start={50,600,50,80};
