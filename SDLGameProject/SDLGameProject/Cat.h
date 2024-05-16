@@ -4,6 +4,11 @@
 #include "Button.h"
 #include "LiquidWall.h"
 #include "ClimbWall.cpp"
+
+#include "Choco.cpp"
+#include "Water.cpp"
+#include "Milk.cpp"
+
 #include "SDL.h"
 #include "Pet.h"
 
