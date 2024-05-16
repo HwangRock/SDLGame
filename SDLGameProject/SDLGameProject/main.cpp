@@ -69,7 +69,7 @@ int main(int argc, char* argv[])
 
 	InitGame(); 
 
-	PhaseInterface* game_phases[8];
+	PhaseInterface* game_phases[10];
 	game_phases[0] = new Intro;
 	game_phases[1] = new Map1;
 	game_phases[2] = new Map2;
@@ -102,7 +102,7 @@ int main(int argc, char* argv[])
 	//END////////////////////////////////////////////
 	
 
-	for (int i = 0; i < 6; i++)
+	for (int i = 0; i < 10; i++)
 	{
 		delete game_phases[i];
 	}
