@@ -4,6 +4,11 @@
 #include "Button.h"
 #include "LiquidWall.h"
 #include "ClimbWall.cpp"
+
+#include "Choco.cpp"
+#include "Water.cpp"
+#include "Milk.cpp"
+
 #include "SDL.h"
 #include "Pet.h"
 
@@ -24,7 +29,7 @@ public:
 protected:
 	// dog skill variables
 	bool beBlurry_;
-	bool isSkill_;//skill»ç¿ë°¡´É ¿©ºÎ, dog¸¸ »ç¿ë
-	int blindOpacity_;//0~255 Åõ¸íµµ Á¤µµ, -1ÀÌ¸é ³¿»õ ¾È¸Ã°í ÀÖ´ÂÁß
+	bool isSkill_;//skillì‚¬ìš©ê°€ëŠ¥ ì—¬ë¶€, dogë§Œ ì‚¬ìš©
+	int blindOpacity_;//0~255 íˆ¬ëª…ë„ ì •ë„, -1ì´ë©´ ëƒ„ìƒˆ ì•ˆë§¡ê³  ìˆëŠ”ì¤‘
 
 };
