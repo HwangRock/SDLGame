@@ -68,7 +68,7 @@ Pet::Update(double timestep_s)
 		{
 			//주의) 벽의 height가 너무 작으면 제대로 작동하지 않을 것 같습니다..
 			BlockMoving(walls[i].pos);
-			break;
+			//break;
 		}
 	}
 
@@ -81,7 +81,7 @@ Pet::Update(double timestep_s)
 			if (SDL_HasIntersection(&pos, &buttons[i].scaffold_[j]))
 			{
 				BlockMoving(buttons[i].scaffold_[j]);
-				break;
+				//break;
 			}
 		}
 
@@ -140,12 +140,13 @@ Pet::Update(double timestep_s)
 
 void Pet::BlockMoving(SDL_Rect obst)
 {
-	if (pos.y + pos.h > obst.y + 10 &&
-		pos.y < obst.y + obst.h - 10)
+	if (pos.y + pos.h > obst.y + 5 &&
+		pos.y < obst.y + obst.h - 5)
 	{
 		//벽왼쪽에 있음
 		if (pos.x < obst.x + obst.w / 2)
 		{
+			std::cout << "left\n";
 			//pos.x = min(pos.x, obst.x - pos.w);
 			pos.x = obst.x - pos.w;
 			//jumping = true;
@@ -153,6 +154,7 @@ void Pet::BlockMoving(SDL_Rect obst)
 		//벽 오른쪽에 있음
 		else if (pos.x + pos.w > obst.x)
 		{
+			std::cout << "right\n";
 			//pos.x = max(pos.x, obst.x + obst.w);
 			pos.x = obst.x + obst.w;
 			//jumping = true;
@@ -163,6 +165,7 @@ void Pet::BlockMoving(SDL_Rect obst)
 	{
 		if (pos.y + pos.h <= obst.y + obst.h / 2)
 		{
+			std::cout << "up\n";
 			// 벽 위에 있음
 			//pos.y = obst.y - pos.h;
 			pos.y = obst.y - pos.h < pos.y ? obst.y - pos.h : pos.y;
@@ -172,6 +175,7 @@ void Pet::BlockMoving(SDL_Rect obst)
 		}
 		else
 		{
+			std::cout << "down\n";
 			// 벽 아래에 있음
 			//pos.y = obst.y + obst.h;
 			pos.y = obst.y + obst.h > pos.y ? obst.y + obst.h : pos.y;

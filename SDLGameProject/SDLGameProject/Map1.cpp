@@ -62,7 +62,7 @@ public:
 		SDL_Rect laisle1 = { 250,150,200,30 };
 		liquidAisles = { laisle1 };
 
-		ClimbWall* cwall = new ClimbWall({ 0,0,50,450 });
+		ClimbWall* cwall = new ClimbWall({ 0, 0,50,450 });
 		climbWalls = {*cwall};
 
 		//water
