@@ -159,6 +159,8 @@
     <ClCompile Include="Map2.cpp" />
     <ClCompile Include="Map3.cpp" />
     <ClCompile Include="Map4.cpp" />
+    <ClCompile Include="ropeTest.cpp" />
+    <ClCompile Include="seesawTest.cpp" />
     <ClCompile Include="Stage.cpp" />
     <ClCompile Include="Main.cpp" />
     <ClCompile Include="Map1.cpp">

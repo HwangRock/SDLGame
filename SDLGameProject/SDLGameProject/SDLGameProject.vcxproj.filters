@@ -75,6 +75,12 @@
     <ClCompile Include="Key.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
+    <ClCompile Include="seesawTest.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="ropeTest.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Pet.h">
