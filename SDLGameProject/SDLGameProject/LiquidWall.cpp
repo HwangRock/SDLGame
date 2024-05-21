@@ -10,29 +10,29 @@ LiquidWall::LiquidWall(SDL_Rect pos, std::string dir)
 
 SDL_Rect LiquidWall::returnWall() 
 {
-
+	std::cout << dir_ << "\n";
 	SDL_Rect newWall;
 	if (dir_ == "up") 
 	{
 		newWall.x = pos_.x;
-		newWall.y = pos_.y + 15;
+		newWall.y = pos_.y + 20;
 		newWall.w = pos_.w;
-		newWall.h = pos_.h-15;
+		newWall.h = pos_.h-20;
 	}
 	else if (dir_ == "down") 
 	{
 		newWall.x = pos_.x;
 		newWall.y = pos_.y;
 		newWall.w = pos_.w;
-		newWall.h = pos_.h -15;
+		newWall.h = pos_.h -20;
 	
 	}
 	else if (dir_ == "left") 
 	{
 		//wall
-		newWall.x = pos_.x + 15;
+		newWall.x = pos_.x + 20;
 		newWall.y = pos_.y;
-		newWall.w = pos_.w-15;
+		newWall.w = pos_.w-20;
 		newWall.h = pos_.h;
 	}
 	else if (dir_ == "right") 
@@ -40,7 +40,7 @@ SDL_Rect LiquidWall::returnWall()
 		//wall
 		newWall.x = pos_.x;
 		newWall.y = pos_.y;
-		newWall.w = pos_.w-15;
+		newWall.w = pos_.w-20;
 		newWall.h = pos_.h;
 	
 	}

@@ -47,6 +47,7 @@ void Cat::Update(double timestep_s)
 	{
 		if (SDL_HasIntersection(&pos, &liquidWalls[j].pos_))
 		{
+			std::cout << "cat liquid\n";
 			isLiquid = true;
 
 			SDL_Rect newWall;

@@ -27,7 +27,7 @@ public:
 		Terrain* floor9 = new Terrain(0, 475, 800, 25);
 		Terrain* floor10 = new Terrain(950, 500, 200, 25);
 		Terrain* floor11 = new Terrain(0, 575, 450, 50);
-		Terrain* floor12 = new Terrain(450, 575, 150, 75);
+		Terrain* floor12 = new Terrain(450, 575, 120, 60);
 		Terrain* floor13 = new Terrain(675, 575, win_w - 675, win_h - 575);
 
 
@@ -71,13 +71,17 @@ public:
 
 		blinds = { blind1,blind2};
 
+		LiquidWall* lwallA = new LiquidWall({ 575,575,25,80 }, "right");
+		//LiquidWall* lwallB = new LiquidWall({ 650,575,25,win_h-575 }, "left");
+		LiquidWall* lwallC = new LiquidWall({ 450,640,150,25 }, "down");
 
-		liquidWalls = { };
+		liquidWalls = { *lwallA,*lwallC};
+		//liquidWalls = {};
 		liquidAisles = { };
 		
 		keys = {};
 
-		start = { 100,50,50,50 };
+		start = { 500,300,50,50 };
 		goal = { {50,520,50,50},{50,650,50,50} };
 
 	}

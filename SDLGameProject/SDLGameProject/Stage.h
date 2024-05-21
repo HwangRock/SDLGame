@@ -35,11 +35,11 @@ extern std::vector<Terrain> walls;
 extern std::vector<Button> buttons;
 extern std::vector<SDL_Rect> blinds;
 extern std::vector<LiquidWall>liquidWalls;
-extern std::vector<SDL_Rect>liquidAisles;
+extern std::vector<SDL_Rect>liquidAisles;         
 extern std::vector<ClimbWall>climbWalls;
 
 extern std::vector<Water>water;
-extern std::vector<Milk>milk;
+extern std::vector<Milk>milk;  
 extern std::vector<Choco>choco;
 
 extern std::vector<Key>keys;

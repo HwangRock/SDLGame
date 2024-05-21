@@ -43,7 +43,7 @@ public:
 	void resetInputs() { inputs.clear(); inputs.push_back(0); }
 protected:
 
-	float jump_speed = -2.0f;
+	float jump_speed = -3.5f;
 
 	
 	double size_;

@@ -89,7 +89,19 @@ double Button::Distance(SDL_Rect& rect1, SDL_Rect& rect2)
 	return distance;
 }
 
+float Button::getVelocityX() 
+{
+	/*bool blockingX = (boxVelX > 0 && x + PET_WIDTH > box.x) || (boxVelX < 0 && x < box.x + box.w); 
+bool blockingY = (boxVelY > 0 && y + PET_HEIGHT > box.y) || (boxVelY < 0 && y < box.y + box.h);*/
+	//(toX-x)/sqrt((toX-x)**2+(toY-y)**2)*BOX_SPEED;
 
+	return 0.1f;
+}
+float Button::getVelocityY() 
+{
+	//(toY-y)/sqrt((toX-x)**2+(toY-y)**2)*BOX_SPEED;
+	return 0.1f;
+}
 void Button::Move(SDL_Rect& start, SDL_Rect& end, SDL_Rect& obj)
 {
 	//vector
