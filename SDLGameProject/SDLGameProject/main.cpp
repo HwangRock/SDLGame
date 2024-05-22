@@ -85,7 +85,7 @@ int main(int argc, char* argv[])
 
 	InitGame(); 
 
-	PhaseInterface* game_phases[10];
+	PhaseInterface* game_phases[11];
 	game_phases[0] = new Intro;
 	game_phases[1] = new Map1;
 	game_phases[2] = new Map2;
