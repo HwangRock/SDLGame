@@ -31,12 +31,14 @@
 #include "Game.h"
 
  
-extern std::vector<Terrain> walls;
+extern std::vector<Terrain> walls, cannon, fish, bone; 
+extern std::vector<Box> boxs;   
 extern std::vector<Button> buttons;
 extern std::vector<SDL_Rect> blinds;
 extern std::vector<LiquidWall>liquidWalls;
 extern std::vector<SDL_Rect>liquidAisles;         
 extern std::vector<ClimbWall>climbWalls;
+extern std::vector<misile>mis; 
 
 extern std::vector<Water>water;
 extern std::vector<Milk>milk;  
@@ -51,6 +53,8 @@ extern int chapterNum;
 extern int win_w, win_h;
 extern 	SDL_Texture* blindTexture;
 
+extern int over;
+extern int score; 
  
 class StageInterface : public PhaseInterface
 {
@@ -80,6 +84,9 @@ private:
 	SDL_Texture* cwallTexture;
 	SDL_Texture* goalTexture;
 	SDL_Texture* scaffoldTexture;
+	SDL_Texture* boxTexture;
+
+	SDL_Texture* reTexture;
 	
 	SDL_Texture* waterTexture;
 	SDL_Texture* milkTexture;
@@ -94,6 +101,14 @@ private:
 	SDL_Rect waterRect;
 	SDL_Rect milkRect;
 	SDL_Rect chocoRect;
+	SDL_Rect boxRect;
+	SDL_Rect cannonRect; 
+	SDL_Rect reRect;     
+	SDL_Rect lcannonRect;
+	SDL_Rect misileRect;
+	SDL_Rect reRect_des;        
+	SDL_Rect fishRect;
+	SDL_Rect boneRect;  
 
 
 	SDL_Texture* keyTexture;
