@@ -29,6 +29,15 @@ void Cat::Update(double timestep_s)
 	}
 
 	if (isClimbWall == false) { v[1] += gravity; }
+
+	for (auto& f : fish) {
+		if (SDL_HasIntersection(&f.pos, &pos))
+		{
+		f.pos.x = -10000000000, f.pos.y = -10000000000000;
+		score += 10;
+		std::cout << "score : " << score << "\n";
+		}
+	}
 	
 
 
