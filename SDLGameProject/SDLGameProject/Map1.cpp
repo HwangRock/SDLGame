@@ -65,6 +65,13 @@ public:
 		ClimbWall* cwall = new ClimbWall({ 0, 0,50,450 });
 		climbWalls = {*cwall};
 
+		Box* box1 = new Box({ 400, 580, 90, 90 });
+		boxs = { *box1 };
+		cannon = { };
+		mis = {};
+		bone = {};
+		fish = {};
+		
 		//water
 		//Water* water1 = new Water({ 550, 570, 300, 25 });
 		//water = { *water1 };
