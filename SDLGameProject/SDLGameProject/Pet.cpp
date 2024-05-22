@@ -61,12 +61,12 @@ Pet::Update(double timestep_s)
 
 
 	//MOVING LIMIT//////////////////////////////////////////////////
-	// ∫Æ ∞®¡ˆ
+	// Î≤Ω Í∞êÏßÄ
 	for (int i = 0; i < walls.size(); i++)
 	{
 		if (SDL_HasIntersection(&pos, &walls[i].pos))
 		{
-			//¡÷¿«) ∫Æ¿« height∞° ≥ π´ ¿€¿∏∏È ¡¶¥Î∑Œ ¿€µø«œ¡ˆ æ ¿ª ∞Õ ∞∞Ω¿¥œ¥Ÿ..
+			//Ï£ºÏùò) Î≤ΩÏùò heightÍ∞Ä ÎÑàÎ¨¥ ÏûëÏúºÎ©¥ Ï†úÎåÄÎ°ú ÏûëÎèôÌïòÏßÄ ÏïäÏùÑ Í≤É Í∞ôÏäµÎãàÎã§..
 			BlockMoving(walls[i].pos);
 			//break;
 		}
@@ -123,7 +123,7 @@ Pet::Update(double timestep_s)
 
 
 	/*
-	// ∞°º”µµ
+	// Í∞ÄÏÜçÎèÑ
 	double a[2];
 	a[0] = 0;
 	a[1] = room_->gravitational_acc_y();// Gravity
@@ -132,7 +132,7 @@ Pet::Update(double timestep_s)
 	p_[0] = p_[0] + dt * v_[0];
 	p_[1] = p_[1] + dt * v_[1];
 
-	//º”µµ = ¿Ã¿¸º”µµ + Ω√∞£(dt) * ∞°º”µµ;
+	//ÏÜçÎèÑ = Ïù¥Ï†ÑÏÜçÎèÑ + ÏãúÍ∞Ñ(dt) * Í∞ÄÏÜçÎèÑ;
 	v_[0] = v_[0] + dt * a[0];
 	v_[1] = v_[1] + dt * a[1];
 	*/
@@ -143,7 +143,7 @@ void Pet::BlockMoving(SDL_Rect obst)
 	if (pos.y + pos.h >= obst.y + 7 &&
 		pos.y <= obst.y + obst.h - 7)
 	{
-		//∫Æøﬁ¬ ø° ¿÷¿Ω
+		//Î≤ΩÏôºÏ™ΩÏóê ÏûàÏùå
 		if (pos.x < obst.x + obst.w / 2)
 		{
 			//std::cout << "left\n";
@@ -151,7 +151,7 @@ void Pet::BlockMoving(SDL_Rect obst)
 			pos.x = obst.x - pos.w;
 			//jumping = true;
 		}
-		//∫Æ ø¿∏•¬ ø° ¿÷¿Ω
+		//Î≤Ω Ïò§Î•∏Ï™ΩÏóê ÏûàÏùå
 		else if (pos.x + pos.w > obst.x)
 		{
 			//std::cout << "right\n";
@@ -166,7 +166,7 @@ void Pet::BlockMoving(SDL_Rect obst)
 		if (pos.y + pos.h <= obst.y + obst.h / 2)
 		{
 			//std::cout << "up\n";
-			// ∫Æ ¿ßø° ¿÷¿Ω
+			// Î≤Ω ÏúÑÏóê ÏûàÏùå
 			//pos.y = obst.y - pos.h;
 			pos.y = obst.y - pos.h < pos.y ? obst.y - pos.h : pos.y;
 			//pos.y = std::min(obst.y - pos.h,pos.y);
@@ -176,12 +176,53 @@ void Pet::BlockMoving(SDL_Rect obst)
 		else
 		{
 			//std::cout << "down\n";
-			// ∫Æ æ∆∑°ø° ¿÷¿Ω
+			// Î≤Ω ÏïÑÎûòÏóê ÏûàÏùå
 			//pos.y = obst.y + obst.h;
 			pos.y = obst.y + obst.h > pos.y ? obst.y + obst.h : pos.y;
 			//pos.y = std::max(obst.y + obst.h, pos.y);
 			v[1] = 0;
 			//jumping = true;
+		}
+	}
+}
+
+void Pet::BMoving(SDL_Rect obst)
+{
+	if (pos.y + pos.h > obst.y + 10 &&
+		pos.y < obst.y + obst.h - 10)
+	{
+		//Î≤ΩÏôºÏ™ΩÏóê ÏûàÏùå
+		if (pos.x < obst.x + obst.w / 2)
+		{
+			//pos.x = min(pos.x, obst.x - pos.w);
+			pos.x = obst.x - pos.w;
+		}
+		//Î≤Ω Ïò§Î•∏Ï™ΩÏóê ÏûàÏùå
+		else if (pos.x + pos.w > obst.x)
+		{
+			//pos.x = max(pos.x, obst.x + obst.w);
+			pos.x = obst.x + obst.w;
+		}
+
+	}
+	else
+	{
+		if (pos.y + pos.h <= obst.y + obst.h / 2)
+		{
+			// Î≤Ω ÏúÑÏóê ÏûàÏùå
+			//pos.y = obst.y - pos.h;
+			pos.y = obst.y - pos.h < pos.y ? obst.y - pos.h : pos.y;
+			//pos.y = std::min(obst.y - pos.h,pos.y);
+			v[1] = 0;
+			jumping = false;
+		}
+		else
+		{
+			// Î≤Ω ÏïÑÎûòÏóê ÏûàÏùå
+			//pos.y = obst.y + obst.h;
+			pos.y = obst.y + obst.h > pos.y ? obst.y + obst.h : pos.y;
+			//pos.y = std::max(obst.y + obst.h, pos.y);
+			v[1] = 0;
 		}
 	}
 }
