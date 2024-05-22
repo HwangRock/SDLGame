@@ -81,6 +81,32 @@ public:
 		buttons = {*btnA,*btnB,*btnC };
 
 		blinds = { };
+
+		Box* box1 = new Box({ 600, 450, 50, 50 });
+		Box* box2 = new Box({ 300, 330, 50, 50 });
+		boxs = { *box1,*box2 };
+
+		Terrain* cannon1 = new Terrain(940, 640, 50, 50);
+		misile* misile1 = new misile({ 890, 640, 50, 30 });
+
+		Terrain* fish1 = new Terrain(70, 350, 30, 30);
+		Terrain* fish2 = new Terrain(460, 40, 30, 30);
+		Terrain* fish3 = new Terrain(840, 210, 30, 30);
+		Terrain* fish4 = new Terrain(1180, 230, 30, 30);
+		Terrain* fish5 = new Terrain(1130, 390, 30, 30);
+		Terrain* fish6 = new Terrain(590, 600, 30, 30);
+
+		Terrain* bone1 = new Terrain(660, 40, 30, 30);
+		Terrain* bone2 = new Terrain(165, 470, 30, 30);
+		Terrain* bone3 = new Terrain(390, 600, 30, 30);
+		Terrain* bone4 = new Terrain(1180, 200, 30, 30);
+		Terrain* bone5 = new Terrain(1150, 470, 30, 30);
+		Terrain* bone6 = new Terrain(540, 250, 30, 30);
+
+		cannon = { *cannon1 };
+		mis = { *misile1 };
+		bone = { *bone1,*bone2,*bone3,*bone4,*bone5,*bone6 };
+		fish = { *fish1,*fish2,*fish3,*fish4,*fish5,*fish6 };
 		
 		liquidWalls = { };
 		liquidAisles = { };
