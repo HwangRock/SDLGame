@@ -6,6 +6,7 @@
 #include "GameEnding.h"
 #include "GameManual.h"
 #include "GameESC.h"
+#include "FinishGame.h"
 
 #include "GameOver.cpp"
 #include "GameClear.cpp"
