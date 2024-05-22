@@ -16,6 +16,7 @@ extern SDL_Renderer* g_renderer;
 extern SDL_Window* g_window;
 extern float g_timestep_s;
 
+bool hit = false;
 
 //InitGame
 StageInterface::StageInterface()
