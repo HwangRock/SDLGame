@@ -46,9 +46,9 @@ extern std::vector<Key>keys;
 
 extern std::vector<SDL_Rect> goal;
 
-extern SDL_Rect start; 
+extern SDL_Rect start;   
 extern int chapterNum;
-extern int win_w, win_h;     
+extern int win_w, win_h;
 extern 	SDL_Texture* blindTexture;
 
  

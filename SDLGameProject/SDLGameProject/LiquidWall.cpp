@@ -29,6 +29,7 @@ SDL_Rect LiquidWall::returnWall()
 	}
 	else if (dir_ == "left") 
 	{
+		newWall = { 0,0,0,0 };
 		//wall
 		newWall.x = pos_.x + 20;
 		newWall.y = pos_.y;
@@ -42,7 +43,7 @@ SDL_Rect LiquidWall::returnWall()
 		newWall.y = pos_.y;
 		newWall.w = pos_.w-20;
 		newWall.h = pos_.h;
-	
+
 	}
 
 	return newWall;

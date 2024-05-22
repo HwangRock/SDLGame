@@ -140,8 +140,8 @@ Pet::Update(double timestep_s)
 
 void Pet::BlockMoving(SDL_Rect obst)
 {
-	if (pos.y + pos.h > obst.y + 7 &&
-		pos.y < obst.y + obst.h - 7)
+	if (pos.y + pos.h >= obst.y + 7 &&
+		pos.y <= obst.y + obst.h - 7)
 	{
 		//벽왼쪽에 있음
 		if (pos.x < obst.x + obst.w / 2)
