@@ -17,6 +17,7 @@ const int PHASE_OVER = 6;
 const int PHASE_CLEAR = 7;
 const int PHASE_ESC = 8;
 const int PHASE_MANUAL = 9;
+const int PHASE_FINISH = 10;
 
 void InitGame();
 void ClearGame();
