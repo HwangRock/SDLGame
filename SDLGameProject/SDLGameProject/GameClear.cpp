@@ -61,9 +61,9 @@ public:
 				g_flag_running = false;
 				break;
 
-			case SDL_MOUSEBUTTONDOWN:
+			case SDL_KEYDOWN:
 				
-				if (event.button.button == SDL_BUTTON_LEFT)
+				if (event.key.keysym.sym != SDLK_ESCAPE)
 				{
 					switch (chapterNum)
 					{
@@ -84,13 +84,15 @@ public:
 						break;
 					case 3:
 						chapterNum = 0;
-						g_current_game_phase = PHASE_ENDING;
+						g_current_game_phase = PHASE_FINISH;
 
 						break;
 					default:
 						break;
 					}
 				}
+				break;
+			case SDL_KEYUP:
 				break;
 
 			default:
@@ -119,17 +121,17 @@ public:
 
 private:
 
-	//img ¤Ñ "game clear!"
+	//img ã…¡ "game clear!"
 	SDL_Texture* imgTexture;
 	SDL_Rect imgRect;
 	SDL_Rect imgPos;
 	
-	//text img ¤Ñ "¾Æ¹«Å°¸¦ ´­·¯ ´ÙÀ½ °ÔÀÓÀ» ½ÃÀÛÇÏ¼¼¿ä"
+	//text img ã…¡ "ì•„ë¬´í‚¤ë¥¼ ëˆŒëŸ¬ ë‹¤ìŒ ê²Œì„ì„ ì‹œì‘í•˜ì„¸ìš”"
 	SDL_Texture* txtTexture;
 	SDL_Rect txtRect;
 	SDL_Rect txtPos;
 
-	//button ¤Ñ restart this chapter
+	//button ã…¡ restart this chapter
 	//.........
 
 	//score
