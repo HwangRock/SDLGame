@@ -22,6 +22,9 @@
 #include "LiquidWall.h"
 #include "ClimbWall.cpp"
 
+#include "Box.h"  
+#include "misile.cpp"
+
 #include "Water.cpp"
 #include "Choco.cpp"
 #include "Milk.cpp"
