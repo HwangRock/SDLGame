@@ -175,3 +175,36 @@ void Dog::HandleEvent(SDL_Event event)
 		break;
 	}
 }
+
+void Dog::BMoving(SDL_Rect obst) {
+	for (auto& b : boxs) {
+		if (SDL_HasIntersection(&pos, &b.box_pos) and (pos.y + pos.h /2 >= b.box_pos.y + b.box_pos.h / 2)) {
+			if (pos.x + pos.w / 2 < b.box_pos.x + b.box_pos.w / 2) {
+				b.box_pos.x += 2.0f; // Move box to the right
+			}
+			else {
+				b.box_pos.x -= 2.0f; // Move box to the left
+			}
+			if (pos.x > b.box_pos.x) {
+				pos.x = b.box_pos.x + 90;
+			}
+			else if (pos.x < b.box_pos.x) {
+				pos.x = b.box_pos.x - 50;
+			}
+			return;
+		}
+	}
+	if (pos.y + pos.h <= obst.y + obst.h / 2) {
+		pos.y = obst.y - 50;
+		v[1] = 0;
+		jumping = false;
+	}
+	else {
+		if (pos.x > obst.x) {
+			pos.x = obst.x + 90;
+		}
+		else if (pos.x < obst.x) {
+			pos.x = obst.x - 50;
+		}
+	}
+}
