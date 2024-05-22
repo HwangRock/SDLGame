@@ -66,7 +66,7 @@ public:
 		);
 		buttons = { *btnA,*btnB,*btnC};
 
-		//Hidden_°­¾ÆÁö ½ºÅ³·Î °È¾î³¾ ¼ö ÀÖ´Â ¼û°ÜÁø Áö¿ª, Blind·Î Ç¥½ÃÇÏ½Å °Í °°¾Æ¼­ ÀÏ´Ü Blind·Î ³ªµÎ¾ú½À´Ï´Ù!
+		//Hidden_ê°•ì•„ì§€ ìŠ¤í‚¬ë¡œ ê±·ì–´ë‚¼ ìˆ˜ ìˆëŠ” ìˆ¨ê²¨ì§„ ì§€ì—­, Blindë¡œ í‘œì‹œí•˜ì‹  ê²ƒ ê°™ì•„ì„œ ì¼ë‹¨ Blindë¡œ ë‚˜ë‘ì—ˆìŠµë‹ˆë‹¤!
 		SDL_Rect blind1 = { 400,50,100,100 };
 		SDL_Rect blind2 = { 650,100,100,100 };
 
@@ -81,6 +81,21 @@ public:
 		liquidAisles = { };
 		
 		keys = {};
+
+		Terrain* cannon1 = new Terrain(1100, 300, 100, 50);
+		misile* misile1 = new misile({ 1050, 300, 50, 30 });
+		cannon = { *cannon1 };
+		mis = { *misile1 };
+
+		Terrain* fish1 = new Terrain(250, 160, 30, 30);
+		Terrain* fish2 = new Terrain(710, 520, 30, 30);
+
+		Terrain* bone1 = new Terrain(60, 300, 30, 30);
+		Terrain* bone2 = new Terrain(1020, 510, 30, 30);
+
+		bone = {*bone1,*bone2};
+		fish = { *fish1,*fish2 };
+		boxs = {};
 
 		start = { 500,300,50,50 };
 		goal = { {50,520,50,50},{50,650,50,50} };
