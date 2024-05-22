@@ -116,6 +116,24 @@ StageInterface::StageInterface()
 	SDL_FreeSurface(surface_lock);
 	lockRect = { 0,0,61,61 };
 
+	//Box
+	SDL_Surface* box = IMG_Load("../Resources/many.png");
+	boxTexture = SDL_CreateTextureFromSurface(g_renderer, box);
+	SDL_FreeSurface(box);
+	boxRect = { 156,3139, 139, 140 };
+	cannonRect = { 147,2445, 179, 130 };
+	lcannonRect = { 340,2436, 204, 143 };
+	misileRect = { 606, 2465, 100, 53 };
+	fishRect = { 171,2237,91,56 };
+	boneRect = { 404,2226,86,67 };
+
+	//restart
+	SDL_Surface* rebox = IMG_Load("../Resources/restart.png");
+	reTexture = SDL_CreateTextureFromSurface(g_renderer, rebox);
+	SDL_FreeSurface(rebox);
+	reRect = { 0,0,359,162 };
+	reRect_des = { 60,30,50,50 };
+
 	////////////////////////////////////////////////////////////////////////////////////////
 
 	mouse_win_x_ = 0;
@@ -156,6 +174,29 @@ void StageInterface::Update()
 	dog->Update(g_timestep_s);
 	cat->Update(g_timestep_s);
 
+	for (Box& b : boxs) {
+		b.Update(g_timestep_s);
+	}
+
+	// 미사일 위치 업데이트
+	for (auto& missile : mis) {
+		missile.misile_pos.x -= 7.0f;
+		for (const Terrain& wall : walls)
+		{
+		if (SDL_HasIntersection(&mis[0].misile_pos, &wall.pos))
+			{
+			missile.misile_pos = missile.initial_pos;
+			hit = true;
+			}
+		}
+	}
+
+	if (over == 2) {
+		isFirst = true;
+		dog->Reset();
+		cat->Reset();
+		g_current_game_phase = PHASE_OVER;
+	}
 
 	//Reach the Goal//////////////////////////////////////////
 	if (cat->isInGoal == true && dog->isInGoal == true)
@@ -206,9 +247,40 @@ void StageInterface::Render()
 	SDL_SetRenderDrawColor(g_renderer, 255, 255, 255, 255);
 	SDL_RenderClear(g_renderer); // clear the renderer to the draw color
 
-
+	for (misile m : mis) {
+		SDL_RenderCopy(g_renderer, boxTexture, &misileRect, &m.misile_pos);
+	}
 	
+	for (Box b : boxs)
+	{
+		SDL_RenderCopy(g_renderer, boxTexture, &boxRect, &b.box_pos);
+	}
 
+	for (Terrain c : cannon)
+	{
+	if (hit) {
+		SDL_RenderCopy(g_renderer, boxTexture, &lcannonRect, &c.pos);
+		Uint32 currentTime = SDL_GetTicks();
+		if (currentTime % 8 == 0) {
+			hit = false;
+			}
+		}
+
+	else {
+		SDL_RenderCopy(g_renderer, boxTexture, &cannonRect, &c.pos);
+		}
+	}
+
+	//fish
+	for (Terrain f : fish) {
+		SDL_RenderCopy(g_renderer, boxTexture, &fishRect, &f.pos);
+	}
+
+	//bone
+	for (Terrain b : bone) {
+		SDL_RenderCopy(g_renderer, boxTexture, &boneRect, &b.pos);
+	}
+	
 	//Wall
 	for (Terrain wall : walls)
 	{
@@ -327,7 +399,7 @@ void StageInterface::NextChapter()
 		break;
 	case 3:
 		chapterNum = 0;
-		g_current_game_phase = PHASE_ENDING;
+		g_current_game_phase = PHASE_FINISH;
 		g_pre_game_phase = PHASE_STAGE1;
 		break;
 	default:
@@ -380,11 +452,23 @@ void StageInterface::HandleEvents()
 			// If the mouse left button is pressed. 
 			if (event.button.button == SDL_BUTTON_LEFT)
 			{
+				if (g_current_game_phase == PHASE_CLEAR) {
 				// Get the cursor's x position.
 				mouse_win_x_ = event.button.x;
 				mouse_win_y_ = event.button.y;
 
 				NextChapter();
+					}
+				else {//재시작버
+					int x, y;
+					x = event.button.x;
+					y = event.button.y;
+					if (x >= 60 and x <= 110 and y >= 30 and y <= 80) {
+						isFirst = true;
+						dog->Reset();
+						cat->Reset();
+						}
+					}
 				
 			}
 
