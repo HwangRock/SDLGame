@@ -72,6 +72,22 @@ Pet::Update(double timestep_s)
 		}
 	}
 
+	for (const Box& b : boxs)
+	{
+		if (SDL_HasIntersection(&pos, &b.box_pos))
+		{
+		BMoving(b.box_pos);
+		}
+	}
+
+	for (auto& missile : mis) {
+		if (SDL_HasIntersection(&mis[0].misile_pos, &pos))
+		{
+			pos.x = 1000000, pos.y = 10000000;
+			over++;
+		}
+	}
+
 	//PRESS BUTTON/////////////////////////////////////////////////////////////
 	for (int i = 0; i < buttons.size(); i++)
 	{
