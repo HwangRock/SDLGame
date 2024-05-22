@@ -45,6 +45,11 @@ std::vector<ClimbWall>climbWalls = {};
 std::vector<Water>water= {};
 std::vector<Milk>milk = {};
 std::vector<Choco>choco = {};
+std::vector<Box> boxs = {};
+std::vector<Terrain> cannon = {};
+std::vector<Terrain> fish = {};
+std::vector<Terrain> bone = {};
+std::vector<misile>mis = {};
 
 //Item
 std::vector<Key>keys = {};
@@ -55,7 +60,8 @@ std::vector <SDL_Rect> goal = {};//1개면 공통 문, 2개면 개.고양이 문
 SDL_Rect start;
 int chapterNum;
 int win_w, win_h;
-
+int over;
+int score;
 
 
 
@@ -89,6 +95,8 @@ int main(int argc, char* argv[])
 	game_phases[7] = new Clear;
 	game_phases[8] = new ESC;
 	game_phases[9] = new Manual;
+	game_phases[10] = new Finish;
+	
 	
 	g_current_game_phase = PHASE_INTRO;
 	g_pre_game_phase = PHASE_STAGE1;
@@ -111,7 +119,7 @@ int main(int argc, char* argv[])
 	//END////////////////////////////////////////////
 	
 
-	for (int i = 0; i < 10; i++)
+	for (int i = 0; i < 11; i++)
 	{
 		delete game_phases[i];
 	}
