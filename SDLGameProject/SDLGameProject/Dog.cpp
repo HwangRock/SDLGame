@@ -87,8 +87,14 @@ void Dog::Update(double timestep_s)
 		else { isInGoal = false; }
 	}
 	
-
-
+	//BOX MOVING
+	for (const Box& b : boxs)
+	{
+		if (SDL_HasIntersection(&pos, &b.box_pos))
+		{
+			BoxMoving(b.box_pos);
+		}
+	}
 
 }
 
@@ -184,7 +190,7 @@ void Dog::HandleEvent(SDL_Event event)
 	}
 }
 
-void Dog::BMoving(SDL_Rect obst) {
+void Dog::BoxMoving(SDL_Rect obst) {
 	for (auto& b : boxs) {
 		if (SDL_HasIntersection(&pos, &b.box_pos) and (pos.y + pos.h /2 >= b.box_pos.y + b.box_pos.h / 2)) {
 			if (pos.x + pos.w / 2 < b.box_pos.x + b.box_pos.w / 2) {

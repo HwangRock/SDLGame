@@ -72,13 +72,7 @@ Pet::Update(double timestep_s)
 		}
 	}
 
-	for (const Box& b : boxs)
-	{
-		if (SDL_HasIntersection(&pos, &b.box_pos))
-		{
-		BMoving(b.box_pos);
-		}
-	}
+
 
 	for (auto& missile : mis) {
 		if (SDL_HasIntersection(&mis[0].misile_pos, &pos))
@@ -202,46 +196,6 @@ void Pet::BlockMoving(SDL_Rect obst)
 	}
 }
 
-void Pet::BMoving(SDL_Rect obst)
-{
-	if (pos.y + pos.h > obst.y + 10 &&
-		pos.y < obst.y + obst.h - 10)
-	{
-		//벽왼쪽에 있음
-		if (pos.x < obst.x + obst.w / 2)
-		{
-			//pos.x = min(pos.x, obst.x - pos.w);
-			pos.x = obst.x - pos.w;
-		}
-		//벽 오른쪽에 있음
-		else if (pos.x + pos.w > obst.x)
-		{
-			//pos.x = max(pos.x, obst.x + obst.w);
-			pos.x = obst.x + obst.w;
-		}
-
-	}
-	else
-	{
-		if (pos.y + pos.h <= obst.y + obst.h / 2)
-		{
-			// 벽 위에 있음
-			//pos.y = obst.y - pos.h;
-			pos.y = obst.y - pos.h < pos.y ? obst.y - pos.h : pos.y;
-			//pos.y = std::min(obst.y - pos.h,pos.y);
-			v[1] = 0;
-			jumping = false;
-		}
-		else
-		{
-			// 벽 아래에 있음
-			//pos.y = obst.y + obst.h;
-			pos.y = obst.y + obst.h > pos.y ? obst.y + obst.h : pos.y;
-			//pos.y = std::max(obst.y + obst.h, pos.y);
-			v[1] = 0;
-		}
-	}
-}
 
 void
 Pet::HandleEvent(SDL_Event event) 

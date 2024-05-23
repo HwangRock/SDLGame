@@ -144,9 +144,12 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="Box.cpp" />
     <ClCompile Include="Button.cpp" />
     <ClCompile Include="Cat.cpp" />
+    <ClCompile Include="Choco.cpp" />
     <ClCompile Include="Dog.cpp" />
+    <ClCompile Include="FinishGame.cpp" />
     <ClCompile Include="Game.cpp" />
     <ClCompile Include="GameClear.cpp" />
     <ClCompile Include="GameEnding.cpp" />
@@ -159,6 +162,8 @@
     <ClCompile Include="Map2.cpp" />
     <ClCompile Include="Map3.cpp" />
     <ClCompile Include="Map4.cpp" />
+    <ClCompile Include="Milk.cpp" />
+    <ClCompile Include="misile.cpp" />
     <ClCompile Include="ropeTest.cpp" />
     <ClCompile Include="seesawTest.cpp" />
     <ClCompile Include="Stage.cpp" />
@@ -168,15 +173,20 @@
     </ClCompile>
     <ClCompile Include="Pet.cpp" />
     <ClCompile Include="Terrain.cpp" />
+    <ClCompile Include="Water.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Box.h" />
     <ClInclude Include="Button.h" />
     <ClInclude Include="Cat.h" />
     <ClInclude Include="ClimbWall.cpp" />
     <ClInclude Include="Dog.h" />
+    <ClInclude Include="FinishGame.h" />
     <ClInclude Include="Game.h" />
     <ClInclude Include="GameEnding.h" />
+    <ClInclude Include="GameESC.h" />
     <ClInclude Include="GameIntro.h" />
+    <ClInclude Include="GameManual.h" />
     <ClInclude Include="LiquidWall.h" />
     <ClInclude Include="Stage.h" />
     <ClInclude Include="Pet.h" />

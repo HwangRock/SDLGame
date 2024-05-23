@@ -12,6 +12,7 @@
 #include "SDL.h"
 #include "Pet.h"
 
+
 class Dog:public Pet
 {
 public:
@@ -21,15 +22,17 @@ public:
 		Reset();
 	}
 
-
+	
 	void Reset();
 	void Update( double timestep_s	);
 	void HandleEvent(SDL_Event event);
 
+
+	void BoxMoving(SDL_Rect obst);
 protected:
 	// dog skill variables
 	bool beBlurry_;
 	bool isSkill_;//skill사용가능 여부, dog만 사용
 	int blindOpacity_;//0~255 투명도 정도, -1이면 냄새 안맡고 있는중
-        virtual void BMoving(SDL_Rect obst) override;
+
 };

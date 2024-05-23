@@ -90,6 +90,14 @@ void Cat::Update(double timestep_s)
 		else { isInGoal = false; }
 	}
 
+	for (const Box& b : boxs)
+	{
+		if (SDL_HasIntersection(&pos, &b.box_pos))
+		{
+			BlockMoving(b.box_pos);
+		}
+	}
+
 }
 
 void Cat::HandleEvent(SDL_Event event)
