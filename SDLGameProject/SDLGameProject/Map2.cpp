@@ -78,13 +78,26 @@ public:
 			{ { 1000, 100,100,25 } });
 		buttons = { *btn1,*btn2 };
 
+
+		ClimbWall* cwall1 = new ClimbWall({ 828,418,20,68 });
+		ClimbWall* cwall2 = new ClimbWall({ 1262,20,19,259 });
+		climbWalls = { *cwall1,*cwall2 };
+
+		Water* water1 = new Water({ 490,676,574,25 });
+		water = { *water1 };
+
+		Milk* milk1 = new Milk({ 849,396,363,20 });
+		milk = { *milk1 };
+
+		Choco* choco1 = new Choco({ 388,239,872,24 });
+		choco = { *choco1 };
+
+
 		//Blind
 		blinds = { };
 
 		liquidWalls = {  };
 		liquidAisles = { };
-
-		climbWalls = {};
 
 		Key* key = new Key({200,450,25,25}, {600,600,30,30});
 		keys = {*key};
