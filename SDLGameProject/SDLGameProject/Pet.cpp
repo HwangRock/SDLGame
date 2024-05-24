@@ -61,12 +61,10 @@ Pet::Update(double timestep_s)
 
 
 	//MOVING LIMIT//////////////////////////////////////////////////
-	// 벽 감지
 	for (int i = 0; i < walls.size(); i++)
 	{
 		if (SDL_HasIntersection(&pos, &walls[i].pos))
 		{
-			//주의) 벽의 height가 너무 작으면 제대로 작동하지 않을 것 같습니다..
 			BlockMoving(walls[i].pos);
 			//break;
 		}
@@ -111,6 +109,17 @@ Pet::Update(double timestep_s)
 			}
 		}
 		*/
+
+		//FADE FLOOR///////////////////////////////////////////////////////
+		for (int j = 0; j < fadefloors.size(); j++)
+		{
+			if (SDL_HasIntersection(&pos, &fadefloors[j].floor_pos))
+			{
+				BlockMoving(fadefloors[j].floor_pos);
+				isCollide = 1;
+				break;
+			}
+		}
 	}
 
 	//KEY///////////////////////////////////
@@ -133,7 +142,6 @@ Pet::Update(double timestep_s)
 
 
 	/*
-	// 가속도
 	double a[2];
 	a[0] = 0;
 	a[1] = room_->gravitational_acc_y();// Gravity
@@ -153,7 +161,7 @@ void Pet::BlockMoving(SDL_Rect obst)
 	if (pos.y + pos.h >= obst.y + 7 &&
 		pos.y <= obst.y + obst.h - 7)
 	{
-		//벽왼쪽에 있음
+
 		if (pos.x < obst.x + obst.w / 2)
 		{
 			//std::cout << "left\n";
@@ -161,7 +169,7 @@ void Pet::BlockMoving(SDL_Rect obst)
 			pos.x = obst.x - pos.w;
 			//jumping = true;
 		}
-		//벽 오른쪽에 있음
+
 		else if (pos.x + pos.w > obst.x)
 		{
 			//std::cout << "right\n";
@@ -176,7 +184,7 @@ void Pet::BlockMoving(SDL_Rect obst)
 		if (pos.y + pos.h <= obst.y + obst.h / 2)
 		{
 			//std::cout << "up\n";
-			// 벽 위에 있음
+	
 			//pos.y = obst.y - pos.h;
 			pos.y = obst.y - pos.h < pos.y ? obst.y - pos.h : pos.y;
 			//pos.y = std::min(obst.y - pos.h,pos.y);
@@ -186,7 +194,7 @@ void Pet::BlockMoving(SDL_Rect obst)
 		else
 		{
 			//std::cout << "down\n";
-			// 벽 아래에 있음
+
 			//pos.y = obst.y + obst.h;
 			pos.y = obst.y + obst.h > pos.y ? obst.y + obst.h : pos.y;
 			//pos.y = std::max(obst.y + obst.h, pos.y);
