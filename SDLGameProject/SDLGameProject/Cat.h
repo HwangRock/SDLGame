@@ -4,6 +4,8 @@
 #include "Button.h"
 #include "LiquidWall.h"
 #include "ClimbWall.cpp"
+#include "Cushion.h"
+#include "FadeFloor.h"
 
 #include "Choco.cpp"
 #include "Water.cpp"
