@@ -28,7 +28,6 @@ Uint32 g_last_time_ms;
 int g_current_game_phase;
 int g_pre_game_phase;
 
-// 초단위 timestep (1/60초). Frame time과 시뮬레이션의 timestep으로 사용된다.
 float g_timestep_s = 1.0f / 60.0f;
 
 
@@ -42,22 +41,27 @@ std::vector<SDL_Rect> blinds = {};
 std::vector<LiquidWall>liquidWalls = {};
 std::vector<SDL_Rect>liquidAisles = {};
 std::vector<ClimbWall>climbWalls = {};
+std::vector<Cushion>cushions = {};
+std::vector<FadeFloor>fadefloors = {};
+
 //liquid
 std::vector<Water>water= {};
 std::vector<Milk>milk = {};
 std::vector<Choco>choco = {};
+
 std::vector<Box> boxs = {};
 std::vector<Terrain> cannon = {};
 std::vector<Terrain> fish = {};
 std::vector<Terrain> bone = {};
 std::vector<misile>mis = {};
 
+
 //Item
 std::vector<Key>keys = {};
 
 SDL_Texture* blindTexture; 
 
-std::vector <SDL_Rect> goal = {};//1개면 공통 문, 2개면 개.고양이 문
+std::vector <SDL_Rect> goal = {};
 SDL_Rect start;
 int chapterNum;
 int win_w, win_h;
@@ -106,7 +110,7 @@ int main(int argc, char* argv[])
 	while (g_flag_running)
 	{
 		Uint32 cur_time_ms = SDL_GetTicks();
-		if (cur_time_ms - g_last_time_ms < (1000 * g_timestep_s)) // 밀리세턴드 단위로 변환하기 위해 1000 곱함
+		if (cur_time_ms - g_last_time_ms < (1000 * g_timestep_s)) 
 			continue;
 
 		game_phases[g_current_game_phase]->HandleEvents();
