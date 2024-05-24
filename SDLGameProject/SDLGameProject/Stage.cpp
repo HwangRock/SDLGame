@@ -1,7 +1,7 @@
 #include "Game.h"
 #include "Stage.h"
 
-
+//
 //add
 #include <vector>
 #include <windows.h>
@@ -31,93 +31,93 @@ StageInterface::StageInterface()
 
 	//Drawing Texture//////////////////////////////////////////////////////////////////
 	//Dog
-	SDL_Surface* g_surface_dog = IMG_Load("../Resources/dog_.png");
+	SDL_Surface* g_surface_dog = IMG_Load("../../Resources/dog_.png");
 	dogTexture = SDL_CreateTextureFromSurface(g_renderer, g_surface_dog);
 	SDL_FreeSurface(g_surface_dog);
 	dogRect = { 0,0,141,141 };
 
 	//Cat
-	SDL_Surface* g_surface_cat = IMG_Load("../Resources/cat_.png");
+	SDL_Surface* g_surface_cat = IMG_Load("../../Resources/cat_.png");
 	catTexture = SDL_CreateTextureFromSurface(g_renderer, g_surface_cat);
 	SDL_FreeSurface(g_surface_cat);
 	catRect = { 0,0,90,90 };
 
 	//Liquid Cat
-	SDL_Surface* g_surface_liquidCat = IMG_Load("../Resources/liquidCat.png");
+	SDL_Surface* g_surface_liquidCat = IMG_Load("../../Resources/liquidCat.png");
 	liquidCatTexture = SDL_CreateTextureFromSurface(g_renderer, g_surface_liquidCat);
 	SDL_FreeSurface(g_surface_liquidCat);
 
 
 	//Wall
-	SDL_Surface* surface_wall = IMG_Load("../Resources/sky.jpg");
+	SDL_Surface* surface_wall = IMG_Load("../../Resources/sky.jpg");
 	wallTexture = SDL_CreateTextureFromSurface(g_renderer, surface_wall);
 	SDL_FreeSurface(surface_wall);
 	wallRect = { 0,0,680,808 };
 
 	//Button
-	SDL_Surface* surface_button = IMG_Load("../Resources/ball.png");
+	SDL_Surface* surface_button = IMG_Load("../../Resources/ball.png");
 	buttonTexture = SDL_CreateTextureFromSurface(g_renderer, surface_button);
 	SDL_FreeSurface(surface_button);
 	buttonRect = { 0,0,61,31 };
 	
 	//Blind
-	SDL_Surface* surface_blind = IMG_Load("../Resources/star.png");
+	SDL_Surface* surface_blind = IMG_Load("../../Resources/star.png");
 	SDL_SetSurfaceBlendMode(surface_blind, SDL_BLENDMODE_BLEND);
 	blindTexture= SDL_CreateTextureFromSurface(g_renderer, surface_blind);
 	SDL_FreeSurface(surface_blind);
 	blindRect = { 0,0,269,269 };
 
 	//Climb Wall
-	SDL_Surface* surface_cwall = IMG_Load("../Resources/ending.png");
+	SDL_Surface* surface_cwall = IMG_Load("../../Resources/ending.png");
 	cwallTexture = SDL_CreateTextureFromSurface(g_renderer, surface_cwall);
 	SDL_FreeSurface(surface_cwall);
 	cwallRect = { 0,0,1017,1017};
 
 	//Goal
-	SDL_Surface* surface_goal = IMG_Load("../Resources/ending.png");
+	SDL_Surface* surface_goal = IMG_Load("../../Resources/ending.png");
 	goalTexture = SDL_CreateTextureFromSurface(g_renderer, surface_goal);
 	SDL_FreeSurface(surface_goal);
 	goalRect = { 0,0,1017,1017 };
 
 	//etc
-	SDL_Surface* surface_sca = IMG_Load("../Resources/intro.png");
+	SDL_Surface* surface_sca = IMG_Load("../../Resources/intro.png");
 	scaffoldTexture= SDL_CreateTextureFromSurface(g_renderer, surface_sca);
 	SDL_FreeSurface(surface_sca);
 	scaffoldRect = { 0,0,100,100 };
 
 	//water
-	SDL_Surface* surface_water = IMG_Load("../Resources/water.png");
+	SDL_Surface* surface_water = IMG_Load("../../Resources/water.png");
 	waterTexture = SDL_CreateTextureFromSurface(g_renderer, surface_water);
 	SDL_FreeSurface(surface_water);
 	waterRect = { 0,0,300,50 };
 
 	//milk
-	SDL_Surface* surface_milk = IMG_Load("../Resources/milk.png");
+	SDL_Surface* surface_milk = IMG_Load("../../Resources/milk.png");
 	milkTexture = SDL_CreateTextureFromSurface(g_renderer, surface_milk);
 	SDL_FreeSurface(surface_milk);
 	milkRect = { 0,0,300,50 };
 
 	//choco
-	SDL_Surface* surface_choco = IMG_Load("../Resources/choco.png");
+	SDL_Surface* surface_choco = IMG_Load("../../Resources/choco.png");
 	chocoTexture = SDL_CreateTextureFromSurface(g_renderer, surface_choco);
 	SDL_FreeSurface(surface_choco);
 	chocoRect = { 0,0,300,50 };
 
 
 	//Key
-	SDL_Surface* surface_key = IMG_Load("../Resources/star.png");
+	SDL_Surface* surface_key = IMG_Load("../../Resources/star.png");
 	keyTexture = SDL_CreateTextureFromSurface(g_renderer, surface_key);
 	SDL_FreeSurface(surface_key);
 	keyRect = { 0,0,269,269 };
 
 	//lock
-	SDL_Surface* surface_lock = IMG_Load("../Resources/ball.png");
+	SDL_Surface* surface_lock = IMG_Load("../../Resources/ball.png");
 	lockTexture = SDL_CreateTextureFromSurface(g_renderer, surface_lock);
 	SDL_FreeSurface(surface_lock);
 	lockRect = { 0,0,61,61 };
 
 	//Box
-	SDL_Surface* box = IMG_Load("../Resources/many.png");
+	SDL_Surface* box = IMG_Load("../../Resources/many.png");
 	boxTexture = SDL_CreateTextureFromSurface(g_renderer, box);
 	SDL_FreeSurface(box);
 	boxRect = { 156,3139, 139, 140 };
@@ -128,11 +128,23 @@ StageInterface::StageInterface()
 	boneRect = { 404,2226,86,67 };
 
 	//restart
-	SDL_Surface* rebox = IMG_Load("../Resources/restart.png");
+	SDL_Surface* rebox = IMG_Load("../../Resources/restart.png");
 	reTexture = SDL_CreateTextureFromSurface(g_renderer, rebox);
 	SDL_FreeSurface(rebox);
 	reRect = { 0,0,359,162 };
 	reRect_des = { 60,30,50,50 };
+
+	//Cushion
+	SDL_Surface* surface_cushion = IMG_Load("../../Resources/cushion.png");
+	cushionTexture = SDL_CreateTextureFromSurface(g_renderer, surface_cushion);
+	SDL_FreeSurface(surface_cushion);
+	cushionRect = { 0,0,300,155 };
+
+	//Fade floor
+	SDL_Surface* surface_fwall = IMG_Load("../../Resources/sky3.jpg");
+	fadefloorTexture = SDL_CreateTextureFromSurface(g_renderer, surface_fwall);
+	SDL_FreeSurface(surface_fwall);
+	fadefloorRect = { 0,0,680,808 };
 
 	////////////////////////////////////////////////////////////////////////////////////////
 
@@ -236,7 +248,20 @@ void StageInterface::Update()
 		}
 	}
 
-
+	//FADE FLOOR///////////////////////////////////////////////////////////
+	for (int i = 0; i < fadefloors.size(); i++)
+	{
+		if (cat->isCollide == 1 || dog->isCollide == 1)
+		{
+			fadefloors[i].CollideFloor(true);
+			fadefloors[i].Update();
+		}
+		else
+		{
+			fadefloors[i].CollideFloor(false);
+			fadefloors[i].Update();
+		}
+	}
 	
 }
 
@@ -349,11 +374,24 @@ void StageInterface::Render()
 
 	}
 
+	//fadefloor
+	for (FadeFloor fwall : fadefloors)
+	{
+		SDL_RenderCopy(g_renderer, fadefloorTexture, &fadefloorRect, &fwall.floor_pos);
+	}
+
 	//climbWall
 	for (ClimbWall wall : climbWalls)
 	{
 		SDL_RenderCopy(g_renderer, cwallTexture, &cwallRect, &wall.wall_pos);
 	}
+
+	//cushion
+	for (Cushion cushion : cushions)
+	{
+		SDL_RenderCopy(g_renderer, cushionTexture, &cushionRect, &cushion.cushion_pos);
+	}
+
 	//water
 	for (Water water : water)
 	{
@@ -456,13 +494,15 @@ void StageInterface::HandleEvents()
 				// Get the cursor's x position.
 				mouse_win_x_ = event.button.x;
 				mouse_win_y_ = event.button.y;
-
-				NextChapter();
+				//NextChapter(); <-- 원래 여기에 있던 것을
 					}
 				else {//재시작버
 					int x, y;
 					x = event.button.x;
 					y = event.button.y;
+
+					NextChapter(); //<-- 여기로 임시로 옮겨서 오브젝트 배치가 잘되었는지 확인했어요
+
 					if (x >= 60 and x <= 110 and y >= 30 and y <= 80) {
 						isFirst = true;
 						dog->Reset();
