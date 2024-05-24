@@ -5,6 +5,8 @@
 #include "Button.h"
 #include "LiquidWall.h"
 #include "ClimbWall.cpp"
+#include "Cushion.h"
+#include "FadeFloor.h"
 
 #include "Water.cpp"
 #include "Milk.cpp"
@@ -22,6 +24,7 @@ public:
 	bool jumping = false;
 	int isPressing;//is it pressing button
 	bool isInGoal;//does it reach in goal
+	int isCollide; //fadefloor
 
 	Pet(double x, double y);
 
