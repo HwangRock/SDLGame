@@ -21,6 +21,8 @@
 #include "Button.h"
 #include "LiquidWall.h"
 #include "ClimbWall.cpp"
+#include "FadeFloor.h"
+#include "Cushion.h"
 
 #include "Box.h"  
 #include "misile.cpp"
@@ -41,6 +43,8 @@ extern std::vector<SDL_Rect> blinds;
 extern std::vector<LiquidWall>liquidWalls;
 extern std::vector<SDL_Rect>liquidAisles;         
 extern std::vector<ClimbWall>climbWalls;
+extern std::vector<Cushion>cushions;
+extern std::vector<FadeFloor>fadefloors;
 extern std::vector<misile>mis; 
 
 extern std::vector<Water>water;
@@ -54,7 +58,7 @@ extern std::vector<SDL_Rect> goal;
 extern SDL_Rect start;   
 extern int chapterNum;
 extern int win_w, win_h;
-extern 	SDL_Texture* blindTexture;
+extern SDL_Texture* blindTexture;
 
 extern int over;
 extern int score; 
@@ -83,6 +87,8 @@ private:
 	SDL_Texture* liquidCatTexture;
 	SDL_Texture* wallTexture;
 	SDL_Texture* buttonTexture;
+	SDL_Texture* cushionTexture;
+	SDL_Texture* fadefloorTexture;
 
 	SDL_Texture* cwallTexture;
 	SDL_Texture* goalTexture;
@@ -112,14 +118,15 @@ private:
 	SDL_Rect reRect_des;        
 	SDL_Rect fishRect;
 	SDL_Rect boneRect;  
-
+	SDL_Rect cushionRect;
+	SDL_Rect fadefloorRect;
 
 	SDL_Texture* keyTexture;
 	SDL_Texture* lockTexture;
 	SDL_Rect keyRect;
 	SDL_Rect lockRect;
 	  
-	  
+	//
 	//Pets
 	//Pet* dog = new Pet(700, 100, true);
 	//Pet* cat = new Pet(600, 1 00, false);
