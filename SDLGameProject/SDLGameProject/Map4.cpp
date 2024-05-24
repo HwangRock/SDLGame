@@ -103,14 +103,50 @@ public:
 		Terrain* bone5 = new Terrain(1150, 470, 30, 30);
 		Terrain* bone6 = new Terrain(540, 250, 30, 30);
 
+		FadeFloor* fadefloor1 = new FadeFloor({ 115,650,87,25 });
+		FadeFloor* fadefloor2 = new FadeFloor({ 30,580,87,25 });
+		FadeFloor* fadefloor3 = new FadeFloor({ 311,93,100,15 });
+		FadeFloor* fadefloor4 = new FadeFloor({ 501,93,100,15 });
+		FadeFloor* fadefloor5 = new FadeFloor({ 691,93,100,15 });
+		FadeFloor* fadefloor6 = new FadeFloor({ 881,93,100,15 });
+		fadefloors = { *fadefloor1 ,*fadefloor2,*fadefloor3,*fadefloor4,*fadefloor5,*fadefloor6 };
+
+		Cushion* cushion1 = new Cushion({ 897,475,100, 55 });
+		cushions = { *cushion1 };
+
 		cannon = { *cannon1 };
 		mis = { *misile1 };
 		bone = { *bone1,*bone2,*bone3,*bone4,*bone5,*bone6 };
 		fish = { *fish1,*fish2,*fish3,*fish4,*fish5,*fish6 };
 		
+		// water
+		Water* water1 = new Water({ 718,255,227,27 });
+		Water* water2 = new Water({ 1024,419,66,15 });
+		water = { *water1, *water2 };
+
+		//milk
+		Milk* milk1 = new Milk({ 470,255,128,27 });
+		Milk* milk2 = new Milk({ 1221,501,31,21 });
+		milk = { *milk1,*milk2 };
+
+		//choco
+		Choco* choco1 = new Choco({ 286,113,700,25 });
+		Choco* choco2 = new Choco({ 582,379,111,26 });
+		Choco* choco3 = new Choco({ 1026,333,95,17 });
+		Choco* choco4 = new Choco({ 1201,339,51,15 });
+		Choco* choco5 = new Choco({ 1181,426,71,11 });
+		Choco* choco6 = new Choco({ 1024,508,105,15 });
+		Choco* choco7 = new Choco({ 1110,680,106,18 });
+		choco = { *choco1,*choco2,*choco3,*choco4,*choco5,*choco6,*choco7 };
+
+		//climbwall
+		ClimbWall* cwall1 = new ClimbWall({ 215,426,10,265 });
+		ClimbWall* cwall2 = new ClimbWall({ 999,306,15,216 });
+		climbWalls = { *cwall1,*cwall2 };
+
+
 		liquidWalls = { };
 		liquidAisles = { };
-		climbWalls = {};
 		keys = {};
 		goal = { {800,50,50,80} };
 		start={300,300,50,80};
