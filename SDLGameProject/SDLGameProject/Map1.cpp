@@ -62,8 +62,8 @@ public:
 		SDL_Rect laisle1 = { 250,150,200,30 };
 		liquidAisles = { laisle1 };
 
-		ClimbWall* cwall = new ClimbWall({ 0, 0,50,450 });
-		climbWalls = {*cwall};
+		ClimbWall* cwall = new ClimbWall({ 13,31,19,394 });
+		climbWalls = { *cwall };
 
 		Box* box1 = new Box({ 400, 580, 90, 90 });
 		boxs = { *box1 };
@@ -71,15 +71,18 @@ public:
 		mis = {};
 		bone = {};
 		fish = {};
-		
-		//water
-		//Water* water1 = new Water({ 550, 570, 300, 25 });
-		//water = { *water1 };
-
-		//choco
-
-		//milk
 		keys = {};
+
+		Water* water1 = new Water({ 200,650,405,35 });
+		Water* water2 = new Water({ 750,75,198,23 });
+		water = { *water1, *water2 };
+
+		Milk* milk1 = new Milk({ 952,663,198,23 });
+		Milk* milk2 = new Milk({ 750,155,198,23 });
+		milk = { *milk1,*milk2 };
+
+		Choco* choco1 = new Choco({ 0,0,0,0 });
+		choco = { *choco1 };
 
 		goal = { {1100,100,50,100} };
 		start={50,600,50,80};
