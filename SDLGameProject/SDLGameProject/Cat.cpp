@@ -45,6 +45,22 @@ void Cat::Update(double timestep_s)
 	Pet::Update(timestep_s);
 	
 
+	//CUSHION////////////////////////////////////////////////
+	for (int k = 0; k < cushions.size(); k++)
+	{
+		if (SDL_HasIntersection(&pos, &cushions[k].cushion_pos))
+		{
+			BlockMoving(cushions[k].cushion_pos);
+			jump_speed = -7.0f;
+		}
+		else
+		{
+			if (k == cushions.size() - 1)
+			{
+				jump_speed = -3.5f;
+			}
+		}
+	}
 
 
 	//CAT LIQUID SKILL/////////////////////////////////////////
