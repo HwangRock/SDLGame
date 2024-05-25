@@ -57,13 +57,14 @@ public:
 			*climb1,*climb2, *liquid1,* liquid2, *extra1,* extra2
 		};
 
-		Box* box1 = new Box({ 540, 410, 90, 90 });
+		Box* box1 = new Box({ 540, 410, 50, 50 });
 		boxs = { *box1 };
 		cannon = { };
 		mis = {};
 		bone = {};
 		fish = {};
-
+		fadefloors = {};
+		cushions = {};
 
 		//Button
 		Button* btn1 = new Button(1, 1,
