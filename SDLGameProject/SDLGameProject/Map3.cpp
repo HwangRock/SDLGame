@@ -96,6 +96,8 @@ public:
 		bone = {*bone1,*bone2};
 		fish = { *fish1,*fish2 };
 		boxs = {};
+		fadefloors = {};
+		cushions = {};
 
 		//milk
 		Milk* milk1 = new Milk({ 120,548,305,25 });
