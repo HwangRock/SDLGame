@@ -48,7 +48,7 @@ Pet::Update(double timestep_s)
 
 
 	//MOVING/////////////////////////////////////////////////
-	
+
 
 	nowInput = inputs[inputs.size() - 1];
 	//left
@@ -104,7 +104,7 @@ Pet::Update(double timestep_s)
 			}
 			else
 			{
-				//if (isPressing == i) 
+				//if (isPressing == i)
 				//{ isPressing = -1; }
 			}
 		}
@@ -135,11 +135,10 @@ Pet::Update(double timestep_s)
 			else if (keys[i].isLocked == true) { BlockMoving(keys[i].lockPos); }
 		}
 	}
-	
 
-	
-	
-
+	if (v[1] > 1) {
+		jumping = true;
+	}
 
 	/*
 	double a[2];
@@ -184,7 +183,7 @@ void Pet::BlockMoving(SDL_Rect obst)
 		if (pos.y + pos.h <= obst.y + obst.h / 2)
 		{
 			//std::cout << "up\n";
-	
+
 			//pos.y = obst.y - pos.h;
 			pos.y = obst.y - pos.h < pos.y ? obst.y - pos.h : pos.y;
 			//pos.y = std::min(obst.y - pos.h,pos.y);
@@ -206,10 +205,10 @@ void Pet::BlockMoving(SDL_Rect obst)
 
 
 void
-Pet::HandleEvent(SDL_Event event) 
+Pet::HandleEvent(SDL_Event event)
 {
-	
-	
+
+
 
 
 }
