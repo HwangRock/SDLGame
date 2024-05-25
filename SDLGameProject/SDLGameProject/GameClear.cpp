@@ -6,7 +6,7 @@ class Clear : public PhaseInterface
 {
 public:
 
-	Clear() 
+	Clear()
 	{
 		//TEXTURE////////////////////////////////////////////////
 		//IMG, TEXT
@@ -20,14 +20,14 @@ public:
 		txtTexture = SDL_CreateTextureFromSurface(g_renderer, txt_surface);
 		SDL_FreeSurface(txt_surface);
 		txtRect = { 0,0,739,154 };
-		
+
 
 		imgPos = { 300,50,500,200 };
 		txtPos = { 300,450,500,50 };
 
 		//FISH
 		SDL_Surface* fish_surface = IMG_Load("../Resources/fish.png");
-		fishTexture= SDL_CreateTextureFromSurface(g_renderer, fish_surface);
+		fishTexture = SDL_CreateTextureFromSurface(g_renderer, fish_surface);
 		SDL_FreeSurface(fish_surface);
 		fishRect = { 0,0,443,340 };
 		fishPos = { 400,600,100,50 };
@@ -39,9 +39,9 @@ public:
 		boneRect = { 0,0,325,196 };
 		bonePos = { 600,600,100,50 };
 
-		
 
-	
+
+
 	};
 	~Clear() {
 		SDL_DestroyTexture(fishTexture);
@@ -49,9 +49,9 @@ public:
 		SDL_DestroyTexture(imgTexture);
 
 	};
-	virtual void HandleEvents() 
+	virtual void HandleEvents()
 	{
-	
+
 		SDL_Event event;
 		if (SDL_PollEvent(&event))
 		{
@@ -61,38 +61,70 @@ public:
 				g_flag_running = false;
 				break;
 
-			case SDL_KEYDOWN:
-				
-				if (event.key.keysym.sym != SDLK_ESCAPE)
+			case SDL_MOUSEBUTTONDOWN:
+
+				// If the mouse left button is pressed. 
+				if (event.button.button == SDL_BUTTON_LEFT)
 				{
-					switch (chapterNum)
-					{
-					case 0:
-						chapterNum = 1;
-						g_current_game_phase = PHASE_STAGE2;
+					int x, y;
+					x = event.button.x;
+					y = event.button.y;
 
-						break;
-					case 1:
-						chapterNum = 2;
-						g_current_game_phase = PHASE_STAGE3;
+					if (x >= 400 and x <= 500 and y >= 600 and y <= 650) {
+						switch (chapterNum)
+						{
+						case 0:
+							chapterNum = 0;
+							g_current_game_phase = PHASE_STAGE1;
 
-						break;
-					case 2:
-						chapterNum = 3;
-						g_current_game_phase = PHASE_STAGE4;
+							break;
+						case 1:
+							chapterNum = 1;
+							g_current_game_phase = PHASE_STAGE2;
 
-						break;
-					case 3:
-						chapterNum = 0;
-						g_current_game_phase = PHASE_FINISH;
+							break;
+						case 2:
+							chapterNum = 2;
+							g_current_game_phase = PHASE_STAGE3;
 
-						break;
-					default:
-						break;
+							break;
+						case 3:
+							chapterNum = 3;
+							g_current_game_phase = PHASE_STAGE4;
+
+							break;
+						default:
+							break;
+						}
+					}
+					else if (x >= 600 and x <= 700 and y >= 600 and y <= 650) {
+						switch (chapterNum)
+						{
+						case 0:
+							chapterNum = 1;
+							g_current_game_phase = PHASE_STAGE2;
+
+							break;
+						case 1:
+							chapterNum = 2;
+							g_current_game_phase = PHASE_STAGE3;
+
+							break;
+						case 2:
+							chapterNum = 3;
+							g_current_game_phase = PHASE_STAGE4;
+
+							break;
+						case 3:
+							chapterNum = 0;
+							g_current_game_phase = PHASE_FINISH;
+
+							break;
+						default:
+							break;
+						}
 					}
 				}
-				break;
-			case SDL_KEYUP:
 				break;
 
 			default:
@@ -102,7 +134,7 @@ public:
 	};
 	virtual void Update() {};
 	virtual void Render() {
-	
+
 		//RENDER/////////////////////////////////////////////////
 		SDL_SetRenderDrawColor(g_renderer, 255, 255, 255, 255);
 		SDL_RenderClear(g_renderer);
@@ -125,7 +157,7 @@ private:
 	SDL_Texture* imgTexture;
 	SDL_Rect imgRect;
 	SDL_Rect imgPos;
-	
+
 	//text img ㅡ "아무키를 눌러 다음 게임을 시작하세요"
 	SDL_Texture* txtTexture;
 	SDL_Rect txtRect;
