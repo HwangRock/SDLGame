@@ -59,11 +59,11 @@ StageInterface::StageInterface()
 	buttonTexture = SDL_CreateTextureFromSurface(g_renderer, surface_button);
 	SDL_FreeSurface(surface_button);
 	buttonRect = { 0,0,61,31 };
-	
+
 	//Blind
 	SDL_Surface* surface_blind = IMG_Load("../Resources/star.png");
 	SDL_SetSurfaceBlendMode(surface_blind, SDL_BLENDMODE_BLEND);
-	blindTexture= SDL_CreateTextureFromSurface(g_renderer, surface_blind);
+	blindTexture = SDL_CreateTextureFromSurface(g_renderer, surface_blind);
 	SDL_FreeSurface(surface_blind);
 	blindRect = { 0,0,269,269 };
 
@@ -71,7 +71,7 @@ StageInterface::StageInterface()
 	SDL_Surface* surface_cwall = IMG_Load("../Resources/ending.png");
 	cwallTexture = SDL_CreateTextureFromSurface(g_renderer, surface_cwall);
 	SDL_FreeSurface(surface_cwall);
-	cwallRect = { 0,0,1017,1017};
+	cwallRect = { 0,0,1017,1017 };
 
 	//Goal
 	SDL_Surface* surface_goal = IMG_Load("../Resources/ending.png");
@@ -81,7 +81,7 @@ StageInterface::StageInterface()
 
 	//etc
 	SDL_Surface* surface_sca = IMG_Load("../Resources/intro.png");
-	scaffoldTexture= SDL_CreateTextureFromSurface(g_renderer, surface_sca);
+	scaffoldTexture = SDL_CreateTextureFromSurface(g_renderer, surface_sca);
 	SDL_FreeSurface(surface_sca);
 	scaffoldRect = { 0,0,100,100 };
 
@@ -160,13 +160,13 @@ StageInterface::~StageInterface()
 	SDL_DestroyTexture(catTexture);
 }
 
-void StageInterface:: SetVar() 
+void StageInterface::SetVar()
 {
 
 }
 void StageInterface::Reset()
 {
-	
+
 
 	dog->pos.x = start.x;
 	dog->pos.y = start.y;
@@ -181,7 +181,7 @@ void StageInterface::Update()
 		SetVar();
 		Reset();
 		isFirst = false;
-	} 
+	}
 
 	dog->Update(g_timestep_s);
 	cat->Update(g_timestep_s);
@@ -195,10 +195,10 @@ void StageInterface::Update()
 		missile.misile_pos.x -= 7.0f;
 		for (const Terrain& wall : walls)
 		{
-		if (SDL_HasIntersection(&mis[0].misile_pos, &wall.pos))
+			if (SDL_HasIntersection(&mis[0].misile_pos, &wall.pos))
 			{
-			missile.misile_pos = missile.initial_pos;
-			hit = true;
+				missile.misile_pos = missile.initial_pos;
+				hit = true;
 			}
 		}
 	}
@@ -228,7 +228,7 @@ void StageInterface::Update()
 		for (int j = 0; j < buttons[i].buttonPos.size(); j++)
 		{
 			if (
-				SDL_HasIntersection(&dog->pos, &buttons[i].buttonPos[j])||
+				SDL_HasIntersection(&dog->pos, &buttons[i].buttonPos[j]) ||
 				SDL_HasIntersection(&cat->pos, &buttons[i].buttonPos[j])
 				)
 			{
@@ -238,7 +238,7 @@ void StageInterface::Update()
 				buttons[i].Update();
 				break;
 			}
-			else 
+			else
 			{
 				//std::cout << "no press=" << i << "\n";
 				//not pressing button 
@@ -262,7 +262,7 @@ void StageInterface::Update()
 			fadefloors[i].Update();
 		}
 	}
-	
+
 }
 
 
@@ -275,7 +275,7 @@ void StageInterface::Render()
 	for (misile m : mis) {
 		SDL_RenderCopy(g_renderer, boxTexture, &misileRect, &m.misile_pos);
 	}
-	
+
 	for (Box b : boxs)
 	{
 		SDL_RenderCopy(g_renderer, boxTexture, &boxRect, &b.box_pos);
@@ -283,16 +283,16 @@ void StageInterface::Render()
 
 	for (Terrain c : cannon)
 	{
-	if (hit) {
-		SDL_RenderCopy(g_renderer, boxTexture, &lcannonRect, &c.pos);
-		Uint32 currentTime = SDL_GetTicks();
-		if (currentTime % 8 == 0) {
-			hit = false;
+		if (hit) {
+			SDL_RenderCopy(g_renderer, boxTexture, &lcannonRect, &c.pos);
+			Uint32 currentTime = SDL_GetTicks();
+			if (currentTime % 8 == 0) {
+				hit = false;
 			}
 		}
 
-	else {
-		SDL_RenderCopy(g_renderer, boxTexture, &cannonRect, &c.pos);
+		else {
+			SDL_RenderCopy(g_renderer, boxTexture, &cannonRect, &c.pos);
 		}
 	}
 
@@ -305,7 +305,7 @@ void StageInterface::Render()
 	for (Terrain b : bone) {
 		SDL_RenderCopy(g_renderer, boxTexture, &boneRect, &b.pos);
 	}
-	
+
 	//Wall
 	for (Terrain wall : walls)
 	{
@@ -331,7 +331,7 @@ void StageInterface::Render()
 			//Button connected scaffolds
 			SDL_RenderCopy(g_renderer, scaffoldTexture, &scaffoldRect, &btn.scaffold_[i]);
 		}
-		
+
 	}
 
 	//Goal,Start
@@ -408,6 +408,8 @@ void StageInterface::Render()
 		SDL_RenderCopy(g_renderer, chocoTexture, &chocoRect, &choco.choco_pos);
 	}
 
+	//restart
+	SDL_RenderCopy(g_renderer, reTexture, &reRect, &reRect_des);
 
 	SDL_RenderPresent(g_renderer); // draw to the screen
 }
@@ -468,11 +470,11 @@ void StageInterface::HandleEvents()
 			{
 				//game over test
 				isFirst = true;
-				dog->Reset(); 
+				dog->Reset();
 				cat->Reset();
 				g_current_game_phase = PHASE_OVER;
 			}
-			
+
 			else if (event.key.keysym.sym == SDLK_ESCAPE)
 			{
 				dog->resetInputs();
@@ -491,36 +493,30 @@ void StageInterface::HandleEvents()
 			if (event.button.button == SDL_BUTTON_LEFT)
 			{
 				if (g_current_game_phase == PHASE_CLEAR) {
-				// Get the cursor's x position.
-				mouse_win_x_ = event.button.x;
-				mouse_win_y_ = event.button.y;
-				//NextChapter(); <-- 원래 여기에 있던 것을
-					}
+					// Get the cursor's x position.
+					mouse_win_x_ = event.button.x;
+					mouse_win_y_ = event.button.y;
+					//NextChapter(); <-- 원래 여기에 있던 것을
+				}
 				else {//재시작버
-					int x, y;
-					x = event.button.x;
-					y = event.button.y;
 
 					NextChapter(); //<-- 여기로 임시로 옮겨서 오브젝트 배치가 잘되었는지 확인했어요
 
-					if (x >= 60 and x <= 110 and y >= 30 and y <= 80) {
-						isFirst = true;
-						dog->Reset();
-						cat->Reset();
-						}
-					}
-				
+				}
+
+			}
+			else if (event.button.button == SDL_BUTTON_RIGHT) {
+				int x, y;
+				x = event.button.x;
+				y = event.button.y;
+				if (x >= 60 and x <= 110 and y >= 30 and y <= 80) {
+					isFirst = true;
+					dog->Reset();
+					cat->Reset();
+				}
 			}
 
-
-
-		case SDL_MOUSEMOTION:
-		{
-			// Get the cursor's x position.
-			mouse_win_x_ = event.button.x;
-			mouse_win_y_ = event.button.y;
-		}
-		break;
+			break;
 
 		default:
 			break;
