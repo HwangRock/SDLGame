@@ -65,13 +65,15 @@ public:
 		ClimbWall* cwall = new ClimbWall({ 13,31,19,394 });
 		climbWalls = { *cwall };
 
-		Box* box1 = new Box({ 400, 580, 90, 90 });
+		Box* box1 = new Box({ 400, 580, 50, 50 });
 		boxs = { *box1 };
 		cannon = { };
 		mis = {};
 		bone = {};
 		fish = {};
 		keys = {};
+		fadefloors = {};
+		cushions = {};
 
 		Water* water1 = new Water({ 200,650,405,35 });
 		Water* water2 = new Water({ 750,75,198,23 });
@@ -85,7 +87,9 @@ public:
 		choco = { *choco1 };
 
 		goal = { {1100,100,50,100} };
-		start={50,600,50,80};
+		//start={50,600,50,80};
+		start = { 1000,100,50,100 };
+		//바로 클리어 장면 볼 수 있는 start 위치.
 	}
 protected:
 
