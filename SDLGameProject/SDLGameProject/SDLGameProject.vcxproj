@@ -166,7 +166,7 @@
     <ClCompile Include="Map4.cpp" />
     <ClCompile Include="Milk.cpp" />
     <ClCompile Include="misile.cpp" />
-    <ClCompile Include="ropeTest.cpp" />
+    <ClCompile Include="Seesaw.cpp" />
     <ClCompile Include="seesawTest.cpp" />
     <ClCompile Include="Stage.cpp" />
     <ClCompile Include="Main.cpp" />

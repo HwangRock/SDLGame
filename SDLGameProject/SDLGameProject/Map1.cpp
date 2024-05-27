@@ -81,6 +81,9 @@ public:
 		fadefloors = {};
 		cushions = {};
 
+		Seesaw* ss1 = new Seesaw({ 400,400,100,25 });
+		seesaws = {*ss1};
+
 		Water* water1 = new Water({ 200,650,405,35 });
 		Water* water2 = new Water({ 750,75,198,23 });
 		water = { *water1, *water2 };

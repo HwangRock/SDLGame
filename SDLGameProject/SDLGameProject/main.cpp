@@ -44,6 +44,8 @@ std::vector<ClimbWall>climbWalls = {};
 std::vector<Cushion>cushions = {};
 std::vector<FadeFloor>fadefloors = {};
 
+std::vector<Seesaw>seesaws = {};
+
 //liquid
 std::vector<Water>water= {};
 std::vector<Milk>milk = {};

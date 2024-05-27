@@ -119,6 +119,8 @@ public:
 		bone = { *bone1,*bone2,*bone3,*bone4,*bone5,*bone6 };
 		fish = { *fish1,*fish2,*fish3,*fish4,*fish5,*fish6 };
 		
+		seesaws = {};
+
 		// water
 		Water* water1 = new Water({ 718,255,227,27 });
 		Water* water2 = new Water({ 1024,419,66,15 });

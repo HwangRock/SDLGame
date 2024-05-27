@@ -80,6 +80,9 @@ public:
 		//liquidWalls = {};
 		liquidAisles = { };
 		
+		seesaws = {};
+
+
 		keys = {};
 
 		Terrain* cannon1 = new Terrain(1100, 300, 100, 50);
