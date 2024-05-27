@@ -236,9 +236,10 @@ void StageInterface::Update()
 				//Pressing button
 				buttons[i].SetPress(true);
 				buttons[i].Update();
+
 				break;
 			}
-			else
+			else if(j== buttons[i].buttonPos.size()-1)
 			{
 				//std::cout << "no press=" << i << "\n";
 				//not pressing button 

@@ -119,7 +119,7 @@ private:
 	SDL_Rect fishRect;
 	SDL_Rect boneRect;  
 	SDL_Rect cushionRect;
-	SDL_Rect fadefloorRect;
+	SDL_Rect fadefloorRect; 
 
 	SDL_Texture* keyTexture;
 	SDL_Texture* lockTexture;
