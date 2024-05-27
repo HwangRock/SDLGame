@@ -21,13 +21,14 @@ class Pet
 public:
 	SDL_Rect pos;
 	double v[2];
-	bool jumping = false;
+	bool jumping;
 	int isPressing;//is it pressing button
 	bool isInGoal;//does it reach in goal
 	int isCollide; //fadefloor
+	bool haveKey;
 
 	Pet(double x, double y);
-
+	
 	void Reset();
 	virtual void Update( double timestep_s	);
 
@@ -45,6 +46,7 @@ public:
 	double pos_y() const { return pos_[1]; }
 	double jumpSpeed() const { return jump_speed; }
 	void resetInputs() { inputs.clear(); inputs.push_back(0); }
+
 protected:
 
 	float jump_speed = -3.5f;
@@ -60,7 +62,6 @@ protected:
 	
 	bool isDead;
 	
-
 	float gravity = 0.098f;
 
 	//key input
@@ -68,8 +69,5 @@ protected:
 	int keyUpNum;
 	int keyDownNum;
 	std::vector<int> inputs;
-
-	
-
 
 };

@@ -51,18 +51,12 @@ void Manual::HandleEvents()
 			g_flag_running = false;
 			break;
 
-		case SDL_KEYDOWN:
-			if (event.key.keysym.sym != SDLK_ESCAPE)
+		case SDL_MOUSEBUTTONDOWN:
+			if (event.button.button == SDL_BUTTON_LEFT)
 			{
 				g_current_game_phase = PHASE_STAGE1;
-				
 			}
 			break;
-
-
-		case SDL_KEYUP:
-			break;
-
 
 		default:
 			break;

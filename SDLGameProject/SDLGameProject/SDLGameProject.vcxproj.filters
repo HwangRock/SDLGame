@@ -99,6 +99,12 @@
     <ClCompile Include="Water.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
+    <ClCompile Include="Cushion.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="FadeFloor.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Pet.h">
@@ -144,6 +150,12 @@
       <Filter>소스 파일</Filter>
     </ClInclude>
     <ClInclude Include="GameManual.h">
+      <Filter>소스 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="Cushion.h">
+      <Filter>소스 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="FadeFloor.h">
       <Filter>소스 파일</Filter>
     </ClInclude>
   </ItemGroup>

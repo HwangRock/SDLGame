@@ -23,6 +23,12 @@ public:
 		Terrain* floor5 = new Terrain(0, 425, 850, 25);
 		Terrain* floor6 = new Terrain(550, 575, 300, 25);
 
+
+
+
+		Terrain* floor7 = new Terrain(250, 110, 200, 15);//up
+		Terrain* floor8 = new Terrain(250, 175 + 9, 200, 16);//down
+
 		Terrain* default1 = new Terrain(0, 0, 30, win_h);
 		Terrain* default2 = new Terrain(0, 0, win_w, 30);
 		Terrain* default3 = new Terrain(win_w - 30, 0, 30, win_h);
@@ -30,7 +36,7 @@ public:
 
 		walls =
 		{
-			*floor1,*floor2,*floor3,*floor4,*floor5,*floor6,
+			*floor1,*floor2,*floor3,*floor4,*floor5,*floor6,*floor7,*floor8,
 			*default1,*default2,*default3,*default4,
 		};
 
@@ -55,8 +61,8 @@ public:
 
 		blinds = { blind1,blind2 };  */ 
 
-		LiquidWall* lwall1 = new LiquidWall({ 250,125,200,25 }, "down");
-		LiquidWall* lwall2 = new LiquidWall({ 250,175,200,25 }, "up");
+		LiquidWall* lwall1 = new LiquidWall({ 250,125,200,15 }, "down");//up
+		LiquidWall* lwall2 = new LiquidWall({ 250,175,200,9 }, "up");//down
 		liquidWalls = { *lwall1,*lwall2 };
 
 		SDL_Rect laisle1 = { 250,150,200,30 };
@@ -87,7 +93,7 @@ public:
 		choco = { *choco1 };
 
 		goal = { {1100,100,50,100} };
-		start={50,600,50,80};
+		start={600,300,50,80};
 		//start = { 1000,100,50,100 };
 		//바로 클리어 장면 볼 수 있는 start 위치.
 	}

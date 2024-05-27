@@ -98,7 +98,7 @@ public:
 		boxs = {};
 		fadefloors = {};
 		cushions = {};
-
+		climbWalls = {};
 		//milk
 		Milk* milk1 = new Milk({ 120,548,305,25 });
 		Milk* milk2 = new Milk({ 950,481,200,20 });
@@ -112,7 +112,7 @@ public:
 		Choco* choco1 = new Choco({ 0,0,0,0 });
 		choco = { *choco1 };
 
-		start = { 500,300,50,50 };
+		start = { 100,30,50,50 };
 		goal = { {50,520,50,50},{50,650,50,50} };
 
 	}

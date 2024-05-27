@@ -57,7 +57,7 @@ extern std::vector<SDL_Rect> goal;
 
 extern SDL_Rect start;   
 extern int chapterNum;
-extern int win_w, win_h;
+extern int win_w, win_h; 
 extern SDL_Texture* blindTexture;
 
 extern int over;
@@ -87,7 +87,7 @@ private:
 	SDL_Texture* liquidCatTexture;
 	SDL_Texture* wallTexture;
 	SDL_Texture* buttonTexture;
-	SDL_Texture* cushionTexture;
+	SDL_Texture* cushionTexture;  
 	SDL_Texture* fadefloorTexture;
 
 	SDL_Texture* cwallTexture;
@@ -99,15 +99,15 @@ private:
 	
 	SDL_Texture* waterTexture;
 	SDL_Texture* milkTexture;
-	SDL_Texture* chocoTexture;
+	SDL_Texture* chocoTexture; 
 
-	SDL_Rect scaffoldRect;     
+	SDL_Rect scaffoldRect;        
 	SDL_Rect goalRect;
 	SDL_Rect cwallRect;   
 	SDL_Rect wallRect;
 	SDL_Rect buttonRect; 
 	SDL_Rect blindRect;
-	SDL_Rect waterRect;
+	SDL_Rect waterRect; 
 	SDL_Rect milkRect;
 	SDL_Rect chocoRect;
 	SDL_Rect boxRect;
@@ -139,7 +139,7 @@ private:
 
 
 	 
-	// gravity
+	// gravity 
 	float gravity = 0.098f;
 
 	bool isFirst;

@@ -69,6 +69,7 @@ void Cat::Update(double timestep_s)
 
 	isLiquid = false;
 	//skill
+
 	for (int j = 0; j < liquidWalls.size(); j++)
 	{
 		if (SDL_HasIntersection(&pos, &liquidWalls[j].pos_))
@@ -76,6 +77,7 @@ void Cat::Update(double timestep_s)
 			
 			isLiquid = true;
 
+			/*
 			SDL_Rect newWall;
 			newWall = liquidWalls[j].returnWall();
 			std::cout << "liquidWall "<<j<<"=" << newWall.x << ", " << newWall.y << ", " << newWall.w << ", " << newWall.h << "\n";
@@ -83,10 +85,12 @@ void Cat::Update(double timestep_s)
 			if (liquidWalls[j].dir_ != "right"&& liquidWalls[j].dir_ != "left") 
 			{
 				BlockMoving(newWall);
-			}			
+			}		
+			*/
 		}	
 
 	}
+
 
 	//GOAL//////////////////////////////////
 	if (goal.size() == 1)

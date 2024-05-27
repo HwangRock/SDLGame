@@ -13,7 +13,7 @@ void Dog::Reset()
 
 void Dog::Update(double timestep_s)
 {
-
+	
 	v[1] += gravity;
 	Pet::Update(timestep_s);
 

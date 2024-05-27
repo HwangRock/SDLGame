@@ -4,6 +4,9 @@
 #include <iostream>
 #include "Stage.h"
 
+
+
+
 Pet::Pet(double x, double y)
 {
 	size_ = 30;
@@ -36,7 +39,7 @@ Pet::Reset()
 	jumping = false;
 	isDead = false;
 	isInGoal = false;
-
+	haveKey = false;
 	isPressing = -1;
 }
 
@@ -125,15 +128,22 @@ Pet::Update(double timestep_s)
 	//KEY///////////////////////////////////
 	for (int i = 0; i < keys.size(); i++)
 	{
-		if (SDL_HasIntersection(&pos, &keys[i].keyPos))
+		if (SDL_HasIntersection(&pos, &keys[i].keyPos)&&keys[i].isCollected==false&&haveKey==false)
 		{
 			keys[i].isCollected = true;
+			haveKey = true;
+			std::cout << "we have key\n";
 		}
 		if (SDL_HasIntersection(&pos, &keys[i].lockPos))
 		{
-			if (keys[i].isCollected == true) { keys[i].isLocked = false; }
+			if (keys[i].isCollected == true&&haveKey==true) 
+			{ 
+				keys[i].isLocked = false; 
+				haveKey = false;
+			}
 			else if (keys[i].isLocked == true) { BlockMoving(keys[i].lockPos); }
 		}
+
 	}
 
 	if (v[1] > 1) {
