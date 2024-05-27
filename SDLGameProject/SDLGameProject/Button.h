@@ -8,6 +8,7 @@ class Button
 public:
 	std::vector<SDL_Rect> scaffold_;
 	bool isPressed;
+	bool isStop;
 	int wait;
 	std::vector<SDL_Rect> buttonPos;
 	int buttonNum_;
@@ -31,7 +32,7 @@ public:
 
 	void Reset();
 	virtual void Update();
-
+	void petOverlap(const SDL_Rect& obj);
 
 protected:
 
@@ -39,6 +40,9 @@ protected:
 	bool blockingX;
 	bool blockingY;
 	
+
+	double v_x;
+	double v_y;
 	std::vector<SDL_Rect> startPos;
 	std::vector<SDL_Rect> endPos;
 

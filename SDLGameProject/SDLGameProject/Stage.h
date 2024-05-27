@@ -77,11 +77,11 @@ public:
 	virtual void Render();
 	
 	void NextChapter();
-
+	bool checkOverlap(SDL_Rect a, SDL_Rect b, int depth);
 private:  
 	//Sprite
 	SDL_Rect dogRect;
-	SDL_Rect catRect;
+	SDL_Rect catRect; 
 	SDL_Texture* catTexture;
 	SDL_Texture* dogTexture;
 	SDL_Texture* liquidCatTexture;

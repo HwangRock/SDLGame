@@ -225,18 +225,22 @@ void StageInterface::Update()
 	//PRESS BUTTON/////////////////////////////////////////////////////////////
 	for (int i = 0; i < buttons.size(); i++)
 	{
+		buttons[i].petOverlap(dog->pos);
+		//buttons[i].petOverlap(cat->pos);
+
 		for (int j = 0; j < buttons[i].buttonPos.size(); j++)
 		{
+			
 			if (
 				SDL_HasIntersection(&dog->pos, &buttons[i].buttonPos[j]) ||
 				SDL_HasIntersection(&cat->pos, &buttons[i].buttonPos[j])
 				)
 			{
-				//std::cout <<"press=" << i << "\n";
+
 				//Pressing button
+				//buttons[i].isStop = false;
 				buttons[i].SetPress(true);
 				buttons[i].Update();
-
 				break;
 			}
 			else if(j== buttons[i].buttonPos.size()-1)
@@ -264,6 +268,22 @@ void StageInterface::Update()
 		}
 	}
 
+}
+
+bool StageInterface::checkOverlap(SDL_Rect a, SDL_Rect b, int depth) 
+{
+	if (a.x <= b.x + b.w && a.x + a.w >= b.x)
+	{
+		if (a.y + a.h <= b.y + b.h / 2 && a.y + a.h >= b.y + depth)
+		{
+			return true; // A의 아래 변이 B의 위쪽에 깊이만큼 겹침
+		}
+		if (a.y >= b.y + b.h / 2 && a.y <= b.y + b.h - depth)
+		{
+			return true; // A의 위 변이 B의 아래쪽에 깊이만큼 겹침
+		}
+	}
+	return false;
 }
 
 

@@ -33,52 +33,96 @@ Button::Reset()
 	
 	wait = 0;
 	isPressed = false;
+	isStop = false;
 }
 
 
+void Button::petOverlap(const SDL_Rect &obj) 
+{
+	isStop = false;
+
+	/*
+	if (SDL_HasIntersection(&obj, &scaffold_[0]))//1도 해야함
+	{
+
+		//아 왜 이게 안되냐!!!!!!!!!!!!!!!!!!!1
+	}
+	*/
+
+	for (int i = 0; i < scaffold_.size(); i++)
+	{
+		if (obj.x <= scaffold_[i].x + scaffold_[i].w && obj.x + obj.w >= scaffold_[i].x)
+		{
+			if (obj.y + obj.h >= scaffold_[i].y + 5)
+			{
+				//벽의 아래에 있음
+				if (std::abs(obj.y - (scaffold_[i].y + scaffold_[i].h)) <= 1)
+				{
+					std::cout << "danger!\n";  isStop = true;
+					break;
+				}
+
+			}
+			else if (obj.y + obj.h <= scaffold_[i].y + 5)
+			{
+				//벽 위에 있음
+				if (std::abs(obj.y + obj.h - (scaffold_[i].y)) <= 1)
+				{
+					std::cout << "danger!\n";  isStop = true;
+					break;
+				}
+			}
+		}
+		
+	}
+	
+
+	
+	
+}
 void
 Button::Update()
 {
-	//double dt = timestep_s;	// seconds
 
-	//아직 제약이 많음. 무조건 위로 올라갔다 내려오는거, 두개의 발판 동시에 움직이는 경우에는 발판이 이동하는 거리가 똑같아야함
-	if (isPressed == true)
-	{
-		if (Distance(scaffold_[0], endPos[0]) >= 2)
+	if(!isStop)
+	{ 
+
+		//아직 제약이 많음. 무조건 위로 올라갔다 내려오는거, 두개의 발판 동시에 움직이는 경우에는 발판이 이동하는 거리가 똑같아야함
+		if (isPressed == true)
 		{
-			std::cout << "move to end!!" << "\n";
+			if (Distance(scaffold_[0], endPos[0]) >= 2)
+			{
+				//std::cout << "move to end!!" << "\n";
 
 
-			if (wait != 3) { wait++; }
-			else 
-			{ 
-				for (int i = 0; i < scaffold_.size(); i++)
-				{
-					Move(scaffold_[i], endPos[i], scaffold_[i]);
+				if (wait != 3) { wait++; }
+				else 
+				{ 
+					for (int i = 0; i < scaffold_.size(); i++)
+					{
+						Move(scaffold_[i], endPos[i], scaffold_[i]);
+					}
+					wait = 0; 
 				}
-				wait = 0; 
+			}
+		}
+		else
+		{
+			if (Distance(scaffold_[0], startPos[0]) >= 2)
+			{
+				//std::cout << "move to start!" << "\n";
+				if (wait != 3) { wait++; }
+				else 
+				{ 
+					for (int i = 0; i < scaffold_.size(); i++)
+					{
+						Move(scaffold_[i], startPos[i], scaffold_[i]);
+					}
+					wait = 0; 
+				}
 			}
 		}
 	}
-	else
-	{
-		if (Distance(scaffold_[0], startPos[0]) >= 2)
-		{
-			std::cout << "move to start!" << "\n";
-			if (wait != 3) { wait++; }
-			else 
-			{ 
-				for (int i = 0; i < scaffold_.size(); i++)
-				{
-					Move(scaffold_[i], startPos[i], scaffold_[i]);
-				}
-				wait = 0; 
-			}
-		}
-	}
-	
-	
-	
 
 	//std::cout << Distance(scaffold_, startPos)<<" " << Distance(scaffold_, endPos)<<"\n";
 }
@@ -105,8 +149,8 @@ float Button::getVelocityY()
 void Button::Move(SDL_Rect& start, SDL_Rect& end, SDL_Rect& obj)
 {
 	//vector
-	double v_x = end.x - start.x;
-	double v_y = end.y - start.y;
+	v_x = end.x - start.x;
+	v_y = end.y - start.y;
 
 	double distance = Distance(start, end);
 
@@ -114,7 +158,7 @@ void Button::Move(SDL_Rect& start, SDL_Rect& end, SDL_Rect& obj)
 	obj.x += (v_x / distance)*2;
 	obj.y += (v_y / distance)*2;
 
-	std::cout << "x velo=" << v_x / distance << " y velo=" << v_y / distance << "\n";
+	//std::cout << "x velo=" << v_x / distance << " y velo=" << v_y / distance << "\n";
 }
 
 

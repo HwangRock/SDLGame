@@ -178,7 +178,6 @@ void Pet::BlockMoving(SDL_Rect obst)
 			pos.x = obst.x - pos.w;
 			//jumping = true;
 		}
-
 		else if (pos.x + pos.w > obst.x)
 		{
 			//std::cout << "right\n";
