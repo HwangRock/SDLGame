@@ -95,11 +95,7 @@ StageInterface::StageInterface()
 	reRect = { 0,0,359,162 };
 	reRect_des = { 60,30,50,50 };
 
-	//Sessaw
-	SDL_Surface* surface_ss = IMG_Load("../Resources/intro.png");
-	seesawTexture = SDL_CreateTextureFromSurface(g_renderer, surface_ss);
-	SDL_FreeSurface(surface_ss);
-	seesawRect = { 0,0,300,300 };
+
 	////////////////////////////////////////////////////////////////////////////////////////
 
 	mouse_win_x_ = 0;
@@ -460,17 +456,7 @@ void StageInterface::Render()
 	SDL_RenderCopy(g_renderer, reTexture, &reRect, &reRect_des);
 
 
-	//Seesaw
-	for (Seesaw ss : seesaws)
-	{
-		SDL_Point center = { ss.pos.w / 2, ss.pos.h / 2 };
-
-		SDL_RenderCopyEx(g_renderer, seesawTexture, &seesawRect, &ss.pos, ss.angle * 180 / M_PI, &center, SDL_FLIP_NONE);
-
-		// Draw seesaw center point for debugging
-		SDL_SetRenderDrawColor(g_renderer, 255, 0, 0, 255); // Red color
-		SDL_RenderDrawPoint(g_renderer, center.x, center.y);
-	}
+	
 
 	SDL_RenderPresent(g_renderer); // draw to the screen
 }

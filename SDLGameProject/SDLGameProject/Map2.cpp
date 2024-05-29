@@ -94,7 +94,7 @@ public:
 		choco = { *choco1 };
 
 
-		seesaws = {};
+
 
 		//Blind
 		blinds = { };

@@ -24,7 +24,7 @@
 #include "FadeFloor.h"
 #include "Cushion.h"
 
-#include "Seesaw.cpp";
+
 
 #include "Box.h"  
 #include "misile.cpp"
@@ -49,7 +49,7 @@ extern std::vector<Cushion>cushions;
 extern std::vector<FadeFloor>fadefloors;
 extern std::vector<misile>mis; 
 
-extern std::vector<Seesaw>seesaws;
+
 extern std::vector<Water>water;
 extern std::vector<Milk>milk;  
 extern std::vector<Choco>choco;
@@ -103,8 +103,7 @@ private:
 
 	SDL_Texture* reTexture;
 
-	SDL_Texture* seesawTexture;
-	SDL_Rect seesawRect;
+
 	
 	SDL_Texture* waterTexture;
 	SDL_Texture* milkTexture;

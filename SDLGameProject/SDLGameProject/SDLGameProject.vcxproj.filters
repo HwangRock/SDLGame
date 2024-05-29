@@ -75,9 +75,6 @@
     <ClCompile Include="Key.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
-    <ClCompile Include="seesawTest.cpp">
-      <Filter>소스 파일</Filter>
-    </ClCompile>
     <ClCompile Include="Box.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
@@ -100,9 +97,6 @@
       <Filter>소스 파일</Filter>
     </ClCompile>
     <ClCompile Include="FadeFloor.cpp">
-      <Filter>소스 파일</Filter>
-    </ClCompile>
-    <ClCompile Include="Seesaw.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
   </ItemGroup>

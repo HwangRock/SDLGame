@@ -83,30 +83,6 @@ Pet::Update(double timestep_s)
 		}
 	}
 
-	//Seesaw///////////////////////////////////////////////////
-	for (int i = 0; i < seesaws.size(); i++)
-	{
-		//SDL_Rect seesawRect = seesaws[i].getRect();
-		SDL_Rect seesawRect = seesaws[i].pos;
-		if (SDL_HasIntersection(&pos, &seesawRect)) {
-			if (pos.x + pos.w / 2 < seesawRect.x + seesawRect.w / 2)
-			{
-				std::cout << "left up\n";
-				seesaws[i].applyForce(-FORCE);
-
-			}
-			else if (pos.x + pos.w / 2 > seesawRect.x + seesawRect.w / 2)
-			{
-
-				std::cout << "right up\n";
-				seesaws[i].applyForce(FORCE);
-			}
-			//BlockMoving(seesaws[i].pos);
-		}
-
-		// Update seesaw
-		seesaws[i].update();
-	}
 	
 
 
