@@ -19,12 +19,13 @@ class Dog:public Pet
 {
 public:
 
+	bool box_collide;
+
 	Dog(double x, double y) : Pet(x, y)
 	{
 		Reset();
 	}
 
-	
 	void Reset();
 	void Update( double timestep_s	);
 	void HandleEvent(SDL_Event event);
@@ -36,5 +37,4 @@ protected:
 	bool beBlurry_;
 	bool isSkill_;//
 	int blindOpacity_;//
-
 };
