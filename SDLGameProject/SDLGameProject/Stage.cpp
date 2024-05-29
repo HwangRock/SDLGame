@@ -9,6 +9,7 @@
 #include "SDL_image.h"
 
 
+
 extern int g_current_game_phase;
 extern int g_pre_game_phase;
 extern bool g_flag_running;
@@ -30,35 +31,11 @@ StageInterface::StageInterface()
 
 
 	//Drawing Texture//////////////////////////////////////////////////////////////////
-	//Dog
-	SDL_Surface* g_surface_dog = IMG_Load("../Resources/dog_.png");
-	dogTexture = SDL_CreateTextureFromSurface(g_renderer, g_surface_dog);
-	SDL_FreeSurface(g_surface_dog);
-	dogRect = { 0,0,141,141 };
-
-	//Cat
-	SDL_Surface* g_surface_cat = IMG_Load("../Resources/cat_.png");
-	catTexture = SDL_CreateTextureFromSurface(g_renderer, g_surface_cat);
-	SDL_FreeSurface(g_surface_cat);
-	catRect = { 0,0,90,90 };
-
-	//Liquid Cat
-	SDL_Surface* g_surface_liquidCat = IMG_Load("../Resources/liquidCat.png");
-	liquidCatTexture = SDL_CreateTextureFromSurface(g_renderer, g_surface_liquidCat);
-	SDL_FreeSurface(g_surface_liquidCat);
-
-
 	//Wall
 	SDL_Surface* surface_wall = IMG_Load("../Resources/sky.jpg");
 	wallTexture = SDL_CreateTextureFromSurface(g_renderer, surface_wall);
 	SDL_FreeSurface(surface_wall);
 	wallRect = { 0,0,680,808 };
-
-	//Button
-	SDL_Surface* surface_button = IMG_Load("../Resources/ball.png");
-	buttonTexture = SDL_CreateTextureFromSurface(g_renderer, surface_button);
-	SDL_FreeSurface(surface_button);
-	buttonRect = { 0,0,61,31 };
 
 	//Blind
 	SDL_Surface* surface_blind = IMG_Load("../Resources/star.png");
@@ -77,7 +54,6 @@ StageInterface::StageInterface()
 	SDL_Surface* surface_goal = IMG_Load("../Resources/ending.png");
 	goalTexture = SDL_CreateTextureFromSurface(g_renderer, surface_goal);
 	SDL_FreeSurface(surface_goal);
-	goalRect = { 0,0,1017,1017 };
 
 	//etc
 	SDL_Surface* surface_sca = IMG_Load("../Resources/intro.png");
@@ -85,47 +61,32 @@ StageInterface::StageInterface()
 	SDL_FreeSurface(surface_sca);
 	scaffoldRect = { 0,0,100,100 };
 
-	//water
-	SDL_Surface* surface_water = IMG_Load("../Resources/water.png");
-	waterTexture = SDL_CreateTextureFromSurface(g_renderer, surface_water);
-	SDL_FreeSurface(surface_water);
-	waterRect = { 0,0,300,50 };
-
-	//milk
-	SDL_Surface* surface_milk = IMG_Load("../Resources/milk.png");
-	milkTexture = SDL_CreateTextureFromSurface(g_renderer, surface_milk);
-	SDL_FreeSurface(surface_milk);
-	milkRect = { 0,0,300,50 };
-
-	//choco
-	SDL_Surface* surface_choco = IMG_Load("../Resources/choco.png");
-	chocoTexture = SDL_CreateTextureFromSurface(g_renderer, surface_choco);
-	SDL_FreeSurface(surface_choco);
-	chocoRect = { 0,0,300,50 };
-
-
-	//Key
-	SDL_Surface* surface_key = IMG_Load("../Resources/star.png");
-	keyTexture = SDL_CreateTextureFromSurface(g_renderer, surface_key);
-	SDL_FreeSurface(surface_key);
-	keyRect = { 0,0,269,269 };
-
-	//lock
-	SDL_Surface* surface_lock = IMG_Load("../Resources/ball.png");
-	lockTexture = SDL_CreateTextureFromSurface(g_renderer, surface_lock);
-	SDL_FreeSurface(surface_lock);
-	lockRect = { 0,0,61,61 };
-
-	//Box
-	SDL_Surface* box = IMG_Load("../Resources/many.png");
-	boxTexture = SDL_CreateTextureFromSurface(g_renderer, box);
-	SDL_FreeSurface(box);
+	//Texture
+	SDL_Surface* texture = IMG_Load("../Resources/many.png");
+	manyTexture = SDL_CreateTextureFromSurface(g_renderer, texture);
+	SDL_FreeSurface(texture);
 	boxRect = { 156,3139, 139, 140 };
 	cannonRect = { 147,2445, 179, 130 };
 	lcannonRect = { 340,2436, 204, 143 };
 	misileRect = { 606, 2465, 100, 53 };
 	fishRect = { 171,2237,91,56 };
 	boneRect = { 404,2226,86,67 };
+	buttonRect = { 632,2267,103,109 };
+	goalRect = { 152,2850,154,207 };
+	waterRect = { 113,3534,449,217 };
+	milkRect = { 111,3293,453,225 };
+	chocoRect = { 111,3760,449,223 };
+	keyRect = { 1532,2213,83,110};
+	lockRect = { 1774,2222,60,80 };
+	cushionRect = { 1049,2301,160,76 };
+	fadefloorRect = { 1923,2222,215,90 };
+	dogRect = { 150,1010,153,193 };
+	catRect = { 145,75,167,215 };
+	PushbuttonRect = { 855,2305,112,69 };
+	PushcushionRect = { 1277,2314,156,68 };
+	dogPushRect = { 119,1941,132,179 };
+	catDieRect = { 580,770,187,222 };
+	dogDieRect = { 342,1537,218,144 };
 
 	//restart
 	SDL_Surface* rebox = IMG_Load("../Resources/restart.png");
@@ -133,19 +94,6 @@ StageInterface::StageInterface()
 	SDL_FreeSurface(rebox);
 	reRect = { 0,0,359,162 };
 	reRect_des = { 60,30,50,50 };
-
-	//Cushion
-	SDL_Surface* surface_cushion = IMG_Load("../Resources/cushion.png");
-	cushionTexture = SDL_CreateTextureFromSurface(g_renderer, surface_cushion);
-	SDL_FreeSurface(surface_cushion);
-	cushionRect = { 0,0,300,155 };
-
-	//Fade floor
-	SDL_Surface* surface_fwall = IMG_Load("../Resources/sky3.jpg");
-	fadefloorTexture = SDL_CreateTextureFromSurface(g_renderer, surface_fwall);
-	SDL_FreeSurface(surface_fwall);
-	fadefloorRect = { 0,0,680,808 };
-
 
 	//Sessaw
 	SDL_Surface* surface_ss = IMG_Load("../Resources/intro.png");
@@ -182,6 +130,10 @@ void StageInterface::Reset()
 }
 void StageInterface::Update()
 {
+	//std::cout<< "Current : "<<g_current_game_phase << "\n";
+	//std::cout << "pre : " << g_pre_game_phase << "\n";
+	//std::cout << "chapter : " << chapterNum << "\n";
+
 	if (isFirst == true)
 	{
 		SetVar();
@@ -236,17 +188,17 @@ void StageInterface::Update()
 
 		for (int j = 0; j < buttons[i].buttonPos.size(); j++)
 		{
-			
+			//std::cout << press << "\n";
 			if (
 				SDL_HasIntersection(&dog->pos, &buttons[i].buttonPos[j]) ||
 				SDL_HasIntersection(&cat->pos, &buttons[i].buttonPos[j])
 				)
 			{
-
 				//Pressing button
 				//buttons[i].isStop = false;
 				buttons[i].SetPress(true);
 				buttons[i].Update();
+				press = 1;
 				break;
 			}
 			else if(j== buttons[i].buttonPos.size()-1)
@@ -256,21 +208,48 @@ void StageInterface::Update()
 				buttons[i].SetPress(false);
 				buttons[i].Update();
 			}
+			else
+			{
+				press = 0;
+			}
 		}
-	}
+	} 
 
 	//FADE FLOOR///////////////////////////////////////////////////////////
-	for (int i = 0; i < fadefloors.size(); i++)
+	if (!fadefloors.empty()) 
 	{
-		if (cat->isCollide == 1 || dog->isCollide == 1)
+		if (cat->isCollide == 1 || dog->isCollide == 1) 
 		{
-			fadefloors[i].CollideFloor(true);
-			fadefloors[i].Update();
-		}
-		else
-		{
-			fadefloors[i].CollideFloor(false);
-			fadefloors[i].Update();
+			switch (fadefloorNum)
+			{
+			case 0:
+				fadefloors[0].CollideFloor(true);
+				fadefloors[0].Update();
+				break;
+			case 1:
+				fadefloors[1].CollideFloor(true);
+				fadefloors[1].Update();
+				break;
+			case 2:
+				fadefloors[2].CollideFloor(true);
+				fadefloors[2].Update();
+				break;
+			case 3:
+				fadefloors[3].CollideFloor(true);
+				fadefloors[3].Update();
+				break;
+			case 4:
+				fadefloors[4].CollideFloor(true);
+				fadefloors[4].Update();
+				break;
+			case 5:
+				fadefloors[5].CollideFloor(true);
+				fadefloors[5].Update();
+				break;
+			default:
+				break;
+			}
+
 		}
 	}
 
@@ -296,22 +275,22 @@ bool StageInterface::checkOverlap(SDL_Rect a, SDL_Rect b, int depth)
 void StageInterface::Render()
 {
 	//Background
-	SDL_SetRenderDrawColor(g_renderer, 255, 255, 255, 255);
+	SDL_SetRenderDrawColor(g_renderer, 229, 221, 192, 255);
 	SDL_RenderClear(g_renderer); // clear the renderer to the draw color
 
 	for (misile m : mis) {
-		SDL_RenderCopy(g_renderer, boxTexture, &misileRect, &m.misile_pos);
+		SDL_RenderCopy(g_renderer, manyTexture, &misileRect, &m.misile_pos);
 	}
 
 	for (Box b : boxs)
 	{
-		SDL_RenderCopy(g_renderer, boxTexture, &boxRect, &b.box_pos);
+		SDL_RenderCopy(g_renderer, manyTexture, &boxRect, &b.box_pos);
 	}
 
 	for (Terrain c : cannon)
 	{
 		if (hit) {
-			SDL_RenderCopy(g_renderer, boxTexture, &lcannonRect, &c.pos);
+			SDL_RenderCopy(g_renderer, manyTexture, &lcannonRect, &c.pos);
 			Uint32 currentTime = SDL_GetTicks();
 			if (currentTime % 8 == 0) {
 				hit = false;
@@ -319,18 +298,18 @@ void StageInterface::Render()
 		}
 
 		else {
-			SDL_RenderCopy(g_renderer, boxTexture, &cannonRect, &c.pos);
+			SDL_RenderCopy(g_renderer, manyTexture, &cannonRect, &c.pos);
 		}
 	}
 
 	//fish
 	for (Terrain f : fish) {
-		SDL_RenderCopy(g_renderer, boxTexture, &fishRect, &f.pos);
+		SDL_RenderCopy(g_renderer, manyTexture, &fishRect, &f.pos);
 	}
 
 	//bone
 	for (Terrain b : bone) {
-		SDL_RenderCopy(g_renderer, boxTexture, &boneRect, &b.pos);
+		SDL_RenderCopy(g_renderer, manyTexture, &boneRect, &b.pos);
 	}
 
 	//Wall
@@ -350,8 +329,15 @@ void StageInterface::Render()
 	{
 		for (int i = 0; i < btn.buttonPos.size(); i++)
 		{
-			//btn
-			SDL_RenderCopy(g_renderer, buttonTexture, &buttonRect, &btn.buttonPos[i]);
+			if(press)
+			{
+				SDL_RenderCopy(g_renderer, manyTexture, &PushbuttonRect, &btn.buttonPos[i]);
+			}
+			else
+			{
+				SDL_RenderCopy(g_renderer, manyTexture, &buttonRect, &btn.buttonPos[i]);
+			}
+
 		}
 		for (int i = 0; i < btn.scaffold_.size(); i++)
 		{
@@ -364,20 +350,20 @@ void StageInterface::Render()
 	//Goal,Start
 	for (SDL_Rect g : goal)
 	{
-		SDL_RenderCopy(g_renderer, goalTexture, &goalRect, &g);
+		SDL_RenderCopy(g_renderer, manyTexture, &goalRect, &g);
 	}
-	SDL_RenderCopy(g_renderer, goalTexture, &goalRect, &start);
+	SDL_RenderCopy(g_renderer, manyTexture, &goalRect, &start);
 
 	//Key and Lock
 	for (Key key : keys)
 	{
 		if (key.isLocked == true)
 		{
-			SDL_RenderCopy(g_renderer, lockTexture, &lockRect, &key.lockPos);
+			SDL_RenderCopy(g_renderer, manyTexture, &lockRect, &key.lockPos);
 		}
 		if (key.isCollected == false)
 		{
-			SDL_RenderCopy(g_renderer, keyTexture, &keyRect, &key.keyPos);
+			SDL_RenderCopy(g_renderer, manyTexture, &keyRect, &key.keyPos);
 		}
 	}
 
@@ -388,9 +374,35 @@ void StageInterface::Render()
 	}
 	else
 	{
-		SDL_RenderCopy(g_renderer, catTexture, &catRect, &cat->pos);
+		// left
+		if (cat->nowInput == 1 || cat->nowInput == 0)
+		{
+			SDL_RenderCopy(g_renderer, manyTexture, &catRect, &cat->pos);
+		}
+		// right
+		else if (cat->nowInput == 2)
+		{
+			SDL_RenderCopyEx(g_renderer, manyTexture, &catRect, &cat->pos, 0, NULL, SDL_FLIP_HORIZONTAL);
+		}
 	}
-	SDL_RenderCopy(g_renderer, dogTexture, &dogRect, &dog->pos);
+
+	if (dog->box_collide == true)
+	{
+		SDL_RenderCopy(g_renderer, manyTexture, &dogPushRect, &dog->pos);
+	}
+	else
+	{
+		// left
+		if (dog->nowInput == 1 || dog->nowInput == 0)
+		{
+			SDL_RenderCopy(g_renderer, manyTexture, &dogRect, &dog->pos);
+		}
+		// right
+		else if (dog->nowInput == 2)
+		{
+			SDL_RenderCopyEx(g_renderer, manyTexture, &dogRect, &dog->pos, 0, NULL, SDL_FLIP_HORIZONTAL);
+		}
+	}
 
 
 
@@ -399,12 +411,6 @@ void StageInterface::Render()
 	{
 		SDL_RenderCopy(g_renderer, blindTexture, &blindRect, &bln);
 
-	}
-
-	//fadefloor
-	for (FadeFloor fwall : fadefloors)
-	{
-		SDL_RenderCopy(g_renderer, fadefloorTexture, &fadefloorRect, &fwall.floor_pos);
 	}
 
 	//climbWall
@@ -416,23 +422,38 @@ void StageInterface::Render()
 	//cushion
 	for (Cushion cushion : cushions)
 	{
-		SDL_RenderCopy(g_renderer, cushionTexture, &cushionRect, &cushion.cushion_pos);
+		if(c_collide)
+		{
+			SDL_RenderCopy(g_renderer, manyTexture, &PushcushionRect, &cushion.cushion_pos);
+		}
+		else
+		{
+			SDL_RenderCopy(g_renderer, manyTexture, &cushionRect, &cushion.cushion_pos);
+		}
 	}
 
 	//water
 	for (Water water : water)
 	{
-		SDL_RenderCopy(g_renderer, waterTexture, &waterRect, &water.water_pos);
+		SDL_RenderCopy(g_renderer, manyTexture, &waterRect, &water.water_pos);
 	}
 	//milk
 	for (Milk milk : milk)
 	{
-		SDL_RenderCopy(g_renderer, milkTexture, &milkRect, &milk.milk_pos);
+		SDL_RenderCopy(g_renderer, manyTexture, &milkRect, &milk.milk_pos);
 	}
 	//water
 	for (Choco choco : choco)
 	{
-		SDL_RenderCopy(g_renderer, chocoTexture, &chocoRect, &choco.choco_pos);
+		SDL_RenderCopy(g_renderer, manyTexture, &chocoRect, &choco.choco_pos);
+	}
+
+	//fadefloor
+	for (FadeFloor fwall : fadefloors)
+	{
+		SDL_SetTextureBlendMode(manyTexture, SDL_BLENDMODE_BLEND);
+		SDL_SetTextureAlphaMod(manyTexture, fwall.alpha);
+		SDL_RenderCopy(g_renderer, manyTexture, &fadefloorRect, &fwall.floor_pos);
 	}
 
 	//restart
@@ -536,11 +557,10 @@ void StageInterface::HandleEvents()
 					// Get the cursor's x position.
 					mouse_win_x_ = event.button.x;
 					mouse_win_y_ = event.button.y;
-					//NextChapter(); <-- 원래 여기에 있던 것을
 				}
 				else {//재시작버
 
-					NextChapter(); //<-- 여기로 임시로 옮겨서 오브젝트 배치가 잘되었는지 확인했어요
+					NextChapter(); 
 
 				}
 
