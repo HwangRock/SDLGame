@@ -42,7 +42,7 @@ void Button::petOverlap(const SDL_Rect &obj)
 	isStop = false;
 
 	/*
-	if (SDL_HasIntersection(&obj, &scaffold_[0]))//1도 해야함
+	if (SDL_HasIntersection(&obj, &scaffold_[0]))//이거 고쳐야함
 	{
 
 		//아 왜 이게 안되냐!!!!!!!!!!!!!!!!!!!1
@@ -68,8 +68,8 @@ void Button::petOverlap(const SDL_Rect &obj)
 				//벽 위에 있음
 				if (std::abs(obj.y + obj.h - (scaffold_[i].y)) <= 1)
 				{
-					std::cout << "danger!\n";  //isStop = true;
-					break;
+					//std::cout << "danger!\n";  //isStop = true;
+					//break;
 				}
 			}
 		}
@@ -133,19 +133,6 @@ double Button::Distance(SDL_Rect& rect1, SDL_Rect& rect2)
 	return distance;
 }
 
-float Button::getVelocityX() 
-{
-	/*bool blockingX = (boxVelX > 0 && x + PET_WIDTH > box.x) || (boxVelX < 0 && x < box.x + box.w); 
-bool blockingY = (boxVelY > 0 && y + PET_HEIGHT > box.y) || (boxVelY < 0 && y < box.y + box.h);*/
-	//(toX-x)/sqrt((toX-x)**2+(toY-y)**2)*BOX_SPEED;
-
-	return 0.1f;
-}
-float Button::getVelocityY() 
-{
-	//(toY-y)/sqrt((toX-x)**2+(toY-y)**2)*BOX_SPEED;
-	return 0.1f;
-}
 void Button::Move(SDL_Rect& start, SDL_Rect& end, SDL_Rect& obj)
 {
 	//vector
@@ -154,11 +141,9 @@ void Button::Move(SDL_Rect& start, SDL_Rect& end, SDL_Rect& obj)
 
 	double distance = Distance(start, end);
 
-
 	obj.x += (v_x / distance)*2;
 	obj.y += (v_y / distance)*2;
 
-	//std::cout << "x velo=" << v_x / distance << " y velo=" << v_y / distance << "\n";
 }
 
 

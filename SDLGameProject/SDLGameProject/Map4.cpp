@@ -49,6 +49,9 @@ public:
 		Terrain* default3 = new Terrain(win_w-30, 0, 30, win_h);
 		Terrain* default4 = new Terrain(0, win_h-30, win_w, 30);
 
+		//사라지는 벽대신 추가
+		Terrain* default20 = new Terrain(30, 605, 80, 25);
+
 		
 		walls =
 		{
@@ -57,7 +60,7 @@ public:
 			*floor7,*floor8,*floor9,*floor10,
 			*floor11,*floor12,*floor13,*floor14,*floor15,*floor16,
 			*floor17,*floor18,*floor19,
-			*default1,*default2,*default3,* default4
+			*default1,*default2,*default3,* default4,*default20
 		};
 
 
@@ -104,12 +107,12 @@ public:
 		Terrain* bone6 = new Terrain(540, 250, 30, 30);
 
 		FadeFloor* fadefloor1 = new FadeFloor({ 115,650,87,25 });
-		FadeFloor* fadefloor2 = new FadeFloor({ 30,580,87,25 });
+		//FadeFloor* fadefloor2 = new FadeFloor({ 30,580,87,25 });
 		FadeFloor* fadefloor3 = new FadeFloor({ 311,93,100,15 });
 		FadeFloor* fadefloor4 = new FadeFloor({ 501,93,100,15 });
 		FadeFloor* fadefloor5 = new FadeFloor({ 691,93,100,15 });
 		FadeFloor* fadefloor6 = new FadeFloor({ 881,93,100,15 });
-		fadefloors = { *fadefloor1 ,*fadefloor2,*fadefloor3,*fadefloor4,*fadefloor5,*fadefloor6 };
+		fadefloors = { *fadefloor1 ,*fadefloor3,*fadefloor4,*fadefloor5,*fadefloor6 };
 
 		Cushion* cushion1 = new Cushion({ 897,475,100, 55 });
 		cushions = { *cushion1 };
@@ -151,7 +154,7 @@ public:
 		liquidAisles = { };
 		keys = {};
 		goal = { {800,50,50,80} };
-		start={100,600,50,80};
+		start={100,win_h-(30+50+10),50,80};
 	}
 
 

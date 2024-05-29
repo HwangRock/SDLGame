@@ -72,7 +72,6 @@ void ESC::HandleEvents()
 
 		case SDL_MOUSEBUTTONDOWN:
 
-			// If the mouse left button is pressed. 
 			if (event.button.button == SDL_BUTTON_LEFT)
 			{
 

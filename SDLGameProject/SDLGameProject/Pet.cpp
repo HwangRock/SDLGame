@@ -74,11 +74,19 @@ Pet::Update(double timestep_s)
 	}
 
 
-
+	//MISSILE////////////////////////////////
 	for (auto& missile : mis) {
 		if (SDL_HasIntersection(&mis[0].misile_pos, &pos))
 		{
-			pos.x = 1000000, pos.y = 10000000;
+			isDead = true;
+		}
+	}
+
+	//CHOCOLATE//////////////////////
+	for (Choco c : choco)
+	{
+		if (SDL_HasIntersection(&c.choco_pos, &pos))
+		{
 			isDead = true;
 		}
 	}

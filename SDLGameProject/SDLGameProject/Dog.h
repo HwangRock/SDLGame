@@ -20,6 +20,7 @@ class Dog:public Pet
 public:
 
 	bool box_collide;
+	int blindOpacity_;//
 
 	Dog(double x, double y) : Pet(x, y)
 	{
@@ -36,5 +37,5 @@ protected:
 	// dog skill variables
 	bool beBlurry_;
 	bool isSkill_;//
-	int blindOpacity_;//
+	
 };

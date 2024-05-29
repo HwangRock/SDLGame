@@ -27,8 +27,6 @@ public:
 	//void Move(SDL_Rect& from, SDL_Rect& to);
 	void SetPress(bool b);
 	void Move(SDL_Rect& start, SDL_Rect& end, SDL_Rect& obj);
-	float getVelocityX();
-	float getVelocityY();
 
 	void Reset();
 	virtual void Update();

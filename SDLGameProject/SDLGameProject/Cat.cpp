@@ -11,7 +11,7 @@ void Cat::Reset()
 void Cat::Update(double timestep_s)
 {
 
-	//CLIMB WALL//////////////////////////////
+	//CLIMB WALL////////////////////////////////////////////
 	for (int k = 0; k < climbWalls.size(); k++)
 	{
 		if (SDL_HasIntersection(&pos, &climbWalls[k].wall_pos))
@@ -30,19 +30,30 @@ void Cat::Update(double timestep_s)
 
 	if (isClimbWall == false) { v[1] += gravity; }
 
-	for (auto& f : fish) {
-		if (SDL_HasIntersection(&f.pos, &pos))
-		{
-		f.pos.x = -10000000000, f.pos.y = -10000000000000;
-		score += 10;
-		std::cout << "score : " << score << "\n";
-		}
-	}
-	
-
 
 	//UPDATE///////////////////////////////////////////////////
 	Pet::Update(timestep_s);
+
+
+	//WATER///////////////////////////////////////////////////
+	for (Water w : water)
+	{
+		if (SDL_HasIntersection(&w.water_pos, &pos))
+		{
+			isDead = true;
+		}
+	}
+
+
+	//EAT FISH////////////////////////////////////////////////
+	for (auto& f : fish) {
+		if (SDL_HasIntersection(&f.pos, &pos))
+		{
+			f.pos.x = -10000000000, f.pos.y = -10000000000000;
+			score += 10;
+			std::cout << "score : " << score << "\n";
+		}
+	}
 	
 
 	//CUSHION////////////////////////////////////////////////
@@ -67,42 +78,24 @@ void Cat::Update(double timestep_s)
 
 
 	//CAT LIQUID SKILL/////////////////////////////////////////
-
-	//sprite change
-
 	isLiquid = false;
-	//skill
-
 	for (int j = 0; j < liquidWalls.size(); j++)
 	{
 		if (SDL_HasIntersection(&pos, &liquidWalls[j].pos_))
 		{
-			
 			isLiquid = true;
-
-			/*
-			SDL_Rect newWall;
-			newWall = liquidWalls[j].returnWall();
-			std::cout << "liquidWall "<<j<<"=" << newWall.x << ", " << newWall.y << ", " << newWall.w << ", " << newWall.h << "\n";
-			
-			if (liquidWalls[j].dir_ != "right"&& liquidWalls[j].dir_ != "left") 
-			{
-				BlockMoving(newWall);
-			}		
-			*/
 		}	
-
 	}
 
 
 	//GOAL//////////////////////////////////
+	isInGoal = false;
 	if (goal.size() == 1)
 	{
 		if (SDL_HasIntersection(&pos, &goal[0]))
 		{
 			isInGoal = true;
 		}
-		else { isInGoal = false; }
 	}
 	else
 	{
@@ -110,9 +103,9 @@ void Cat::Update(double timestep_s)
 		{
 			isInGoal = true;
 		}
-		else { isInGoal = false; }
 	}
 
+	//BOX//////////////////////////////////
 	for (const Box& b : boxs)
 	{
 		if (SDL_HasIntersection(&pos, &b.box_pos))

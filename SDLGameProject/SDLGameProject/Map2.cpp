@@ -80,7 +80,7 @@ public:
 		buttons = { *btn1,*btn2 };
 
 
-		ClimbWall* cwall1 = new ClimbWall({ 828,418,20,68 });
+		ClimbWall* cwall1 = new ClimbWall({ 828,418,25,120 });
 		ClimbWall* cwall2 = new ClimbWall({ 1262,20,19,259 });
 		climbWalls = { *cwall1,*cwall2 };
 

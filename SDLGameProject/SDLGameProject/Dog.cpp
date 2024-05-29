@@ -19,9 +19,20 @@ void Dog::Update(double timestep_s)
 	v[1] += gravity;
 	Pet::Update(timestep_s);
 
+	//MILK////////////////////////////
+	for (Milk c : milk)
+	{
+		if (SDL_HasIntersection(&c.milk_pos, &pos))
+		{
+			isDead = true;
+		}
+	}
+
+
 	//SNIFF////////////////////////////////////////////////////////////
 	if (blindOpacity_ != -1)
 	{
+		SDL_SetTextureBlendMode(blindTexture, SDL_BLENDMODE_BLEND);
 		SDL_SetTextureAlphaMod(blindTexture, blindOpacity_);
 		if (blindOpacity_ == 0)
 		{
@@ -31,19 +42,23 @@ void Dog::Update(double timestep_s)
 
 		if (beBlurry_ == true)
 		{
+			//흐려지는중
 			blindOpacity_--;
 		}
 		else
 		{
+			//또렷해지는중
 			blindOpacity_++;
 		}
 
+		//end skill
 		if (blindOpacity_ == 255)
 		{
 			blindOpacity_ = -1;
 		}
 	}
 
+	//BONE////////////////////////////////////////////////////
 	for (auto& b : bone) {
 		if (SDL_HasIntersection(&b.pos, &pos))
 		{
@@ -92,24 +107,14 @@ void Dog::Update(double timestep_s)
 	}
 
 	//GOAL//////////////////////////////////
-	if (goal.size() == 1)
+	isInGoal = false;
+	if (SDL_HasIntersection(&pos, &goal[0]))
 	{
-		if (SDL_HasIntersection(&pos, &goal[0]))
-		{
-			isInGoal = true;
-		}
-		else { isInGoal = false; }
+		isInGoal = true;
 	}
-	else
-	{
-		if (SDL_HasIntersection(&pos, &goal[0]))
-		{
-			isInGoal = true;
-		}
-		else { isInGoal = false; }
-	}
+	
 
-	//BOX MOVING
+	//BOX//////////////////////////////////
 	for (const Box& b : boxs)
 	{
 		if (SDL_HasIntersection(&pos, &b.box_pos))
@@ -156,6 +161,7 @@ void Dog::HandleEvent(SDL_Event event)
 			if (isSkill_ == true)
 			{
 				//Use Sniffing Skill
+				std::cout << "sniff skill\n";
 				blindOpacity_ = 254;
 				isSkill_ = false;
 			}
@@ -216,15 +222,20 @@ void Dog::HandleEvent(SDL_Event event)
 	}
 }
 
-void Dog::BoxMoving(SDL_Rect obst) {
+void Dog::BoxMoving(SDL_Rect obst) 
+{
 	for (auto& b : boxs) {
-		if (SDL_HasIntersection(&pos, &b.box_pos)) {
-			if (pos.y + pos.h <= b.box_pos.y + 5 && pos.y + pos.h >= b.box_pos.y - 5) { // Dog is on top of the box
+		if (SDL_HasIntersection(&pos, &b.box_pos)) 
+		{
+			if (pos.y + pos.h <= b.box_pos.y + 5 && pos.y + pos.h >= b.box_pos.y - 5) 
+			{ 
+				// Dog is on top of the box
 				pos.y = b.box_pos.y - pos.h; // Position the dog on top of the box
 				v[1] = 0; // Reset the vertical velocity to 0 so the dog stays on the box
 				jumping = false; // Allow the dog to jump again
 			}
-			else {
+			else
+			{
 				if (pos.x + pos.w / 2 < b.box_pos.x + b.box_pos.w / 2) {
 					b.box_pos.x += 2.0f; // Move box to the right
 				}

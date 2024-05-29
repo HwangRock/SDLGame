@@ -70,25 +70,25 @@ extern int score;
 //이거 두개는 객체로
 extern int fadefloorNum;
 extern int c_collide; //cushion collide
-
-
-
+ 
+ 
+  
 class StageInterface : public PhaseInterface
 {
-public: 
+public:   
 	StageInterface();  
 	~StageInterface();
-
+	  
 	virtual void SetVar();
 	virtual void Reset();
-
+	 
 	virtual void HandleEvents();
 	virtual void Update();
 	virtual void Render();
 	
 	void NextChapter();
-
-private:  
+	 
+private:   
 	//Sprite 
 	SDL_Rect dogRect;
 	SDL_Rect catRect;  

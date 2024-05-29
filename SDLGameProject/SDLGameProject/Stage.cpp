@@ -137,11 +137,18 @@ void StageInterface::Update()
 	}
 
 
-	//한마리라도 죽으면 게임 끝
+	
+	//Reach the Goal//////////////////////////////////////////
+	if (cat->isInGoal == true && dog->isInGoal == true)
+	{
+		isFirst = true;
+		dog->Reset();
+		cat->Reset();
+		g_current_game_phase = PHASE_CLEAR;
+	}
+	//GameOver////////////////////////////////////////////////한마리라도 죽으면 게임 끝
 	if (dog->isDead == true || cat->isDead == true)
 	{
-		std::cout << "game over\n";
-		//game over test
 		isFirst = true;
 		dog->Reset();
 		cat->Reset();
@@ -200,15 +207,7 @@ void StageInterface::Update()
 
 
 
-		//Reach the Goal//////////////////////////////////////////
-		if (cat->isInGoal == true && dog->isInGoal == true)
-		{
-			//if all of them reach the goal, go to next chapter
-			isFirst = true;
-			dog->Reset();
-			cat->Reset();
-			g_current_game_phase = PHASE_CLEAR;
-		}
+		
 
 
 		//PRESS BUTTON/////////////////////////////////////////////////////////////
@@ -427,6 +426,8 @@ void StageInterface::Render()
 	//Blind
 	for (SDL_Rect bln : blinds)
 	{
+		SDL_SetTextureBlendMode(blindTexture, SDL_BLENDMODE_BLEND);
+		SDL_SetTextureAlphaMod(blindTexture, dog->blindOpacity_);
 		SDL_RenderCopy(g_renderer, blindTexture, &blindRect, &bln);
 
 	}
