@@ -27,7 +27,7 @@ public:
 
 
 		Terrain* floor7 = new Terrain(250, 110, 200, 15);//up
-		Terrain* floor8 = new Terrain(250, 175 + 9, 200, 16);//down
+		Terrain* floor8 = new Terrain(250, 175, 200, 25);//down
 
 		Terrain* default1 = new Terrain(0, 0, 30, win_h);
 		Terrain* default2 = new Terrain(0, 0, win_w, 30);
@@ -62,8 +62,8 @@ public:
 		blinds = { blind1,blind2 };  */ 
 
 		LiquidWall* lwall1 = new LiquidWall({ 250,125,200,15 }, "down");//up
-		LiquidWall* lwall2 = new LiquidWall({ 250,175,200,9 }, "up");//down
-		liquidWalls = { *lwall1,*lwall2 };
+		//LiquidWall* lwall2 = new LiquidWall({ 250,175,200,9 }, "up");//down
+		liquidWalls = { *lwall1 };
 
 		SDL_Rect laisle1 = { 250,150,200,30 };
 		liquidAisles = { laisle1 };

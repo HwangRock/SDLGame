@@ -20,6 +20,7 @@ class Pet
 {
 public:
 	SDL_Rect pos;
+	bool isDead;
 	double v[2];
 	bool jumping;
 	int isPressing;//is it pressing button
@@ -63,7 +64,7 @@ protected:
 	// position x,y
 	double pos_[2];
 	
-	bool isDead;
+	
 	
 	float gravity = 0.098f;
 

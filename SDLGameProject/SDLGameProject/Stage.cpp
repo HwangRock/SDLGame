@@ -1,13 +1,8 @@
 #include "Game.h"
 #include "Stage.h"
-
-//
-//add
 #include <vector>
 #include <windows.h>
-
 #include "SDL_image.h"
-
 
 
 extern int g_current_game_phase;
@@ -17,17 +12,18 @@ extern SDL_Renderer* g_renderer;
 extern SDL_Window* g_window;
 extern float g_timestep_s;
 
+
+//변경법
 bool hit = false;
+
 
 //InitGame
 StageInterface::StageInterface()
 {
 	g_flag_running = true;
 
-
 	//Window
 	SDL_GetWindowSize(g_window, &win_w, &win_h);
-
 
 
 	//Drawing Texture//////////////////////////////////////////////////////////////////
@@ -106,8 +102,14 @@ StageInterface::StageInterface()
 
 StageInterface::~StageInterface()
 {
-	SDL_DestroyTexture(dogTexture);
-	SDL_DestroyTexture(catTexture);
+
+	SDL_DestroyTexture(cwallTexture);
+	SDL_DestroyTexture(goalTexture);
+	SDL_DestroyTexture(scaffoldTexture);
+	SDL_DestroyTexture(manyTexture);
+
+	SDL_DestroyTexture(reTexture);
+
 }
 
 void StageInterface::SetVar()
@@ -126,10 +128,7 @@ void StageInterface::Reset()
 }
 void StageInterface::Update()
 {
-	//std::cout<< "Current : "<<g_current_game_phase << "\n";
-	//std::cout << "pre : " << g_pre_game_phase << "\n";
-	//std::cout << "chapter : " << chapterNum << "\n";
-
+	//재시작시 실행. reset.
 	if (isFirst == true)
 	{
 		SetVar();
@@ -137,135 +136,154 @@ void StageInterface::Update()
 		isFirst = false;
 	}
 
-	dog->Update(g_timestep_s);
-	cat->Update(g_timestep_s);
 
-	for (Box& b : boxs) {
-		b.Update(g_timestep_s);
-	}
-
-	// 미사일 위치 업데이트
-	for (auto& missile : mis) {
-		missile.misile_pos.x -= 7.0f;
-		for (const Terrain& wall : walls)
-		{
-			if (SDL_HasIntersection(&mis[0].misile_pos, &wall.pos))
-			{
-				missile.misile_pos = missile.initial_pos;
-				hit = true;
-			}
-		}
-	}
-
-	if (over == 2) {
+	//한마리라도 죽으면 게임 끝
+	if (dog->isDead == true || cat->isDead == true)
+	{
+		std::cout << "game over\n";
+		//game over test
 		isFirst = true;
 		dog->Reset();
 		cat->Reset();
 		g_current_game_phase = PHASE_OVER;
 	}
-
-	//Reach the Goal//////////////////////////////////////////
-	if (cat->isInGoal == true && dog->isInGoal == true)
+	else
 	{
-		//if all of them reach the goal, go to next chapter
-		isFirst = true;
-		dog->Reset();
-		cat->Reset();
-		g_current_game_phase = PHASE_CLEAR;
 
-	}
+		//dog, cat
+		dog->Update(g_timestep_s);
+		cat->Update(g_timestep_s);
 
+		//box
+		for (Box& b : boxs) {
+			b.Update(g_timestep_s);
+		}
 
-	//PRESS BUTTON/////////////////////////////////////////////////////////////
-	for (int i = 0; i < buttons.size(); i++)
-	{
-		buttons[i].petOverlap(dog->pos);
-		//buttons[i].petOverlap(cat->pos);
-
-		for (int j = 0; j < buttons[i].buttonPos.size(); j++)
+		// 미사일 위치 업데이트
+		for (auto& missile : mis)
 		{
-			//std::cout << press << "\n";
-			if (
-				SDL_HasIntersection(&dog->pos, &buttons[i].buttonPos[j]) ||
-				SDL_HasIntersection(&cat->pos, &buttons[i].buttonPos[j])
-				)
+			missile.misile_pos.x -= 7.0f;
+
+			//이거 함수로 줄일 수 없을까--------------------------------------------------------
+			for (const Terrain& wall : walls)
 			{
-				//Pressing button
-				//buttons[i].isStop = false;
-				buttons[i].SetPress(true);
-				buttons[i].Update();
-				press = 1;
-				break;
+				if (SDL_HasIntersection(&mis[0].misile_pos, &wall.pos))
+				{
+					missile.misile_pos = missile.initial_pos;
+					hit = true;
+					break;
+				}
 			}
-			else if(j== buttons[i].buttonPos.size()-1)
+			for (const Box& b : boxs)
 			{
-				//std::cout << "no press=" << i << "\n";
-				//not pressing button 
-				buttons[i].SetPress(false);
-				buttons[i].Update();
+				if (SDL_HasIntersection(&mis[0].misile_pos, &b.box_pos))
+				{
+					missile.misile_pos = missile.initial_pos;
+					hit = true;
+					break;
+				}
 			}
-			else
+			for (const Button& btn : buttons)
 			{
-				press = 0;
+				for (int k = 0; k < btn.scaffold_.size(); k++)
+				{
+					if (SDL_HasIntersection(&mis[0].misile_pos, &btn.scaffold_[k]))
+					{
+						missile.misile_pos = missile.initial_pos;
+						hit = true;
+						break;
+					}
+				}
 			}
 		}
-	} 
 
-	//FADE FLOOR///////////////////////////////////////////////////////////
-	if (!fadefloors.empty()) 
-	{
-		if (cat->isCollide == 1 || dog->isCollide == 1) 
+
+
+
+		//Reach the Goal//////////////////////////////////////////
+		if (cat->isInGoal == true && dog->isInGoal == true)
 		{
-			switch (fadefloorNum)
-			{
-			case 0:
-				fadefloors[0].CollideFloor(true);
-				fadefloors[0].Update();
-				break;
-			case 1:
-				fadefloors[1].CollideFloor(true);
-				fadefloors[1].Update();
-				break;
-			case 2:
-				fadefloors[2].CollideFloor(true);
-				fadefloors[2].Update();
-				break;
-			case 3:
-				fadefloors[3].CollideFloor(true);
-				fadefloors[3].Update();
-				break;
-			case 4:
-				fadefloors[4].CollideFloor(true);
-				fadefloors[4].Update();
-				break;
-			case 5:
-				fadefloors[5].CollideFloor(true);
-				fadefloors[5].Update();
-				break;
-			default:
-				break;
-			}
+			//if all of them reach the goal, go to next chapter
+			isFirst = true;
+			dog->Reset();
+			cat->Reset();
+			g_current_game_phase = PHASE_CLEAR;
+		}
 
+
+		//PRESS BUTTON/////////////////////////////////////////////////////////////
+		for (int i = 0; i < buttons.size(); i++)
+		{
+			//튕기는거 방지
+			buttons[i].petOverlap(dog->pos);
+			buttons[i].petOverlap(cat->pos);
+
+
+			//버튼 누르는지 검사
+			for (int j = 0; j < buttons[i].buttonPos.size(); j++)
+			{
+				if (SDL_HasIntersection(&dog->pos, &buttons[i].buttonPos[j]) ||
+					SDL_HasIntersection(&cat->pos, &buttons[i].buttonPos[j]))
+				{
+					//Pressing button
+					//buttons[i].isStop = false;
+					buttons[i].SetPress(true);
+					buttons[i].Update();
+					break;
+				}
+				else if (j == buttons[i].buttonPos.size() - 1)
+				{
+					//not pressing button 
+					buttons[i].SetPress(false);
+					buttons[i].Update();
+				}
+
+			}
+		}
+
+		//FADE FLOOR///////////////////////////////////////////////////////////
+		//---------------------------------------------------------------------------------------------------------------------------
+		if (!fadefloors.empty())
+		{
+			if (cat->isCollide == 1 || dog->isCollide == 1)
+			{
+				switch (fadefloorNum)
+				{
+				case 0:
+					fadefloors[0].CollideFloor(true);
+					fadefloors[0].Update();
+					break;
+				case 1:
+					fadefloors[1].CollideFloor(true);
+					fadefloors[1].Update();
+					break;
+				case 2:
+					fadefloors[2].CollideFloor(true);
+					fadefloors[2].Update();
+					break;
+				case 3:
+					fadefloors[3].CollideFloor(true);
+					fadefloors[3].Update();
+					break;
+				case 4:
+					fadefloors[4].CollideFloor(true);
+					fadefloors[4].Update();
+					break;
+				case 5:
+					fadefloors[5].CollideFloor(true);
+					fadefloors[5].Update();
+					break;
+				default:
+					break;
+				}
+
+			}
 		}
 	}
 
 }
 
-bool StageInterface::checkOverlap(SDL_Rect a, SDL_Rect b, int depth) 
-{
-	if (a.x <= b.x + b.w && a.x + a.w >= b.x)
-	{
-		if (a.y + a.h <= b.y + b.h / 2 && a.y + a.h >= b.y + depth)
-		{
-			return true; // A의 아래 변이 B의 위쪽에 깊이만큼 겹침
-		}
-		if (a.y >= b.y + b.h / 2 && a.y <= b.y + b.h - depth)
-		{
-			return true; // A의 위 변이 B의 아래쪽에 깊이만큼 겹침
-		}
-	}
-	return false;
-}
+
 
 
 void StageInterface::Render()
@@ -274,29 +292,32 @@ void StageInterface::Render()
 	SDL_SetRenderDrawColor(g_renderer, 229, 221, 192, 255);
 	SDL_RenderClear(g_renderer); // clear the renderer to the draw color
 
+
+	//MISSILE
 	for (misile m : mis) {
 		SDL_RenderCopy(g_renderer, manyTexture, &misileRect, &m.misile_pos);
 	}
 
+	//BOX
 	for (Box b : boxs)
 	{
 		SDL_RenderCopy(g_renderer, manyTexture, &boxRect, &b.box_pos);
 	}
 
+	//CANNON
 	for (Terrain c : cannon)
 	{
 		if (hit) {
 			SDL_RenderCopy(g_renderer, manyTexture, &lcannonRect, &c.pos);
 			Uint32 currentTime = SDL_GetTicks();
-			if (currentTime % 8 == 0) {
-				hit = false;
-			}
+			if (currentTime % 8 == 0) {	hit = false;}
 		}
-
-		else {
+		else 
+		{
 			SDL_RenderCopy(g_renderer, manyTexture, &cannonRect, &c.pos);
 		}
 	}
+
 
 	//fish
 	for (Terrain f : fish) {
@@ -313,6 +334,7 @@ void StageInterface::Render()
 	{
 		SDL_RenderCopy(g_renderer, wallTexture, &wallRect, &wall.pos);
 	}
+
 	//LiquidWall
 	for (LiquidWall wall : liquidWalls)
 	{
@@ -325,7 +347,7 @@ void StageInterface::Render()
 	{
 		for (int i = 0; i < btn.buttonPos.size(); i++)
 		{
-			if(press)
+			if(btn.isPressed)
 			{
 				SDL_RenderCopy(g_renderer, manyTexture, &PushbuttonRect, &btn.buttonPos[i]);
 			}
@@ -340,7 +362,6 @@ void StageInterface::Render()
 			//Button connected scaffolds
 			SDL_RenderCopy(g_renderer, scaffoldTexture, &scaffoldRect, &btn.scaffold_[i]);
 		}
-
 	}
 
 	//Goal,Start
@@ -349,6 +370,7 @@ void StageInterface::Render()
 		SDL_RenderCopy(g_renderer, manyTexture, &goalRect, &g);
 	}
 	SDL_RenderCopy(g_renderer, manyTexture, &goalRect, &start);
+
 
 	//Key and Lock
 	for (Key key : keys)
@@ -366,7 +388,7 @@ void StageInterface::Render()
 	//Dog and Cat
 	if (cat->isLiquid == true)
 	{
-		SDL_RenderCopy(g_renderer, liquidCatTexture, &catRect, &cat->pos);
+		SDL_RenderCopy(g_renderer, manyTexture, &catRect, &cat->pos);//--------------------------------------------------------------------------
 	}
 	else
 	{
@@ -513,20 +535,15 @@ void StageInterface::HandleEvents()
 
 
 		case SDL_KEYDOWN:
-			if (event.key.keysym.sym == SDLK_g)
-			{
-				//game over test
-				isFirst = true;
-				dog->Reset();
-				cat->Reset();
-				g_current_game_phase = PHASE_OVER;
-			}
-
-			else if (event.key.keysym.sym == SDLK_ESCAPE)
+			if (event.key.keysym.sym == SDLK_ESCAPE)
 			{
 				dog->resetInputs();
 				cat->resetInputs();
 				g_current_game_phase = PHASE_ESC;
+			}
+			else if (event.key.keysym.sym == SDLK_0)
+			{
+				NextChapter();
 			}
 			break;
 
@@ -536,26 +553,20 @@ void StageInterface::HandleEvents()
 
 		case SDL_MOUSEBUTTONDOWN:
 
-			// If the mouse left button is pressed. 
-			if (event.button.button == SDL_BUTTON_LEFT)
+			if (event.button.button == SDL_BUTTON_RIGHT)
 			{
 				if (g_current_game_phase == PHASE_CLEAR) {
-					// Get the cursor's x position.
 					mouse_win_x_ = event.button.x;
 					mouse_win_y_ = event.button.y;
 				}
-				else {//재시작버
-
-					NextChapter(); 
-
-				}
-
 			}
-			else if (event.button.button == SDL_BUTTON_RIGHT) {
+			else if (event.button.button == SDL_BUTTON_LEFT) {
 				int x, y;
 				x = event.button.x;
 				y = event.button.y;
-				if (x >= 60 and x <= 110 and y >= 30 and y <= 80) {
+
+				if (x >= 60 and x <= 110 and y >= 30 and y <= 80) 
+				{
 					isFirst = true;
 					dog->Reset();
 					cat->Reset();

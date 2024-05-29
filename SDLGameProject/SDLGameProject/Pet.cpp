@@ -79,7 +79,7 @@ Pet::Update(double timestep_s)
 		if (SDL_HasIntersection(&mis[0].misile_pos, &pos))
 		{
 			pos.x = 1000000, pos.y = 10000000;
-			over++;
+			isDead = true;
 		}
 	}
 

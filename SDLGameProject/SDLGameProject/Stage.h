@@ -63,11 +63,15 @@ extern int chapterNum;
 extern int win_w, win_h; 
 extern SDL_Texture* blindTexture;
 
-extern int over;
+ 
 extern int score; 
+
+
+//이거 두개는 객체로
 extern int fadefloorNum;
-extern int press;
 extern int c_collide; //cushion collide
+
+
 
 class StageInterface : public PhaseInterface
 {
@@ -83,31 +87,27 @@ public:
 	virtual void Render();
 	
 	void NextChapter();
-	bool checkOverlap(SDL_Rect a, SDL_Rect b, int depth);
+
 private:  
-	//Sprite
+	//Sprite 
 	SDL_Rect dogRect;
 	SDL_Rect catRect;  
-	SDL_Texture* catTexture;
-	SDL_Texture* dogTexture; 
-	SDL_Texture* liquidCatTexture;
-	SDL_Texture* wallTexture;
-	SDL_Texture* buttonTexture;
-	SDL_Texture* cushionTexture;  
-	SDL_Texture* fadefloorTexture;
 
+
+	SDL_Texture* blindTexture;
+	SDL_Texture* wallTexture;
 	SDL_Texture* cwallTexture;
+
 	SDL_Texture* goalTexture;
 	SDL_Texture* scaffoldTexture;
 	SDL_Texture* manyTexture;
-
 	SDL_Texture* reTexture;
 
 
-	
-	SDL_Texture* waterTexture;
-	SDL_Texture* milkTexture;
-	SDL_Texture* chocoTexture; 
+	SDL_Rect keyRect;
+	SDL_Rect lockRect;
+
+
 
 	SDL_Rect dogPushRect;
 	SDL_Rect scaffoldRect;        
@@ -135,10 +135,7 @@ private:
 	SDL_Rect dogDieRect;
 	SDL_Rect bgRect;
 
-	SDL_Texture* keyTexture;
-	SDL_Texture* lockTexture;
-	SDL_Rect keyRect;
-	SDL_Rect lockRect;
+	
 	  
 	//
 	//Pets

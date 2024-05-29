@@ -68,7 +68,7 @@ void Button::petOverlap(const SDL_Rect &obj)
 				//벽 위에 있음
 				if (std::abs(obj.y + obj.h - (scaffold_[i].y)) <= 1)
 				{
-					std::cout << "danger!\n";  isStop = true;
+					std::cout << "danger!\n";  //isStop = true;
 					break;
 				}
 			}

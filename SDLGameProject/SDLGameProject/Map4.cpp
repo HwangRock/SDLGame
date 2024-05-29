@@ -151,7 +151,7 @@ public:
 		liquidAisles = { };
 		keys = {};
 		goal = { {800,50,50,80} };
-		start={300,300,50,80};
+		start={100,600,50,80};
 	}
 
 

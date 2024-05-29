@@ -67,10 +67,8 @@ std::vector <SDL_Rect> goal = {};
 SDL_Rect start;
 int chapterNum;
 int win_w, win_h;
-int over;
 int score;
 int fadefloorNum;
-int press;
 int c_collide;
 
 int main(int argc, char* argv[])

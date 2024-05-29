@@ -70,7 +70,7 @@ void Dog::Update(double timestep_s)
 				jump_speed = -3.5f;
 			}
 		}
-		std::cout << c_collide << "\n";
+		std::cout <<"is cushion collide=" << c_collide << "\n";
 	}
 
 	//LIQUID////////////////////////////////////////////////////////////
