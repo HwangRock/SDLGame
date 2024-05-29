@@ -142,15 +142,50 @@ Pet::Update(double timestep_s)
 		*/
 
 		//FADE FLOOR///////////////////////////////////////////////////////
-		for (int j = 0; j < fadefloors.size(); j++)
+		if (!fadefloors.empty())
 		{
-			if (SDL_HasIntersection(&pos, &fadefloors[j].floor_pos))
+			for (int j = 0; j < fadefloors.size(); j++)
 			{
-				BlockMoving(fadefloors[j].floor_pos);
-				isCollide = 1;
-				break;
+				if (SDL_HasIntersection(&pos, &fadefloors[0].floor_pos))
+				{
+					BlockMoving(fadefloors[0].floor_pos);
+					isCollide = true;
+					fadefloorNum = 0;
+				}
+				else if (SDL_HasIntersection(&pos, &fadefloors[1].floor_pos))
+				{
+					BlockMoving(fadefloors[1].floor_pos);
+					isCollide = true;
+					fadefloorNum = 1;
+				}
+				else if (SDL_HasIntersection(&pos, &fadefloors[2].floor_pos))
+				{
+					BlockMoving(fadefloors[2].floor_pos);
+					isCollide = true;
+					fadefloorNum = 2;
+				}
+				else if (SDL_HasIntersection(&pos, &fadefloors[3].floor_pos))
+				{
+					BlockMoving(fadefloors[3].floor_pos);
+					isCollide = true;
+					fadefloorNum = 3;
+				}
+				else if (SDL_HasIntersection(&pos, &fadefloors[4].floor_pos))
+				{
+					BlockMoving(fadefloors[4].floor_pos);
+					isCollide = true;
+					fadefloorNum = 4;
+				}
+				else if (SDL_HasIntersection(&pos, &fadefloors[5].floor_pos))
+				{
+					BlockMoving(fadefloors[1].floor_pos);
+					isCollide = true;
+					fadefloorNum = 5;
+				}
 			}
+
 		}
+
 	}
 
 	//KEY///////////////////////////////////
@@ -240,6 +275,44 @@ void Pet::BlockMoving(SDL_Rect obst)
 	}
 }
 
+
+void Pet::CushionBlockMoving(SDL_Rect obst)
+{
+	if (pos.y + pos.h >= obst.y + 7 &&
+		pos.y <= obst.y + obst.h - 7)
+	{
+
+		if (pos.x < obst.x + obst.w / 2)
+		{
+			//std::cout << "left\n";
+			//pos.x = min(pos.x, obst.x - pos.w);
+			pos.x = obst.x - pos.w;
+			//jumping = true;
+		}
+		else if (pos.x + pos.w > obst.x)
+		{
+			//std::cout << "right\n";
+			//pos.x = max(pos.x, obst.x + obst.w);
+			pos.x = obst.x + obst.w;
+			//jumping = true;
+		}
+
+	}
+	else
+	{
+		if (pos.y + pos.h <= obst.y + obst.h / 2)
+		{
+			//std::cout << "up\n";
+
+			//pos.y = obst.y - pos.h;
+			pos.y = obst.y - pos.h < pos.y ? obst.y - pos.h : pos.y;
+			//pos.y = std::min(obst.y - pos.h,pos.y);
+			v[1] = 1;
+			jumping = false;
+		}
+
+	}
+}
 
 void
 Pet::HandleEvent(SDL_Event event)
