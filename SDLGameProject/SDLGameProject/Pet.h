@@ -26,6 +26,7 @@ public:
 	bool isInGoal;//does it reach in goal
 	int isCollide; //fadefloor
 	bool haveKey;
+	int nowInput;
 
 	Pet(double x, double y);
 	
@@ -35,6 +36,8 @@ public:
 	void HandleEvent(SDL_Event event);
 
 	virtual void BlockMoving(SDL_Rect obst);
+
+	virtual void CushionBlockMoving(SDL_Rect obst);
 
 	void setPos(double x, double y) { pos_[0] = x; pos_[1] = y; }
 	//void setVelocity(double x, double y) { v[0] = x; v[1] = y; }
@@ -65,7 +68,6 @@ protected:
 	float gravity = 0.098f;
 
 	//key input
-	int nowInput;
 	int keyUpNum;
 	int keyDownNum;
 	std::vector<int> inputs;
