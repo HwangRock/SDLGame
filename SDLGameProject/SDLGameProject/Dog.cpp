@@ -8,7 +8,9 @@ void Dog::Reset()
 
 	beBlurry_ = true;
 	isSkill_ = true;
+	box_collide = false;
 	blindOpacity_ = -1;
+
 }
 
 void Dog::Update(double timestep_s)
@@ -56,16 +58,19 @@ void Dog::Update(double timestep_s)
 	{
 		if (SDL_HasIntersection(&pos, &cushions[k].cushion_pos))
 		{
-			BlockMoving(cushions[k].cushion_pos);
+			c_collide = 1;
+			CushionBlockMoving(cushions[k].cushion_pos);
 			jump_speed = -7.0f;
 		}
 		else
 		{
+			c_collide = 0;
 			if (k == cushions.size() - 1)
 			{
 				jump_speed = -3.5f;
 			}
 		}
+		std::cout << c_collide << "\n";
 	}
 
 	//LIQUID////////////////////////////////////////////////////////////
@@ -110,6 +115,11 @@ void Dog::Update(double timestep_s)
 		if (SDL_HasIntersection(&pos, &b.box_pos))
 		{
 			BoxMoving(b.box_pos);
+			box_collide = true;
+		}
+		else
+		{
+			box_collide = false;
 		}
 	}
 }
