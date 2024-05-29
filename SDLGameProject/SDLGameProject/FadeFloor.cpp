@@ -2,10 +2,9 @@
 
 FadeFloor::FadeFloor(SDL_Rect pos)
 {
-	alpha = 255;
 	floor_pos = pos;
-	destroy = 0;
-	Reset();
+	isCollide = false;
+	alpha = 255;
 }
 
 void FadeFloor::Reset()
@@ -18,7 +17,7 @@ void FadeFloor::Update()
 {
 	if (isCollide == true && alpha > 0)
 	{
-		//Åõ¸íµµ¸¦ Á¡Á¡ ÁÙÀÎÈÄ¿¡ ¹Ù´Ú rect¸¦ ¾Æ¿¹ È­¸é ¹ÛÀ¸·Î ÀÌµ¿
+		//íˆ¬ëª…ë„ë¥¼ ì ì  ì¤„ì¸í›„ì— ë°”ë‹¥ rectë¥¼ ì•„ì˜ˆ í™”ë©´ ë°–ìœ¼ë¡œ ì´ë™
 		alpha-=5;
 
 		if (alpha == 0){ floor_pos.y = 720; }
