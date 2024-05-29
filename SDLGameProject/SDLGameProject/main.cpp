@@ -69,8 +69,9 @@ int chapterNum;
 int win_w, win_h;
 int over;
 int score;
-
-
+int fadefloorNum;
+int press;
+int c_collide;
 
 int main(int argc, char* argv[])
 {
@@ -106,7 +107,7 @@ int main(int argc, char* argv[])
 	
 	
 	g_current_game_phase = PHASE_INTRO;
-	g_pre_game_phase = PHASE_STAGE1;
+	//g_pre_game_phase = PHASE_STAGE1;
 
 	//REPEAT//////////////////////////////////////////
 	while (g_flag_running)
