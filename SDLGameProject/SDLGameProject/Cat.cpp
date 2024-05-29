@@ -50,11 +50,14 @@ void Cat::Update(double timestep_s)
 	{
 		if (SDL_HasIntersection(&pos, &cushions[k].cushion_pos))
 		{
-			BlockMoving(cushions[k].cushion_pos);
+			std::cout << "collide" << "\n";
+			CushionBlockMoving(cushions[k].cushion_pos);
 			jump_speed = -7.0f;
+			c_collide = 1;
 		}
 		else
 		{
+			c_collide = 0;
 			if (k == cushions.size() - 1)
 			{
 				jump_speed = -3.5f;
