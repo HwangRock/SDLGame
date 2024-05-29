@@ -65,7 +65,10 @@ extern SDL_Texture* blindTexture;
 
 extern int over;
 extern int score; 
- 
+extern int fadefloorNum;
+extern int press;
+extern int c_collide; //cushion collide
+
 class StageInterface : public PhaseInterface
 {
 public: 
@@ -96,7 +99,7 @@ private:
 	SDL_Texture* cwallTexture;
 	SDL_Texture* goalTexture;
 	SDL_Texture* scaffoldTexture;
-	SDL_Texture* boxTexture;
+	SDL_Texture* manyTexture;
 
 	SDL_Texture* reTexture;
 
@@ -107,11 +110,13 @@ private:
 	SDL_Texture* milkTexture;
 	SDL_Texture* chocoTexture; 
 
+	SDL_Rect dogPushRect;
 	SDL_Rect scaffoldRect;        
 	SDL_Rect goalRect;
 	SDL_Rect cwallRect;   
 	SDL_Rect wallRect;
-	SDL_Rect buttonRect; 
+	SDL_Rect buttonRect;
+	SDL_Rect PushbuttonRect;
 	SDL_Rect blindRect;
 	SDL_Rect waterRect; 
 	SDL_Rect milkRect;
@@ -125,7 +130,11 @@ private:
 	SDL_Rect fishRect;
 	SDL_Rect boneRect;  
 	SDL_Rect cushionRect;
-	SDL_Rect fadefloorRect; 
+	SDL_Rect PushcushionRect;
+	SDL_Rect fadefloorRect;
+	SDL_Rect catDieRect;
+	SDL_Rect dogDieRect;
+	SDL_Rect bgRect;
 
 	SDL_Texture* keyTexture;
 	SDL_Texture* lockTexture;
