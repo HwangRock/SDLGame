@@ -12,14 +12,12 @@ public:
 	bool isCollide;
 	SDL_Rect floor_pos;
 	int alpha;
-	int destroy;
 
 	FadeFloor(SDL_Rect pos);
 
-	void CollideFloor(bool a);
 	void Reset();
 	void Update();
-
+	void CollideFloor(bool a);
 
 	double fadeSpeed = 5;
 };
