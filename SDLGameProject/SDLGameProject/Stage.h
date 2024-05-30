@@ -5,7 +5,7 @@
 #include <vector>
 #include <windows.h>
 
-#include "SDL.h"
+#include "SDL.h" 
 #include "SDL_ttf.h"
 #include "SDL_mixer.h"
 #include "SDL_image.h"
@@ -153,11 +153,11 @@ private:
 	int gameOverDelay;
 	 
 	// gravity 
-	float gravity = 0.098f;
+	float gravity = 0.098f; 
 
 	bool isFirst;
-
-};
+	 
+}; 
 
 
 

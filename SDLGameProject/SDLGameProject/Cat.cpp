@@ -13,19 +13,13 @@ void Cat::Update(double timestep_s)
 {
 
 	//CLIMB WALL////////////////////////////////////////////
+	isClimbWall = false;
 	for (int k = 0; k < climbWalls.size(); k++)
 	{
 		if (SDL_HasIntersection(&pos, &climbWalls[k].wall_pos))
 		{
 			BlockMoving(climbWalls[k].wall_pos);
 			isClimbWall = true;
-		}
-		else
-		{
-			if (k == climbWalls.size() - 1)
-			{
-				isClimbWall = false;
-			}
 		}
 	}
 
@@ -57,25 +51,7 @@ void Cat::Update(double timestep_s)
 	}
 	
 
-	//CUSHION////////////////////////////////////////////////
-	for (int k = 0; k < cushions.size(); k++)
-	{
-		if (SDL_HasIntersection(&pos, &cushions[k].cushion_pos))
-		{
-			std::cout << "collide" << "\n";
-			CushionBlockMoving(cushions[k].cushion_pos);
-			jump_speed = -7.0f;
-			c_collide = 1;
-		}
-		else
-		{
-			c_collide = 0;
-			if (k == cushions.size() - 1)
-			{
-				jump_speed = -3.5f;
-			}
-		}
-	}
+	
 
 
 	//CAT LIQUID SKILL/////////////////////////////////////////

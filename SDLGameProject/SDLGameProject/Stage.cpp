@@ -241,8 +241,17 @@ void StageInterface::Update()
 			//버튼 누르는지 검사
 			for (int j = 0; j < buttons[i].buttonPos.size(); j++)
 			{
+				bool isBoxPressBtn = false;
+				
+				for (int k = 0; k < boxs.size(); k++)
+				{
+					if (SDL_HasIntersection(&boxs[k].box_pos, &buttons[i].buttonPos[j]))
+					{	isBoxPressBtn=true;	}
+				}
+
 				if (SDL_HasIntersection(&dog->pos, &buttons[i].buttonPos[j]) ||
-					SDL_HasIntersection(&cat->pos, &buttons[i].buttonPos[j]))
+					SDL_HasIntersection(&cat->pos, &buttons[i].buttonPos[j]) || 
+					isBoxPressBtn==true)
 				{
 					//Pressing button
 					//buttons[i].isStop = false;
@@ -478,15 +487,18 @@ void StageInterface::Render()
 	}
 
 	//cushion
-	for (Cushion cushion : cushions)
+	std::cout << dog->isPressCushion << " cat-" << cat->isPressCushion << "\n";
+	for (int i = 0; i < cushions.size(); i++)
 	{
-		if(c_collide)
+		if (dog->isPressCushion == i || cat->isPressCushion == i)
 		{
-			SDL_RenderCopy(g_renderer, manyTexture, &PushcushionRect, &cushion.cushion_pos);
+			//std::cout << "pressing cushion\n";
+			SDL_RenderCopy(g_renderer, manyTexture, &PushcushionRect, &cushions[i].cushion_pos);
 		}
 		else
 		{
-			SDL_RenderCopy(g_renderer, manyTexture, &cushionRect, &cushion.cushion_pos);
+			//std::cout << "not pressing cushion\n";
+			SDL_RenderCopy(g_renderer, manyTexture, &cushionRect, &cushions[i].cushion_pos);
 		}
 	}
 

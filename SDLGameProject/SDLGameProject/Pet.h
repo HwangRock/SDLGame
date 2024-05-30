@@ -20,9 +20,10 @@ public:
 	bool isDead;
 	double v[2];
 	bool jumping;
-	int isPressing;//is it pressing button
+
 	bool isInGoal;//does it reach in goal
 	int isCollide; //fadefloor
+	int isPressCushion;
 	bool haveKey;
 	int nowInput;
 
@@ -35,7 +36,6 @@ public:
 
 	virtual void BlockMoving(SDL_Rect obst);
 
-	virtual void CushionBlockMoving(SDL_Rect obst);
 
 	void setPos(double x, double y) { pos_[0] = x; pos_[1] = y; }
 	//void setVelocity(double x, double y) { v[0] = x; v[1] = y; }

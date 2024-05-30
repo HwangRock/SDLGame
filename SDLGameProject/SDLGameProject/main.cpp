@@ -70,7 +70,7 @@ int win_w, win_h;
 int score_bone;
 int score_fish;
 int fadefloorNum;
-int c_collide;
+
 
 int main(int argc, char* argv[])
 {

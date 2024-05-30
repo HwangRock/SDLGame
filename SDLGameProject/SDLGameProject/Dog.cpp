@@ -70,25 +70,7 @@ void Dog::Update(double timestep_s)
 		}
 	}
 
-	//CUSHION////////////////////////////////////////////////
-	for (int k = 0; k < cushions.size(); k++)
-	{
-		if (SDL_HasIntersection(&pos, &cushions[k].cushion_pos))
-		{
-			c_collide = 1;
-			CushionBlockMoving(cushions[k].cushion_pos);
-			jump_speed = -7.0f;
-		}
-		else
-		{
-			c_collide = 0;
-			if (k == cushions.size() - 1)
-			{
-				jump_speed = -3.5f;
-			}
-		}
-		std::cout <<"is cushion collide=" << c_collide << "\n";
-	}
+	
 
 	//LIQUID////////////////////////////////////////////////////////////
 	//same with normal 

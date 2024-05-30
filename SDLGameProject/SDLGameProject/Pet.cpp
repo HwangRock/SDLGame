@@ -40,7 +40,8 @@ Pet::Reset()
 	isDead = false;
 	isInGoal = false;
 	haveKey = false;
-	isPressing = -1;
+
+	isPressCushion = -1;
 }
 
 
@@ -73,6 +74,19 @@ Pet::Update(double timestep_s)
 		}
 	}
 
+	//CUSHION////////////////////////////////////////////////
+	isPressCushion = -1;
+	jump_speed = -3.5f;
+	for (int k = 0; k < cushions.size(); k++)
+	{
+		if (SDL_HasIntersection(&pos, &cushions[k].cushion_pos))
+		{
+			BlockMoving(cushions[k].cushion_blockPos);
+			isPressCushion = k;
+			jump_speed = -7.0f;
+		}
+	}
+
 
 	//MISSILE////////////////////////////////
 	for (auto& missile : mis) {
@@ -93,7 +107,7 @@ Pet::Update(double timestep_s)
 		if (l.liquidClass == "choco" && SDL_HasIntersection(&l.liquidPos, &pos))
 		{
 			//std::cout << "touch choco->die\n";
-			isDead = true;
+			//isDead = true;
 		}
 	}
 	
@@ -110,6 +124,7 @@ Pet::Update(double timestep_s)
 			if (SDL_HasIntersection(&pos, &buttons[i].scaffold_[j]))
 			{
 				BlockMoving(buttons[i].scaffold_[j]);
+				
 				//break;
 			}
 		}
@@ -260,49 +275,16 @@ void Pet::BlockMoving(SDL_Rect obst)
 			pos.y = obst.y + obst.h > pos.y ? obst.y + obst.h : pos.y;
 			//pos.y = std::max(obst.y + obst.h, pos.y);
 			v[1] = 0;
-			//jumping = true;
+			jumping = true;
 		}
 	}
 }
 
 
-void Pet::CushionBlockMoving(SDL_Rect obst)
-{
-	if (pos.y + pos.h >= obst.y + 7 &&
-		pos.y <= obst.y + obst.h - 7)
-	{
 
-		if (pos.x < obst.x + obst.w / 2)
-		{
-			//std::cout << "left\n";
-			//pos.x = min(pos.x, obst.x - pos.w);
-			pos.x = obst.x - pos.w;
-			//jumping = true;
-		}
-		else if (pos.x + pos.w > obst.x)
-		{
-			//std::cout << "right\n";
-			//pos.x = max(pos.x, obst.x + obst.w);
-			pos.x = obst.x + obst.w;
-			//jumping = true;
-		}
 
-	}
-	else
-	{
-		if (pos.y + pos.h <= obst.y + obst.h / 2)
-		{
-			//std::cout << "up\n";
 
-			//pos.y = obst.y - pos.h;
-			pos.y = obst.y - pos.h < pos.y ? obst.y - pos.h : pos.y;
-			//pos.y = std::min(obst.y - pos.h,pos.y);
-			v[1] = 1;
-			jumping = false;
-		}
 
-	}
-}
 
 void
 Pet::HandleEvent(SDL_Event event)

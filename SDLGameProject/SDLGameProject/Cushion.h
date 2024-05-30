@@ -8,8 +8,9 @@
 class Cushion
 {
 public:
-
+	SDL_Rect cushion_blockPos;
 	SDL_Rect cushion_pos;
 	Cushion(SDL_Rect pos);
-
+protected:
+	int surplus=4;
 };

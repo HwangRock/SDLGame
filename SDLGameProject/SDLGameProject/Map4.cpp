@@ -36,8 +36,8 @@ public:
 		Terrain* floor7 = new Terrain(200, 280, 25, win_h-280);
 		Terrain* floor8 = new Terrain(200+100, 280, 705, 25);
 		Terrain* floor9 = new Terrain(200, 400, 600, 25);
-		Terrain* floor10 = new Terrain(350, 520, 150, 25);
-		Terrain* floor11 = new Terrain(600, 520, 400, 25);
+		Terrain* floor10 = new Terrain(350, 540, 150, 25);
+		Terrain* floor11 = new Terrain(600, 540, 400, 25);
 		Terrain* floor12 = new Terrain(1000, 280, 25, 260);
 
 		//오른쪽 발판들
@@ -78,24 +78,24 @@ public:
 		Button* btnA = new Button(1, 1,
 			{ { 550, 400-25, 25, 25} },
 			{ { 0,300-25,80,25 } },
-			{ { 0, 240,80,25 } },
+			{ { 0,100,80,25 } },
 			{ { 0,300 - 25,80,25 } });
 		Button* btnB = new Button(1, 2,
 			{ {370, 520-25, 25, 25} },
-			{ {225,280,100,25},{500,520,100,25} },
-			{ {225,350,100,25},{500,600,100,25} },
-			{ {225,280,100,25},{500,520,100,25} });
+			{ {225,280,100,25},{500,540,100,25} },
+			{ {225,350,100,25},{500,610,100,25} },
+			{ {225,280,100,25},{500,540,100,25} });
 		Button* btnC = new Button(1, 1,
-			{ {700,400-25,25,25} },
-			{ {800,500,100,25 } },
-			{ { 800, 400,100,25 } },
-			{ { 800,500,100,25  } });
+			{ { 700,400-25,25,25} },
+			{ { 800,500,100,25 } },
+			{ { 800,400,100,25 } },
+			{ { 800,500,100,25 } });
 		buttons = {*btnA,*btnB,*btnC };
 
 		blinds = { };
 
 		Box* box1 = new Box({ 600, 450, 50, 50 });
-		Box* box2 = new Box({ 300, 330, 50, 50 });
+		Box* box2 = new Box({ 450, 330, 50, 50 });
 		boxs = { *box1,*box2 };
 
 		Terrain* cannon1 = new Terrain(940, 640, 50, 50);
@@ -162,8 +162,8 @@ public:
 
 
 		//climbwall
-		ClimbWall* cwall1 = new ClimbWall({ 215,426,10,265 });
-		ClimbWall* cwall2 = new ClimbWall({ 999,306,15,216 });
+		ClimbWall* cwall1 = new ClimbWall({ 220,426,20,265 });
+		ClimbWall* cwall2 = new ClimbWall({ 980,306,20,216 });
 		climbWalls = { *cwall1,*cwall2 };
 
 
@@ -171,7 +171,8 @@ public:
 		liquidAisles = { };
 		keys = {};
 		goal = { {800,50,50,80} };
-		start={100,win_h-(30+50+10),50,80};
+		//start={100,win_h-(30+50+10),50,80};
+		start = { 800,300,50,80 };
 	}
 
 
