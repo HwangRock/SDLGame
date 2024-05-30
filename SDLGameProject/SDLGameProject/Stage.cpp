@@ -33,6 +33,15 @@ StageInterface::StageInterface()
 	SDL_FreeSurface(surface_wall);
 	wallRect = { 0,0,680,808 };
 
+	//Liquid
+	SDL_Surface* surface_l = IMG_Load("../Resources/liquid.png");
+	liquidTexture = SDL_CreateTextureFromSurface(g_renderer, surface_l);
+	SDL_FreeSurface(surface_l);
+	milkR = { 0,0,200,200 };
+	chocoR = { 200,0,200,200 };
+	waterR = { 400,0,200,200 };
+
+
 	//Blind
 	SDL_Surface* surface_blind = IMG_Load("../Resources/star.png");
 	SDL_SetSurfaceBlendMode(surface_blind, SDL_BLENDMODE_BLEND);
@@ -69,9 +78,7 @@ StageInterface::StageInterface()
 	boneRect = { 404,2226,86,67 };
 	buttonRect = { 632,2267,103,109 };
 	goalRect = { 152,2850,154,207 };
-	waterRect = { 113,3534,449,217 };
-	milkRect = { 111,3293,453,225 };
-	chocoRect = { 111,3760,449,223 };
+
 	keyRect = { 1532,2213,83,110};
 	lockRect = { 1774,2222,60,80 };
 	cushionRect = { 1049,2301,160,76 };
@@ -107,6 +114,7 @@ StageInterface::~StageInterface()
 	SDL_DestroyTexture(goalTexture);
 	SDL_DestroyTexture(scaffoldTexture);
 	SDL_DestroyTexture(manyTexture);
+	SDL_DestroyTexture(liquidTexture);
 
 	SDL_DestroyTexture(reTexture);
 
@@ -451,21 +459,18 @@ void StageInterface::Render()
 		}
 	}
 
-	//water
-	for (Water water : water)
+	
+
+	//liquid
+	for (Liquid l : liquid)
 	{
-		SDL_RenderCopy(g_renderer, manyTexture, &waterRect, &water.water_pos);
+		SDL_RenderCopy(g_renderer, wallTexture, &wallRect, &l.wallPos);
+		if (l.liquidClass == "water") { SDL_RenderCopy(g_renderer, liquidTexture, &waterR, &l.liquidPos); }
+		else if (l.liquidClass == "choco") { SDL_RenderCopy(g_renderer, liquidTexture, &chocoR, &l.liquidPos); }
+		else if (l.liquidClass == "milk") { SDL_RenderCopy(g_renderer, liquidTexture, &milkR, &l.liquidPos); }
+		else { std::cout << "there is no such liquid class\n"; }
 	}
-	//milk
-	for (Milk milk : milk)
-	{
-		SDL_RenderCopy(g_renderer, manyTexture, &milkRect, &milk.milk_pos);
-	}
-	//water
-	for (Choco choco : choco)
-	{
-		SDL_RenderCopy(g_renderer, manyTexture, &chocoRect, &choco.choco_pos);
-	}
+
 
 	//fadefloor
 	for (FadeFloor fwall : fadefloors)

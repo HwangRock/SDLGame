@@ -47,9 +47,7 @@ std::vector<FadeFloor>fadefloors = {};
 
 
 //liquid
-std::vector<Water>water= {};
-std::vector<Milk>milk = {};
-std::vector<Choco>choco = {};
+std::vector<Liquid>liquid = {};
 
 std::vector<Box> boxs = {};
 std::vector<Terrain> cannon = {};

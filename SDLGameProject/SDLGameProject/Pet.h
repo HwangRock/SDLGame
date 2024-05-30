@@ -8,9 +8,6 @@
 #include "Cushion.h"
 #include "FadeFloor.h"
 
-#include "Water.cpp"
-#include "Milk.cpp"
-#include "Choco.cpp"
 
 #include "SDL.h"
 
@@ -63,7 +60,7 @@ protected:
 
 	// position x,y
 	double pos_[2];
-	
+	bool isDog;
 	
 	
 	float gravity = 0.098f;

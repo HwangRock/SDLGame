@@ -7,9 +7,6 @@
 #include "Cushion.h"
 #include "FadeFloor.h"
 
-#include "Choco.cpp"
-#include "Water.cpp"
-#include "Milk.cpp"
 
 #include "SDL.h"
 #include "Pet.h"

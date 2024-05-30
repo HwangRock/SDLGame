@@ -83,14 +83,20 @@ Pet::Update(double timestep_s)
 	}
 
 	//CHOCOLATE//////////////////////
-	for (Choco c : choco)
+	for (Liquid l : liquid)
 	{
-		if (SDL_HasIntersection(&c.choco_pos, &pos))
+		if (SDL_HasIntersection(&l.wallPos, &pos))
 		{
-			isDead = true;
+			BlockMoving(l.wallPos);
+			
+		}
+		if (l.liquidClass == "choco" && SDL_HasIntersection(&l.liquidPos, &pos))
+		{
+			std::cout << "touch choco->die\n";
+			//isDead = true;
 		}
 	}
-
+	
 	
 
 

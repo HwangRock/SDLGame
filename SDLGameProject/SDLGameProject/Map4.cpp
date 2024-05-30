@@ -19,14 +19,20 @@ public:
 	{
 
 		//Terrain
+		//위쪽
 		Terrain* floor1 = new Terrain(200, 140, win_w - 200, 25);
 		Terrain* floor2 = new Terrain(win_w-200, 140-25, 200, 25);
 
-		Terrain* floor3 = new Terrain(0, 300, 100, 25);
-		Terrain* floor4 = new Terrain(130, 370, 75, 25);
-		Terrain* floor5 = new Terrain(0, 440, 100, 25);
-		Terrain* floor6 = new Terrain(130, 510, 75, 25);
+		//왼쪽 발판들
+		Terrain* floor3 = new Terrain(0, 310, 100, 25);
+		Terrain* floor4 = new Terrain(130, 380, 75, 25);
+		Terrain* floor5 = new Terrain(0, 450, 100, 25);
+		Terrain* floor6 = new Terrain(130, 520, 75, 25);
+		//사라지는 벽대신 추가
+		Terrain* default20 = new Terrain(30, 605, 80, 25);
 
+
+		//가운데
 		Terrain* floor7 = new Terrain(200, 280, 25, win_h-280);
 		Terrain* floor8 = new Terrain(200+100, 280, 705, 25);
 		Terrain* floor9 = new Terrain(200, 400, 600, 25);
@@ -34,7 +40,7 @@ public:
 		Terrain* floor11 = new Terrain(600, 520, 400, 25);
 		Terrain* floor12 = new Terrain(1000, 280, 25, 260);
 
-
+		//오른쪽 발판들
 		Terrain* floor13 = new Terrain(1000, 350, 120, 25);
 		Terrain* floor14 = new Terrain(1200, 350, 150, 25);
 		Terrain* floor15 = new Terrain(1000, 350+85, 90, 25);
@@ -42,16 +48,19 @@ public:
 		Terrain* floor17 = new Terrain(1000, 520, 130, 25);
 		Terrain* floor18 = new Terrain(1220, 520, 100, 25);
 
+		//대포쪽
 		Terrain* floor19 = new Terrain(1000, 650, 25, 100);
 
+		
+
+
+		//기본 벽
 		Terrain* default1 = new Terrain(0, 0, 30, win_h);
 		Terrain* default2 = new Terrain(0, 0, win_w, 30);
 		Terrain* default3 = new Terrain(win_w-30, 0, 30, win_h);
 		Terrain* default4 = new Terrain(0, win_h-30, win_w, 30);
 
-		//사라지는 벽대신 추가
-		Terrain* default20 = new Terrain(30, 605, 80, 25);
-
+		
 		
 		walls =
 		{
@@ -125,24 +134,32 @@ public:
 
 
 		// water
-		Water* water1 = new Water({ 718,255,227,27 });
-		Water* water2 = new Water({ 1024,419,66,15 });
-		water = { *water1, *water2 };
+		Liquid* water1 = new Liquid({ 718,255,227,27 },"water");
+		Liquid* water2 = new Liquid({ 1024,419,66,15 },"water");
+
 
 		//milk
-		Milk* milk1 = new Milk({ 470,255,128,27 });
-		Milk* milk2 = new Milk({ 1221,501,31,21 });
-		milk = { *milk1,*milk2 };
+		Liquid* milk1 = new Liquid({ 470,255,128,27 },"milk");
+		Liquid* milk2 = new Liquid({ 1221,501,31,21 },"milk");
+
 
 		//choco
-		Choco* choco1 = new Choco({ 286,113,700,25 });
-		Choco* choco2 = new Choco({ 582,379,111,26 });
-		Choco* choco3 = new Choco({ 1026,333,95,17 });
-		Choco* choco4 = new Choco({ 1201,339,51,15 });
-		Choco* choco5 = new Choco({ 1181,426,71,11 });
-		Choco* choco6 = new Choco({ 1024,508,105,15 });
-		Choco* choco7 = new Choco({ 1110,680,106,18 });
-		choco = { *choco1,*choco2,*choco3,*choco4,*choco5,*choco6,*choco7 };
+		Liquid* choco1 = new Liquid({ 286,113,700,25 },"choco");
+		Liquid* choco2 = new Liquid({ 582,379,111,26 }, "choco");
+		Liquid* choco3 = new Liquid({ 1026,333,95,17 }, "choco");
+		Liquid* choco4 = new Liquid({ 1201,339,51,15 }, "choco");
+		Liquid* choco5 = new Liquid({ 1181,426,71,11 }, "choco");
+		Liquid* choco6 = new Liquid({ 1024,508,105,15 }, "choco");
+		Liquid* choco7 = new Liquid({ 1110,680,106,18 }, "choco");
+
+		liquid =
+		{
+			*choco1,*choco2,*choco3,*choco4,*choco5,*choco6,*choco7,
+			*milk1,*milk2 ,
+			*water1, *water2 };
+
+
+
 
 		//climbwall
 		ClimbWall* cwall1 = new ClimbWall({ 215,426,10,265 });

@@ -29,9 +29,7 @@
 #include "Box.h"  
 #include "misile.cpp"
 
-#include "Water.cpp"
-#include "Choco.cpp"
-#include "Milk.cpp"
+#include "Liquid.cpp"
 
 #include "Key.cpp"
 
@@ -50,9 +48,7 @@ extern std::vector<FadeFloor>fadefloors;
 extern std::vector<misile>mis; 
 
 
-extern std::vector<Water>water;
-extern std::vector<Milk>milk;  
-extern std::vector<Choco>choco;
+extern std::vector<Liquid>liquid;
 
 extern std::vector<Key>keys;
 
@@ -103,7 +99,12 @@ private:
 	SDL_Texture* manyTexture;
 	SDL_Texture* reTexture;
 
+	SDL_Texture* liquidTexture;
+	SDL_Rect waterR;
+	SDL_Rect chocoR;
+	SDL_Rect milkR;
 
+	 
 	SDL_Rect keyRect;
 	SDL_Rect lockRect;
 
@@ -117,9 +118,7 @@ private:
 	SDL_Rect buttonRect;
 	SDL_Rect PushbuttonRect;
 	SDL_Rect blindRect;
-	SDL_Rect waterRect; 
-	SDL_Rect milkRect;
-	SDL_Rect chocoRect;
+
 	SDL_Rect boxRect;
 	SDL_Rect cannonRect; 
 	SDL_Rect reRect;     

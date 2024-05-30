@@ -81,17 +81,13 @@ public:
 		fadefloors = {};
 		cushions = {};
 
+		Liquid* water1 = new Liquid({ 200,650,405,35 }, "water");
+		Liquid* water2 = new Liquid({ 750,75,198,23 }, "water");
+		Liquid* milk1 = new Liquid({ 952,663,198,23 },"milk");
+		Liquid* milk2 = new Liquid({ 750,155,198,23 },"milk");
+		Liquid* choco1 = new Liquid({ 0,0,0,0 },"choco");
+		liquid = { *water1, *water2 , *milk1,*milk2 , *choco1 };
 
-		Water* water1 = new Water({ 200,650,405,35 });
-		Water* water2 = new Water({ 750,75,198,23 });
-		water = { *water1, *water2 };
-
-		Milk* milk1 = new Milk({ 952,663,198,23 });
-		Milk* milk2 = new Milk({ 750,155,198,23 });
-		milk = { *milk1,*milk2 };
-
-		Choco* choco1 = new Choco({ 0,0,0,0 });
-		choco = { *choco1 };
 
 		goal = { {1100,100,50,100} };
 		start={600,300,50,80};

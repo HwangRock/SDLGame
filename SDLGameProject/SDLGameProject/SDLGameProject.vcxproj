@@ -147,7 +147,6 @@
     <ClCompile Include="Box.cpp" />
     <ClCompile Include="Button.cpp" />
     <ClCompile Include="Cat.cpp" />
-    <ClCompile Include="Choco.cpp" />
     <ClCompile Include="Cushion.cpp" />
     <ClCompile Include="Dog.cpp" />
     <ClCompile Include="FadeFloor.cpp" />
@@ -160,11 +159,11 @@
     <ClCompile Include="GameManual.cpp" />
     <ClCompile Include="GameOver.cpp" />
     <ClCompile Include="Key.cpp" />
+    <ClCompile Include="Liquid.cpp" />
     <ClCompile Include="LiquidWall.cpp" />
     <ClCompile Include="Map2.cpp" />
     <ClCompile Include="Map3.cpp" />
     <ClCompile Include="Map4.cpp" />
-    <ClCompile Include="Milk.cpp" />
     <ClCompile Include="misile.cpp" />
     <ClCompile Include="Stage.cpp" />
     <ClCompile Include="Main.cpp" />
@@ -173,7 +172,6 @@
     </ClCompile>
     <ClCompile Include="Pet.cpp" />
     <ClCompile Include="Terrain.cpp" />
-    <ClCompile Include="Water.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Box.h" />

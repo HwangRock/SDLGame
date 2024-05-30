@@ -4,6 +4,7 @@
 void Cat::Reset()
 {
 	Pet::Reset();
+	isDog = false;
 	isLiquid = false;
 	isClimbWall = false;
 }
@@ -36,11 +37,12 @@ void Cat::Update(double timestep_s)
 
 
 	//WATER///////////////////////////////////////////////////
-	for (Water w : water)
+	for (Liquid l : liquid)
 	{
-		if (SDL_HasIntersection(&w.water_pos, &pos))
+		if (l.liquidClass == "water" && SDL_HasIntersection(&l.liquidPos, &pos))
 		{
-			isDead = true;
+			std::cout << "touch water->die\n";
+			//isDead = true;
 		}
 	}
 

@@ -78,25 +78,19 @@
     <ClCompile Include="Box.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
-    <ClCompile Include="Choco.cpp">
-      <Filter>소스 파일</Filter>
-    </ClCompile>
     <ClCompile Include="FinishGame.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
-    <ClCompile Include="Milk.cpp">
-      <Filter>소스 파일</Filter>
-    </ClCompile>
     <ClCompile Include="misile.cpp">
-      <Filter>소스 파일</Filter>
-    </ClCompile>
-    <ClCompile Include="Water.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
     <ClCompile Include="Cushion.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
     <ClCompile Include="FadeFloor.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="Liquid.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
   </ItemGroup>

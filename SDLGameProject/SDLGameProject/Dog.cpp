@@ -6,6 +6,7 @@ void Dog::Reset()
 {
 	Pet::Reset();
 
+	isDog = true;
 	beBlurry_ = true;
 	isSkill_ = true;
 	box_collide = false;
@@ -20,11 +21,12 @@ void Dog::Update(double timestep_s)
 	Pet::Update(timestep_s);
 
 	//MILK////////////////////////////
-	for (Milk c : milk)
+	for (Liquid l : liquid)
 	{
-		if (SDL_HasIntersection(&c.milk_pos, &pos))
+		if (l.liquidClass == "milk" && SDL_HasIntersection(&l.liquidPos, &pos))
 		{
-			isDead = true;
+			std::cout << "touch milk->die\n";
+			//isDead = true;
 		}
 	}
 

@@ -84,14 +84,15 @@ public:
 		ClimbWall* cwall2 = new ClimbWall({ 1262,20,19,259 });
 		climbWalls = { *cwall1,*cwall2 };
 
-		Water* water1 = new Water({ 490,676,574,25 });
-		water = { *water1 };
 
-		Milk* milk1 = new Milk({ 849,396,363,20 });
-		milk = { *milk1 };
 
-		Choco* choco1 = new Choco({ 388,239,872,24 });
-		choco = { *choco1 };
+
+		Liquid* water1 = new Liquid({ 490,676,574,25 }, "water");
+		
+		Liquid* milk1 = new Liquid({ 849,396,363,20 }, "milk");
+		
+		Liquid* choco1 = new Liquid({ 388,239,872,24 }, "choco");
+		liquid = { *water1 , *milk1 , *choco1 };
 
 
 

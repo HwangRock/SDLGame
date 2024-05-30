@@ -102,18 +102,15 @@ public:
 		fadefloors = {};
 		cushions = {};
 		climbWalls = {};
-		//milk
-		Milk* milk1 = new Milk({ 120,548,305,25 });
-		Milk* milk2 = new Milk({ 950,481,200,20 });
-		milk = { *milk1,*milk2 };
 
-		// water
-		Water* water1 = new Water({ 0,0,0,0 });
-		water = { *water1 };
 
-		//choco
-		Choco* choco1 = new Choco({ 0,0,0,0 });
-		choco = { *choco1 };
+
+
+		Liquid* milk1 = new Liquid({ 120,548,305,25 }, "milk");
+		Liquid* milk2 = new Liquid({ 950,481,200,20 }, "milk");
+		liquid = { *milk1 , *milk2 };
+		
+
 
 		start = { 100,30,50,50 };
 		goal = { {50,520,50,50},{50,650,50,50} };
