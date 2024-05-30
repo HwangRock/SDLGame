@@ -41,6 +41,7 @@ StageInterface::StageInterface()
 	chocoR = { 200,0,200,200 };
 	waterR = { 400,0,200,200 };
 
+	
 
 	//Blind
 	SDL_Surface* surface_blind = IMG_Load("../Resources/star.png");
@@ -126,7 +127,7 @@ void StageInterface::SetVar()
 }
 void StageInterface::Reset()
 {
-
+	gameOverDelay = 150;
 
 	dog->pos.x = start.x;
 	dog->pos.y = start.y;
@@ -157,10 +158,15 @@ void StageInterface::Update()
 	//GameOver////////////////////////////////////////////////한마리라도 죽으면 게임 끝
 	if (dog->isDead == true || cat->isDead == true)
 	{
-		isFirst = true;
-		dog->Reset();
-		cat->Reset();
-		g_current_game_phase = PHASE_OVER;
+		gameOverDelay--;
+		if (gameOverDelay <= 0)
+		{
+			isFirst = true;
+			dog->Reset();
+			cat->Reset();
+			Reset();
+			g_current_game_phase = PHASE_OVER;
+		}
 	}
 	else
 	{
@@ -392,42 +398,61 @@ void StageInterface::Render()
 		}
 	}
 
-	//Dog and Cat
-	if (cat->isLiquid == true)
+	//Cat
+	if (cat->isDead == true)
 	{
-		SDL_RenderCopy(g_renderer, manyTexture, &catRect, &cat->pos);//--------------------------------------------------------------------------
+		SDL_RenderCopy(g_renderer, liquidTexture, &waterR, &cat->pos);//일단 임시로 물로 해놓음
 	}
 	else
 	{
-		// left
-		if (cat->nowInput == 1 || cat->nowInput == 0)
+		if (cat->isLiquid == true)
 		{
-			SDL_RenderCopy(g_renderer, manyTexture, &catRect, &cat->pos);
+			SDL_RenderCopy(g_renderer, manyTexture, &catRect, &cat->pos);//--------------------------------------------------------------------------
 		}
-		// right
-		else if (cat->nowInput == 2)
+		else
 		{
-			SDL_RenderCopyEx(g_renderer, manyTexture, &catRect, &cat->pos, 0, NULL, SDL_FLIP_HORIZONTAL);
+			// left
+			if (cat->nowInput == 1 || cat->nowInput == 0)
+			{
+				SDL_RenderCopy(g_renderer, manyTexture, &catRect, &cat->pos);
+			}
+			// right
+			else if (cat->nowInput == 2)
+			{
+				SDL_RenderCopyEx(g_renderer, manyTexture, &catRect, &cat->pos, 0, NULL, SDL_FLIP_HORIZONTAL);
+			}
 		}
 	}
 
-	if (dog->box_collide == true)
+	//Dog
+	if (dog->isDead == true)
 	{
-		SDL_RenderCopy(g_renderer, manyTexture, &dogPushRect, &dog->pos);
+		SDL_RenderCopy(g_renderer, liquidTexture, &milkR, &dog->pos);//일단 임시로 우유로 해놓음
 	}
 	else
 	{
-		// left
-		if (dog->nowInput == 1 || dog->nowInput == 0)
+		if (dog->box_collide == true)
 		{
-			SDL_RenderCopy(g_renderer, manyTexture, &dogRect, &dog->pos);
+			SDL_RenderCopy(g_renderer, manyTexture, &dogPushRect, &dog->pos);
 		}
-		// right
-		else if (dog->nowInput == 2)
+		else
 		{
-			SDL_RenderCopyEx(g_renderer, manyTexture, &dogRect, &dog->pos, 0, NULL, SDL_FLIP_HORIZONTAL);
+			// left
+			if (dog->nowInput == 1 || dog->nowInput == 0)
+			{
+				SDL_RenderCopy(g_renderer, manyTexture, &dogRect, &dog->pos);
+			}
+			// right
+			else if (dog->nowInput == 2)
+			{
+				SDL_RenderCopyEx(g_renderer, manyTexture, &dogRect, &dog->pos, 0, NULL, SDL_FLIP_HORIZONTAL);
+			}
 		}
 	}
+
+
+
+
 
 
 

@@ -108,6 +108,7 @@ private:
 	SDL_Rect keyRect;
 	SDL_Rect lockRect;
 
+	
 
 
 	SDL_Rect dogPushRect;
@@ -147,7 +148,8 @@ private:
 	int mouse_win_x_; 
 	int mouse_win_y_;
 
-
+	//gameOver당한 후 잠시 대기
+	int gameOverDelay;
 	 
 	// gravity 
 	float gravity = 0.098f;

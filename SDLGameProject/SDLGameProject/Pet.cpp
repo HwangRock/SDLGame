@@ -78,7 +78,7 @@ Pet::Update(double timestep_s)
 	for (auto& missile : mis) {
 		if (SDL_HasIntersection(&mis[0].misile_pos, &pos))
 		{
-			isDead = true;
+			//isDead = true;
 		}
 	}
 
@@ -93,7 +93,7 @@ Pet::Update(double timestep_s)
 		if (l.liquidClass == "choco" && SDL_HasIntersection(&l.liquidPos, &pos))
 		{
 			std::cout << "touch choco->die\n";
-			//isDead = true;
+			isDead = true;
 		}
 	}
 	

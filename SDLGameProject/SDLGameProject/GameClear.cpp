@@ -9,6 +9,17 @@ public:
 	Clear()
 	{
 		//TEXTURE////////////////////////////////////////////////
+		//Game Clear UI
+		SDL_Surface* surface_clearBtn = IMG_Load("../Resources/gameClearBtn.png");
+		clearBtnTexture = SDL_CreateTextureFromSurface(g_renderer, surface_clearBtn);
+		SDL_FreeSurface(surface_clearBtn);
+		clear_restartRect = { 0,0,400,112 };
+		clear_nextRect = { 400,0,400,112 };
+
+		nextBtnPos = { 400,600,100,50 };
+		restartBtnPos = { 600,600,100,50 };
+
+
 		//IMG, TEXT
 		SDL_Surface* temp_surface = IMG_Load("../Resources/gameClearImg.jpg");
 		imgTexture = SDL_CreateTextureFromSurface(g_renderer, temp_surface);
@@ -30,14 +41,14 @@ public:
 		fishTexture = SDL_CreateTextureFromSurface(g_renderer, fish_surface);
 		SDL_FreeSurface(fish_surface);
 		fishRect = { 0,0,443,340 };
-		fishPos = { 400,600,100,50 };
+		fishPos = { 400,300,100,50 };
 
 		//BONE
 		SDL_Surface* bone_surface = IMG_Load("../Resources/bone.png");
 		boneTexture = SDL_CreateTextureFromSurface(g_renderer, bone_surface);
 		SDL_FreeSurface(bone_surface);
 		boneRect = { 0,0,325,196 };
-		bonePos = { 600,600,100,50 };
+		bonePos = { 600,300,100,50 };
 
 
 
@@ -70,7 +81,10 @@ public:
 					x = event.button.x;
 					y = event.button.y;
 
-					if (x >= 400 and x <= 500 and y >= 600 and y <= 650) {
+					if (x >= restartBtnPos.x && x <= restartBtnPos.x+ restartBtnPos.w && 
+						y >= restartBtnPos.y && y <= restartBtnPos.y+ restartBtnPos.h) 
+					{
+						//RESTART
 						switch (chapterNum)
 						{
 						case 0:
@@ -97,7 +111,11 @@ public:
 							break;
 						}
 					}
-					else if (x >= 600 and x <= 700 and y >= 600 and y <= 650) {
+					else if 
+						(x >= nextBtnPos.x && x <= nextBtnPos.x + nextBtnPos.w &&
+						y >= nextBtnPos.y && y <= nextBtnPos.y + nextBtnPos.h)
+					{
+						//NEXT
 						switch (chapterNum)
 						{
 						case 0:
@@ -148,10 +166,16 @@ public:
 		//Bone
 		SDL_RenderCopy(g_renderer, boneTexture, &boneRect, &bonePos);
 
+		//Button UI
+		SDL_RenderCopy(g_renderer, clearBtnTexture, &clear_restartRect, &restartBtnPos);
+		SDL_RenderCopy(g_renderer, clearBtnTexture, &clear_nextRect, &nextBtnPos);
+
+
 		SDL_RenderPresent(g_renderer);
 	};
 
 private:
+
 
 	//img ㅡ "game clear!"
 	SDL_Texture* imgTexture;
@@ -173,6 +197,14 @@ private:
 	SDL_Rect boneRect;
 	SDL_Rect fishPos;
 	SDL_Rect bonePos;
+
+
+	//Game Clear UI
+	SDL_Texture* clearBtnTexture;
+	SDL_Rect clear_restartRect;
+	SDL_Rect clear_nextRect;
+	SDL_Rect restartBtnPos;
+	SDL_Rect nextBtnPos;
 
 };
 
