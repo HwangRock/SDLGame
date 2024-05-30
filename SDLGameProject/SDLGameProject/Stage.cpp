@@ -119,6 +119,8 @@ StageInterface::~StageInterface()
 
 	SDL_DestroyTexture(reTexture);
 
+	
+
 }
 
 void StageInterface::SetVar()
@@ -127,6 +129,11 @@ void StageInterface::SetVar()
 }
 void StageInterface::Reset()
 {
+	dog->Reset();
+	cat->Reset();
+
+	score_bone = 0;
+	score_fish = 0;
 	gameOverDelay = 150;
 
 	dog->pos.x = start.x;
@@ -164,7 +171,6 @@ void StageInterface::Update()
 			isFirst = true;
 			dog->Reset();
 			cat->Reset();
-			Reset();
 			g_current_game_phase = PHASE_OVER;
 		}
 	}
@@ -592,6 +598,7 @@ void StageInterface::HandleEvents()
 				}
 			}
 			else if (event.button.button == SDL_BUTTON_LEFT) {
+				//RESTART BUTTON
 				int x, y;
 				x = event.button.x;
 				y = event.button.y;

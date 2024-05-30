@@ -65,8 +65,8 @@ void Dog::Update(double timestep_s)
 		if (SDL_HasIntersection(&b.pos, &pos))
 		{
 			b.pos.x = -10000000000, b.pos.y = -10000000000000;
-			score += 10;
-			std::cout << "score : " << score << "\n";
+			score_bone++;
+			
 		}
 	}
 

@@ -1,6 +1,8 @@
 #pragma once
 #include "SDL.h"
 #include "Game.h"
+#include "Stage.h"
+#include "SDL_ttf.h"
 
 class Clear : public PhaseInterface
 {
@@ -9,6 +11,14 @@ public:
 	Clear()
 	{
 		//TEXTURE////////////////////////////////////////////////
+		//FONT
+		font = TTF_OpenFont("../Resources/Chlorinp.ttf", 24);
+		if (font == NULL) {
+			std::cout << "Failed to load font: " << TTF_GetError() << std::endl;
+		}
+		scorePos_cat = { 500,300,100,50 };
+		scorePos_dog = { 700,300,100,50 };
+
 		//Game Clear UI
 		SDL_Surface* surface_clearBtn = IMG_Load("../Resources/gameClearBtn.png");
 		clearBtnTexture = SDL_CreateTextureFromSurface(g_renderer, surface_clearBtn);
@@ -58,6 +68,12 @@ public:
 		SDL_DestroyTexture(fishTexture);
 		SDL_DestroyTexture(boneTexture);
 		SDL_DestroyTexture(imgTexture);
+		SDL_DestroyTexture(scoreTexture_dog);
+		SDL_DestroyTexture(scoreTexture_cat);
+
+		TTF_Quit();
+		IMG_Quit();
+		SDL_Quit();
 
 	};
 	virtual void HandleEvents()
@@ -171,8 +187,46 @@ public:
 		SDL_RenderCopy(g_renderer, clearBtnTexture, &clear_nextRect, &nextBtnPos);
 
 
+		//score
+		SDL_RenderCopy(g_renderer, scoreTexture_cat, &scoreRect_cat, &scorePos_cat);
+		SDL_RenderCopy(g_renderer, scoreTexture_dog, &scoreRect_dog, &scorePos_dog);
+
 		SDL_RenderPresent(g_renderer);
 	};
+
+	void UpdateScore()
+	{
+		//destroy from memory
+		if (scoreTexture_dog != 0)
+		{
+			SDL_DestroyTexture(scoreTexture_dog);		// !!!중요!!!  이미 생성되어있는 texture 가 있으면 반드시 메모리에서 지워야한다. !!!
+			scoreTexture_dog = 0;
+		}
+		if (scoreTexture_cat != 0)
+		{
+			SDL_DestroyTexture(scoreTexture_cat);	
+			scoreTexture_cat= 0;
+		}
+
+
+		std::string scoreResult_cat = std::to_string(score_fish)+"/"+ std::to_string(fish.size());
+		std::string scoreResult_dog = std::to_string(score_bone) + "/" + std::to_string(bone.size());
+
+
+		SDL_Color black = { 255, 255, 255, 0 };
+
+		SDL_Surface* tmp_surface1 = TTF_RenderText_Blended(font, scoreResult_cat.c_str(), black);
+		scoreRect_cat = { 0,0,tmp_surface1->w,tmp_surface1->h };
+		scoreTexture_cat = SDL_CreateTextureFromSurface(g_renderer, tmp_surface1);
+		SDL_FreeSurface(tmp_surface1);
+
+		SDL_Surface* tmp_surface2 = TTF_RenderText_Blended(font, scoreResult_dog.c_str(), black);
+		scoreRect_dog = { 0,0,tmp_surface2->w,tmp_surface2->h };
+		scoreTexture_dog = SDL_CreateTextureFromSurface(g_renderer, tmp_surface2);
+		SDL_FreeSurface(tmp_surface2);
+
+
+	}
 
 private:
 
@@ -206,6 +260,14 @@ private:
 	SDL_Rect restartBtnPos;
 	SDL_Rect nextBtnPos;
 
+	//text texture
+	TTF_Font* font;
+	SDL_Texture* scoreTexture_dog;
+	SDL_Rect scoreRect_dog;
+	SDL_Rect scorePos_dog;
+	SDL_Texture* scoreTexture_cat;
+	SDL_Rect scoreRect_cat;
+	SDL_Rect scorePos_cat;
 };
 
 

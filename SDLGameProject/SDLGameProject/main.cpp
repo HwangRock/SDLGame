@@ -65,7 +65,10 @@ std::vector <SDL_Rect> goal = {};
 SDL_Rect start;
 int chapterNum;
 int win_w, win_h;
-int score;
+
+
+int score_bone;
+int score_fish;
 int fadefloorNum;
 int c_collide;
 

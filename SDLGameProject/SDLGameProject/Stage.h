@@ -60,7 +60,8 @@ extern int win_w, win_h;
 extern SDL_Texture* blindTexture;
 
  
-extern int score; 
+extern int score_bone;
+extern int score_fish;
 
 
 //이거 두개는 객체로
