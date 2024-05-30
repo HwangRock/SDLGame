@@ -1,4 +1,9 @@
-﻿  Cat.cpp
+﻿  Box.cpp
+C:\Users\yunji\SDLGame\SDLGame\SDLGameProject\SDLGameProject\Box.cpp(1,1): warning C4819: 현재 코드 페이지(949)에서 표시할 수 없는 문자가 파일에 들어 있습니다. 데이터가 손실되지 않게 하려면 해당 파일을 유니코드 형식으로 저장하십시오.
+C:\Users\yunji\SDLGame\SDLGame\SDLGameProject\SDLGameProject\misile.cpp(1,1): warning C4819: 현재 코드 페이지(949)에서 표시할 수 없는 문자가 파일에 들어 있습니다. 데이터가 손실되지 않게 하려면 해당 파일을 유니코드 형식으로 저장하십시오.
+C:\Users\yunji\SDLGame\SDLGame\SDLGameProject\SDLGameProject\Box.cpp(33,19): warning C4244: '+=': 'double'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+C:\Users\yunji\SDLGame\SDLGame\SDLGameProject\SDLGameProject\Box.cpp(62,35): warning C4244: '=': 'float'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+  Cat.cpp
 C:\Users\yunji\SDLGame\SDLGame\SDLGameProject\SDLGameProject\misile.cpp(1,1): warning C4819: 현재 코드 페이지(949)에서 표시할 수 없는 문자가 파일에 들어 있습니다. 데이터가 손실되지 않게 하려면 해당 파일을 유니코드 형식으로 저장하십시오.
 C:\Users\yunji\SDLGame\SDLGame\SDLGameProject\SDLGameProject\Cat.cpp(54,26): warning C4305: '=': '__int64'에서 'int'(으)로 잘립니다.
 C:\Users\yunji\SDLGame\SDLGame\SDLGameProject\SDLGameProject\Cat.cpp(54,15): warning C4309: '=': 상수 값이 잘립니다.
@@ -19,6 +24,22 @@ C:\Users\yunji\SDLGame\SDLGame\SDLGameProject\SDLGameProject\Dog.cpp(245,25): wa
   GameClear.cpp
 C:\Users\yunji\SDLGame\SDLGame\SDLGameProject\SDLGameProject\GameClear.cpp(1,1): warning C4819: 현재 코드 페이지(949)에서 표시할 수 없는 문자가 파일에 들어 있습니다. 데이터가 손실되지 않게 하려면 해당 파일을 유니코드 형식으로 저장하십시오.
 C:\Users\yunji\SDLGame\SDLGame\SDLGameProject\SDLGameProject\misile.cpp(1,1): warning C4819: 현재 코드 페이지(949)에서 표시할 수 없는 문자가 파일에 들어 있습니다. 데이터가 손실되지 않게 하려면 해당 파일을 유니코드 형식으로 저장하십시오.
+  Main.cpp
+C:\Users\yunji\SDLGame\SDLGame\SDLGameProject\SDLGameProject\misile.cpp(1,1): warning C4819: 현재 코드 페이지(949)에서 표시할 수 없는 문자가 파일에 들어 있습니다. 데이터가 손실되지 않게 하려면 해당 파일을 유니코드 형식으로 저장하십시오.
+C:\Users\yunji\SDLGame\SDLGame\SDLGameProject\SDLGameProject\GameClear.cpp(1,1): warning C4819: 현재 코드 페이지(949)에서 표시할 수 없는 문자가 파일에 들어 있습니다. 데이터가 손실되지 않게 하려면 해당 파일을 유니코드 형식으로 저장하십시오.
+C:\Users\yunji\SDLGame\SDLGame\SDLGameProject\SDLGameProject\Map1.cpp(1,1): warning C4819: 현재 코드 페이지(949)에서 표시할 수 없는 문자가 파일에 들어 있습니다. 데이터가 손실되지 않게 하려면 해당 파일을 유니코드 형식으로 저장하십시오.
+  Map2.cpp
+C:\Users\yunji\SDLGame\SDLGame\SDLGameProject\SDLGameProject\misile.cpp(1,1): warning C4819: 현재 코드 페이지(949)에서 표시할 수 없는 문자가 파일에 들어 있습니다. 데이터가 손실되지 않게 하려면 해당 파일을 유니코드 형식으로 저장하십시오.
+  Map3.cpp
+C:\Users\yunji\SDLGame\SDLGame\SDLGameProject\SDLGameProject\misile.cpp(1,1): warning C4819: 현재 코드 페이지(949)에서 표시할 수 없는 문자가 파일에 들어 있습니다. 데이터가 손실되지 않게 하려면 해당 파일을 유니코드 형식으로 저장하십시오.
+  Map4.cpp
+C:\Users\yunji\SDLGame\SDLGame\SDLGameProject\SDLGameProject\misile.cpp(1,1): warning C4819: 현재 코드 페이지(949)에서 표시할 수 없는 문자가 파일에 들어 있습니다. 데이터가 손실되지 않게 하려면 해당 파일을 유니코드 형식으로 저장하십시오.
+  Pet.cpp
+C:\Users\yunji\SDLGame\SDLGame\SDLGameProject\SDLGameProject\Pet.cpp(1,1): warning C4819: 현재 코드 페이지(949)에서 표시할 수 없는 문자가 파일에 들어 있습니다. 데이터가 손실되지 않게 하려면 해당 파일을 유니코드 형식으로 저장하십시오.
+C:\Users\yunji\SDLGame\SDLGame\SDLGameProject\SDLGameProject\misile.cpp(1,1): warning C4819: 현재 코드 페이지(949)에서 표시할 수 없는 문자가 파일에 들어 있습니다. 데이터가 손실되지 않게 하려면 해당 파일을 유니코드 형식으로 저장하십시오.
+C:\Users\yunji\SDLGame\SDLGame\SDLGameProject\SDLGameProject\Pet.cpp(20,10): warning C4244: '=': 'double'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+C:\Users\yunji\SDLGame\SDLGame\SDLGameProject\SDLGameProject\Pet.cpp(21,10): warning C4244: '=': 'double'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+C:\Users\yunji\SDLGame\SDLGame\SDLGameProject\SDLGameProject\Pet.cpp(62,15): warning C4244: '+=': 'double'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
   Stage.cpp
 C:\Users\yunji\SDLGame\SDLGame\SDLGameProject\SDLGameProject\Stage.cpp(1,1): warning C4819: 현재 코드 페이지(949)에서 표시할 수 없는 문자가 파일에 들어 있습니다. 데이터가 손실되지 않게 하려면 해당 파일을 유니코드 형식으로 저장하십시오.
 C:\Users\yunji\SDLGame\SDLGame\SDLGameProject\SDLGameProject\misile.cpp(1,1): warning C4819: 현재 코드 페이지(949)에서 표시할 수 없는 문자가 파일에 들어 있습니다. 데이터가 손실되지 않게 하려면 해당 파일을 유니코드 형식으로 저장하십시오.
@@ -27,8 +48,8 @@ C:\Users\yunji\SDLGame\SDLGame\SDLGameProject\SDLGameProject\Stage.cpp(192,32): 
 C:\Users\yunji\SDLGame\SDLGame\SDLGameProject\SDLGameProject\Map1.cpp(1,1): warning C4819: 현재 코드 페이지(949)에서 표시할 수 없는 문자가 파일에 들어 있습니다. 데이터가 손실되지 않게 하려면 해당 파일을 유니코드 형식으로 저장하십시오.
 C:\Users\yunji\SDLGame\SDLGame\SDLGameProject\SDLGameProject\misile.cpp(1,1): warning C4819: 현재 코드 페이지(949)에서 표시할 수 없는 문자가 파일에 들어 있습니다. 데이터가 손실되지 않게 하려면 해당 파일을 유니코드 형식으로 저장하십시오.
   코드를 생성하고 있습니다.
-  20 of 921 functions ( 2.2%) were compiled, the rest were copied from previous compilation.
-    0 functions were new in current compilation
-    15 functions had inline decision re-evaluated but remain unchanged
+  45 of 957 functions ( 4.7%) were compiled, the rest were copied from previous compilation.
+    36 functions were new in current compilation
+    89 functions had inline decision re-evaluated but remain unchanged
   코드를 생성했습니다.
   SDLGameProject.vcxproj -> C:\Users\yunji\SDLGame\SDLGame\SDLGameProject\x64\Release\SDLGameProject.exe

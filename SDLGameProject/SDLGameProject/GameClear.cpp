@@ -166,7 +166,7 @@ public:
 			}
 		}
 	};
-	virtual void Update() {};
+	virtual void Update() { UpdateScore(); };
 	virtual void Render() {
 
 		//RENDER/////////////////////////////////////////////////
@@ -213,7 +213,7 @@ public:
 		std::string scoreResult_dog = std::to_string(score_bone) + "/" + std::to_string(bone.size());
 
 
-		SDL_Color black = { 255, 255, 255, 0 };
+		SDL_Color black = { 0, 0, 0, 0 };
 
 		SDL_Surface* tmp_surface1 = TTF_RenderText_Blended(font, scoreResult_cat.c_str(), black);
 		scoreRect_cat = { 0,0,tmp_surface1->w,tmp_surface1->h };

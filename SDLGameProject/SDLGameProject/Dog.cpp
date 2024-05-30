@@ -25,7 +25,7 @@ void Dog::Update(double timestep_s)
 	{
 		if (l.liquidClass == "milk" && SDL_HasIntersection(&l.liquidPos, &pos))
 		{
-			std::cout << "touch milk->die\n";
+			//std::cout << "touch milk->die\n";
 			//isDead = true;
 		}
 	}

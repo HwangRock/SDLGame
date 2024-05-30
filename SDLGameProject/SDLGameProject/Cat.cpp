@@ -41,7 +41,7 @@ void Cat::Update(double timestep_s)
 	{
 		if (l.liquidClass == "water" && SDL_HasIntersection(&l.liquidPos, &pos))
 		{
-			std::cout << "touch water->die\n";
+			//std::cout << "touch water->die\n";
 			//isDead = true;
 		}
 	}
