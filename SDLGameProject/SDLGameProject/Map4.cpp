@@ -20,33 +20,41 @@ public:
 
 		//Terrain
 		//위쪽
-		Terrain* floor1 = new Terrain(200, 140, win_w - 200, 25);
-		Terrain* floor2 = new Terrain(win_w-200, 140-25, 200, 25);
+		Terrain* floor1_1 = new Terrain(200, 140, 150, 25);
+		Terrain* floor1_2 = new Terrain(1100, 140, 150, 25);
+		Terrain* floor2 = new Terrain(1150, 140-25, 100, 25);
 
 		//왼쪽 발판들
-		Terrain* floor3 = new Terrain(0, 310, 100, 25);
-		Terrain* floor4 = new Terrain(130, 380, 75, 25);
+		Terrain* floor3 = new Terrain(0, 300, 100, 25);
+		Terrain* floor4 = new Terrain(150, 370, 50, 25);
 		Terrain* floor5 = new Terrain(0, 450, 100, 25);
-		Terrain* floor6 = new Terrain(130, 520, 75, 25);
+		Terrain* floor6 = new Terrain(150, 530, 50, 25);
 		//사라지는 벽대신 추가
-		Terrain* default20 = new Terrain(30, 605, 80, 25);
+		Terrain* default20 = new Terrain(0, 610, 100, 25);
 
 
 		//가운데
-		Terrain* floor7 = new Terrain(200, 280, 25, win_h-280);
-		Terrain* floor8 = new Terrain(200+100, 280, 705, 25);
-		Terrain* floor9 = new Terrain(200, 400, 600, 25);
+		Terrain* floor7 = new Terrain(200, 250, 25, win_h-250);
+		Terrain* floor8_1 = new Terrain(350,250,150,25);
+		Terrain* floor8_2 = new Terrain(600, 250, 50, 25);
+		Terrain* floor8_3 = new Terrain(750, 250, 50, 25);
+		Terrain* floor8_4 = new Terrain(900, 250, 100, 25);
+		Terrain* floor9_1 = new Terrain(200, 400, 350, 25);
+		Terrain* floor9_2 = new Terrain(700, 400, 50, 25);
 		Terrain* floor10 = new Terrain(350, 540, 150, 25);
-		Terrain* floor11 = new Terrain(600, 540, 400, 25);
-		Terrain* floor12 = new Terrain(1000, 280, 25, 260);
+		Terrain* floor11_1 = new Terrain(600, 540, 150, 25);
+		Terrain* floor11_2 = new Terrain(850, 540, 150, 25);
+		Terrain* floor12 = new Terrain(1000, 250, 25, 300-10+25);
 
 		//오른쪽 발판들
+		/*
 		Terrain* floor13 = new Terrain(1000, 350, 120, 25);
 		Terrain* floor14 = new Terrain(1200, 350, 150, 25);
 		Terrain* floor15 = new Terrain(1000, 350+85, 90, 25);
-		Terrain* floor16 = new Terrain(1180, 350+85, 150, 25);
+		Terrain* floor16 = new Terrain(1190, 350+85, 150, 25);
 		Terrain* floor17 = new Terrain(1000, 520, 130, 25);
 		Terrain* floor18 = new Terrain(1220, 520, 100, 25);
+		*/
 
 		//대포쪽
 		Terrain* floor19 = new Terrain(1000, 650, 25, 100);
@@ -58,39 +66,42 @@ public:
 		Terrain* default1 = new Terrain(0, 0, 30, win_h);
 		Terrain* default2 = new Terrain(0, 0, win_w, 30);
 		Terrain* default3 = new Terrain(win_w-30, 0, 30, win_h);
-		Terrain* default4 = new Terrain(0, win_h-30, win_w, 30);
+		Terrain* default4 = new Terrain(0, win_h-30, win_w - 130, 30);
 
 		
 		
 		walls =
 		{
-			*floor1,*floor2,
-			*floor3,*floor4,*floor5,*floor6,
-			*floor7,*floor8,*floor9,*floor10,
-			*floor11,*floor12,*floor13,*floor14,*floor15,*floor16,
-			*floor17,*floor18,*floor19,
-			*default1,*default2,*default3,* default4,*default20
+			*floor1_1,*floor1_2,*floor2,
+			*floor3,*floor4,*floor5,*floor6,* default20,
+			*floor7,*floor8_1,* floor8_2,* floor8_3,* floor8_4,
+			*floor9_1,* floor9_2,*floor10,
+			*floor11_1,* floor11_2,*floor12,
+			*floor19,
+			*default1,*default2,*default3,* default4
 		};
 
 
 
 		//Button
 		Button* btnA = new Button(1, 1,
-			{ { 550, 400-25, 25, 25} },
-			{ { 0,300-25,80,25 } },
-			{ { 0,100,80,25 } },
-			{ { 0,300 - 25,80,25 } });
+			{ { 525, 400-25, 25, 25} },
+			{ { 30,300-25,50,25 } },
+			{ { 30,200,50,25 } },
+			{ { 30,300 - 25,50,25 } });
 		Button* btnB = new Button(1, 2,
-			{ {370, 520-25, 25, 25} },
-			{ {225,280,100,25},{500,540,100,25} },
-			{ {225,350,100,25},{500,610,100,25} },
-			{ {225,280,100,25},{500,540,100,25} });
+			{ {370, 520, 25, 25} },
+			{ {225,250,125,25},{500,540,100,25} },
+			{ {225,320,125,25},{500,610,100,25} },
+			{ {225,280,125,25},{500,540,100,25} });
+		/*
 		Button* btnC = new Button(1, 1,
 			{ { 700,400-25,25,25} },
 			{ { 800,500,100,25 } },
 			{ { 800,400,100,25 } },
 			{ { 800,500,100,25 } });
-		buttons = {*btnA,*btnB,*btnC };
+		*/
+		buttons = {*btnA,*btnB };
 
 		blinds = { };
 
@@ -104,26 +115,26 @@ public:
 		Terrain* fish1 = new Terrain(70, 350, 30, 30);
 		Terrain* fish2 = new Terrain(460, 40, 30, 30);
 		Terrain* fish3 = new Terrain(840, 210, 30, 30);
-		Terrain* fish4 = new Terrain(1180, 230, 30, 30);
+		Terrain* fish4 = new Terrain(1160, 230, 30, 30);
 		Terrain* fish5 = new Terrain(1130, 390, 30, 30);
 		Terrain* fish6 = new Terrain(590, 600, 30, 30);
 
 		Terrain* bone1 = new Terrain(660, 40, 30, 30);
 		Terrain* bone2 = new Terrain(165, 470, 30, 30);
 		Terrain* bone3 = new Terrain(390, 600, 30, 30);
-		Terrain* bone4 = new Terrain(1180, 200, 30, 30);
+		Terrain* bone4 = new Terrain(1160, 200, 30, 30);
 		Terrain* bone5 = new Terrain(1150, 470, 30, 30);
-		Terrain* bone6 = new Terrain(540, 250, 30, 30);
+		Terrain* bone6 = new Terrain(550, 210, 30, 30);
 
-		FadeFloor* fadefloor1 = new FadeFloor({ 115,650,87,25 });
+		//FadeFloor* fadefloor1 = new FadeFloor({ 115,650,87,25 });
 		//FadeFloor* fadefloor2 = new FadeFloor({ 30,580,87,25 });
-		FadeFloor* fadefloor3 = new FadeFloor({ 311,93,100,15 });
-		FadeFloor* fadefloor4 = new FadeFloor({ 501,93,100,15 });
-		FadeFloor* fadefloor5 = new FadeFloor({ 691,93,100,15 });
-		FadeFloor* fadefloor6 = new FadeFloor({ 881,93,100,15 });
-		fadefloors = { *fadefloor1 ,*fadefloor3,*fadefloor4,*fadefloor5,*fadefloor6 };
+		FadeFloor* fadefloor3 = new FadeFloor({ 400,125,100,20 });
+		FadeFloor* fadefloor4 = new FadeFloor({ 600,125,100,20 });
+		FadeFloor* fadefloor5 = new FadeFloor({ 800,125,100,20 });
+		FadeFloor* fadefloor6 = new FadeFloor({ 1000,125,100,20 });
+		fadefloors = { *fadefloor3,*fadefloor4,*fadefloor5,*fadefloor6 };
 
-		Cushion* cushion1 = new Cushion({ 897,475,100, 55 });
+		Cushion* cushion1 = new Cushion({ 900,500,100, 50 });
 		cushions = { *cushion1 };
 
 		cannon = { *cannon1 };
@@ -134,27 +145,34 @@ public:
 
 
 		// water
-		Liquid* water1 = new Liquid({ 718,255,227,27 },"water");
-		Liquid* water2 = new Liquid({ 1024,419,66,15 },"water");
+		Liquid* water1 = new Liquid({ 650,250,100,25 },"water");
+		Liquid* water2 = new Liquid({ 1025,435,90-25,35 },"water");
 
 
 		//milk
-		Liquid* milk1 = new Liquid({ 470,255,128,27 },"milk");
-		Liquid* milk2 = new Liquid({ 1221,501,31,21 },"milk");
+		Liquid* milk1 = new Liquid({ 500,250,100,25 },"milk");
+		Liquid* milk2 = new Liquid({ 1200,500,50,35 },"milk");
 
 
 		//choco
-		Liquid* choco1 = new Liquid({ 286,113,700,25 },"choco");
-		Liquid* choco2 = new Liquid({ 582,379,111,26 }, "choco");
-		Liquid* choco3 = new Liquid({ 1026,333,95,17 }, "choco");
-		Liquid* choco4 = new Liquid({ 1201,339,51,15 }, "choco");
-		Liquid* choco5 = new Liquid({ 1181,426,71,11 }, "choco");
-		Liquid* choco6 = new Liquid({ 1024,508,105,15 }, "choco");
-		Liquid* choco7 = new Liquid({ 1110,680,106,18 }, "choco");
+		Liquid* choco0 = new Liquid({ 350,140,750,25 }, "choco");
+
+		Liquid* choco1 = new Liquid({ 800,250,100,25 },"choco");
+		Liquid* choco2 = new Liquid({ 550,400,150,25 }, "choco");
+		Liquid* choco3 = new Liquid({ 750,540,100,25 }, "choco");
+
+		Liquid* choco4 = new Liquid({ 1025,350,100,35 }, "choco");
+		Liquid* choco5 = new Liquid({ 1200,350,50,35 }, "choco");
+		Liquid* choco6 = new Liquid({ 1190,435,60,35 }, "choco");
+		Liquid* choco7 = new Liquid({ 1025,500,90,35 }, "choco");
+
+		Liquid* choco8 = new Liquid({ 1150,690,100,30 }, "choco");
 
 		liquid =
 		{
-			*choco1,*choco2,*choco3,*choco4,*choco5,*choco6,*choco7,
+			*choco0,*choco1,*choco2,*choco3,
+			*choco4,*choco5,*choco6,*choco7,
+			* choco8,
 			*milk1,*milk2 ,
 			*water1, *water2 };
 
@@ -163,16 +181,16 @@ public:
 
 		//climbwall
 		ClimbWall* cwall1 = new ClimbWall({ 220,426,20,265 });
-		ClimbWall* cwall2 = new ClimbWall({ 980,306,20,216 });
-		climbWalls = { *cwall1,*cwall2 };
+		//ClimbWall* cwall2 = new ClimbWall({ 980,306,20,216 });
+		climbWalls = { *cwall1 };
 
 
 		liquidWalls = { };
 		liquidAisles = { };
 		keys = {};
-		goal = { {800,50,50,80} };
-		//start={100,win_h-(30+50+10),50,80};
-		start = { 800,300,50,80 };
+		goal = { {1200-25,40,50,75} };
+		//start = { 125,600,50,75 };
+		start = { 300,300,50,75 };
 	}
 
 

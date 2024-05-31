@@ -23,15 +23,15 @@
 #include "ClimbWall.cpp"
 #include "FadeFloor.h"
 #include "Cushion.h"
-
-
-
+  
+   
+   
 #include "Box.h"  
 #include "misile.cpp"
-
+ 
 #include "Liquid.cpp"
 
-#include "Key.cpp"
+#include "Key.cpp" 
 
 #include "Game.h"
 
@@ -148,7 +148,7 @@ private:
 	// Mouse   
 	int mouse_win_x_; 
 	int mouse_win_y_;
-
+ 
 	//gameOver당한 후 잠시 대기
 	int gameOverDelay;
 	 
@@ -159,6 +159,6 @@ private:
 	 
 }; 
 
-
+ 
 
 

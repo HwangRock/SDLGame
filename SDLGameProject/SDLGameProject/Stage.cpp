@@ -233,11 +233,7 @@ void StageInterface::Update()
 		//PRESS BUTTON/////////////////////////////////////////////////////////////
 		for (int i = 0; i < buttons.size(); i++)
 		{
-			//튕기는거 방지
-			buttons[i].petOverlap(dog->pos);
-			buttons[i].petOverlap(cat->pos);
-
-
+			
 			//버튼 누르는지 검사
 			for (int j = 0; j < buttons[i].buttonPos.size(); j++)
 			{
@@ -248,6 +244,11 @@ void StageInterface::Update()
 					if (SDL_HasIntersection(&boxs[k].box_pos, &buttons[i].buttonPos[j]))
 					{	isBoxPressBtn=true;	}
 				}
+
+				//튕기는거 방지
+				buttons[i].petOverlap(dog->pos);
+				if (buttons[i].isStop == false) { buttons[i].petOverlap(cat->pos); }
+				
 
 				if (SDL_HasIntersection(&dog->pos, &buttons[i].buttonPos[j]) ||
 					SDL_HasIntersection(&cat->pos, &buttons[i].buttonPos[j]) || 
@@ -487,7 +488,7 @@ void StageInterface::Render()
 	}
 
 	//cushion
-	std::cout << dog->isPressCushion << " cat-" << cat->isPressCushion << "\n";
+	//std::cout << dog->isPressCushion << " cat-" << cat->isPressCushion << "\n";
 	for (int i = 0; i < cushions.size(); i++)
 	{
 		if (dog->isPressCushion == i || cat->isPressCushion == i)
