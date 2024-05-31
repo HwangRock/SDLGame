@@ -41,26 +41,24 @@ public:
 				break;
 
 			case SDL_MOUSEBUTTONDOWN:
+			case SDL_KEYDOWN:
 
-				if (event.button.button == SDL_BUTTON_LEFT)
+				switch (chapterNum)
 				{
-					switch (chapterNum)
-					{
-					case 0:
-						g_current_game_phase = PHASE_STAGE1;
-						break;
-					case 1:
-						g_current_game_phase = PHASE_STAGE2;
-						break;
-					case 2:
-						g_current_game_phase = PHASE_STAGE3;
-						break;
-					case 3:
-						g_current_game_phase = PHASE_STAGE4;
-						break;
-					default:
-						break;
-					}
+				case 0:
+					g_current_game_phase = PHASE_STAGE1;
+					break;
+				case 1:
+					g_current_game_phase = PHASE_STAGE2;
+					break;
+				case 2:
+					g_current_game_phase = PHASE_STAGE3;
+					break;
+				case 3:
+					g_current_game_phase = PHASE_STAGE4;
+					break;
+				default:
+					break;
 				}
 				break;
 

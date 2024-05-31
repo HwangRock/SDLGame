@@ -52,10 +52,8 @@ void Manual::HandleEvents()
 			break;
 
 		case SDL_MOUSEBUTTONDOWN:
-			if (event.button.button == SDL_BUTTON_LEFT)
-			{
-				g_current_game_phase = PHASE_STAGE1;
-			}
+		case SDL_KEYDOWN:
+			g_current_game_phase = PHASE_STAGE1;
 			break;
 
 		default:

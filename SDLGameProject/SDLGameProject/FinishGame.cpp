@@ -52,18 +52,15 @@ void Finish::HandleEvents()
             break;
 
         case SDL_MOUSEBUTTONDOWN:
-            // If the mouse left button is pressed.
-            if (event.button.button == SDL_BUTTON_LEFT)
-            {
-                if (cnt != 6) {
-                    cnt++;
-                    UpdateSourceRectangle();
-                }
-                else {
-                    g_current_game_phase = PHASE_INTRO;
-                    cnt = 0;
-                    UpdateSourceRectangle();
-                }
+        case SDL_KEYDOWN:
+            if (cnt != 6) {
+                cnt++;
+                UpdateSourceRectangle();
+            }
+            else {
+                g_current_game_phase = PHASE_INTRO;
+                cnt = 0;
+                UpdateSourceRectangle();
             }
             break;
 

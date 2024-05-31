@@ -52,13 +52,10 @@ void Intro::HandleEvents()
 			break;
 
 		case SDL_MOUSEBUTTONDOWN:
+		case SDL_KEYDOWN:
 
-			// If the mouse left button is pressed. 
-			if (event.button.button == SDL_BUTTON_LEFT)
-			{
-				g_current_game_phase = PHASE_MANUAL;
-				g_pre_game_phase = PHASE_MANUAL;
-			}
+			g_current_game_phase = PHASE_MANUAL;
+			g_pre_game_phase = PHASE_MANUAL;
 			break;
 
 		default:
