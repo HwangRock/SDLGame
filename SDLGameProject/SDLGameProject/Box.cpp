@@ -12,7 +12,7 @@ Box::Box(SDL_Rect pos) {
 
 void Box::Update(double timestep_s) {
 
-	v[1] += 0.189f; // Gravity
+	v[1] += 0.1f; // Gravity
 	for (const Terrain& wall : walls)
 	{
 		if (SDL_HasIntersection(&box_pos, &wall.pos))
@@ -30,6 +30,14 @@ void Box::Update(double timestep_s) {
 			}
 		}
 	}
+	for (Liquid l : liquid)
+	{
+		if (SDL_HasIntersection(&box_pos, &l.wallPos))
+		{
+			BlockMoving(l.wallPos);
+		}
+	}
+	//박스끼리 부딪히게?
 	box_pos.y += v[1];
 }
 

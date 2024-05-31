@@ -29,7 +29,7 @@ public:
 	void HandleEvent(SDL_Event event);
 
 
-	void BoxMoving(SDL_Rect obst);
+	void BoxMoving();
 protected:
 	// dog skill variables
 	bool beBlurry_;

@@ -310,7 +310,7 @@ void StageInterface::Render()
 
 	SDL_SetTextureAlphaMod(manyTexture, 255);
 
-
+	
 	//MISSILE
 	for (misile m : mis) {
 		SDL_RenderCopy(g_renderer, manyTexture, &misileRect, &m.misile_pos);
