@@ -22,7 +22,6 @@ public:
 	bool jumping;
 
 	bool isInGoal;//does it reach in goal
-	int isCollide; //fadefloor
 	int isPressCushion;
 	bool haveKey;
 	int nowInput;

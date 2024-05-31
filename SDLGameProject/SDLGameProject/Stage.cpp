@@ -141,6 +141,11 @@ void StageInterface::Reset()
 	cat->pos.x = start.x;
 	cat->pos.y = start.y;
 
+	for (int i = 0; i < fadefloors.size(); i++)
+	{
+		fadefloors[i].Reset();
+	}
+
 }
 void StageInterface::Update()
 {
@@ -272,41 +277,9 @@ void StageInterface::Update()
 
 		//FADE FLOOR///////////////////////////////////////////////////////////
 		//---------------------------------------------------------------------------------------------------------------------------
-		if (!fadefloors.empty())
+		for (int i = 0; i < fadefloors.size(); i++)
 		{
-			if (cat->isCollide == 1 || dog->isCollide == 1)
-			{
-				switch (fadefloorNum)
-				{
-				case 0:
-					fadefloors[0].CollideFloor(true);
-					fadefloors[0].Update();
-					break;
-				case 1:
-					fadefloors[1].CollideFloor(true);
-					fadefloors[1].Update();
-					break;
-				case 2:
-					fadefloors[2].CollideFloor(true);
-					fadefloors[2].Update();
-					break;
-				case 3:
-					fadefloors[3].CollideFloor(true);
-					fadefloors[3].Update();
-					break;
-				case 4:
-					fadefloors[4].CollideFloor(true);
-					fadefloors[4].Update();
-					break;
-				case 5:
-					fadefloors[5].CollideFloor(true);
-					fadefloors[5].Update();
-					break;
-				default:
-					break;
-				}
-
-			}
+			fadefloors[i].Update();
 		}
 	}
 
@@ -320,6 +293,22 @@ void StageInterface::Render()
 	//Background
 	SDL_SetRenderDrawColor(g_renderer, 229, 221, 192, 255);
 	SDL_RenderClear(g_renderer); // clear the renderer to the draw color
+
+
+	SDL_SetTextureBlendMode(manyTexture, SDL_BLENDMODE_BLEND);
+
+	//fadefloor
+	for (FadeFloor fwall : fadefloors)
+	{
+		SDL_SetTextureAlphaMod(manyTexture, 255);
+		if (fwall.isCollide == true)
+		{
+			SDL_SetTextureAlphaMod(manyTexture, fwall.alpha);
+		}
+		SDL_RenderCopy(g_renderer, manyTexture, &fadefloorRect, &fwall.floor_pos);
+	}
+
+	SDL_SetTextureAlphaMod(manyTexture, 255);
 
 
 	//MISSILE
@@ -516,13 +505,8 @@ void StageInterface::Render()
 	}
 
 
-	//fadefloor
-	for (FadeFloor fwall : fadefloors)
-	{
-		SDL_SetTextureBlendMode(manyTexture, SDL_BLENDMODE_BLEND);
-		SDL_SetTextureAlphaMod(manyTexture, fwall.alpha);
-		SDL_RenderCopy(g_renderer, manyTexture, &fadefloorRect, &fwall.floor_pos);
-	}
+	
+
 
 	//restart
 	SDL_RenderCopy(g_renderer, reTexture, &reRect, &reRect_des);

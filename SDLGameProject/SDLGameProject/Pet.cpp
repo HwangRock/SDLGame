@@ -147,49 +147,15 @@ Pet::Update(double timestep_s)
 		*/
 
 		//FADE FLOOR///////////////////////////////////////////////////////
-		if (!fadefloors.empty())
+		for (int j = 0; j < fadefloors.size(); j++)
 		{
-			for (int j = 0; j < fadefloors.size(); j++)
+			if (SDL_HasIntersection(&pos, &fadefloors[j].floor_pos))
 			{
-				if (SDL_HasIntersection(&pos, &fadefloors[0].floor_pos))
-				{
-					BlockMoving(fadefloors[0].floor_pos);
-					isCollide = true;
-					fadefloorNum = 0;
-				}
-				else if (SDL_HasIntersection(&pos, &fadefloors[1].floor_pos))
-				{
-					BlockMoving(fadefloors[1].floor_pos);
-					isCollide = true;
-					fadefloorNum = 1;
-				}
-				else if (SDL_HasIntersection(&pos, &fadefloors[2].floor_pos))
-				{
-					BlockMoving(fadefloors[2].floor_pos);
-					isCollide = true;
-					fadefloorNum = 2;
-				}
-				else if (SDL_HasIntersection(&pos, &fadefloors[3].floor_pos))
-				{
-					BlockMoving(fadefloors[3].floor_pos);
-					isCollide = true;
-					fadefloorNum = 3;
-				}
-				else if (SDL_HasIntersection(&pos, &fadefloors[4].floor_pos))
-				{
-					BlockMoving(fadefloors[4].floor_pos);
-					isCollide = true;
-					fadefloorNum = 4;
-				}
-				else if (SDL_HasIntersection(&pos, &fadefloors[5].floor_pos))
-				{
-					BlockMoving(fadefloors[1].floor_pos);
-					isCollide = true;
-					fadefloorNum = 5;
-				}
+				BlockMoving(fadefloors[j].floor_pos);
+				fadefloors[j].CollideFloor(true);
 			}
-
 		}
+
 
 	}
 

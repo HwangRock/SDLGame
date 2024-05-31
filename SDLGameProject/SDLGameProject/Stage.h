@@ -63,10 +63,6 @@ extern SDL_Texture* blindTexture;
 extern int score_bone;
 extern int score_fish;
 
-
-//이거 두개는 객체로
-extern int fadefloorNum;
-extern int c_collide; //cushion collide
  
  
   
@@ -111,7 +107,7 @@ private:
 
 	
 
-
+	 
 	SDL_Rect dogPushRect;
 	SDL_Rect scaffoldRect;        
 	SDL_Rect goalRect;

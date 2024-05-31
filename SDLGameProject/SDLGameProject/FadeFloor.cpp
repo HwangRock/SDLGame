@@ -18,9 +18,13 @@ void FadeFloor::Update()
 	if (isCollide == true && alpha > 0)
 	{
 		//투명도를 점점 줄인후에 바닥 rect를 아예 화면 밖으로 이동
-		alpha-=5;
+		alpha-=fadeSpeed;
 
-		if (alpha == 0){ floor_pos.y = 720; }
+		if (alpha == 0)
+		{ 
+			floor_pos.y = 100000;
+			isCollide = false;
+		}
 	}
 }
 

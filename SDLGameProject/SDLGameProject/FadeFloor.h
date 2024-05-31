@@ -18,6 +18,6 @@ public:
 	void Reset();
 	void Update();
 	void CollideFloor(bool a);
-
+protected:
 	double fadeSpeed = 5;
 };
