@@ -103,7 +103,11 @@ public:
 		*/
 		buttons = {*btnA,*btnB };
 
-		blinds = { };
+		SDL_Rect b1 = { 150,450,50,100 };
+		SDL_Rect b2 = { 500,210,100,55 };
+		SDL_Rect b3 = { 1150 ,650,win_w - 30 - 1150,100 };
+		SDL_Rect b4 = { 325,500,100,75 };
+		blinds = {b1,b2,b3,b4 };
 
 		Box* box1 = new Box({ 600, 450, 50, 50 });
 		Box* box2 = new Box({ 450, 330, 50, 50 });

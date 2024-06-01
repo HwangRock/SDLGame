@@ -23,7 +23,8 @@ void Cat::Update(double timestep_s)
 		}
 	}
 
-	if (isClimbWall == false) { v[1] += gravity; }
+	if (isClimbWall == false) 
+	{ if (v[1] <= 6.5) { v[1] += gravity; } }
 
 
 	//UPDATE///////////////////////////////////////////////////

@@ -24,8 +24,8 @@
 #include "FadeFloor.h"
 #include "Cushion.h"
   
+     
     
-   
 #include "Box.h"  
 #include "misile.cpp"
  
@@ -64,7 +64,7 @@ extern int score_bone;
 extern int score_fish;
 
  
- 
+  
   
 class StageInterface : public PhaseInterface
 {

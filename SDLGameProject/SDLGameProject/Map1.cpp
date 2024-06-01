@@ -19,7 +19,7 @@ public:
 		Terrain* floor1 = new Terrain(200, 175, 50, 25);
 		Terrain* floor2 = new Terrain(450, 125, 25, 75);
 		Terrain* floor3 = new Terrain(450, 175, win_w - 450, 25);
-		Terrain* floor4 = new Terrain(750, 100, 200, 25);
+		//Terrain* floor4 = new Terrain(750, 100, 200, 25);
 		Terrain* floor5 = new Terrain(0, 425, 850, 25);
 		Terrain* floor6 = new Terrain(550, 575, 300, 25);
 
@@ -36,7 +36,7 @@ public:
 
 		walls =
 		{
-			*floor1,*floor2,*floor3,*floor4,*floor5,*floor6,*floor7,*floor8,
+			*floor1,*floor2,*floor3,*floor5,*floor6,*floor7,*floor8,
 			*default1,*default2,*default3,*default4,
 		};
 
@@ -82,9 +82,9 @@ public:
 		cushions = {};
 
 		Liquid* water1 = new Liquid({ 200,650,405,35 }, "water");
-		Liquid* water2 = new Liquid({ 750,75,198,23 }, "water");
-		Liquid* milk1 = new Liquid({ 952,663,198,23 },"milk");
-		Liquid* milk2 = new Liquid({ 750,155,198,23 },"milk");
+		Liquid* water2 = new Liquid({ 750,75,198,35 }, "water");
+		Liquid* milk1 = new Liquid({ 952,663,198,35 },"milk");
+		Liquid* milk2 = new Liquid({ 750,155,198,35 },"milk");
 		Liquid* choco1 = new Liquid({ 0,0,0,0 },"choco");
 		liquid = { *water1, *water2 , *milk1,*milk2 , *choco1 };
 

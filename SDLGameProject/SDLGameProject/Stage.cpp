@@ -196,7 +196,7 @@ void StageInterface::Update()
 		{
 			missile.misile_pos.x -= 7.0f;
 
-			//이거 함수로 줄일 수 없을까--------------------------------------------------------
+			//이거 함수로 줄일지--------------------------------------------------------
 			for (const Terrain& wall : walls)
 			{
 				if (SDL_HasIntersection(&mis[0].misile_pos, &wall.pos))
@@ -461,14 +461,7 @@ void StageInterface::Render()
 
 
 
-	//Blind
-	for (SDL_Rect bln : blinds)
-	{
-		SDL_SetTextureBlendMode(blindTexture, SDL_BLENDMODE_BLEND);
-		SDL_SetTextureAlphaMod(blindTexture, dog->blindOpacity_);
-		SDL_RenderCopy(g_renderer, blindTexture, &blindRect, &bln);
-
-	}
+	
 
 	//climbWall
 	for (ClimbWall wall : climbWalls)
@@ -504,7 +497,14 @@ void StageInterface::Render()
 		else { std::cout << "there is no such liquid class\n"; }
 	}
 
+	//Blind
+	for (SDL_Rect bln : blinds)
+	{
+		SDL_SetTextureBlendMode(blindTexture, SDL_BLENDMODE_BLEND);
+		SDL_SetTextureAlphaMod(blindTexture, dog->blindOpacity_);
+		SDL_RenderCopy(g_renderer, blindTexture, &blindRect, &bln);
 
+	}
 	
 
 

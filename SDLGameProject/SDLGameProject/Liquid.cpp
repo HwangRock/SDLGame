@@ -14,8 +14,8 @@ public:
 	Liquid(SDL_Rect p,std::string liquidName)
 		:pos(p),liquidClass(liquidName)
 	{
-		liquidPos = { pos.x,pos.y+8,pos.w,liquidDepth };
-		wallPos = { pos.x,pos.y + liquidDepth+8,pos.w,pos.h-liquidDepth-8 };
+		liquidPos = { pos.x,pos.y+5,pos.w,liquidDepth };
+		wallPos = { pos.x,pos.y + liquidDepth+5,pos.w,pos.h-liquidDepth-5 };
 	}
 
 };

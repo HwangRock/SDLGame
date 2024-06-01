@@ -16,8 +16,8 @@ void Dog::Reset()
 
 void Dog::Update(double timestep_s)
 {
+	if (v[1] <= 6.5) { v[1] += gravity; }
 	
-	v[1] += gravity;
 	Pet::Update(timestep_s);
 
 	//MILK////////////////////////////
