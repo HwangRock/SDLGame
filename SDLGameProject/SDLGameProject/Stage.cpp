@@ -15,7 +15,9 @@ extern float g_timestep_s;
 
 //변경법
 bool hit = false;
-
+int g_elapsed_time;
+int cat_v = -1; // left : -1 , right : 1
+int dog_v = -1;
 
 //InitGame
 StageInterface::StageInterface()
@@ -285,6 +287,122 @@ void StageInterface::Update()
 		}
 	}
 
+	// Cat
+	if (cat->nowInput == 0 && cat_v == -1)
+	{
+		catAnim.cat_move_type = 11;
+	} // left idle
+	else if (cat->nowInput == 0 && cat_v == 1)
+	{
+		catAnim.cat_move_type = 12;
+	} // right idle
+	else if (cat->nowInput == 1)
+	{
+		catAnim.cat_move_type = 1;
+		cat_v = -1;
+	} // left walk
+	else if (cat->nowInput == 2)
+	{
+		catAnim.cat_move_type = 2;
+		cat_v = 1;
+	} // right walk
+
+	if (cat->jumping == true && cat_v == -1)
+	{
+		catAnim.cat_move_type = 3;
+	} // left jump
+	else if (cat->jumping == true && cat_v == 1)
+	{
+		catAnim.cat_move_type = 4;
+	} // right jump
+
+	if (cat->isDead == true && cat_v == -1)
+	{
+		catAnim.cat_move_type = 5;
+	} // death left
+	else if (cat->isDead == true && cat_v == 1)
+	{
+		catAnim.cat_move_type = 6;
+	} // death right
+
+	if (cat->isLiquid == true && cat_v == -1)
+	{
+		catAnim.cat_move_type = 7;
+	} // skill left
+	else if (cat->isLiquid == true && cat_v == 1)
+	{
+		catAnim.cat_move_type = 8;
+	} // skill right
+
+	if (cat->isClimbWall == true && cat_v == -1)
+	{
+		catAnim.cat_move_type = 9;
+	} // left climb
+	else if (cat->isClimbWall == true && cat_v == 1)
+	{
+		catAnim.cat_move_type = 10;
+	} // right climb
+
+	// Dog
+	if (dog->nowInput == 0 && dog_v == -1)
+	{
+		dogAnim.dog_move_type = 11;
+	} // left idle
+	else if (dog->nowInput == 0 && dog_v == 1)
+	{
+		dogAnim.dog_move_type = 12;
+	} // right idle
+	else if (dog->nowInput == 1)
+	{
+		dogAnim.dog_move_type = 1;
+		dog_v = -1;
+	} // left walk
+	else if (dog->nowInput == 2)
+	{
+		dogAnim.dog_move_type = 2;
+		dog_v = 1;
+	} // right walk
+
+	if (dog->jumping == true && dog_v == -1)
+	{
+		dogAnim.dog_move_type = 3;
+	} // left jump
+	else if (dog->jumping == true && dog_v == 1)
+	{
+		dogAnim.dog_move_type = 4;
+	} // right jump
+
+	if (dog->isDead == true && dog_v == -1)
+	{
+		dogAnim.dog_move_type = 5;
+	} // death left
+	else if (dog->isDead == true && dog_v == 1)
+	{
+		dogAnim.dog_move_type = 6;
+	} // death right
+
+	if (dog->blindOpacity_ == 0 && dog_v == -1)
+	{
+		dogAnim.dog_move_type = 7;
+	} // skill left(sniff)
+	else if (dog->blindOpacity_ > 0 && dog_v == 1)
+	{
+		dogAnim.dog_move_type = 8;
+	} // skill right
+
+	if (dog->box_collide == true && dog_v == -1)
+	{
+		dogAnim.dog_move_type = 9;
+	} // left climb
+	else if (dog->box_collide == true && dog_v == 1)
+	{
+		dogAnim.dog_move_type = 10;
+	} // right climb
+
+	catAnim.AddTexture();
+	dogAnim.AddTexture();
+
+	g_elapsed_time += 33;
 }
 
 
@@ -292,10 +410,36 @@ void StageInterface::Update()
 
 void StageInterface::Render()
 {
-	//Background
+	static int d_index = 0;
+	static int c_index = 0;
+	static int last_update_time = 0;
+	const int update_interval = 100; // 100ms 간격
+
+	// Background
 	SDL_SetRenderDrawColor(g_renderer, 229, 221, 192, 255);
 	SDL_RenderClear(g_renderer); // clear the renderer to the draw color
 
+	// cat
+	if (catAnim.cat_move_type == 2 || catAnim.cat_move_type == 4 || catAnim.cat_move_type == 6 ||
+		catAnim.cat_move_type == 8 || catAnim.cat_move_type == 10 || catAnim.cat_move_type == 12) // right
+	{
+		SDL_RenderCopyEx(g_renderer, manyTexture, &cat_animation[c_index], &cat->pos, 0, NULL, SDL_FLIP_HORIZONTAL);
+	}
+	else // left
+	{
+		SDL_RenderCopy(g_renderer, manyTexture, &cat_animation[c_index], &cat->pos);
+	}
+
+	// dog
+	if (dogAnim.dog_move_type == 2 || dogAnim.dog_move_type == 4 || dogAnim.dog_move_type == 6 ||
+		dogAnim.dog_move_type == 8 || dogAnim.dog_move_type == 10 || dogAnim.dog_move_type == 12) // right
+	{
+		SDL_RenderCopyEx(g_renderer, manyTexture, &dog_animation[d_index], &dog->pos, 0, NULL, SDL_FLIP_HORIZONTAL);
+	}
+	else // left
+	{
+		SDL_RenderCopy(g_renderer, manyTexture, &dog_animation[d_index], &dog->pos);
+	}
 
 	SDL_SetTextureBlendMode(manyTexture, SDL_BLENDMODE_BLEND);
 
@@ -312,9 +456,8 @@ void StageInterface::Render()
 
 	SDL_SetTextureAlphaMod(manyTexture, 255);
 
-	
-	//MISSILE
-	for (misile m : mis) 
+	// MISSILE
+	for (misile m : mis)
 	{
 		if (m.dir == "right")
 		{
@@ -324,59 +467,62 @@ void StageInterface::Render()
 		{
 			SDL_RenderCopy(g_renderer, manyTexture, &misileRect, &m.misile_pos);
 		}
-		
 	}
 
-	//BOX
+	// BOX
 	for (Box b : boxs)
 	{
 		SDL_RenderCopy(g_renderer, manyTexture, &boxRect, &b.box_pos);
 	}
 
-	//CANNON
+	// CANNON
 	for (Terrain c : cannon)
 	{
-		if (hit) {
+		if (hit)
+		{
 			SDL_RenderCopy(g_renderer, manyTexture, &lcannonRect, &c.pos);
 			Uint32 currentTime = SDL_GetTicks();
-			if (currentTime % 8 == 0) {	hit = false;}
+			if (currentTime % 8 == 0)
+			{
+				hit = false;
+			}
 		}
-		else 
+		else
 		{
 			SDL_RenderCopy(g_renderer, manyTexture, &cannonRect, &c.pos);
 		}
 	}
 
-
-	//fish
-	for (Terrain f : fish) {
+	// fish
+	for (Terrain f : fish)
+	{
 		SDL_RenderCopy(g_renderer, manyTexture, &fishRect, &f.pos);
 	}
 
-	//bone
-	for (Terrain b : bone) {
+	// bone
+	for (Terrain b : bone)
+	{
 		SDL_RenderCopy(g_renderer, manyTexture, &boneRect, &b.pos);
 	}
 
-	//Wall
+	// Wall
 	for (Terrain wall : walls)
 	{
 		SDL_RenderCopy(g_renderer, wallTexture, &wallRect, &wall.pos);
 	}
 
-	//LiquidWall
+	// LiquidWall
 	for (LiquidWall wall : liquidWalls)
 	{
 		SDL_RenderCopy(g_renderer, wallTexture, &wallRect, &wall.pos_);
 	}
 
-
-	//Button
+	// Button
 	for (Button btn : buttons)
 	{
 		for (int i = 0; i < btn.buttonPos.size(); i++)
 		{
-			if(btn.isPressed)
+			if (btn.isPressed)
 			{
 				SDL_RenderCopy(g_renderer, manyTexture, &PushbuttonRect, &btn.buttonPos[i]);
 			}
@@ -384,24 +530,22 @@ void StageInterface::Render()
 			{
 				SDL_RenderCopy(g_renderer, manyTexture, &buttonRect, &btn.buttonPos[i]);
 			}
-
 		}
 		for (int i = 0; i < btn.scaffold_.size(); i++)
 		{
-			//Button connected scaffolds
+			// Button connected scaffolds
 			SDL_RenderCopy(g_renderer, scaffoldTexture, &scaffoldRect, &btn.scaffold_[i]);
 		}
 	}
 
-	//Goal,Start
+	// Goal,Start
 	for (SDL_Rect g : goal)
 	{
 		SDL_RenderCopy(g_renderer, manyTexture, &goalRect, &g);
 	}
 	SDL_RenderCopy(g_renderer, manyTexture, &goalRect, &start);
 
-
-	//Key and Lock
+	// Key and Lock
 	for (Key key : keys)
 	{
 		if (key.isLocked == true)
@@ -414,118 +558,79 @@ void StageInterface::Render()
 		}
 	}
 
-	//Cat
-	if (cat->isDead == true)
-	{
-		SDL_RenderCopy(g_renderer, liquidTexture, &waterR, &cat->pos);//일단 임시로 물로 해놓음
-	}
-	else
-	{
-		if (cat->isLiquid == true)
-		{
-			SDL_RenderCopy(g_renderer, manyTexture, &catRect, &cat->pos);//--------------------------------------------------------------------------
-		}
-		else
-		{
-			// left
-			if (cat->nowInput == 1 || cat->nowInput == 0)
-			{
-				SDL_RenderCopy(g_renderer, manyTexture, &catRect, &cat->pos);
-			}
-			// right
-			else if (cat->nowInput == 2)
-			{
-				SDL_RenderCopyEx(g_renderer, manyTexture, &catRect, &cat->pos, 0, NULL, SDL_FLIP_HORIZONTAL);
-			}
-		}
-	}
-
-	//Dog
-	if (dog->isDead == true)
-	{
-		SDL_RenderCopy(g_renderer, liquidTexture, &milkR, &dog->pos);//일단 임시로 우유로 해놓음
-	}
-	else
-	{
-		if (dog->box_collide == true)
-		{
-			SDL_RenderCopy(g_renderer, manyTexture, &dogPushRect, &dog->pos);
-		}
-		else
-		{
-			// left
-			if (dog->nowInput == 1 || dog->nowInput == 0)
-			{
-				SDL_RenderCopy(g_renderer, manyTexture, &dogRect, &dog->pos);
-			}
-			// right
-			else if (dog->nowInput == 2)
-			{
-				SDL_RenderCopyEx(g_renderer, manyTexture, &dogRect, &dog->pos, 0, NULL, SDL_FLIP_HORIZONTAL);
-			}
-		}
-	}
-
-
-
-
-
-
-
-	
-
-	//climbWall
+	// climbWall
 	for (ClimbWall wall : climbWalls)
 	{
 		SDL_RenderCopy(g_renderer, cwallTexture, &cwallRect, &wall.wall_pos);
 	}
 
-	//cushion
-	//std::cout << dog->isPressCushion << " cat-" << cat->isPressCushion << "\n";
+	// cushion
+	// std::cout << dog->isPressCushion << " cat-" << cat->isPressCushion << "\n";
 	for (int i = 0; i < cushions.size(); i++)
 	{
 		if (dog->isPressCushion == i || cat->isPressCushion == i)
 		{
-			//std::cout << "pressing cushion\n";
+			// std::cout << "pressing cushion\n";
 			SDL_RenderCopy(g_renderer, manyTexture, &PushcushionRect, &cushions[i].cushion_pos);
 		}
 		else
 		{
-			//std::cout << "not pressing cushion\n";
+			// std::cout << "not pressing cushion\n";
 			SDL_RenderCopy(g_renderer, manyTexture, &cushionRect, &cushions[i].cushion_pos);
 		}
 	}
 
-	
-
-	//liquid
+	// liquid
 	for (Liquid l : liquid)
 	{
 		SDL_RenderCopy(g_renderer, wallTexture, &wallRect, &l.wallPos);
-		if (l.liquidClass == "water") { SDL_RenderCopy(g_renderer, liquidTexture, &waterR, &l.liquidPos); }
-		else if (l.liquidClass == "choco") { SDL_RenderCopy(g_renderer, liquidTexture, &chocoR, &l.liquidPos); }
-		else if (l.liquidClass == "milk") { SDL_RenderCopy(g_renderer, liquidTexture, &milkR, &l.liquidPos); }
-		else { std::cout << "there is no such liquid class\n"; }
+		if (l.liquidClass == "water")
+		{
+			SDL_RenderCopy(g_renderer, liquidTexture, &waterR, &l.liquidPos);
+		}
+		else if (l.liquidClass == "choco")
+		{
+			SDL_RenderCopy(g_renderer, liquidTexture, &chocoR, &l.liquidPos);
+		}
+		else if (l.liquidClass == "milk")
+		{
+			SDL_RenderCopy(g_renderer, liquidTexture, &milkR, &l.liquidPos);
+		}
+		else
+		{
+			std::cout << "there is no such liquid class\n";
+		}
 	}
 
-	//Blind
+	// Blind
 	for (SDL_Rect bln : blinds)
 	{
 		SDL_SetTextureBlendMode(blindTexture, SDL_BLENDMODE_BLEND);
 		SDL_SetTextureAlphaMod(blindTexture, dog->blindOpacity_);
 		SDL_RenderCopy(g_renderer, blindTexture, &blindRect, &bln);
-
 	}
-	
 
-
-	//restart
+	// restart
 	SDL_RenderCopy(g_renderer, reTexture, &reRect, &reRect_des);
 
-
-	
-
 	SDL_RenderPresent(g_renderer); // draw to the screen
+
+	if (g_elapsed_time - last_update_time >= update_interval)
+	{
+		c_index++;
+		d_index++;
+
+		if (c_index >= cat_animation.size())
+		{
+			c_index = 0;
+		}
+		if (d_index >= dog_animation.size())
+		{
+			d_index = 0;
+		}
+
+		last_update_time = g_elapsed_time;
+	}
 }
 
 void StageInterface::NextChapter()
@@ -611,7 +716,7 @@ void StageInterface::HandleEvents()
 				x = event.button.x;
 				y = event.button.y;
 
-				if (x >= 60 and x <= 110 and y >= 30 and y <= 80) 
+				if (x >= 60 && x <= 110 && y >= 30 && y <= 80)
 				{
 					isFirst = true;
 					dog->Reset();

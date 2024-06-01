@@ -44,12 +44,12 @@ void Dog::Update(double timestep_s)
 
 		if (beBlurry_ == true)
 		{
-			//Èå·ÁÁö´ÂÁß
+			//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 			blindOpacity_--;
 		}
 		else
 		{
-			//¶Ç·ÇÇØÁö´ÂÁß
+			//ï¿½Ç·ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 			blindOpacity_++;
 		}
 
@@ -99,12 +99,25 @@ void Dog::Update(double timestep_s)
 	
 
 	//BOX//////////////////////////////////
-	box_collide = false;
 	for (const Box& b : boxs)
 	{
 		if (SDL_HasIntersection(&pos, &b.box_pos))
 		{
 			BoxMoving();
+			box_collide = true;
+		}
+
+		if (pos.x + pos.w < b.box_pos.x || pos.x > b.box_pos.x + b.box_pos.w ||
+			pos.y + pos.h < b.box_pos.y)
+		{
+			box_collide = false;
+		}
+		else if (pos.y + pos.h == b.box_pos.y)
+		{
+			box_collide = false;
+		}
+		else
+		{
 			box_collide = true;
 		}
 	}

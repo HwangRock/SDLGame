@@ -35,7 +35,9 @@
 
 #include "Game.h"
 
- 
+#include "CatAnimation.h"
+#include "DogAnimation.h"
+
 extern std::vector<Terrain> walls, cannon, fish, bone; 
 extern std::vector<Box> boxs;   
 extern std::vector<Button> buttons;
@@ -45,8 +47,10 @@ extern std::vector<SDL_Rect>liquidAisles;
 extern std::vector<ClimbWall>climbWalls;
 extern std::vector<Cushion>cushions;
 extern std::vector<FadeFloor>fadefloors;
-extern std::vector<misile>mis; 
+extern std::vector<misile>mis;
 
+extern std::vector<SDL_Rect> cat_animation;
+extern std::vector<SDL_Rect> dog_animation;
 
 extern std::vector<Liquid>liquid;
 
@@ -58,8 +62,8 @@ extern SDL_Rect start;
 extern int chapterNum;
 extern int win_w, win_h; 
 extern SDL_Texture* blindTexture;
+extern SDL_Texture *manyTexture;
 
- 
 extern int score_bone;
 extern int score_fish;
 
@@ -80,7 +84,10 @@ public:
 	virtual void Render();
 	
 	void NextChapter();
-	  
+
+	CatAnimation catAnim;
+	DogAnimation dogAnim;
+
 private:   
 	//Sprite 
 	SDL_Rect dogRect;
@@ -93,7 +100,6 @@ private:
 
 	SDL_Texture* goalTexture;
 	SDL_Texture* scaffoldTexture;
-	SDL_Texture* manyTexture;
 	SDL_Texture* reTexture;
 
 	SDL_Texture* liquidTexture;
@@ -145,7 +151,7 @@ private:
 	int mouse_win_x_; 
 	int mouse_win_y_;
  
-	//gameOver´çÇÑ ÈÄ Àá½Ã ´ë±â
+	//gameOverï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½
 	int gameOverDelay;
 	 
 	// gravity 
