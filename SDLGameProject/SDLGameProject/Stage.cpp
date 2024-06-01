@@ -479,7 +479,9 @@ void StageInterface::Render()
 	for (int i = 0; i < cannon.size(); i++)
 	{
 		if (hit) {
-			SDL_RenderCopy(g_renderer, manyTexture, &lcannonRect, &c.pos);
+			if (mis[i].dir == "left") { SDL_RenderCopy(g_renderer, manyTexture, &lcannonRect, &cannon[i].pos); }
+			else { SDL_RenderCopyEx(g_renderer, manyTexture, &lcannonRect, &cannon[i].pos, 0, NULL, SDL_FLIP_HORIZONTAL); }
+
 			Uint32 currentTime = SDL_GetTicks();
 			if (currentTime % 8 == 0)
 			{

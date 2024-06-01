@@ -147,8 +147,10 @@
     <ClCompile Include="Box.cpp" />
     <ClCompile Include="Button.cpp" />
     <ClCompile Include="Cat.cpp" />
+    <ClCompile Include="CatAnimation.cpp" />
     <ClCompile Include="Cushion.cpp" />
     <ClCompile Include="Dog.cpp" />
+    <ClCompile Include="DogAnimation.cpp" />
     <ClCompile Include="FadeFloor.cpp" />
     <ClCompile Include="FinishGame.cpp" />
     <ClCompile Include="Game.cpp" />
@@ -177,9 +179,11 @@
     <ClInclude Include="Box.h" />
     <ClInclude Include="Button.h" />
     <ClInclude Include="Cat.h" />
+    <ClInclude Include="CatAnimation.h" />
     <ClInclude Include="ClimbWall.cpp" />
     <ClInclude Include="Cushion.h" />
     <ClInclude Include="Dog.h" />
+    <ClInclude Include="DogAnimation.h" />
     <ClInclude Include="FadeFloor.h" />
     <ClInclude Include="FinishGame.h" />
     <ClInclude Include="Game.h" />
