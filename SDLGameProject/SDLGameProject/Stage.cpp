@@ -13,8 +13,6 @@ extern SDL_Window* g_window;
 extern float g_timestep_s;
 
 
-//변경법
-bool hit = false;
 
 
 //InitGame
@@ -204,7 +202,7 @@ void StageInterface::Update()
 				if (SDL_HasIntersection(&missile.misile_pos, &wall.pos))
 				{
 					missile.misile_pos = missile.initial_pos;
-					hit = true;
+					missile.isHit = true;
 					break;
 				}
 			}
@@ -213,7 +211,7 @@ void StageInterface::Update()
 				if (SDL_HasIntersection(&missile.misile_pos, &b.box_pos))
 				{
 					missile.misile_pos = missile.initial_pos;
-					hit = true;
+					missile.isHit = true;
 					break;
 				}
 			}
@@ -224,7 +222,7 @@ void StageInterface::Update()
 					if (SDL_HasIntersection(&missile.misile_pos, &btn.scaffold_[k]))
 					{
 						missile.misile_pos = missile.initial_pos;
-						hit = true;
+						missile.isHit = true;
 						break;
 					}
 				}
@@ -334,18 +332,25 @@ void StageInterface::Render()
 	}
 
 	//CANNON
-	for (Terrain c : cannon)
+	for (int i = 0; i < cannon.size(); i++)
 	{
-		if (hit) {
-			SDL_RenderCopy(g_renderer, manyTexture, &lcannonRect, &c.pos);
-			Uint32 currentTime = SDL_GetTicks();
-			if (currentTime % 8 == 0) {	hit = false;}
-		}
-		else 
+		if (mis[i].isHit) 
 		{
-			SDL_RenderCopy(g_renderer, manyTexture, &cannonRect, &c.pos);
+			if (mis[i].dir == "left") { SDL_RenderCopy(g_renderer, manyTexture, &lcannonRect, &cannon[i].pos); }
+			else { SDL_RenderCopyEx(g_renderer, manyTexture, &lcannonRect, &cannon[i].pos, 0, NULL, SDL_FLIP_HORIZONTAL); }
+			
+			
+			Uint32 currentTime = SDL_GetTicks();
+			if (currentTime % 8 == 0) { mis[i].isHit = false; }
+		}
+		else
+		{
+			if (mis[i].dir == "left") { SDL_RenderCopy(g_renderer, manyTexture, &cannonRect, &cannon[i].pos); }
+			else { SDL_RenderCopyEx(g_renderer, manyTexture, &cannonRect, &cannon[i].pos, 0, NULL, SDL_FLIP_HORIZONTAL); }
+			
 		}
 	}
+
 
 
 	//fish

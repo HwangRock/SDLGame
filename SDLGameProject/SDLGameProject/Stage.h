@@ -81,10 +81,10 @@ public:
 	
 	void NextChapter();
 	  
-private:   
+private:    
 	//Sprite 
 	SDL_Rect dogRect;
-	SDL_Rect catRect;  
+	SDL_Rect catRect;   
 
 
 	SDL_Texture* blindTexture;
