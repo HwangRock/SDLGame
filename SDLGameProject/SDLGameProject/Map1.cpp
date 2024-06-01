@@ -74,10 +74,11 @@ public:
 		Box* box1 = new Box({ 400, 580, 50, 50 });
 		boxs = { *box1 };
 
-
-		cannon = { };
-		misile* m1 = new misile({ 300,350,50,30 }, "right");
-		misile* m2 = new misile({ 300,500,50,30 }, "right");
+		Terrain* c1 = new Terrain({ 300,350,100,50 });
+		Terrain* c2 = new Terrain({ 500,500,100,50 });
+		cannon = { *c1,*c2};
+		misile* m1 = new misile({ 400,350,50,30 }, "right");
+		misile* m2 = new misile({ 600,500,50,30 }, "right");
 		mis = {*m1,*m2};
 		
 		bone = {};
