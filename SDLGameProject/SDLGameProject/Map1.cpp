@@ -73,8 +73,13 @@ public:
 
 		Box* box1 = new Box({ 400, 580, 50, 50 });
 		boxs = { *box1 };
+
+
 		cannon = { };
-		mis = {};
+		misile* m1 = new misile({ 300,350,50,30 }, "right");
+		misile* m2 = new misile({ 300,500,50,30 }, "right");
+		mis = {*m1,*m2};
+		
 		bone = {};
 		fish = {};
 		keys = {};

@@ -14,7 +14,7 @@
 #include "math.h"
 
 #include "Dog.h"
-#include "Cat.h" 
+#include "Cat.h"
 #include "Pet.h"
   
 #include "Terrain.h"
@@ -71,7 +71,7 @@ class StageInterface : public PhaseInterface
 public:   
 	StageInterface();  
 	~StageInterface();
-	  
+	    
 	virtual void SetVar();
 	virtual void Reset();
 	 
@@ -80,7 +80,7 @@ public:
 	virtual void Render();
 	
 	void NextChapter();
-	 
+	  
 private:   
 	//Sprite 
 	SDL_Rect dogRect;

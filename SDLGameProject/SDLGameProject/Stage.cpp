@@ -192,14 +192,16 @@ void StageInterface::Update()
 		}
 
 		// 미사일 위치 업데이트
-		for (auto& missile : mis)
+		for (misile& missile : mis)
 		{
-			missile.misile_pos.x -= 7.0f;
+			if (missile.dir == "left") { missile.misile_pos.x -= 7.0f; }
+			else if(missile.dir=="right") { missile.misile_pos.x += 7.0f; }
+			else { std::cout << "there is no such missile direction "<<missile.dir<<"\n"; }
 
 			//이거 함수로 줄일지--------------------------------------------------------
 			for (const Terrain& wall : walls)
 			{
-				if (SDL_HasIntersection(&mis[0].misile_pos, &wall.pos))
+				if (SDL_HasIntersection(&missile.misile_pos, &wall.pos))
 				{
 					missile.misile_pos = missile.initial_pos;
 					hit = true;
@@ -208,7 +210,7 @@ void StageInterface::Update()
 			}
 			for (const Box& b : boxs)
 			{
-				if (SDL_HasIntersection(&mis[0].misile_pos, &b.box_pos))
+				if (SDL_HasIntersection(&missile.misile_pos, &b.box_pos))
 				{
 					missile.misile_pos = missile.initial_pos;
 					hit = true;
@@ -219,7 +221,7 @@ void StageInterface::Update()
 			{
 				for (int k = 0; k < btn.scaffold_.size(); k++)
 				{
-					if (SDL_HasIntersection(&mis[0].misile_pos, &btn.scaffold_[k]))
+					if (SDL_HasIntersection(&missile.misile_pos, &btn.scaffold_[k]))
 					{
 						missile.misile_pos = missile.initial_pos;
 						hit = true;
@@ -312,8 +314,17 @@ void StageInterface::Render()
 
 	
 	//MISSILE
-	for (misile m : mis) {
-		SDL_RenderCopy(g_renderer, manyTexture, &misileRect, &m.misile_pos);
+	for (misile m : mis) 
+	{
+		if (m.dir == "right")
+		{
+			SDL_RenderCopyEx(g_renderer, manyTexture, &misileRect, &m.misile_pos, 0, NULL, SDL_FLIP_HORIZONTAL);
+		}
+		else
+		{
+			SDL_RenderCopy(g_renderer, manyTexture, &misileRect, &m.misile_pos);
+		}
+		
 	}
 
 	//BOX

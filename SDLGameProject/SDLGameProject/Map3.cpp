@@ -86,7 +86,7 @@ public:
 		keys = {};
 
 		Terrain* cannon1 = new Terrain(1100, 300, 100, 50);
-		misile* misile1 = new misile({ 1050, 300, 50, 30 });
+		misile* misile1 = new misile({ 1050, 300, 50, 30 },"left");
 		cannon = { *cannon1 };
 		mis = { *misile1 };
 
