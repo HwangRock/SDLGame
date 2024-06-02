@@ -12,62 +12,70 @@ public:
 	{
 		//TEXTURE////////////////////////////////////////////////
 		//FONT
-		font = TTF_OpenFont("../Resources/Chlorinp.ttf", 24);
+		font = TTF_OpenFont("../Resources/scorefont.ttf", 100);
 		if (font == NULL) {
 			std::cout << "Failed to load font: " << TTF_GetError() << std::endl;
 		}
-		scorePos_cat = { 500,300,100,50 };
-		scorePos_dog = { 700,300,100,50 };
+		scorePos_cat = { 750,545,50,30 };
+		scorePos_dog = { 560,545,50,30 };
 
 		//Game Clear UI
-		SDL_Surface* surface_clearBtn = IMG_Load("../Resources/gameClearBtn.png");
-		clearBtnTexture = SDL_CreateTextureFromSurface(g_renderer, surface_clearBtn);
-		SDL_FreeSurface(surface_clearBtn);
-		clear_restartRect = { 0,0,400,112 };
-		clear_nextRect = { 400,0,400,112 };
+		SDL_Surface* surface_nextBtn = IMG_Load("../Resources/nextStageBtn.png");
+		clear_nextStageBtnTexture = SDL_CreateTextureFromSurface(g_renderer, surface_nextBtn);
+		SDL_FreeSurface(surface_nextBtn);
 
-		nextBtnPos = { 400,600,100,50 };
-		restartBtnPos = { 600,600,100,50 };
+		clear_nextRect = { 0,0,967,172 };
+		nextBtnPos = { 1053,620,197,35 };
+
+		SDL_Surface* surface_restartBtn = IMG_Load("../Resources/restartBtn.png");
+		clear_restartBtnTexture = SDL_CreateTextureFromSurface(g_renderer, surface_restartBtn);
+		SDL_FreeSurface(surface_restartBtn);
+
+		clear_restartRect = { 0,0,967,172 };
+		restartBtnPos = { 10,620,197,35 };
 
 
 		//IMG, TEXT
-		SDL_Surface* temp_surface = IMG_Load("../Resources/gameClearImg.jpg");
+		SDL_Surface* temp_surface = IMG_Load("../Resources/gameClearImg.png");
 		imgTexture = SDL_CreateTextureFromSurface(g_renderer, temp_surface);
 		SDL_FreeSurface(temp_surface);
-		imgRect = { 0,0,1536,825 };
+		imgRect = { 0,0,1280,720 };
+		imgPos = { 0,0,1280,720 };
+
+		//SDL_Surface* txt_surface = IMG_Load("../Resources/tapAnyKeyForNext.png");
+		//txtTexture = SDL_CreateTextureFromSurface(g_renderer, txt_surface);
+		//SDL_FreeSurface(txt_surface);
+		//txtRect = { 0,0,715,58 };
 
 
-		SDL_Surface* txt_surface = IMG_Load("../Resources/gameClearTxt.jpg");
-		txtTexture = SDL_CreateTextureFromSurface(g_renderer, txt_surface);
-		SDL_FreeSurface(txt_surface);
-		txtRect = { 0,0,739,154 };
 
+		//txtPos = { 483,680,358,29 };
 
-		imgPos = { 300,50,500,200 };
-		txtPos = { 300,450,500,50 };
+		//배경에 물고기와 뼈다귀가 모두 있는 관계로 주석 처리.
+		//FISH __________________________________________________________________배경 내 위치 ={659, 539, 77, 53}
+		//SDL_Surface* fish_surface = IMG_Load("../Resources/fish.png");
+		//fishTexture = SDL_CreateTextureFromSurface(g_renderer, fish_surface);
+		//SDL_FreeSurface(fish_surface);
+		//fishRect = { 0,0,443,340 };
+		//fishPos = { 400,300,100,50 };
 
-		//FISH
-		SDL_Surface* fish_surface = IMG_Load("../Resources/fish.png");
-		fishTexture = SDL_CreateTextureFromSurface(g_renderer, fish_surface);
-		SDL_FreeSurface(fish_surface);
-		fishRect = { 0,0,443,340 };
-		fishPos = { 400,300,100,50 };
-
-		//BONE
-		SDL_Surface* bone_surface = IMG_Load("../Resources/bone.png");
-		boneTexture = SDL_CreateTextureFromSurface(g_renderer, bone_surface);
-		SDL_FreeSurface(bone_surface);
-		boneRect = { 0,0,325,196 };
-		bonePos = { 600,300,100,50 };
+		//BONE __________________________________________________________________배경 내 위치 ={473, 530, 73, 57}
+		//SDL_Surface* bone_surface = IMG_Load("../Resources/bone.png");
+		//boneTexture = SDL_CreateTextureFromSurface(g_renderer, bone_surface);
+		//SDL_FreeSurface(bone_surface);
+		//boneRect = { 0,0,325,196 };
+		//bonePos = { 600,300,100,50 };
 
 
 
 
 	};
 	~Clear() {
-		SDL_DestroyTexture(fishTexture);
-		SDL_DestroyTexture(boneTexture);
+		//SDL_DestroyTexture(fishTexture);
+		//SDL_DestroyTexture(boneTexture);
 		SDL_DestroyTexture(imgTexture);
+		SDL_DestroyTexture(clear_nextStageBtnTexture);
+		SDL_DestroyTexture(clear_restartBtnTexture);
 		SDL_DestroyTexture(scoreTexture_dog);
 		SDL_DestroyTexture(scoreTexture_cat);
 
@@ -97,8 +105,8 @@ public:
 					x = event.button.x;
 					y = event.button.y;
 
-					if (x >= restartBtnPos.x && x <= restartBtnPos.x+ restartBtnPos.w && 
-						y >= restartBtnPos.y && y <= restartBtnPos.y+ restartBtnPos.h) 
+					if (x >= restartBtnPos.x && x <= restartBtnPos.x + restartBtnPos.w &&
+						y >= restartBtnPos.y && y <= restartBtnPos.y + restartBtnPos.h)
 					{
 						//RESTART
 						switch (chapterNum)
@@ -127,9 +135,9 @@ public:
 							break;
 						}
 					}
-					else if 
+					else if
 						(x >= nextBtnPos.x && x <= nextBtnPos.x + nextBtnPos.w &&
-						y >= nextBtnPos.y && y <= nextBtnPos.y + nextBtnPos.h)
+							y >= nextBtnPos.y && y <= nextBtnPos.y + nextBtnPos.h)
 					{
 						//NEXT
 						switch (chapterNum)
@@ -178,13 +186,13 @@ public:
 		//Text
 		SDL_RenderCopy(g_renderer, txtTexture, &txtRect, &txtPos);
 		//Fish
-		SDL_RenderCopy(g_renderer, fishTexture, &fishRect, &fishPos);
+		//SDL_RenderCopy(g_renderer, fishTexture, &fishRect, &fishPos);
 		//Bone
-		SDL_RenderCopy(g_renderer, boneTexture, &boneRect, &bonePos);
+		//SDL_RenderCopy(g_renderer, boneTexture, &boneRect, &bonePos);
 
 		//Button UI
-		SDL_RenderCopy(g_renderer, clearBtnTexture, &clear_restartRect, &restartBtnPos);
-		SDL_RenderCopy(g_renderer, clearBtnTexture, &clear_nextRect, &nextBtnPos);
+		SDL_RenderCopy(g_renderer, clear_restartBtnTexture, &clear_restartRect, &restartBtnPos);
+		SDL_RenderCopy(g_renderer, clear_nextStageBtnTexture, &clear_nextRect, &nextBtnPos);
 
 
 		//score
@@ -204,12 +212,12 @@ public:
 		}
 		if (scoreTexture_cat != 0)
 		{
-			SDL_DestroyTexture(scoreTexture_cat);	
-			scoreTexture_cat= 0;
+			SDL_DestroyTexture(scoreTexture_cat);
+			scoreTexture_cat = 0;
 		}
 
 
-		std::string scoreResult_cat = std::to_string(score_fish)+"/"+ std::to_string(fish.size());
+		std::string scoreResult_cat = std::to_string(score_fish) + "/" + std::to_string(fish.size());
 		std::string scoreResult_dog = std::to_string(score_bone) + "/" + std::to_string(bone.size());
 
 
@@ -254,11 +262,15 @@ private:
 
 
 	//Game Clear UI
-	SDL_Texture* clearBtnTexture;
-	SDL_Rect clear_restartRect;
+	SDL_Texture* clear_nextStageBtnTexture;
+	SDL_Texture* clear_restartBtnTexture;
+
 	SDL_Rect clear_nextRect;
-	SDL_Rect restartBtnPos;
+	SDL_Rect clear_restartRect;
+
 	SDL_Rect nextBtnPos;
+	SDL_Rect restartBtnPos;
+
 
 	//text texture
 	TTF_Font* font;
