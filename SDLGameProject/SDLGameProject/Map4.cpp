@@ -43,7 +43,7 @@ public:
 		Terrain* floor9_2 = new Terrain(700, 400, 50, 25);
 		Terrain* floor10 = new Terrain(350, 540, 150, 25);
 		Terrain* floor11_1 = new Terrain(600, 540, 150, 25);
-		Terrain* floor11_2 = new Terrain(850, 540, 150, 25);
+		Terrain* floor11_2 = new Terrain(900, 540, 100, 25);
 		Terrain* floor12 = new Terrain(1000, 250, 25, 300-10+25);
 
 		//오른쪽 발판들
@@ -149,13 +149,13 @@ public:
 
 
 		// water
-		Liquid* water1 = new Liquid({ 650,250,101,24 }, "water");
-		Liquid* water2 = new Liquid({ 1024,435,66,15 }, "water");
+		Liquid* water1 = new Liquid({ 650,250,100,25 }, "water");
+		//Liquid* water2 = new Liquid({ 1024,435,66,35 }, "water");
 
 
 		//milk
-		Liquid* milk1 = new Liquid({ 500,256,101,19 }, "milk");
-		Liquid* milk2 = new Liquid({ 1218,519,31,21 }, "milk");
+		Liquid* milk1 = new Liquid({ 500,250,100,25 }, "milk");
+		//Liquid* milk2 = new Liquid({ 1218,519,31,35 }, "milk");
 
 
 		//choco
@@ -163,10 +163,10 @@ public:
 
 		Liquid* choco1 = new Liquid({ 800,250,100,25 },"choco");
 		Liquid* choco2 = new Liquid({ 550,400,150,25 }, "choco");
-		Liquid* choco3 = new Liquid({ 750,540,100,25 }, "choco");
+		Liquid* choco3 = new Liquid({ 750,540,150,25 }, "choco");
 
 		Liquid* choco4 = new Liquid({ 1025,350,100,35 }, "choco");
-		Liquid* choco5 = new Liquid({ 1200,350,50,35 }, "choco");
+		//Liquid* choco5 = new Liquid({ 1200,350,50,35 }, "choco");
 		Liquid* choco6 = new Liquid({ 1190,435,60,35 }, "choco");
 		Liquid* choco7 = new Liquid({ 1025,500,90,35 }, "choco");
 
@@ -175,10 +175,10 @@ public:
 		liquid =
 		{
 			*choco0,*choco1,*choco2,*choco3,
-			*choco4,*choco5,*choco6,*choco7,
+			*choco4,*choco6,*choco7,
 			* choco8,
-			*milk1,*milk2 ,
-			*water1, *water2 };
+			*milk1 ,
+			*water1};
 
 
 
