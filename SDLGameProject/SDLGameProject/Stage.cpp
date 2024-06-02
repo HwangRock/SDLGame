@@ -30,10 +30,11 @@ StageInterface::StageInterface()
 
 	//Drawing Texture//////////////////////////////////////////////////////////////////
 	//Wall
-	SDL_Surface* surface_wall = IMG_Load("../Resources/sky.jpg");
+	SDL_Surface* surface_wall = IMG_Load("../Resources/many.png");
 	wallTexture = SDL_CreateTextureFromSurface(g_renderer, surface_wall);
-	SDL_FreeSurface(surface_wall);
-	wallRect = { 0,0,680,808 };
+	SDL_FreeSurface(surface_wall); 
+	//wallRect = { 0,0,680,808 }; sky.jpg일 때
+	wallRect = {1028, 3313, 200, 197};
 
 	//Liquid
 	SDL_Surface* surface_l = IMG_Load("../Resources/liquid.png");
@@ -46,17 +47,17 @@ StageInterface::StageInterface()
 	
 
 	//Blind
-	SDL_Surface* surface_blind = IMG_Load("../Resources/star.png");
+	SDL_Surface* surface_blind = IMG_Load("../Resources/many.png");
 	SDL_SetSurfaceBlendMode(surface_blind, SDL_BLENDMODE_BLEND);
 	blindTexture = SDL_CreateTextureFromSurface(g_renderer, surface_blind);
 	SDL_FreeSurface(surface_blind);
-	blindRect = { 0,0,269,269 };
+	blindRect = { 576,2676,206,116 };
 
 	//Climb Wall
-	SDL_Surface* surface_cwall = IMG_Load("../Resources/ending.png");
+	SDL_Surface* surface_cwall = IMG_Load("../Resources/many.png");
 	cwallTexture = SDL_CreateTextureFromSurface(g_renderer, surface_cwall);
 	SDL_FreeSurface(surface_cwall);
-	cwallRect = { 0,0,1017,1017 };
+	cwallRect = { 1257,3315,195,191 };
 
 	//Goal
 	SDL_Surface* surface_goal = IMG_Load("../Resources/ending.png");
@@ -95,11 +96,11 @@ StageInterface::StageInterface()
 	dogDieRect = { 342,1537,218,144 };
 
 	//restart
-	SDL_Surface* rebox = IMG_Load("../Resources/restart.png");
+	SDL_Surface* rebox = IMG_Load("../Resources/many.png");
 	reTexture = SDL_CreateTextureFromSurface(g_renderer, rebox);
 	SDL_FreeSurface(rebox);
-	reRect = { 0,0,359,162 };
-	reRect_des = { 60,30,50,50 };
+	reRect = { 2181,108,149,156 };
+	reRect_des = { 5,5,50,50 };
 
 	//Sound
 	bark = Mix_LoadWAV("../Resources/bark.wav");
@@ -758,7 +759,7 @@ void StageInterface::HandleEvents()
 				x = event.button.x;
 				y = event.button.y;
 
-				if (x >= 60 && x <= 110 && y >= 30 && y <= 80)
+				if (x >= reRect_des.x && x <= reRect_des.x + reRect_des.w && y >= reRect_des.y && y <= reRect_des.y + reRect_des.h)
 				{
 					isFirst = true;
 					dog->Reset();
