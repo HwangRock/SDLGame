@@ -101,6 +101,22 @@ StageInterface::StageInterface()
 	reRect = { 0,0,359,162 };
 	reRect_des = { 60,30,50,50 };
 
+	//Sound
+	bark = Mix_LoadWAV("../Resources/bark.wav");
+	Mix_VolumeChunk(bark, 90);
+
+	meow = Mix_LoadWAV("../Resources/meow.wav");
+	Mix_VolumeChunk(meow, 90);
+
+	sniff = Mix_LoadWAV("../Resources/sniff.wav");
+	Mix_VolumeChunk(sniff, 50);
+
+	eatingSound = Mix_LoadWAV("../Resources/eatingSound.wav");
+	Mix_VolumeChunk(eatingSound, 40);
+
+	liquidSound = Mix_LoadWAV("../Resources/liquidSound.wav");
+	Mix_VolumeChunk(liquidSound, 60);
+
 
 	////////////////////////////////////////////////////////////////////////////////////////
 

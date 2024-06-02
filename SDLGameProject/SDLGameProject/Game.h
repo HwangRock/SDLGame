@@ -23,6 +23,7 @@ const int PHASE_FINISH = 12;
 
 void InitGame();
 void ClearGame();
+void PlayingMusic();
 
 extern int g_current_game_phase;
 extern int g_pre_game_phase;
@@ -31,6 +32,16 @@ extern SDL_Renderer* g_renderer;
 extern SDL_Window* g_window;
 
 extern int chapterNum;
+
+extern Mix_Music* g_bgm;
+extern bool phase1first;
+extern bool musOnOff;
+
+extern Mix_Chunk* sniff;
+extern Mix_Chunk* bark;
+extern Mix_Chunk* meow;
+extern Mix_Chunk* liquidSound;
+extern Mix_Chunk* eatingSound;
 
 
 class PhaseInterface

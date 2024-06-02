@@ -71,6 +71,19 @@ int chapterNum;
 int win_w, win_h;
 
 
+//Music
+Mix_Music* g_bgm;
+bool phase1first;
+bool musOnOff; //인트로와 엔딩 음악에 한해서만 On_true, Off=false
+
+//Sound
+Mix_Chunk* sniff;
+Mix_Chunk* bark;
+Mix_Chunk* meow;
+Mix_Chunk* liquidSound;
+Mix_Chunk* eatingSound;
+
+
 int score_bone;
 int score_fish;
 
@@ -123,6 +136,8 @@ game_phases[12] = new Finish;
 		game_phases[g_current_game_phase]->HandleEvents();
 		game_phases[g_current_game_phase]->Update();
 		game_phases[g_current_game_phase]->Render();
+
+		PlayingMusic();
 
 		g_last_time_ms = cur_time_ms;
 	}

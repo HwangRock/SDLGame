@@ -39,10 +39,18 @@ void Cat::Update(double timestep_s)
 	//WATER///////////////////////////////////////////////////
 	for (Liquid l : liquid)
 	{
-		if (l.liquidClass == "water" && SDL_HasIntersection(&l.liquidPos, &pos))
+		if (SDL_HasIntersection(&l.liquidPos, &pos))
 		{
-			//std::cout << "touch water->die\n";
-			//isDead = true;
+			
+			if (nowInput == 1 || nowInput == 2) {
+				Mix_PlayChannel(-1, liquidSound, 0);
+			}
+
+			if (l.liquidClass == "water") {
+				std::cout << "touch water->die\n";
+				//isDead = true;
+			}
+
 		}
 	}
 
@@ -52,6 +60,7 @@ void Cat::Update(double timestep_s)
 		if (SDL_HasIntersection(&f.pos, &pos))
 		{
 			f.pos.x = -10000000000, f.pos.y = -10000000000000;
+			Mix_PlayChannel(4, eatingSound, 0);
 			score_fish++;
 		}
 	}
@@ -120,6 +129,7 @@ void Cat::HandleEvent(SDL_Event event)
 			if (jumping == false)
 			{
 				v[1] = jumpSpeed();
+				Mix_PlayChannel(2, meow, 0);
 				jumping = true;
 			}
 		}

@@ -23,10 +23,16 @@ void Dog::Update(double timestep_s)
 	//MILK////////////////////////////
 	for (Liquid l : liquid)
 	{
-		if (l.liquidClass == "milk" && SDL_HasIntersection(&l.liquidPos, &pos))
+		if (SDL_HasIntersection(&l.liquidPos, &pos))
 		{
-			//std::cout << "touch milk->die\n";
-			//isDead = true;
+			if(nowInput == 1 || nowInput == 2){
+			Mix_PlayChannel(-1, liquidSound, 0);
+			}
+
+			if (l.liquidClass == "milk") {
+				std::cout << "touch milk->die\n"; //종성: 게임 오버 화면 보기 위해 일부러 켜뒀습니다! 불편하신 분은 끄셔도 돼요!
+				isDead = true;
+			}
 		}
 	}
 
@@ -65,6 +71,7 @@ void Dog::Update(double timestep_s)
 		if (SDL_HasIntersection(&b.pos, &pos))
 		{
 			b.pos.x = -10000000000, b.pos.y = -10000000000000;
+			Mix_PlayChannel(3, eatingSound, 0);
 			score_bone++;
 			
 		}
@@ -143,6 +150,7 @@ void Dog::HandleEvent(SDL_Event event)
 			if (jumping == false)
 			{
 				v[1] = jumpSpeed();
+				Mix_PlayChannel(1, bark, 0);
 				jumping = true;
 			}
 		}
@@ -153,6 +161,7 @@ void Dog::HandleEvent(SDL_Event event)
 			{
 				//Use Sniffing Skill
 				std::cout << "sniff skill\n";
+				Mix_PlayChannel(-1, sniff, 0);
 				blindOpacity_ = 254;
 				isSkill_ = false;
 			}
