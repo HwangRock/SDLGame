@@ -19,12 +19,17 @@ void Cat::Update(double timestep_s)
 		if (SDL_HasIntersection(&pos, &climbWalls[k].wall_pos))
 		{
 			BlockMoving(climbWalls[k].wall_pos);
-			isClimbWall = true;
 		}
+
+		if (pos.x + pos.w < climbWalls[k].wall_pos.x || pos.x > climbWalls[k].wall_pos.x + climbWalls[k].wall_pos.w ||
+			pos.y + pos.h < climbWalls[k].wall_pos.y) {
+			isClimbWall == false;
+		}
+		else if (pos.y + pos.h == climbWalls[k].wall_pos.y) { isClimbWall == false; }
+		else { isClimbWall = true; }
 	}
 
-	if (isClimbWall == false) 
-	{ if (v[1] <= 6.5) { v[1] += gravity; } }
+	if (isClimbWall == false) { v[1] += gravity; }
 
 
 	//UPDATE///////////////////////////////////////////////////

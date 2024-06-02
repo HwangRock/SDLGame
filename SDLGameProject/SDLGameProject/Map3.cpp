@@ -59,7 +59,7 @@ public:
 			{ {450,500,25,75},{1100,500,25,75} }
 			);
 		Button* btnC = new Button(1,1,
-			{ {600,675,25,25} },
+			{ {600,670,25,25} },
 			{ {100,500,200,25} },
 			{ {100,550,200,25} },
 			{ {100,550,200,25} }
@@ -94,7 +94,7 @@ public:
 		Terrain* fish2 = new Terrain(710, 520, 30, 30);
 
 		Terrain* bone1 = new Terrain(60, 300, 30, 30);
-		Terrain* bone2 = new Terrain(1020, 510, 30, 30);
+		Terrain* bone2 = new Terrain(1020, 530, 30, 30);
 
 		bone = {*bone1,*bone2};
 		fish = { *fish1,*fish2 };
@@ -106,8 +106,8 @@ public:
 
 
 
-		Liquid* milk1 = new Liquid({ 120,548,305,25 }, "milk");
-		Liquid* milk2 = new Liquid({ 950,481,200,20 }, "milk");
+		Liquid* milk1 = new Liquid({ 120,560,305,25 }, "milk");
+		Liquid* milk2 = new Liquid({ 950,490,200,20 }, "milk");
 		liquid = { *milk1 , *milk2 };
 		
 

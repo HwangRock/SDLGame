@@ -149,13 +149,13 @@ public:
 
 
 		// water
-		Liquid* water1 = new Liquid({ 650,250,100,25 },"water");
-		Liquid* water2 = new Liquid({ 1025,435,90-25,35 },"water");
+		Liquid* water1 = new Liquid({ 718,279,227,27 }, "water");
+		Liquid* water2 = new Liquid({ 1024,435,66,15 }, "water");
 
 
 		//milk
-		Liquid* milk1 = new Liquid({ 500,250,100,25 },"milk");
-		Liquid* milk2 = new Liquid({ 1200,500,50,35 },"milk");
+		Liquid* milk1 = new Liquid({ 470,279,128,27 }, "milk");
+		Liquid* milk2 = new Liquid({ 1218,519,31,21 }, "milk");
 
 
 		//choco

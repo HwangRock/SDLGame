@@ -43,12 +43,12 @@ public:
 
 		//Button
 		Button* btn1 = new Button(2, 1,
-			{ {650, 375,20,20},{1150,660,20,20} },
+			{ {650, 403,20,20},{1150,660,20,20} },
 			{ { 950, 620,200,25 } },
 			{ { 950, 470,200,25 } },
 			{ { 950, 620,200,25 } });
 		Button* btn2 = new Button(1, 1,
-			{ { 400, 150,20,20 } },
+			{ { 400, 155,20,20 } },
 			{ { 50, 400,150,25 } },
 			{ { 50, 175,150,25 } },
 			{ { 50, 400,150,25 } });
@@ -87,11 +87,11 @@ public:
 		fadefloors = {};
 		cushions = {};
 
-		Liquid* water1 = new Liquid({ 200,650,405,35 }, "water");
-		Liquid* water2 = new Liquid({ 750,75,198,35 }, "water");
-		Liquid* milk1 = new Liquid({ 952,663,198,35 },"milk");
-		Liquid* milk2 = new Liquid({ 750,155,198,35 },"milk");
-		Liquid* choco1 = new Liquid({ 0,0,0,0 },"choco");
+		Liquid* water1 = new Liquid({ 200,688,405,35 }, "water");
+		Liquid* water2 = new Liquid({ 750,98,198,23 }, "water");
+		Liquid* milk1 = new Liquid({ 952,683,198,23 }, "milk");
+		Liquid* milk2 = new Liquid({ 750,170,198,23 }, "milk");
+		Liquid* choco1 = new Liquid({ 0,0,0,0 }, "choco");
 		liquid = { *water1, *water2 , *milk1,*milk2 , *choco1 };
 
 
