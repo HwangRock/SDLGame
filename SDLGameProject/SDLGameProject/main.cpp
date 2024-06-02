@@ -107,7 +107,7 @@ int main(int argc, char* argv[])
 	
 	
 	g_current_game_phase = PHASE_INTRO;
-	//g_pre_game_phase = PHASE_STAGE1;
+	g_pre_game_phase = PHASE_STAGE1;
 
 	//REPEAT//////////////////////////////////////////
 	while (g_flag_running)

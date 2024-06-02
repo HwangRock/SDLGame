@@ -22,7 +22,7 @@ void Cat::Update(double timestep_s)
 		}
 
 		if (pos.x + pos.w < climbWalls[k].wall_pos.x || pos.x > climbWalls[k].wall_pos.x + climbWalls[k].wall_pos.w ||
-			pos.y + pos.h < climbWalls[k].wall_pos.y) {
+			pos.y + pos.h < climbWalls[k].wall_pos.y || pos.y > climbWalls[k].wall_pos.y + climbWalls[k].wall_pos.h) {
 			isClimbWall == false;
 		}
 		else if (pos.y + pos.h == climbWalls[k].wall_pos.y) { isClimbWall == false; }

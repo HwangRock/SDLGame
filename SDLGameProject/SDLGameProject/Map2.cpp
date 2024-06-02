@@ -38,6 +38,7 @@ public:
 		Terrain* floor15 = new Terrain(1068, 93, 95, 20);
 		Terrain* floor16 = new Terrain(25, 100, 765, 20);
 		Terrain* floor17 = new Terrain(782, 552, 47, 15);
+		Terrain* floor18 = new Terrain(832, 415, 21, 151);
 
 		Terrain* default1 = new Terrain(0, 700, 1280, 20); 
 		Terrain* default2 = new Terrain(0, 0, 1280, 20); 
@@ -50,13 +51,15 @@ public:
 		walls =
 		{
 			*floor1,*floor2,*floor3,*floor4,*floor5,*floor6,*floor7,*floor8,*floor9,
-			*floor10,*floor11,*floor12,*floor13,*floor14,*floor15,*floor16,* floor17,
+			*floor10,*floor11,*floor12,*floor13,*floor14,*floor15,*floor16,* floor17,* floor18,
 			*default1,*default2,*default3,*default4,
 			*liquid1,* liquid2, *extra1,* extra2
 		};
 
+		
 		Box* box1 = new Box({ 540, 410, 50, 50 });
 		boxs = { *box1 };
+		
 		cannon = { };
 		mis = {};
 		bone = {};

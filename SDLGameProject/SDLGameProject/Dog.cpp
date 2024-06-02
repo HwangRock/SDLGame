@@ -104,15 +104,12 @@ void Dog::Update(double timestep_s)
 		if (SDL_HasIntersection(&pos, &b.box_pos))
 		{
 			BoxMoving();
-			box_collide = true;
+			//box_collide = true;
 		}
 
 		if (pos.x + pos.w < b.box_pos.x || pos.x > b.box_pos.x + b.box_pos.w ||
-			pos.y + pos.h < b.box_pos.y)
-		{
-			box_collide = false;
-		}
-		else if (pos.y + pos.h == b.box_pos.y)
+			pos.y + pos.h < b.box_pos.y || b.box_pos.y + b.box_pos.h < pos.y||
+			pos.y + pos.h == b.box_pos.y)
 		{
 			box_collide = false;
 		}

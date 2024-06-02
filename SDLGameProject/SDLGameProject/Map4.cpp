@@ -184,7 +184,7 @@ public:
 
 
 		//climbwall
-		ClimbWall* cwall1 = new ClimbWall({ 220,426,20,265 });
+		ClimbWall* cwall1 = new ClimbWall({ 215,426,20,265 });
 		//ClimbWall* cwall2 = new ClimbWall({ 980,306,20,216 });
 		climbWalls = { *cwall1 };
 

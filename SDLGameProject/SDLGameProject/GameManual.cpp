@@ -54,6 +54,7 @@ void Manual::HandleEvents()
 		case SDL_MOUSEBUTTONDOWN:
 		case SDL_KEYDOWN:
 			g_current_game_phase = PHASE_STAGE1;
+			g_pre_game_phase = PHASE_STAGE1;
 			break;
 
 		default:

@@ -343,6 +343,9 @@ void StageInterface::Update()
 		catAnim.cat_move_type = 10;
 	} // right climb
 
+
+	std::cout << dog->box_collide << "\n";
+
 	// Dog
 	if (dog->nowInput == 0 && dog_v == -1)
 	{

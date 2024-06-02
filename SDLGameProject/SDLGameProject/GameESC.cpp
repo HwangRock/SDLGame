@@ -100,7 +100,7 @@ void ESC::HandleEvents()
 				}
 
 
-				//control button
+				//manual button
 				else if (mouse_x > button3_rect_.x &&
 					mouse_y > button3_rect_.y &&
 					mouse_x < button3_rect_.x + button3_rect_.w &&
