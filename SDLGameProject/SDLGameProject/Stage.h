@@ -11,7 +11,7 @@
 #include "SDL_image.h"
  
 
-#include "math.h"
+#include "math.h"  
 
 #include "Dog.h"
 #include "Cat.h"
@@ -29,7 +29,7 @@
 #include "Box.h"  
 #include "misile.cpp"
  
-#include "Liquid.cpp"
+#include "Liquid.cpp" 
 
 #include "Key.cpp" 
 
@@ -121,7 +121,7 @@ private:
 	SDL_Rect buttonRect;
 	SDL_Rect PushbuttonRect;
 	SDL_Rect blindRect;
-
+	 
 	SDL_Rect boxRect;
 	SDL_Rect cannonRect; 
 	SDL_Rect reRect;     
@@ -137,7 +137,7 @@ private:
 	SDL_Rect dogDieRect;
 	SDL_Rect bgRect;
 
-	
+	  
 	  
 	//
 	//Pets
