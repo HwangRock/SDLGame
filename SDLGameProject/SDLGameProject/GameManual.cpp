@@ -15,7 +15,7 @@ Manual::Manual()
 	destination_rectangle_.y = source_rectangle_.y = 0;
 	destination_rectangle_.w = 1280;
 	destination_rectangle_.h = 700;
-
+	///
 }
 
 Manual::~Manual()
