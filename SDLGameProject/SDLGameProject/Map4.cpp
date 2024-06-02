@@ -19,21 +19,21 @@ public:
 	{
 
 		//Terrain
-		//À§ÂÊ
+		//ï¿½ï¿½ï¿½ï¿½
 		Terrain* floor1_1 = new Terrain(200, 140, 150, 25);
 		Terrain* floor1_2 = new Terrain(1100, 140, 150, 25);
 		Terrain* floor2 = new Terrain(1150, 140-25, 100, 25);
 
-		//¿ÞÂÊ ¹ßÆÇµé
+		//ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Çµï¿½
 		Terrain* floor3 = new Terrain(0, 300, 100, 25);
 		Terrain* floor4 = new Terrain(150, 370, 50, 25);
 		Terrain* floor5 = new Terrain(0, 450, 100, 25);
 		Terrain* floor6 = new Terrain(150, 530, 50, 25);
-		//»ç¶óÁö´Â º®´ë½Å Ãß°¡
+		//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ß°ï¿½
 		Terrain* default20 = new Terrain(0, 610, 100, 25);
 
 
-		//°¡¿îµ¥
+		//ï¿½ï¿½ï¿½îµ¥
 		Terrain* floor7 = new Terrain(200, 250, 25, win_h-250);
 		Terrain* floor8_1 = new Terrain(350,250,150,25);
 		Terrain* floor8_2 = new Terrain(600, 250, 50, 25);
@@ -46,7 +46,7 @@ public:
 		Terrain* floor11_2 = new Terrain(900, 540, 100, 25);
 		Terrain* floor12 = new Terrain(1000, 250, 25, 300-10+25);
 
-		//¿À¸¥ÂÊ ¹ßÆÇµé
+		//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Çµï¿½
 		/*
 		Terrain* floor13 = new Terrain(1000, 350, 120, 25);
 		Terrain* floor14 = new Terrain(1200, 350, 150, 25);
@@ -56,13 +56,13 @@ public:
 		Terrain* floor18 = new Terrain(1220, 520, 100, 25);
 		*/
 
-		//´ëÆ÷ÂÊ
+		//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 		Terrain* floor19 = new Terrain(1000, 650, 25, 100);
 
 		
 
 
-		//±âº» º®
+		//ï¿½âº» ï¿½ï¿½
 		Terrain* default1 = new Terrain(0, 0, 30, win_h);
 		Terrain* default2 = new Terrain(0, 0, win_w, 30);
 		Terrain* default3 = new Terrain(win_w-30, 0, 30, win_h);
@@ -194,7 +194,7 @@ public:
 		keys = {};
 		goal = { {1200-25,40,50,75} };
 		//start = { 125,600,50,75 };
-		start = { 350,300,50,75 };
+		start = { {350,300,50,75} };
 	}
 
 

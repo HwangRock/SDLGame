@@ -15,6 +15,8 @@
 #include "Map2.cpp"
 #include "Map3.cpp"
 #include "Map4.cpp"
+#include "Map5.cpp"
+#include "Map6.cpp"
 
 
 /////////////////////////////////////////////////
@@ -64,7 +66,7 @@ SDL_Texture* blindTexture;
 SDL_Texture *manyTexture;
 
 std::vector <SDL_Rect> goal = {};
-SDL_Rect start;
+std::vector <SDL_Rect> start = {};
 int chapterNum;
 int win_w, win_h;
 
@@ -92,18 +94,20 @@ int main(int argc, char* argv[])
 
 	InitGame(); 
 
-	PhaseInterface* game_phases[11];
-	game_phases[0] = new Intro;
-	game_phases[1] = new Map1;
-	game_phases[2] = new Map2;
-	game_phases[3] = new Map3;
-	game_phases[4] = new Map4;
-	game_phases[5] = new Ending;
-	game_phases[6] = new Over;
-	game_phases[7] = new Clear;
-	game_phases[8] = new ESC;
-	game_phases[9] = new Manual;
-	game_phases[10] = new Finish;
+	PhaseInterface* game_phases[13];
+game_phases[0] = new Intro;
+game_phases[1] = new Map1;
+game_phases[2] = new Map2;
+game_phases[3] = new Map3;
+game_phases[4] = new Map4;
+game_phases[5] = new Map5;
+game_phases[6] = new Map6;
+game_phases[7] = new Ending;
+game_phases[8] = new Over;
+game_phases[9] = new Clear;
+game_phases[10] = new ESC;
+game_phases[11] = new Manual;
+game_phases[12] = new Finish;
 	
 	
 	g_current_game_phase = PHASE_INTRO;
@@ -127,7 +131,7 @@ int main(int argc, char* argv[])
 	//END////////////////////////////////////////////
 	
 
-	for (int i = 0; i < 11; i++)
+	for (int i = 0; i < 13; i++)
 	{
 		delete game_phases[i];
 	}

@@ -138,10 +138,18 @@ void StageInterface::Reset()
 	score_fish = 0;
 	gameOverDelay = 150;
 
-	dog->pos.x = start.x;
-	dog->pos.y = start.y;
-	cat->pos.x = start.x;
-	cat->pos.y = start.y;
+	if (start.size() == 1) {
+	dog->pos.x = start[0].x;
+	dog->pos.y = start[0].y;
+	cat->pos.x = start[0].x;
+	cat->pos.y = start[0].y;
+}
+else {
+	dog->pos.x = start[0].x;
+	dog->pos.y = start[0].y;
+	cat->pos.x = start[1].x;
+	cat->pos.y = start[1].y;
+}
 
 	for (int i = 0; i < fadefloors.size(); i++)
 	{
@@ -549,7 +557,10 @@ void StageInterface::Render()
 	{
 		SDL_RenderCopy(g_renderer, manyTexture, &goalRect, &g);
 	}
-	SDL_RenderCopy(g_renderer, manyTexture, &goalRect, &start);
+	for (SDL_Rect s : start)
+	{
+		SDL_RenderCopy(g_renderer, manyTexture, &goalRect, &s);
+	}
 
 	// Key and Lock
 	for (Key key : keys)
@@ -663,10 +674,19 @@ void StageInterface::NextChapter()
 		g_pre_game_phase = PHASE_STAGE4;
 		break;
 	case 3:
+		chapterNum = 4;
+		g_current_game_phase = PHASE_STAGE5;
+		g_pre_game_phase = PHASE_STAGE5;
+		break;
+	case 4:
+		chapterNum = 5;
+		g_current_game_phase = PHASE_STAGE6;
+		g_pre_game_phase = PHASE_STAGE6;
+		break;
+	case 5:
 		chapterNum = 0;
 		g_current_game_phase = PHASE_FINISH;
 		g_pre_game_phase = PHASE_STAGE1;
-		break;
 	default:
 		break;
 	}
