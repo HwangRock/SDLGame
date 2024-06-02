@@ -139,6 +139,7 @@ game_phases[12] = new Finish;
 
 		PlayingMusic();
 
+		
 		g_last_time_ms = cur_time_ms;
 	}
 

@@ -5,7 +5,7 @@
 
 ESC::ESC()
 {
-	SDL_Surface* temp_surface = IMG_Load("../Resources/esc_window.png");
+	SDL_Surface* temp_surface = IMG_Load("../Resources/ESC_icon.png");
 	texture_ = SDL_CreateTextureFromSurface(g_renderer, temp_surface);
 	SDL_FreeSurface(temp_surface);
 
@@ -14,26 +14,11 @@ ESC::ESC()
 	destination_rectangle_.y = source_rectangle_.y = 0;
 	destination_rectangle_.w = source_rectangle_.w;
 	destination_rectangle_.h = source_rectangle_.h;
- 
-	button1_rect_.x = 495;
-	button1_rect_.y = 201;
-	button1_rect_.w = 291;
-	button1_rect_.h= 85;
 
-	button2_rect_.x = 437;
-	button2_rect_.y = 309;
-	button2_rect_.w = 403;
-	button2_rect_.h = 85;
-
-	button3_rect_.x = 495;
-	button3_rect_.y = 420;
-	button3_rect_.w = 286;
-	button3_rect_.h = 81;
-
-	button4_rect_.x = 553;
-	button4_rect_.y = 527;
-	button4_rect_.w = 174;
-	button4_rect_.h = 82;
+	button1_rect_ = { 480, 43, 321, 134 };
+	button2_rect_ = { 480, 215, 321, 136 };
+	button3_rect_ = { 480, 388, 321, 134 };
+	button4_rect_ = { 480, 540, 321, 136 };
 
 }
 
@@ -97,10 +82,11 @@ void ESC::HandleEvents()
 					g_current_game_phase = PHASE_INTRO;
 					g_pre_game_phase = PHASE_STAGE1;
 					chapterNum = 0;
+					phase1first = true;
 				}
 
 
-				//manual button
+				//control button
 				else if (mouse_x > button3_rect_.x &&
 					mouse_y > button3_rect_.y &&
 					mouse_x < button3_rect_.x + button3_rect_.w &&

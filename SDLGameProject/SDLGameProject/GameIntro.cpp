@@ -55,7 +55,7 @@ void Intro::HandleEvents()
 		case SDL_KEYDOWN:
 
 			g_current_game_phase = PHASE_MANUAL;
-			g_pre_game_phase = PHASE_MANUAL;
+			g_pre_game_phase = PHASE_STAGE1; // 메뉴얼에서 플레이 버튼 누르면 스테이지 원으로 넘어가게 하기 위해 바꿨습니다!
 			break;
 
 		default:
