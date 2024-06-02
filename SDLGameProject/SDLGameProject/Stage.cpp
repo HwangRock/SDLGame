@@ -115,7 +115,7 @@ StageInterface::StageInterface()
 	Mix_VolumeChunk(eatingSound, 40);
 
 	liquidSound = Mix_LoadWAV("../Resources/liquidSound.wav");
-	Mix_VolumeChunk(liquidSound, 60);
+	Mix_VolumeChunk(liquidSound, 10);
 
 
 	////////////////////////////////////////////////////////////////////////////////////////
