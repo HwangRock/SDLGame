@@ -5,29 +5,37 @@
 class Over : public PhaseInterface
 {
 public:
-	Over() 
+	Over()
 	{
 		//TEXTURE////////////////////////////////////////////////
 		//IMG, TEXT
-		SDL_Surface* temp_surface = IMG_Load("../Resources/gameOverImg.jpg");
+		SDL_Surface* temp_surface = IMG_Load("../Resources/gameOverImg.png");
 		imgTexture = SDL_CreateTextureFromSurface(g_renderer, temp_surface);
 		SDL_FreeSurface(temp_surface);
-		imgRect = { 0,0,1488,704 };
 
+		imgRect = { 0,0,1920,1080 };
+		imgPos = { 0,0,1280,720 };
 
-		SDL_Surface* txt_surface = IMG_Load("../Resources/gameOverTxt.jpg");
+		SDL_Surface* txt_surface = IMG_Load("../Resources/tapAnyKeyTxt.png");
 		txtTexture = SDL_CreateTextureFromSurface(g_renderer, txt_surface);
 		SDL_FreeSurface(txt_surface);
-		txtRect = { 0,0,666,182 };
+
+		txtRect = { 0,0,628,58 };
+		txtPos = { 478,660,314,29 };
+
+		lastBlinkingTime = SDL_GetTicks();
+		txtBlinking = true;
 
 
-		imgPos = { 300,50,500,200 };
-		txtPos = { 300,450,500,50 };
+
+
+
 
 	};
-	~Over() 
+	~Over()
 	{
 		SDL_DestroyTexture(imgTexture);
+		SDL_DestroyTexture(txtTexture);
 	};
 	virtual void HandleEvents()
 	{
@@ -67,8 +75,22 @@ public:
 			}
 		}
 	};
-	virtual void Update() {};
-	virtual void Render() 
+	virtual void Update() {
+
+		blinkingTime = SDL_GetTicks();
+
+		if (blinkingTime - lastBlinkingTime >= 450) {
+			if (txtBlinking == false) {
+				txtBlinking = true;
+			}
+			else
+			{
+				txtBlinking = false;
+			}
+			lastBlinkingTime = blinkingTime;
+		}
+	};
+	virtual void Render()
 	{
 		//RENDER/////////////////////////////////////////////////
 		SDL_SetRenderDrawColor(g_renderer, 255, 255, 255, 255);
@@ -77,7 +99,10 @@ public:
 		//IMG
 		SDL_RenderCopy(g_renderer, imgTexture, &imgRect, &imgPos);
 		//Text
-		SDL_RenderCopy(g_renderer, txtTexture, &txtRect, &txtPos);
+
+		if (txtBlinking == true) {
+			SDL_RenderCopy(g_renderer, txtTexture, &txtRect, &txtPos);
+		}
 
 
 		SDL_RenderPresent(g_renderer);
@@ -95,6 +120,9 @@ private:
 	SDL_Rect txtRect;
 	SDL_Rect txtPos;
 
+	int blinkingTime;
+	int lastBlinkingTime;
+	bool txtBlinking;
 
 };
 
