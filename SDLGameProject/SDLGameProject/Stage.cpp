@@ -121,10 +121,10 @@ StageInterface::StageInterface()
 	sniff = Mix_LoadWAV("../Resources/sniff.wav");
 	Mix_VolumeChunk(sniff, 50);
 
-	eatingSound = Mix_LoadWAV("../Resources/eatingSound.wav");
-	Mix_VolumeChunk(eatingSound, 40);
+	eatingSound = Mix_LoadWAV("../Resources/eatingSound3.wav");
+	Mix_VolumeChunk(eatingSound, 20);
 
-	liquidSound = Mix_LoadWAV("../Resources/liquidSound.wav");
+	liquidSound = Mix_LoadWAV("../Resources/liquidSound3.wav");
 	Mix_VolumeChunk(liquidSound, 10);
 
 
