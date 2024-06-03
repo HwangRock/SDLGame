@@ -22,12 +22,12 @@
 #include "LiquidWall.h"
 #include "ClimbWall.cpp"
 #include "FadeFloor.h"
-#include "Cushion.h"
-  
+#include "Cushion.h" 
+#include "Blind.cpp"
      
     
 #include "Box.h"  
-#include "misile.cpp"
+#include "misile.cpp" 
  
 #include "Liquid.cpp" 
 
@@ -41,7 +41,7 @@
 extern std::vector<Terrain> walls, cannon, fish, bone; 
 extern std::vector<Box> boxs;    
 extern std::vector<Button> buttons;        
-extern std::vector<SDL_Rect> blinds;
+extern std::vector<Blind> blinds;
 extern std::vector<LiquidWall>liquidWalls;
 extern std::vector<SDL_Rect>liquidAisles;         
 extern std::vector<ClimbWall>climbWalls;
@@ -91,7 +91,7 @@ public:
 private:   
 	//Sprite 
 	SDL_Rect dogRect;
-	SDL_Rect catRect;   
+	SDL_Rect catRect;  
 
 
 	SDL_Texture* blindTexture;
@@ -101,6 +101,9 @@ private:
 	SDL_Texture* goalTexture;
 	SDL_Texture* scaffoldTexture;
 	SDL_Texture* reTexture;
+
+	SDL_Texture* picturesTexture;
+	std::vector<SDL_Rect> picturesRect;
 
 	SDL_Texture* liquidTexture;
 	SDL_Rect waterR;

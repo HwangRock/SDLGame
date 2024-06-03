@@ -60,8 +60,8 @@ public:
 		SDL_Rect blind2 = { 550, 650, 300, 25 };
 
 		blinds = { blind1,blind2 };  */ 
-		SDL_Rect blind1 = {740,70,220,140 };
-		blinds = { blind1 };
+		Blind* blind1 = new Blind({740,70,220,140 },0);
+		blinds = { *blind1 };
 		LiquidWall* lwall1 = new LiquidWall({ 250,125,200,15 }, "down");//up
 		//LiquidWall* lwall2 = new LiquidWall({ 250,175,200,9 }, "up");//down
 		liquidWalls = { *lwall1 };

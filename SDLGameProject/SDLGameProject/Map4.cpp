@@ -92,7 +92,7 @@ public:
 		Button* btnB = new Button(1, 2,
 			{ {370, 520, 25, 25} },
 			{ {225,250,125,25},{500,540,100,25} },
-			{ {225,320,125,25},{500,610,100,25} },
+			{ {225,340,125,25},{500,630,100,25} },
 			{ {225,280,125,25},{500,540,100,25} });
 		/*
 		Button* btnC = new Button(1, 1,
@@ -103,11 +103,13 @@ public:
 		*/
 		buttons = {*btnA,*btnB };
 
-		SDL_Rect b1 = { 150,450,50,100 };
-		SDL_Rect b2 = { 500,210,100,55 };
-		SDL_Rect b3 = { 1150 ,650,win_w - 30 - 1150,100 };
-		SDL_Rect b4 = { 325,500,100,75 };
-		blinds = {b1,b2,b3,b4 };
+		Blind* b1 = new Blind({ 150,450,50,100 },1);
+		Blind* b2 = new Blind({ 480,210,140,60 },2);
+		Blind* b3 = new Blind({ 1150 ,630,win_w - 30 - 1150,70 },5);
+		Blind* b4 = new Blind({ 325,500,100,75 },4);
+		blinds = {*b1,*b2,*b3,*b4 };
+
+
 
 		Box* box1 = new Box({ 600, 450, 50, 50 });
 		Box* box2 = new Box({ 450, 330, 50, 50 });
@@ -117,13 +119,13 @@ public:
 		misile* misile1 = new misile({ 890, 640, 50, 30 },"left");
 
 		Terrain* fish1 = new Terrain(70, 350, 30, 30);
-		Terrain* fish2 = new Terrain(460, 40, 30, 30);
+		Terrain* fish2 = new Terrain(460, 60, 30, 30);
 		Terrain* fish3 = new Terrain(840, 210, 30, 30);
 		Terrain* fish4 = new Terrain(1160, 230, 30, 30);
 		Terrain* fish5 = new Terrain(1130, 390, 30, 30);
 		Terrain* fish6 = new Terrain(590, 600, 30, 30);
 
-		Terrain* bone1 = new Terrain(660, 40, 30, 30);
+		Terrain* bone1 = new Terrain(660, 60, 30, 30);
 		Terrain* bone2 = new Terrain(165, 470, 30, 30);
 		Terrain* bone3 = new Terrain(390, 600, 30, 30);
 		Terrain* bone4 = new Terrain(1160, 200, 30, 30);
@@ -164,10 +166,10 @@ public:
 		Liquid* choco2 = new Liquid({ 550,400,150,25 }, "choco");
 		Liquid* choco3 = new Liquid({ 750,540,150,25 }, "choco");
 
-		Liquid* choco4 = new Liquid({ 1025,350,100,35 }, "choco");
+		Liquid* choco4 = new Liquid({ 1025,350,90,35 }, "choco");
 		//Liquid* choco5 = new Liquid({ 1200,350,50,35 }, "choco");
 		Liquid* choco6 = new Liquid({ 1190,435,60,35 }, "choco");
-		Liquid* choco7 = new Liquid({ 1025,500,90,35 }, "choco");
+		Liquid* choco7 = new Liquid({ 1025,500,70,35 }, "choco");
 
 		Liquid* choco8 = new Liquid({ 1150,690,100,30 }, "choco");
 
@@ -179,7 +181,8 @@ public:
 			*milk1 ,
 			*water1};
 
-
+		Cushion* cushion1 = new Cushion({ 900,500,100, 55 });
+		cushions = { *cushion1 };
 
 
 		//climbwall

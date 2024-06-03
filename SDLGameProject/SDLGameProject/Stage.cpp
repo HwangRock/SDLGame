@@ -13,8 +13,6 @@ extern SDL_Window* g_window;
 extern float g_timestep_s;
 
 
-//변경법
-bool hit = false;
 int g_elapsed_time;
 int cat_v = -1; // left : -1 , right : 1
 int dog_v = -1;
@@ -44,7 +42,18 @@ StageInterface::StageInterface()
 	chocoR = { 200,0,200,200 };
 	waterR = { 400,0,200,200 };
 
-	
+	//Pictures
+	SDL_Surface* surface_pic = IMG_Load("../Resources/pictures.png");
+	SDL_SetSurfaceBlendMode(surface_pic, SDL_BLENDMODE_BLEND);
+	picturesTexture = SDL_CreateTextureFromSurface(g_renderer, surface_pic);
+	SDL_FreeSurface(surface_pic);
+	picturesRect.push_back({ 0,3,147,94 });
+	picturesRect.push_back({ 176,0,249-176,104 });
+	picturesRect.push_back({ 268,0,455-268,108 });
+	picturesRect.push_back({ 0,138,169,212-138 });
+	picturesRect.push_back({ 188,139,263-188,211-139 });
+	picturesRect.push_back({ 289,124,401-289,210-124 });
+
 
 	//Blind
 	SDL_Surface* surface_blind = IMG_Load("../Resources/many.png");
@@ -225,7 +234,7 @@ void StageInterface::Update()
 			else if(missile.dir=="right") { missile.misile_pos.x += 7.0f; }
 			else { std::cout << "there is no such missile direction "<<missile.dir<<"\n"; }
 
-			//이거 함수로 줄일지--------------------------------------------------------
+
 			for (const Terrain& wall : walls)
 			{
 				if (SDL_HasIntersection(&missile.misile_pos, &wall.pos))
@@ -235,6 +244,16 @@ void StageInterface::Update()
 					break;
 				}
 			}
+			for (ClimbWall &cw : climbWalls)
+			{
+				if (SDL_HasIntersection(&missile.misile_pos, &cw.wall_pos))
+				{
+					missile.misile_pos = missile.initial_pos;
+					missile.isHit = true;
+					break;
+				}
+			}
+			/*
 			for (const Box& b : boxs)
 			{
 				if (SDL_HasIntersection(&missile.misile_pos, &b.box_pos))
@@ -256,6 +275,7 @@ void StageInterface::Update()
 					}
 				}
 			}
+			*/
 		}
 
 
@@ -369,7 +389,7 @@ void StageInterface::Update()
 	} // right climb
 
 
-	std::cout << dog->box_collide << "\n";
+	//std::cout << dog->box_collide << "\n";
 
 	// Dog
 	if (dog->nowInput == 0 && dog_v == -1)
@@ -447,6 +467,26 @@ void StageInterface::Render()
 	SDL_SetRenderDrawColor(g_renderer, 229, 221, 192, 255);
 	SDL_RenderClear(g_renderer); // clear the renderer to the draw color
 
+	// LiquidWall
+	for (LiquidWall wall : liquidWalls)
+	{
+
+		SDL_SetRenderDrawColor(g_renderer, 39, 27, 18, 255);
+		SDL_RenderFillRect(g_renderer, &wall.pos_);
+		//SDL_RenderCopy(g_renderer, wallTexture, &wallRect, &wall.pos_);
+	}
+
+	// Goal,Start
+	for (SDL_Rect g : goal)
+	{
+		SDL_RenderCopy(g_renderer, manyTexture, &goalRect, &g);
+	}
+	for (SDL_Rect s : start)
+	{
+		SDL_RenderCopy(g_renderer, manyTexture, &goalRect, &s);
+	}
+
+
 	// cat
 	if (catAnim.cat_move_type == 2 || catAnim.cat_move_type == 4 || catAnim.cat_move_type == 6 ||
 		catAnim.cat_move_type == 8 || catAnim.cat_move_type == 10 || catAnim.cat_move_type == 12) // right
@@ -469,9 +509,8 @@ void StageInterface::Render()
 		SDL_RenderCopy(g_renderer, manyTexture, &dog_animation[d_index], &dog->pos);
 	}
 
-	SDL_SetTextureBlendMode(manyTexture, SDL_BLENDMODE_BLEND);
-
 	//fadefloor
+	SDL_SetTextureBlendMode(manyTexture, SDL_BLENDMODE_BLEND);
 	for (FadeFloor fwall : fadefloors)
 	{
 		SDL_SetTextureAlphaMod(manyTexture, 255);
@@ -481,7 +520,6 @@ void StageInterface::Render()
 		}
 		SDL_RenderCopy(g_renderer, manyTexture, &fadefloorRect, &fwall.floor_pos);
 	}
-
 	SDL_SetTextureAlphaMod(manyTexture, 255);
 
 	// MISSILE
@@ -506,7 +544,7 @@ void StageInterface::Render()
 	// CANNON
 	for (int i = 0; i < cannon.size(); i++)
 	{
-		if (hit) {
+		if (mis[i].isHit) {
 			if (mis[i].dir == "left") { SDL_RenderCopy(g_renderer, manyTexture, &lcannonRect, &cannon[i].pos); }
 			else { SDL_RenderCopyEx(g_renderer, manyTexture, &lcannonRect, &cannon[i].pos, 0, NULL, SDL_FLIP_HORIZONTAL); }
 
@@ -539,14 +577,12 @@ void StageInterface::Render()
 	// Wall
 	for (Terrain wall : walls)
 	{
-		SDL_RenderCopy(g_renderer, wallTexture, &wallRect, &wall.pos);
+		SDL_SetRenderDrawColor(g_renderer, 39, 27, 18, 255);
+		SDL_RenderFillRect(g_renderer, &wall.pos);
+		//SDL_RenderCopy(g_renderer, wallTexture, &wallRect, &wall.pos);
 	}
 
-	// LiquidWall
-	for (LiquidWall wall : liquidWalls)
-	{
-		SDL_RenderCopy(g_renderer, wallTexture, &wallRect, &wall.pos_);
-	}
+	
 
 	// Button
 	for (Button btn : buttons)
@@ -562,22 +598,17 @@ void StageInterface::Render()
 				SDL_RenderCopy(g_renderer, manyTexture, &buttonRect, &btn.buttonPos[i]);
 			}
 		}
+		//yellow
+		SDL_SetRenderDrawColor(g_renderer, 225, 154, 17, 255);
 		for (int i = 0; i < btn.scaffold_.size(); i++)
 		{
 			// Button connected scaffolds
-			SDL_RenderCopy(g_renderer, scaffoldTexture, &scaffoldRect, &btn.scaffold_[i]);
+			SDL_RenderFillRect(g_renderer, &btn.scaffold_[i]);
+			//SDL_RenderCopy(g_renderer, scaffoldTexture, &scaffoldRect, &btn.scaffold_[i]);
 		}
 	}
 
-	// Goal,Start
-	for (SDL_Rect g : goal)
-	{
-		SDL_RenderCopy(g_renderer, manyTexture, &goalRect, &g);
-	}
-	for (SDL_Rect s : start)
-	{
-		SDL_RenderCopy(g_renderer, manyTexture, &goalRect, &s);
-	}
+	
 
 	// Key and Lock
 	for (Key key : keys)
@@ -617,7 +648,10 @@ void StageInterface::Render()
 	// liquid
 	for (Liquid l : liquid)
 	{
-		SDL_RenderCopy(g_renderer, wallTexture, &wallRect, &l.wallPos);
+		SDL_SetRenderDrawColor(g_renderer, 39, 27, 18, 255);
+		SDL_RenderFillRect(g_renderer, &l.wallPos);
+		//SDL_RenderCopy(g_renderer, wallTexture, &wallRect, &l.wallPos);
+		
 		if (l.liquidClass == "water")
 		{
 			SDL_RenderCopy(g_renderer, liquidTexture, &waterR, &l.liquidPos);
@@ -637,11 +671,11 @@ void StageInterface::Render()
 	}
 
 	// Blind
-	for (SDL_Rect bln : blinds)
+	for (Blind bln : blinds)
 	{
-		SDL_SetTextureBlendMode(blindTexture, SDL_BLENDMODE_BLEND);
-		SDL_SetTextureAlphaMod(blindTexture, dog->blindOpacity_);
-		SDL_RenderCopy(g_renderer, blindTexture, &blindRect, &bln);
+		SDL_SetTextureBlendMode(picturesTexture, SDL_BLENDMODE_BLEND);
+		SDL_SetTextureAlphaMod(picturesTexture, dog->blindOpacity_);
+		SDL_RenderCopy(g_renderer, picturesTexture, &picturesRect[bln.pictureNum%6], &bln.pos);
 	}
 
 	// restart

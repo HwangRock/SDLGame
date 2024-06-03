@@ -109,10 +109,9 @@ public:
 		Cushion* cushion1 = new Cushion({ 1100,640,100, 55 });
 		cushions = { *cushion1 };
 
-		SDL_Rect blind1 = { 40,80,150,50 };
-		SDL_Rect blind2 = { 580,60,150,80 };
-
-		blinds = { blind1,blind2 };
+		Blind* blind1 = new Blind({ 40,80,150,50 },3);
+		Blind* blind2 = new Blind({ 580,60,150,80 },0);
+		blinds = { *blind1,*blind2 };
 
 		goal = { { 1200,60,50,80 } };
 		start = { { 620,220,50,80 } };

@@ -67,10 +67,9 @@ public:
 		buttons = { *btnA,*btnB,*btnC};
 
 		
-		SDL_Rect blind1 = { 400,50,100,100 };
-		SDL_Rect blind2 = { 650,100,100,100 };
-
-		blinds = { blind1,blind2};
+		Blind* blind1 = new Blind({ 400,50,100,100 },4);
+		Blind* blind2 = new Blind({ 650,100,100,100 },5);
+		blinds = { *blind1,*blind2};
 
 		LiquidWall* lwallA = new LiquidWall({ 615,575,15,90 }, "right");
 		LiquidWall* lwallB = new LiquidWall({ 660,575,15,win_h-575 }, "left");

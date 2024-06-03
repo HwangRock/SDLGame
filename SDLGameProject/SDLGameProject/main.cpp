@@ -38,7 +38,7 @@ float g_timestep_s = 1.0f / 60.0f;
 std::vector<Terrain> walls = {};
 std::vector<Button>buttons = {};
 //Blind(sniff, dog skill)
-std::vector<SDL_Rect> blinds = {};
+std::vector<Blind> blinds = {};
 //Liquid wall(cat skill)
 std::vector<LiquidWall>liquidWalls = {};
 std::vector<SDL_Rect>liquidAisles = {};
