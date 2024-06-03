@@ -30,8 +30,8 @@ void Cat::Update(double timestep_s)
 		else { isClimbWall = true; }
 	}
 
-	if (isClimbWall == false) { v[1] += gravity; }
-
+	if (isClimbWall == true) { v[1] += -0.098f; } //0.098f
+	else { v[1] += gravity; }
 
 	//UPDATE///////////////////////////////////////////////////
 	Pet::Update(timestep_s);

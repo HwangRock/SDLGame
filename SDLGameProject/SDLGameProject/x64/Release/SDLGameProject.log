@@ -1,29 +1,23 @@
 ﻿  Cat.cpp
-C:\Users\yunji.DESKTOP-CLMOD1E\Documents\GitHub\SDLGame\SDLGameProject\SDLGameProject\Stage.h(1,1): warning C4819: 현재 코드 페이지(949)에서 표시할 수 없는 문자가 파일에 들어 있습니다. 데이터가 손실되지 않게 하려면 해당 파일을 유니코드 형식으로 저장하십시오.
-C:\Users\yunji.DESKTOP-CLMOD1E\Documents\GitHub\SDLGame\SDLGameProject\SDLGameProject\misile.cpp(1,1): warning C4819: 현재 코드 페이지(949)에서 표시할 수 없는 문자가 파일에 들어 있습니다. 데이터가 손실되지 않게 하려면 해당 파일을 유니코드 형식으로 저장하십시오.
-C:\Users\yunji.DESKTOP-CLMOD1E\Documents\GitHub\SDLGame\SDLGameProject\SDLGameProject\Cat.cpp(27,16): warning C4553: '==': 식의 결과가 사용되지 않습니다. '='을(를) 의도했습니까?
-C:\Users\yunji.DESKTOP-CLMOD1E\Documents\GitHub\SDLGame\SDLGameProject\SDLGameProject\Cat.cpp(29,69): warning C4553: '==': 식의 결과가 사용되지 않습니다. '='을(를) 의도했습니까?
-C:\Users\yunji.DESKTOP-CLMOD1E\Documents\GitHub\SDLGame\SDLGameProject\SDLGameProject\Cat.cpp(77,26): warning C4305: '=': '__int64'에서 'int'(으)로 잘립니다.
-C:\Users\yunji.DESKTOP-CLMOD1E\Documents\GitHub\SDLGame\SDLGameProject\SDLGameProject\Cat.cpp(77,15): warning C4309: '=': 상수 값이 잘립니다.
-C:\Users\yunji.DESKTOP-CLMOD1E\Documents\GitHub\SDLGame\SDLGameProject\SDLGameProject\Cat.cpp(77,53): warning C4305: '=': '__int64'에서 'int'(으)로 잘립니다.
-C:\Users\yunji.DESKTOP-CLMOD1E\Documents\GitHub\SDLGame\SDLGameProject\SDLGameProject\Cat.cpp(77,39): warning C4309: '=': 상수 값이 잘립니다.
-C:\Users\yunji.DESKTOP-CLMOD1E\Documents\GitHub\SDLGame\SDLGameProject\SDLGameProject\Cat.cpp(155,4): warning C4267: '초기화 중': 'size_t'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-C:\Users\yunji.DESKTOP-CLMOD1E\Documents\GitHub\SDLGame\SDLGameProject\SDLGameProject\Cat.cpp(188,4): warning C4267: '초기화 중': 'size_t'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-  Dog.cpp
-C:\Users\yunji.DESKTOP-CLMOD1E\Documents\GitHub\SDLGame\SDLGameProject\SDLGameProject\Dog.cpp(1,1): warning C4819: 현재 코드 페이지(949)에서 표시할 수 없는 문자가 파일에 들어 있습니다. 데이터가 손실되지 않게 하려면 해당 파일을 유니코드 형식으로 저장하십시오.
-C:\Users\yunji.DESKTOP-CLMOD1E\Documents\GitHub\SDLGame\SDLGameProject\SDLGameProject\Stage.h(1,1): warning C4819: 현재 코드 페이지(949)에서 표시할 수 없는 문자가 파일에 들어 있습니다. 데이터가 손실되지 않게 하려면 해당 파일을 유니코드 형식으로 저장하십시오.
-C:\Users\yunji.DESKTOP-CLMOD1E\Documents\GitHub\SDLGame\SDLGameProject\SDLGameProject\misile.cpp(1,1): warning C4819: 현재 코드 페이지(949)에서 표시할 수 없는 문자가 파일에 들어 있습니다. 데이터가 손실되지 않게 하려면 해당 파일을 유니코드 형식으로 저장하십시오.
-C:\Users\yunji.DESKTOP-CLMOD1E\Documents\GitHub\SDLGame\SDLGameProject\SDLGameProject\Dog.cpp(85,26): warning C4305: '=': '__int64'에서 'int'(으)로 잘립니다.
-C:\Users\yunji.DESKTOP-CLMOD1E\Documents\GitHub\SDLGame\SDLGameProject\SDLGameProject\Dog.cpp(85,15): warning C4309: '=': 상수 값이 잘립니다.
-C:\Users\yunji.DESKTOP-CLMOD1E\Documents\GitHub\SDLGame\SDLGameProject\SDLGameProject\Dog.cpp(85,53): warning C4305: '=': '__int64'에서 'int'(으)로 잘립니다.
-C:\Users\yunji.DESKTOP-CLMOD1E\Documents\GitHub\SDLGame\SDLGameProject\SDLGameProject\Dog.cpp(85,39): warning C4309: '=': 상수 값이 잘립니다.
-C:\Users\yunji.DESKTOP-CLMOD1E\Documents\GitHub\SDLGame\SDLGameProject\SDLGameProject\Dog.cpp(188,4): warning C4267: '초기화 중': 'size_t'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-C:\Users\yunji.DESKTOP-CLMOD1E\Documents\GitHub\SDLGame\SDLGameProject\SDLGameProject\Dog.cpp(221,4): warning C4267: '초기화 중': 'size_t'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-C:\Users\yunji.DESKTOP-CLMOD1E\Documents\GitHub\SDLGame\SDLGameProject\SDLGameProject\Dog.cpp(255,25): warning C4244: '+=': 'float'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-C:\Users\yunji.DESKTOP-CLMOD1E\Documents\GitHub\SDLGame\SDLGameProject\SDLGameProject\Dog.cpp(258,25): warning C4244: '-=': 'float'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+C:\Users\User\Documents\GitHub\SDLGame\SDLGameProject\SDLGameProject\Stage.h(1,1): warning C4819: 현재 코드 페이지(949)에서 표시할 수 없는 문자가 파일에 들어 있습니다. 데이터가 손실되지 않게 하려면 해당 파일을 유니코드 형식으로 저장하십시오.
+C:\Users\User\Documents\GitHub\SDLGame\SDLGameProject\SDLGameProject\misile.cpp(1,1): warning C4819: 현재 코드 페이지(949)에서 표시할 수 없는 문자가 파일에 들어 있습니다. 데이터가 손실되지 않게 하려면 해당 파일을 유니코드 형식으로 저장하십시오.
+C:\Users\User\Documents\GitHub\SDLGame\SDLGameProject\SDLGameProject\Cat.cpp(27,16): warning C4553: '==': 식의 결과가 사용되지 않습니다. '='을(를) 의도했습니까?
+C:\Users\User\Documents\GitHub\SDLGame\SDLGameProject\SDLGameProject\Cat.cpp(29,69): warning C4553: '==': 식의 결과가 사용되지 않습니다. '='을(를) 의도했습니까?
+C:\Users\User\Documents\GitHub\SDLGame\SDLGameProject\SDLGameProject\Cat.cpp(77,26): warning C4305: '=': '__int64'에서 'int'(으)로 잘립니다.
+C:\Users\User\Documents\GitHub\SDLGame\SDLGameProject\SDLGameProject\Cat.cpp(77,15): warning C4309: '=': 상수 값이 잘립니다.
+C:\Users\User\Documents\GitHub\SDLGame\SDLGameProject\SDLGameProject\Cat.cpp(77,53): warning C4305: '=': '__int64'에서 'int'(으)로 잘립니다.
+C:\Users\User\Documents\GitHub\SDLGame\SDLGameProject\SDLGameProject\Cat.cpp(77,39): warning C4309: '=': 상수 값이 잘립니다.
+C:\Users\User\Documents\GitHub\SDLGame\SDLGameProject\SDLGameProject\Cat.cpp(155,4): warning C4267: '초기화 중': 'size_t'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+C:\Users\User\Documents\GitHub\SDLGame\SDLGameProject\SDLGameProject\Cat.cpp(188,4): warning C4267: '초기화 중': 'size_t'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+  Stage.cpp
+C:\Users\User\Documents\GitHub\SDLGame\SDLGameProject\SDLGameProject\Stage.cpp(1,1): warning C4819: 현재 코드 페이지(949)에서 표시할 수 없는 문자가 파일에 들어 있습니다. 데이터가 손실되지 않게 하려면 해당 파일을 유니코드 형식으로 저장하십시오.
+C:\Users\User\Documents\GitHub\SDLGame\SDLGameProject\SDLGameProject\Stage.h(1,1): warning C4819: 현재 코드 페이지(949)에서 표시할 수 없는 문자가 파일에 들어 있습니다. 데이터가 손실되지 않게 하려면 해당 파일을 유니코드 형식으로 저장하십시오.
+C:\Users\User\Documents\GitHub\SDLGame\SDLGameProject\SDLGameProject\misile.cpp(1,1): warning C4819: 현재 코드 페이지(949)에서 표시할 수 없는 문자가 파일에 들어 있습니다. 데이터가 손실되지 않게 하려면 해당 파일을 유니코드 형식으로 저장하십시오.
+C:\Users\User\Documents\GitHub\SDLGame\SDLGameProject\SDLGameProject\Stage.cpp(241,61): warning C4244: '-=': 'float'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+C:\Users\User\Documents\GitHub\SDLGame\SDLGameProject\SDLGameProject\Stage.cpp(242,64): warning C4244: '+=': 'float'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
   코드를 생성하고 있습니다.
   2 of 1109 functions ( 0.2%) were compiled, the rest were copied from previous compilation.
     0 functions were new in current compilation
     0 functions had inline decision re-evaluated but remain unchanged
   코드를 생성했습니다.
-  SDLGameProject.vcxproj -> C:\Users\yunji.DESKTOP-CLMOD1E\Documents\GitHub\SDLGame\SDLGameProject\x64\Release\SDLGameProject.exe
+  SDLGameProject.vcxproj -> C:\Users\User\Documents\GitHub\SDLGame\SDLGameProject\x64\Release\SDLGameProject.exe

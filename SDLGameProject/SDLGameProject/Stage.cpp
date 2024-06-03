@@ -190,6 +190,7 @@ else {
 }
 void StageInterface::Update()
 {
+
 	//재시작시 실행. reset.
 	if (isFirst == true)
 	{
