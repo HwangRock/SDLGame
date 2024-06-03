@@ -705,6 +705,7 @@ void StageInterface::NextChapter()
 		g_current_game_phase = PHASE_FINISH;
 		g_pre_game_phase = PHASE_STAGE1;
 	default:
+
 		break;
 	}
 }

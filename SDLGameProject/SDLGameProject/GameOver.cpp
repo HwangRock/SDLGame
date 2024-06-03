@@ -65,6 +65,12 @@ public:
 				case 3:
 					g_current_game_phase = PHASE_STAGE4;
 					break;
+				case 4:
+					g_current_game_phase = PHASE_STAGE5;
+					break;
+				case 5:
+					g_current_game_phase = PHASE_STAGE6;
+					break;
 				default:
 					break;
 				}

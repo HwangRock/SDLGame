@@ -108,19 +108,19 @@ int main(int argc, char* argv[])
 	InitGame(); 
 
 	PhaseInterface* game_phases[13];
-game_phases[0] = new Intro;
-game_phases[1] = new Map1;
-game_phases[2] = new Map2;
-game_phases[3] = new Map3;
-game_phases[4] = new Map4;
-game_phases[5] = new Map5;
-game_phases[6] = new Map6;
-game_phases[7] = new Ending;
-game_phases[8] = new Over;
-game_phases[9] = new Clear;
-game_phases[10] = new ESC;
-game_phases[11] = new Manual;
-game_phases[12] = new Finish;
+	game_phases[0] = new Intro;
+	game_phases[1] = new Map1;
+	game_phases[2] = new Map2;
+	game_phases[3] = new Map3;
+	game_phases[4] = new Map4;
+	game_phases[5] = new Map5;
+	game_phases[6] = new Map6;
+	game_phases[7] = new Ending;
+	game_phases[8] = new Over;
+	game_phases[9] = new Clear;
+	game_phases[10] = new ESC;
+	game_phases[11] = new Manual;
+	game_phases[12] = new Finish;
 	
 	
 	g_current_game_phase = PHASE_INTRO;

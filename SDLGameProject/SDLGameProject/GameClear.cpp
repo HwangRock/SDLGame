@@ -129,9 +129,17 @@ public:
 						case 3:
 							chapterNum = 3;
 							g_current_game_phase = PHASE_STAGE4;
-
+							break;
+						case 4:
+							chapterNum = 4;
+							g_current_game_phase = PHASE_STAGE5;
+							break;
+						case 5:
+							chapterNum = 5;
+							g_current_game_phase = PHASE_STAGE6;
 							break;
 						default:
+							std::cout << "restart error\n";
 							break;
 						}
 					}
@@ -158,11 +166,22 @@ public:
 
 							break;
 						case 3:
+							chapterNum = 4;
+							g_current_game_phase = PHASE_STAGE5;
+
+							break;
+						case 4:
+							chapterNum = 5;
+							g_current_game_phase = PHASE_STAGE6;
+
+							break;
+						case 5:
 							chapterNum = 0;
 							g_current_game_phase = PHASE_FINISH;
 
 							break;
 						default:
+							std::cout << "next chapter error\n";
 							break;
 						}
 					}

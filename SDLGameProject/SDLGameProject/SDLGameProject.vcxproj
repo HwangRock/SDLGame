@@ -166,6 +166,8 @@
     <ClCompile Include="Map2.cpp" />
     <ClCompile Include="Map3.cpp" />
     <ClCompile Include="Map4.cpp" />
+    <ClCompile Include="Map5.cpp" />
+    <ClCompile Include="Map6.cpp" />
     <ClCompile Include="misile.cpp" />
     <ClCompile Include="Stage.cpp" />
     <ClCompile Include="Main.cpp" />
