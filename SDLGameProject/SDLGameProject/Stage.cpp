@@ -74,10 +74,11 @@ StageInterface::StageInterface()
 	SDL_FreeSurface(surface_goal);
 
 	//etc
-	SDL_Surface* surface_sca = IMG_Load("../Resources/intro.png");
+	SDL_Surface* surface_sca = IMG_Load("../Resources/many_2.png");
 	scaffoldTexture = SDL_CreateTextureFromSurface(g_renderer, surface_sca);
 	SDL_FreeSurface(surface_sca);
-	scaffoldRect = { 0,0,100,100 };
+	scaffoldRect = {126, 4235, 427, 61};
+
 
 	//Texture
 	SDL_Surface* texture = IMG_Load("../Resources/many.png");
@@ -662,6 +663,8 @@ void StageInterface::Render()
 	// Button
 	for (Button btn : buttons)
 	{
+		
+		
 		for (int i = 0; i < btn.buttonPos.size(); i++)
 		{
 			if (btn.isPressed)
@@ -674,12 +677,12 @@ void StageInterface::Render()
 			}
 		}
 		//yellow
-		SDL_SetRenderDrawColor(g_renderer, 225, 154, 17, 255);
+		//SDL_SetRenderDrawColor(g_renderer, 225, 154, 17, 255);
 		for (int i = 0; i < btn.scaffold_.size(); i++)
 		{
 			// Button connected scaffolds
-			SDL_RenderFillRect(g_renderer, &btn.scaffold_[i]);
-			//SDL_RenderCopy(g_renderer, scaffoldTexture, &scaffoldRect, &btn.scaffold_[i]);
+			//SDL_RenderFillRect(g_renderer, &btn.scaffold_[i]);
+			SDL_RenderCopy(g_renderer, scaffoldTexture, &scaffoldRect, &btn.scaffold_[i]);
 		}
 	}
 

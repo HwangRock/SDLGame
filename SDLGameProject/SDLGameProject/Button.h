@@ -13,6 +13,7 @@ public:
 	std::vector<SDL_Rect> buttonPos;
 	int buttonNum_;
 	int scaffoldNum_;
+	
 
 	Button
 	(

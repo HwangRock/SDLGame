@@ -39,7 +39,7 @@
 #include "CatAnimation.h"
 #include "DogAnimation.h"
 
-extern std::vector<Terrain> walls, cannon, fish, bone; ///////////////////
+extern std::vector<Terrain> walls, cannon, fish, bone; ///////////////////////
 extern std::vector<Box> boxs;    
 extern std::vector<Button> buttons;        
 extern std::vector<Blind> blinds;
@@ -120,7 +120,7 @@ private:
 
 	 
 	SDL_Rect dogPushRect;
-	SDL_Rect scaffoldRect;        
+	SDL_Rect scaffoldRect; 
 	SDL_Rect goalRect;
 	SDL_Rect cwallRect;   
 	SDL_Rect wallRect;
