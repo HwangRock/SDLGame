@@ -60,7 +60,8 @@ public:
 		SDL_Rect blind2 = { 550, 650, 300, 25 };
 
 		blinds = { blind1,blind2 };  */ 
-		blinds = {};
+		SDL_Rect blind1 = {740,70,220,140 };
+		blinds = { blind1 };
 		LiquidWall* lwall1 = new LiquidWall({ 250,125,200,15 }, "down");//up
 		//LiquidWall* lwall2 = new LiquidWall({ 250,175,200,9 }, "up");//down
 		liquidWalls = { *lwall1 };
@@ -74,12 +75,8 @@ public:
 		Box* box1 = new Box({ 400, 580, 50, 50 });
 		boxs = { *box1 };
 
-		Terrain* c1 = new Terrain({ 300,350,100,50 });
-		Terrain* c2 = new Terrain({ 500,500,100,50 });
-		cannon = { *c1,*c2};
-		misile* m1 = new misile({ 400,350,50,30 }, "right");
-		misile* m2 = new misile({ 600,500,50,30 }, "right");
-		mis = {*m1,*m2};
+		cannon = { };
+		mis = {};
 		
 		bone = {};
 		fish = {};
@@ -87,16 +84,17 @@ public:
 		fadefloors = {};
 		cushions = {};
 
-		Liquid* water1 = new Liquid({ 200,688,405,35 }, "water");
+		Liquid* water1 = new Liquid({ 200,683,350,35 }, "water");
 		Liquid* water2 = new Liquid({ 750,98,198,23 }, "water");
 		Liquid* milk1 = new Liquid({ 952,683,198,23 }, "milk");
 		Liquid* milk2 = new Liquid({ 750,170,198,23 }, "milk");
-		Liquid* choco1 = new Liquid({ 0,0,0,0 }, "choco");
+		Liquid* choco1 = new Liquid({ 550,683,300,35 }, "choco");
 		liquid = { *water1, *water2 , *milk1,*milk2 , *choco1 };
 
 
-		goal = { {1100,100,50,100} };
-		start={{600,300,50,80}};
+		goal = { {1100,80,50,100} };
+		start = { {50,610,50,80} };
+		//start={{600,300,50,80}};
 		//start = { 1000,100,50,100 };
 		//바로 클리어 장면 볼 수 있는 start 위치.
 	}

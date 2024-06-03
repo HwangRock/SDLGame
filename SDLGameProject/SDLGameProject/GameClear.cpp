@@ -143,6 +143,7 @@ public:
 							break;
 						}
 					}
+
 					else if
 						(x >= nextBtnPos.x && x <= nextBtnPos.x + nextBtnPos.w &&
 							y >= nextBtnPos.y && y <= nextBtnPos.y + nextBtnPos.h)

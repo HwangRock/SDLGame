@@ -138,8 +138,7 @@ public:
 		FadeFloor* fadefloor6 = new FadeFloor({ 1000,125,100,20 });
 		fadefloors = { *fadefloor3,*fadefloor4,*fadefloor5,*fadefloor6 };
 
-		Cushion* cushion1 = new Cushion({ 900,500,100, 50 });
-		cushions = { *cushion1 };
+		
 
 		cannon = { *cannon1 };
 		mis = { *misile1 };
@@ -193,8 +192,8 @@ public:
 		liquidAisles = { };
 		keys = {};
 		goal = { {1200-25,40,50,75} };
-		//start = { 125,600,50,75 };
-		start = { {350,300,50,75} };
+		start = { {125,620,50,75} };
+		//start = { {350,300,50,75} };
 	}
 
 

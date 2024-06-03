@@ -77,9 +77,9 @@ public:
 			{ { 250, 330, 150, 20} });
 		Button* btnD = new Button(1, 1,
 			{ { 850, 575, 25, 25} },
-			{ { 700,680,150,30 } },
+			{ { 700,660,150,30 } },
 			{ {700,640,150,30 } },
-			{ {700,680,150,30 } });
+			{ {700,660,150,30 } });
 		buttons = { *btnA,*btnB,*btnC,*btnD };
 
 		SDL_Rect laisle1 = { 650,250,220,50 };
@@ -96,7 +96,7 @@ public:
 		boxs = { *box1 };
 
 		Terrain* cannon1 = new Terrain(850, 380, 50, 50);
-		misile* misile1 = new misile({ 800, 380, 50, 30 },"right");
+		misile* misile1 = new misile({ 800, 380, 50, 30 },"left");
 		cannon = { *cannon1 };
 		mis = { *misile1 };
 
@@ -134,12 +134,12 @@ public:
 
 		cushions = { };
 
-		SDL_Rect blind1 = { 340,100,150,50 };
-		SDL_Rect blind2 = { 830,20,180,150 };
+		SDL_Rect blind1 = { 340,100,140,50 };
+		SDL_Rect blind2 = { 800,20,220,150 };
 
 		blinds = { blind1,blind2 };
 
-		goal = { { 1200,620,50,80 } };
+		goal = { { 1190,610,50,80 } };
 		start = { { 100,450,50,80 },{1130,360,50,80 } };
 		//start = { {600,200,50,80} };
 	}

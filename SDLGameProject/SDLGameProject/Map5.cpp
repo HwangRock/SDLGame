@@ -1,4 +1,4 @@
-#pragma once
+﻿#pragma once
 #include "SDL.h"
 #include "Stage.h"
 #include "Terrain.h"
@@ -77,9 +77,9 @@ public:
 		misile* misile1 = new misile({ 700, 500, 50, 30 },"left");
 
 		Terrain* cannon2 = new Terrain(600, 640, 50, 50);
-		misile* misile2 = new misile({ 650, 640, 50, 30 },"right");
+		misile* misile2 = new misile({ 650, 640, 50, 30 }, "right");
 		cannon = { *cannon1,*cannon2 };
-		mis = { misile1,misile2};
+		mis = { *misile1,*misile2 };
 
 		Terrain* bone1 = new Terrain(50, 450, 50, 30);
 		Terrain* bone2 = new Terrain(780, 610, 50, 30);
@@ -96,7 +96,7 @@ public:
 
 		liquid =
 		{
-			*choco1,*choco2
+			*choco1,* choco2
 		};
 
 		FadeFloor* fadefloor1 = new FadeFloor({ 200,640,87,25 });
@@ -114,7 +114,7 @@ public:
 
 		blinds = { blind1,blind2 };
 
-		goal = { { 1200,70,50,80 } };
+		goal = { { 1200,60,50,80 } };
 		start = { { 620,220,50,80 } };
 		//start = { {1110,300,50,80} };
 		//start = { 300,50,50,80 };

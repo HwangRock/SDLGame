@@ -1,24 +1,24 @@
 #pragma once
-
+         
 #include <iostream>
 #include <string>
 #include <vector>
 #include <windows.h>
 
-#include "SDL.h" 
+#include "SDL.h"     
 #include "SDL_ttf.h"
 #include "SDL_mixer.h"
-#include "SDL_image.h"
+#include "SDL_image.h" 
  
 //////////////////////////
 #include "math.h"  
 
 #include "Dog.h"
-#include "Cat.h"
+#include "Cat.h" 
 #include "Pet.h"
   
 #include "Terrain.h"
-#include "Button.h"
+#include "Button.h"    
 #include "LiquidWall.h"
 #include "ClimbWall.cpp"
 #include "FadeFloor.h"
@@ -39,8 +39,8 @@
 #include "DogAnimation.h"
 
 extern std::vector<Terrain> walls, cannon, fish, bone; 
-extern std::vector<Box> boxs;   
-extern std::vector<Button> buttons;
+extern std::vector<Box> boxs;    
+extern std::vector<Button> buttons;        
 extern std::vector<SDL_Rect> blinds;
 extern std::vector<LiquidWall>liquidWalls;
 extern std::vector<SDL_Rect>liquidAisles;         
@@ -58,7 +58,7 @@ extern std::vector<Key>keys;
 
 extern std::vector<SDL_Rect> goal;
 extern std::vector<SDL_Rect> start;
-
+        
  
 extern int chapterNum;
 extern int win_w, win_h; 
@@ -70,8 +70,8 @@ extern int score_fish;
 
  
   
-  
-class StageInterface : public PhaseInterface
+      
+class StageInterface : public PhaseInterface    
 {
 public:   
 	StageInterface();  
