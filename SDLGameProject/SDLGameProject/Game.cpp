@@ -45,7 +45,7 @@ void PlayingMusic() {
 		musOnOff = false;
 	}
 
-	else if (musOnOff == false && g_current_game_phase == PHASE_ENDING) { //엔딩 이후 인트로로 돌아갈 때 musOnOff = false 해줘야 함.
+	else if (musOnOff == false && g_current_game_phase == PHASE_FINISH) { //엔딩 이후 인트로로 돌아갈 때 musOnOff = false 해줘야 함.
 		Mix_FreeMusic(g_bgm);
 
 		g_bgm = Mix_LoadMUS("../Resources/ending_bgm.mp3");

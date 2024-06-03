@@ -60,6 +60,8 @@ void Finish::HandleEvents()
             else {
                 g_current_game_phase = PHASE_INTRO;
                 cnt = 0;
+                musOnOff = false;
+                phase1first = true;
                 UpdateSourceRectangle();
             }
             break;
