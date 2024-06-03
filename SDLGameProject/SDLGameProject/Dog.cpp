@@ -25,17 +25,29 @@ void Dog::Update(double timestep_s)
 	{
 		if (SDL_HasIntersection(&l.liquidPos, &pos))
 		{
-			if(nowInput == 1 || nowInput == 2){
-			Mix_PlayChannel(-1, liquidSound, 0);
-			}
+			if(nowInput == 1 || nowInput == 2){Mix_PlayChannel(-1, liquidSound, 0);	}
 
-			if (l.liquidClass == "milk") {
+			if (l.liquidClass == "milk") 
+			{
 				std::cout << "touch milk->die\n"; //종성: 게임 오버 화면 보기 위해 일부러 켜뒀습니다! 불편하신 분은 끄셔도 돼요!
-				isDead = true;
+				//isDead = true;
 			}
 		}
 	}
+	//swelling liquid
+	for (int i = 0; i < s_liquid.size(); i++)
+	{
+		if (SDL_HasIntersection(&s_liquid[i].nowPos, &pos))
+		{
+			if (nowInput == 1 || nowInput == 2) { Mix_PlayChannel(-1, liquidSound, 0); }
 
+			if (s_liquid[i].liquidClass == "milk") 
+			{
+				std::cout << "touch milk->die\n"; //종성: 게임 오버 화면 보기 위해 일부러 켜뒀습니다! 불편하신 분은 끄셔도 돼요!
+				//isDead = true;
+			}
+		}
+	}
 
 	//SNIFF////////////////////////////////////////////////////////////
 	if (blindOpacity_ != -1)
@@ -79,7 +91,7 @@ void Dog::Update(double timestep_s)
 
 	
 
-	//LIQUID////////////////////////////////////////////////////////////
+	//LIQUID WALL////////////////////////////////////////////////////////////
 	//same with normal 
 
 	for (int j = 0; j < liquidWalls.size(); j++)
@@ -96,6 +108,8 @@ void Dog::Update(double timestep_s)
 			BlockMoving(liquidAisles[j]);
 		}
 	}
+	
+
 
 	//GOAL//////////////////////////////////
 	isInGoal = false;

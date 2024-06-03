@@ -93,7 +93,7 @@ public:
 
 		Liquid* choco1 = new Liquid({ 388,245,872,24 }, "choco");
 		liquid = { *water1 , *milk1 , *choco1 };
-
+		s_liquid = {};
 
 
 

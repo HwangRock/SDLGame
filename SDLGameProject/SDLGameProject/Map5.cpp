@@ -93,11 +93,13 @@ public:
 
 		Liquid* choco1 = new Liquid({ 30,690,470,24 }, "choco");
 		Liquid* choco2 = new Liquid({ 330, 390, 570, 20 }, "choco");
-
 		liquid =
 		{
 			*choco1,* choco2
 		};
+		s_liquid = {};
+
+
 
 		FadeFloor* fadefloor1 = new FadeFloor({ 200,640,87,25 });
 		FadeFloor* fadefloor2 = new FadeFloor({ 50,640,87,25 });

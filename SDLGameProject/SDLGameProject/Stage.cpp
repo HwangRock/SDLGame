@@ -182,6 +182,11 @@ else {
 		fadefloors[i].Reset();
 	}
 
+	for (int i = 0; i < s_liquid.size(); i++)
+	{
+		s_liquid[i].Reset();
+	}
+
 }
 void StageInterface::Update()
 {
@@ -325,11 +330,17 @@ void StageInterface::Update()
 		}
 
 		//FADE FLOOR///////////////////////////////////////////////////////////
-		//---------------------------------------------------------------------------------------------------------------------------
 		for (int i = 0; i < fadefloors.size(); i++)
 		{
 			fadefloors[i].Update();
 		}
+		//SWELLING LIQUID/////////////////////////////////////////////////////
+		for (int i = 0; i < s_liquid.size(); i++)
+		{
+			s_liquid[i].Update();
+		}
+
+
 	}
 
 	// Cat
@@ -574,6 +585,56 @@ void StageInterface::Render()
 		SDL_RenderCopy(g_renderer, manyTexture, &boneRect, &b.pos);
 	}
 
+	// liquid
+	for (Liquid l : liquid)
+	{
+		//wall//////////////
+		SDL_SetRenderDrawColor(g_renderer, 39, 27, 18, 255);
+		SDL_RenderFillRect(g_renderer, &l.wallPos);
+		//SDL_RenderCopy(g_renderer, wallTexture, &wallRect, &l.wallPos);
+
+		//liquid///////////
+		if (l.liquidClass == "water")
+		{
+			SDL_RenderCopy(g_renderer, liquidTexture, &waterR, &l.liquidPos);
+		}
+		else if (l.liquidClass == "choco")
+		{
+			SDL_RenderCopy(g_renderer, liquidTexture, &chocoR, &l.liquidPos);
+		}
+		else if (l.liquidClass == "milk")
+		{
+			SDL_RenderCopy(g_renderer, liquidTexture, &milkR, &l.liquidPos);
+		}
+		else
+		{
+			std::cout << "there is no such liquid class\n";
+		}
+	}
+
+	//swelling liquid
+	for (SwellingLiquid sl : s_liquid)
+	{
+		if (sl.liquidClass == "water")
+		{
+			SDL_RenderCopy(g_renderer, liquidTexture, &waterR, &sl.nowPos);
+		}
+		else if (sl.liquidClass == "choco")
+		{
+			SDL_RenderCopy(g_renderer, liquidTexture, &chocoR, &sl.nowPos);
+		}
+		else if (sl.liquidClass == "milk")
+		{
+			SDL_RenderCopy(g_renderer, liquidTexture, &milkR, &sl.nowPos);
+		}
+		else
+		{
+			std::cout << "there is no such liquid class\n";
+		}
+	}
+
+
+
 	// Wall
 	for (Terrain wall : walls)
 	{
@@ -645,30 +706,7 @@ void StageInterface::Render()
 		}
 	}
 
-	// liquid
-	for (Liquid l : liquid)
-	{
-		SDL_SetRenderDrawColor(g_renderer, 39, 27, 18, 255);
-		SDL_RenderFillRect(g_renderer, &l.wallPos);
-		//SDL_RenderCopy(g_renderer, wallTexture, &wallRect, &l.wallPos);
-		
-		if (l.liquidClass == "water")
-		{
-			SDL_RenderCopy(g_renderer, liquidTexture, &waterR, &l.liquidPos);
-		}
-		else if (l.liquidClass == "choco")
-		{
-			SDL_RenderCopy(g_renderer, liquidTexture, &chocoR, &l.liquidPos);
-		}
-		else if (l.liquidClass == "milk")
-		{
-			SDL_RenderCopy(g_renderer, liquidTexture, &milkR, &l.liquidPos);
-		}
-		else
-		{
-			std::cout << "there is no such liquid class\n";
-		}
-	}
+	
 
 	// Blind
 	for (Blind bln : blinds)

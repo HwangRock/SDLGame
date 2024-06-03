@@ -30,6 +30,7 @@
 #include "misile.cpp" 
  
 #include "Liquid.cpp" 
+#include "SwellingLiquid.cpp"
 
 #include "Key.cpp" 
 
@@ -52,8 +53,8 @@ extern std::vector<misile>mis;
 extern std::vector<SDL_Rect> cat_animation;
 extern std::vector<SDL_Rect> dog_animation;
 
-extern std::vector<Liquid>liquid;
-
+extern std::vector<Liquid>liquid; 
+extern std::vector<SwellingLiquid> s_liquid;
 extern std::vector<Key>keys;
 
 extern std::vector<SDL_Rect> goal;

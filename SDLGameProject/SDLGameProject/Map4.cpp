@@ -180,6 +180,7 @@ public:
 			* choco8,
 			*milk1 ,
 			*water1};
+		s_liquid = {};
 
 		Cushion* cushion1 = new Cushion({ 900,500,100, 55 });
 		cushions = { *cushion1 };

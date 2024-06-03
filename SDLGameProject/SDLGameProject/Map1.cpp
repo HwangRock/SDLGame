@@ -90,7 +90,7 @@ public:
 		Liquid* milk2 = new Liquid({ 750,170,198,23 }, "milk");
 		Liquid* choco1 = new Liquid({ 550,683,300,35 }, "choco");
 		liquid = { *water1, *water2 , *milk1,*milk2 , *choco1 };
-
+		s_liquid = {};
 
 		goal = { {1100,80,50,100} };
 		start = { {50,610,50,80} };

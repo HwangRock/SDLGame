@@ -108,7 +108,7 @@ public:
 		Liquid* milk1 = new Liquid({ 120,568,305,25 }, "milk");
 		Liquid* milk2 = new Liquid({ 950,490,200,20 }, "milk");
 		liquid = { *milk1 , *milk2 };
-		
+		s_liquid = {};
 
 
 		start = { {100,30,50,70} };

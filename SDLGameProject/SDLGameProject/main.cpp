@@ -51,6 +51,7 @@ std::vector<SDL_Rect> dog_animation = {{142, 1011, 165, 198}, {142, 1011, 165, 1
 
 //liquid
 std::vector<Liquid>liquid = {};
+std::vector<SwellingLiquid>s_liquid = {};
 
 std::vector<Box> boxs = {};
 std::vector<Terrain> cannon = {};

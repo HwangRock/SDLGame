@@ -45,7 +45,7 @@ public:
 		Terrain* floor21 = new Terrain(650, 300, 400, 30);
 		Terrain* floor22 = new Terrain(850, 260, 50, 40);
 		Terrain* floor23 = new Terrain(870, 100, 100, 30);
-		Terrain* floor24 = new Terrain(30, 595, 190, 100);
+		//Terrain* floor24 = new Terrain(30, 595, 190, 100);
 
 		LiquidWall* lwall1 = new LiquidWall({ 650,250,170,30 }, "down");//up
 		LiquidWall* lwall2 = new LiquidWall({ 800,210,30,70 }, "down");//down
@@ -57,7 +57,7 @@ public:
 			*default1,*default2,*default3,*default4,
 			*floor1,*floor2,*floor3,*floor4,*floor5,*floor6,*floor7,*floor8,*floor9,*floor10,
 			*floor11,*floor12,*floor14,*floor15,*floor16,*floor17,*floor18,
-			*floor19,*floor20,*floor21,*floor22,*floor23,*floor24
+			*floor19,*floor20,*floor21,*floor22,*floor23
 		};
 
 		Button* btnA = new Button(1, 1,
@@ -112,21 +112,29 @@ public:
 
 		keys = {};
 
-		Liquid* water1 = new Liquid({ 30,570,190,27 }, "water");
+		//Liquid* water1 = new Liquid({ 30,570,190,27 }, "water");
 		Liquid* water2 = new Liquid({ 300,670,300,30 }, "water");
 
-		Liquid* milk1 = new Liquid({ 1080,470,170,27 }, "milk");
+		//Liquid* milk1 = new Liquid({ 1080,470,170,27 }, "milk");
 		Liquid* milk2 = new Liquid({ 700,650,150,50 }, "milk");
 		Liquid* milk3 = new Liquid({ 810,140,200,20 }, "milk");
 		Liquid* choco1 = new Liquid({ 900,680,100,20 }, "choco");
-
 		liquid =
 		{
-			*water1,*water2,*milk1,*milk2,*milk3,*choco1
+			*water2,*milk2,*milk3,*choco1
 		};
 
-		FadeFloor* fadefloor1 = new FadeFloor({ 30,450,70,25 });
-		FadeFloor* fadefloor2 = new FadeFloor({ 150,410,50,25 });
+
+		SwellingLiquid* sl1 = new SwellingLiquid(
+			{ 30,600,200,win_h-600-30}, {30,155,200,win_h-155-30}, "milk",4);
+		SwellingLiquid* sl2 = new SwellingLiquid(
+			{ 1075,480,175,25 }, {1075,155,175,350-5}, "water",16);
+		s_liquid = {*sl1,*sl2};
+
+
+
+		FadeFloor* fadefloor1 = new FadeFloor({ 30,450,50,25 });
+		FadeFloor* fadefloor2 = new FadeFloor({ 160,410,50,25 });
 		FadeFloor* fadefloor3 = new FadeFloor({ 50,340,50,25 });
 		FadeFloor* fadefloor4 = new FadeFloor({ 1200,360,50,25 });
 		FadeFloor* fadefloor5 = new FadeFloor({ 1080,275,50,25 });
