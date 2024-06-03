@@ -165,6 +165,7 @@ Pet::Update(double timestep_s)
 		if (SDL_HasIntersection(&pos, &keys[i].keyPos)&&keys[i].isCollected==false&&haveKey==false)
 		{
 			keys[i].isCollected = true;
+			Mix_PlayChannel(-1, keySound, 0);
 			haveKey = true;
 			std::cout << "we have key\n";
 		}
@@ -172,7 +173,8 @@ Pet::Update(double timestep_s)
 		{
 			if (keys[i].isCollected == true&&haveKey==true) 
 			{ 
-				keys[i].isLocked = false; 
+				keys[i].isLocked = false;
+				Mix_PlayChannel(-1, unlocked, 0);
 				haveKey = false;
 			}
 			else if (keys[i].isLocked == true) { BlockMoving(keys[i].lockPos); }

@@ -12,6 +12,8 @@ void ClearGame() {
 	Mix_FreeChunk(sniff);
 	Mix_FreeChunk(eatingSound);
 	Mix_FreeChunk(liquidSound);
+	Mix_FreeChunk(keySound);
+	Mix_FreeChunk(unlocked);
 }
 
 void PlayingMusic() {

@@ -127,6 +127,12 @@ StageInterface::StageInterface()
 	liquidSound = Mix_LoadWAV("../Resources/liquidSound3.wav");
 	Mix_VolumeChunk(liquidSound, 10);
 
+	keySound = Mix_LoadWAV("../Resources/keySound.wav");
+	Mix_VolumeChunk(liquidSound, 30);
+
+	unlocked = Mix_LoadWAV("../Resources/unlocked.wav");
+	Mix_VolumeChunk(liquidSound, 30);
+
 
 	////////////////////////////////////////////////////////////////////////////////////////
 

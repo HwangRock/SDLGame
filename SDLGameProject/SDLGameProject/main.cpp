@@ -83,6 +83,9 @@ Mix_Chunk* bark;
 Mix_Chunk* meow;
 Mix_Chunk* liquidSound;
 Mix_Chunk* eatingSound;
+Mix_Chunk* keySound;
+Mix_Chunk* unlocked;
+
 
 
 int score_bone;

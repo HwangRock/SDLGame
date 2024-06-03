@@ -42,6 +42,8 @@ extern Mix_Chunk* bark;
 extern Mix_Chunk* meow;
 extern Mix_Chunk* liquidSound;
 extern Mix_Chunk* eatingSound;
+extern Mix_Chunk* keySound;
+extern Mix_Chunk* unlocked;
 
 
 class PhaseInterface
