@@ -5,6 +5,9 @@
 #include "Button.h"
 #include <vector>
 
+const int modify = 15;
+const int modify2 = 10;
+
 class Map2 : public StageInterface
 {
 
@@ -23,7 +26,7 @@ public:
 
 		Terrain* floor5 = new Terrain(253, 520, 415, 20);
 		Terrain* floor6 = new Terrain(250, 400, 170, 15);
-		Terrain* floor7 = new Terrain(851, 417, 445, 15);
+		Terrain* floor7 = new Terrain(851, 417-modify, 445, 15);
 		Terrain* floor8 = new Terrain(843, 264, 445, 14);
 
 		Terrain* floor9 = new Terrain(178, 208, 210, 70);
@@ -45,7 +48,7 @@ public:
 		Terrain* default3 = new Terrain(0, 0, 20, 720); 
 		Terrain* default4 = new Terrain(1260, 0, 20, 720);
 
-		Terrain* liquid1 = new Terrain(388, 320, 450, 20);
+		Terrain* liquid1 = new Terrain(388, 320+ modify2, 450, 20);
 		Terrain* liquid2 = new Terrain(388, 258, 455, 20);
 
 		walls =
@@ -69,7 +72,7 @@ public:
 
 		//Button
 		Button* btn1 = new Button(1, 1,
-			{ {win_w-50, 400,20,20} },
+			{ {win_w-50, 400-modify,20,20} },
 			{ { 100, 450,25,80 } },
 			{ { 100, 350,25,80 } },
 			{ { 100, 450,25,80 } });
@@ -81,7 +84,7 @@ public:
 		buttons = { *btn1,*btn2 };
 
 
-		ClimbWall* cwall1 = new ClimbWall({ 828,416,25,150 });
+		ClimbWall* cwall1 = new ClimbWall({ 828,416- modify,25,150+ modify });
 		ClimbWall* cwall2 = new ClimbWall({ 1250,20,19,259 });
 		climbWalls = { *cwall1,*cwall2 };
 
@@ -89,7 +92,7 @@ public:
 
 		Liquid* water1 = new Liquid({ 490,700,574,25 }, "water");
 
-		Liquid* milk1 = new Liquid({ 849,412,363,20 }, "milk");
+		Liquid* milk1 = new Liquid({ 849,412- modify,363,20 }, "milk");
 
 		Liquid* choco1 = new Liquid({ 388,245,872,24 }, "choco");
 		liquid = { *water1 , *milk1 , *choco1 };
@@ -103,7 +106,7 @@ public:
 		liquidWalls = {  };
 		liquidAisles = { };
 
-		Key* key = new Key({ 44,493,25,25 }, { 390,280,30,30 });
+		Key* key = new Key({ 44,493,25,25 }, { 390,278,30,42+modify2 });
 		keys = {*key};
 		//keys = {};
 

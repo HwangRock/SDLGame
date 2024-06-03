@@ -39,7 +39,7 @@
 #include "CatAnimation.h"
 #include "DogAnimation.h"
 
-extern std::vector<Terrain> walls, cannon, fish, bone; ///////////
+extern std::vector<Terrain> walls, cannon, fish, bone; ///////////////////
 extern std::vector<Box> boxs;    
 extern std::vector<Button> buttons;        
 extern std::vector<Blind> blinds;
@@ -65,6 +65,7 @@ extern int chapterNum;
 extern int win_w, win_h; 
 extern SDL_Texture* blindTexture;
 extern SDL_Texture *manyTexture;
+extern SDL_Texture* many2Texture;
 
 extern int score_bone;
 extern int score_fish;

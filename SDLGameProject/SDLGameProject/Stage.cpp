@@ -93,7 +93,6 @@ StageInterface::StageInterface()
 	goalRect = { 152,2850,154,207 };
 
 	keyRect = { 1532,2213,83,110};
-	lockRect = { 1774,2222,60,80 };
 	cushionRect = { 1049,2301,160,76 };
 	fadefloorRect = { 1923,2222,215,90 };
 	dogRect = { 150,1010,153,193 };
@@ -103,6 +102,13 @@ StageInterface::StageInterface()
 	dogPushRect = { 119,1941,132,179 };
 	catDieRect = { 580,770,187,222 };
 	dogDieRect = { 342,1537,218,144 };
+
+	SDL_Surface* texture2 = IMG_Load("../Resources/many_2.png");
+	many2Texture = SDL_CreateTextureFromSurface(g_renderer, texture2);
+	SDL_FreeSurface(texture2);
+
+	lockRect = { 1766,2155,80,214 };
+
 
 	//restart
 	SDL_Surface* rebox = IMG_Load("../Resources/many.png");
@@ -149,6 +155,7 @@ StageInterface::~StageInterface()
 	SDL_DestroyTexture(goalTexture);
 	SDL_DestroyTexture(scaffoldTexture);
 	SDL_DestroyTexture(manyTexture);
+	SDL_DestroyTexture(many2Texture);
 	SDL_DestroyTexture(liquidTexture);
 
 	SDL_DestroyTexture(reTexture);
@@ -683,7 +690,7 @@ void StageInterface::Render()
 	{
 		if (key.isLocked == true)
 		{
-			SDL_RenderCopy(g_renderer, manyTexture, &lockRect, &key.lockPos);
+			SDL_RenderCopy(g_renderer, many2Texture, &lockRect, &key.lockPos);
 		}
 		if (key.isCollected == false)
 		{
