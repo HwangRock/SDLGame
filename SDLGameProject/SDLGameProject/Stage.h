@@ -10,7 +10,7 @@
 #include "SDL_mixer.h"
 #include "SDL_image.h" 
  
-////////////////////////////
+////////////////////
 #include "math.h"  
 
 #include "Dog.h"
@@ -39,7 +39,7 @@
 #include "CatAnimation.h"
 #include "DogAnimation.h"
 
-extern std::vector<Terrain> walls, cannon, fish, bone; ///////////////////////
+extern std::vector<Terrain> walls, cannon, fish, bone; 
 extern std::vector<Box> boxs;    
 extern std::vector<Button> buttons;        
 extern std::vector<Blind> blinds;

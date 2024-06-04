@@ -104,8 +104,14 @@ public:
         cannon = { };
         mis = {};
 
-        bone = {};
-        fish = {};
+        Terrain* fish1 = new Terrain(143, 41, 30, 30);
+        Terrain* fish2 = new Terrain(760, 640, 30, 30);
+
+        Terrain* bone1 = new Terrain(620, 640, 30, 30);
+        Terrain* bone2 = new Terrain(810, 130, 30, 30);
+        bone = { *bone1,*bone2 };
+        fish = { *fish1,*fish2 };
+
         keys = {};
         fadefloors = {};
         cushions = {};

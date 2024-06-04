@@ -75,10 +75,10 @@ StageInterface::StageInterface()
 	blindRect = { 576,2676,206,116 };
 
 	//Climb Wall
-	SDL_Surface* surface_cwall = IMG_Load("../Resources/many.png");
+	SDL_Surface* surface_cwall = IMG_Load("../Resources/scratch.jpg");
 	cwallTexture = SDL_CreateTextureFromSurface(g_renderer, surface_cwall);
 	SDL_FreeSurface(surface_cwall);
-	cwallRect = { 1257,3315,195,191 };
+	cwallRect = { 279,398,204, 909 };
 
 	//Goal
 	SDL_Surface* surface_goal = IMG_Load("../Resources/ending.png");
@@ -511,7 +511,8 @@ void StageInterface::Render()
 	for (LiquidWall wall : liquidWalls)
 	{
 
-		SDL_SetRenderDrawColor(g_renderer, 39, 27, 18, 255);
+		//SDL_SetRenderDrawColor(g_renderer, 39, 27, 18, 255);
+		SDL_SetRenderDrawColor(g_renderer, 156, 122, 52, 255);
 		SDL_RenderFillRect(g_renderer, &wall.pos_);
 		//SDL_RenderCopy(g_renderer, wallTexture, &wallRect, &wall.pos_);
 	}
@@ -618,7 +619,8 @@ void StageInterface::Render()
 	for (Liquid l : liquid)
 	{
 		//wall//////////////
-		SDL_SetRenderDrawColor(g_renderer, 39, 27, 18, 255);
+		//SDL_SetRenderDrawColor(g_renderer, 39, 27, 18, 255);
+		SDL_SetRenderDrawColor(g_renderer, 156, 122, 52, 255);
 		SDL_RenderFillRect(g_renderer, &l.wallPos);
 		//SDL_RenderCopy(g_renderer, wallTexture, &wallRect, &l.wallPos);
 
@@ -679,7 +681,10 @@ void StageInterface::Render()
 			}
 		}
 		//yellow
-		SDL_SetRenderDrawColor(g_renderer, 225, 154, 17, 255);
+		//SDL_SetRenderDrawColor(g_renderer, 225, 154, 17, 255);
+
+		//orange
+		SDL_SetRenderDrawColor(g_renderer, 225, 114, 1, 255);
 		for (int i = 0; i < btn.scaffold_.size(); i++)
 		{
 			// Button connected scaffolds
@@ -692,7 +697,8 @@ void StageInterface::Render()
 	// Wall
 	for (Terrain wall : walls)
 	{
-		SDL_SetRenderDrawColor(g_renderer, 39, 27, 18, 255);
+		//SDL_SetRenderDrawColor(g_renderer, 39, 27, 18, 255);
+		SDL_SetRenderDrawColor(g_renderer, 156, 122, 52, 255);
 		SDL_RenderFillRect(g_renderer, &wall.pos);
 		//SDL_RenderCopy(g_renderer, wallTexture, &wallRect, &wall.pos);
 	}
