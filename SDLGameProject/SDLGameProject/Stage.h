@@ -10,7 +10,7 @@
 #include "SDL_mixer.h"
 #include "SDL_image.h" 
  
-//////////////////////////
+////////////////////////////
 #include "math.h"  
 
 #include "Dog.h"
@@ -69,6 +69,10 @@ extern SDL_Texture* many2Texture;
 
 extern int score_bone;
 extern int score_fish;
+
+extern SDL_Texture* mapbg;
+extern SDL_Rect mapSrect[3];
+extern SDL_Rect mapDrect;
 
  
   

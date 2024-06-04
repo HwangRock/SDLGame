@@ -27,6 +27,18 @@ StageInterface::StageInterface()
 
 
 	//Drawing Texture//////////////////////////////////////////////////////////////////
+	 
+	//bg image
+	SDL_Surface* surface_bg = IMG_Load("../Resources/mapbg.png");
+	mapbg = SDL_CreateTextureFromSurface(g_renderer, surface_bg);
+	SDL_FreeSurface(surface_bg);
+
+	mapSrect[0] = {0, 0, 2944, 1632};
+	mapSrect[1] = {0, 1632, 2944, 1632};
+	mapSrect[2] = { 0, 3264, 2944, 1632 };
+
+	mapDrect = {0, 0, 1280, 720};
+	
 	//Wall
 	SDL_Surface* surface_wall = IMG_Load("../Resources/many.png");
 	wallTexture = SDL_CreateTextureFromSurface(g_renderer, surface_wall);
@@ -492,6 +504,8 @@ void StageInterface::Render()
 	// Background
 	SDL_SetRenderDrawColor(g_renderer, 229, 221, 192, 255);
 	SDL_RenderClear(g_renderer); // clear the renderer to the draw color
+
+	SDL_RenderCopy(g_renderer, mapbg, &mapSrect[(g_pre_game_phase - 1)%3], &mapDrect);
 
 	// LiquidWall
 	for (LiquidWall wall : liquidWalls)

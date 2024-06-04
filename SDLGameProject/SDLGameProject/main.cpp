@@ -72,6 +72,12 @@ std::vector <SDL_Rect> start = {};
 int chapterNum;
 int win_w, win_h;
 
+//map bg image
+SDL_Texture* mapbg;
+SDL_Rect mapSrect[3];
+SDL_Rect mapDrect;
+
+
 
 //Music
 Mix_Music* g_bgm;
