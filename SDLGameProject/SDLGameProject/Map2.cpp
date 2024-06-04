@@ -25,10 +25,9 @@ public:
 		Terrain* floor4 = new Terrain(20, 450, 85, 22);
 
 		Terrain* floor5 = new Terrain(253, 520, 415, 20);
-		Terrain* floor6 = new Terrain(250, 400, 170, 15);
 		Terrain* floor8 = new Terrain(843, 264, 445, 14);
 
-		Terrain* floor9 = new Terrain(178, 208, 210, 70);
+		Terrain* floor9 = new Terrain(177, 208, 211, 70);
 		Terrain* floor10 = new Terrain(20, 370, 40, 15);
 		Terrain* extra1 = new Terrain(150, 300, 40, 15);
 		Terrain* extra2 = new Terrain(20, 250, 40, 15);
@@ -40,6 +39,7 @@ public:
 		Terrain* floor15 = new Terrain(1068, 93, 95, 20);
 		Terrain* floor16 = new Terrain(25, 100, 765, 20);
 		Terrain* floor18 = new Terrain(832, 415, 21, 151);
+		Terrain* floor19 = new Terrain(177,278,1092,38);
 
 		Terrain* default1 = new Terrain(win_w - 26, 0, 35, 720);
 		Terrain* default2 = new Terrain(0, 0, 1280, 20);
@@ -55,15 +55,14 @@ public:
 		Terrain* f2 = new Terrain(850, 402, 53, 40);
 		Terrain* f3 = new Terrain(901, 414, 316, 28);
 
-		Terrain* liquid1 = new Terrain(388, 320 + modify2, 450, 20);
 		Terrain* liquid2 = new Terrain(388, 258, 455, 20);
 
 		walls =
 		{
-			*floor1,*floor2,*floor3,*floor4,*floor5,*floor6,*floor8,*floor9,
-			*floor10,*floor11,*floor12,*floor13,*floor14,*floor15,*floor16,*floor18,
+			*floor1,*floor2,*floor3,*floor4,*floor5,*floor8,*floor9,
+			*floor10,*floor11,*floor12,*floor13,*floor14,*floor15,*floor16,*floor18,* floor19,
 			*default2,*default3,*default4,*default5,*default6,*default1,
-			*liquid1,*liquid2, *extra1,*extra2, *f1,*f2,*f3
+			*liquid2, *extra1,*extra2, *f1,*f2,*f3
 		};
 
 
@@ -85,9 +84,9 @@ public:
 			{ { 100, 450,25,80 } });
 		Button* btn2 = new Button(1, 1,
 			{ { 1100, 75,20,20 } },
-			{ { 973, 93,100,20 } },
-			{ { 973, 210,100,20 } },
-			{ { 973, 93,100,20 } });
+			{ { 852,93,220,20 } },
+			{ { 852, 210,220,20 } },
+			{ { 852, 93,220,20 } });
 		buttons = { *btn1,*btn2 };
 
 
@@ -112,7 +111,7 @@ public:
 		liquidWalls = {  };
 		liquidAisles = { };
 
-		Key* key = new Key({ 44,493,25,25 }, { 390,278,30,42+modify2 });
+		Key* key = new Key({ 44,493,25,25 }, { 178,120,41,88 });
 		keys = {*key};
 		//keys = {};
 
