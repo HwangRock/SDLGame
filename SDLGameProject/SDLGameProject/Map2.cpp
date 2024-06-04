@@ -29,7 +29,7 @@ public:
 
 		Terrain* floor9 = new Terrain(177, 208, 211, 70);
 		Terrain* floor10 = new Terrain(20, 370, 40, 20);
-		Terrain* extra1 = new Terrain(150, 300, 40, 20);
+		Terrain* extra1 = new Terrain(150, 296, 40, 20);
 		Terrain* extra2 = new Terrain(20, 250, 40, 20);
 		Terrain* floor11 = new Terrain(468, 230, 35, 35);
 		Terrain* floor12 = new Terrain(617, 230, 100, 35);
@@ -80,10 +80,19 @@ public:
 		Box* box1 = new Box({ 540, 410, 50, 50 });
 		boxs = { *box1 };
 
+		Terrain* fish1 = new Terrain(850, 346, 30, 30);
+		Terrain* fish2 = new Terrain(1212, 215, 30, 30);
+		Terrain* fish3 = new Terrain(498, 45, 30, 30);
+
+		Terrain* bone1 = new Terrain(549, 331, 30, 30);
+		Terrain* bone2 = new Terrain(1212, 28, 30, 30);
+		Terrain* bone3 = new Terrain(337, 45, 30, 30);
+
+		bone = { *bone1,*bone2,*bone3 };
+		fish = { *fish1,*fish2,*fish3 };
+
 		cannon = { };
 		mis = {};
-		bone = {};
-		fish = {};
 		fadefloors = {};
 		cushions = {};
 
@@ -141,8 +150,8 @@ public:
 		//keys = {};
 
 		goal = { {50,35,50,70} };
-		//start = { {1200,625,50,80} };
-		start = { {600,50,50,80} };//test
+		start = { {1200,625,50,80} };
+		//start = { {600,50,50,80} };//test
 	}
 protected:
 

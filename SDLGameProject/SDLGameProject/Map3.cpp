@@ -20,7 +20,7 @@ public:
         Terrain* floor2 = new Terrain(0, 200, 400, 50);
         Terrain* floor3 = new Terrain(400, 125, 100, 25);
         Terrain* floor4 = new Terrain(400, 225, 100, 25);
-        Terrain* floor5 = new Terrain(650, 175, 200, 25);
+        Terrain* floor5 = new Terrain(749,173,102,25);
         Terrain* floor6 = new Terrain(0, 350, 250, 25);
         Terrain* floor7 = new Terrain(400, 350, win_w - 400, 25);
         Terrain* floor8 = new Terrain(950, 375, win_w - 950, 50);
@@ -34,7 +34,6 @@ public:
         Terrain* floor12 = new Terrain(450, 575, 165, 65);
         Terrain* floor13 = new Terrain(675, 575, win_w - 675, win_h - 575);
 
-        // 새로 배치
         Terrain* block1 = new Terrain(116, 598, 318, 27);
         Terrain* block2 = new Terrain(15, 575, 103, 50);
         Terrain* block3 = new Terrain(426, 575, 204, 50);
@@ -69,8 +68,8 @@ public:
         );
         Button* btnC = new Button(1, 1,
             { {600,670,25,25} },
-            { {100,500,200,25} },
-            { {100,550,200,25} },
+            { {117,589,200,25} }, 
+            { {117,498,200,25} }, 
             { {100,550,200,25} }
         );
         buttons = { *btnA,*btnB,*btnC };
@@ -100,12 +99,13 @@ public:
 
         Terrain* fish1 = new Terrain(250, 160, 30, 30);
         Terrain* fish2 = new Terrain(710, 520, 30, 30);
+        Terrain* fish3 = new Terrain(684,123, 30, 30);
 
         Terrain* bone1 = new Terrain(60, 300, 30, 30);
         Terrain* bone2 = new Terrain(1020, 530, 30, 30);
 
         bone = { *bone1,*bone2 };
-        fish = { *fish1,*fish2 };
+        fish = { *fish1,*fish2,*fish3 };
         boxs = {};
         fadefloors = {};
         cushions = {};
@@ -117,9 +117,11 @@ public:
 
         Liquid* milk1 = new Liquid({ 118,575,310,25 }, "milk");
         Liquid* milk2 = new Liquid({ 950,483,200,20 }, "milk");
+        Liquid* milk3 = new Liquid({ 651,173,99,25 }, "milk");
 
         Liquid* water1 = new Liquid({ 540,475,130,25 }, "water");
-        liquid = { *choco1, *milk1 , *milk2,*water1 };
+        Liquid* water2 = new Liquid({ 399,101,101,25 }, "water");
+        liquid = { *choco1, *milk1 , *milk2,*water1,*water2,*milk3 };
         s_liquid = {};
 
 
