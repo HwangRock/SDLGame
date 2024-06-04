@@ -49,6 +49,16 @@ void Dog::Update(double timestep_s)
 		}
 	}
 
+
+	//CLIMB WALL///////////////////////////////////////////////////////
+	for (int i = 0; i < climbWalls.size(); i++)
+	{
+		if (SDL_HasIntersection(&climbWalls[i].wall_pos, &pos))
+		{
+			BlockMoving(climbWalls[i].wall_pos);
+		}
+	}
+
 	//SNIFF////////////////////////////////////////////////////////////
 	if (blindOpacity_ != -1)
 	{

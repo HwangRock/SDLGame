@@ -83,6 +83,7 @@ void ESC::HandleEvents()
 					g_pre_game_phase = PHASE_STAGE1;
 					chapterNum = 0;
 					phase1first = true;
+					isFirst = true;
 				}
 
 

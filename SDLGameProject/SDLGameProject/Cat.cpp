@@ -20,18 +20,28 @@ void Cat::Update(double timestep_s)
 		if (SDL_HasIntersection(&pos, &climbWalls[k].wall_pos))
 		{
 			BlockMoving(climbWalls[k].wall_pos);
-			isClimbWall = true;
+			if (pos.y <= climbWalls[k].wall_pos.y + climbWalls[k].wall_pos.h - 1&&
+				pos.y+pos.h>= climbWalls[k].wall_pos.y+1)
+			{
+				isClimbWall = true;
+			}
+			else
+			{
+				std::cout << "climb wall out of boundary\n";
+			}
 		}
+		/*
 		if (pos.x + pos.w < climbWalls[k].wall_pos.x || pos.x > climbWalls[k].wall_pos.x + climbWalls[k].wall_pos.w ||
 			pos.y + pos.h < climbWalls[k].wall_pos.y || pos.y > climbWalls[k].wall_pos.y + climbWalls[k].wall_pos.h) {
 			isClimbWall == false;
 		}
 		else if (pos.y + pos.h == climbWalls[k].wall_pos.y) { isClimbWall == false; }
 		else { isClimbWall = true; }
+		*/
 	}
 
-	if (isClimbWall == true) { v[1] += -0.098f; } //0.098f
-	else { v[1] += gravity; }
+	if (isClimbWall == true) { v[1] -= gravity; } //0.098f
+	else if(v[1] <= 6.5) { v[1] += gravity; }
 
 	//UPDATE///////////////////////////////////////////////////
 	Pet::Update(timestep_s);

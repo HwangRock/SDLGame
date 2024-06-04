@@ -2,6 +2,8 @@
 #include "SDL.h"
 #include "Game.h"
 
+extern bool isFirst;
+
 class ESC : public PhaseInterface
 {
 public:

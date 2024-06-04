@@ -53,14 +53,14 @@ extern std::vector<misile>mis;
 extern std::vector<SDL_Rect> cat_animation;
 extern std::vector<SDL_Rect> dog_animation;
 
-extern std::vector<Liquid>liquid; 
+extern std::vector<Liquid>liquid;
 extern std::vector<SwellingLiquid> s_liquid;
 extern std::vector<Key>keys;
 
 extern std::vector<SDL_Rect> goal;
 extern std::vector<SDL_Rect> start;
-        
- 
+
+  
 extern int chapterNum;
 extern int win_w, win_h; 
 extern SDL_Texture* blindTexture;
@@ -74,8 +74,7 @@ extern SDL_Texture* mapbg;
 extern SDL_Rect mapSrect[3];
 extern SDL_Rect mapDrect;
 
- 
-  
+extern bool isFirst; 
       
 class StageInterface : public PhaseInterface    
 {
@@ -121,7 +120,7 @@ private:
 	SDL_Rect lockRect;
 
 	
-
+	 
 	 
 	SDL_Rect dogPushRect;
 	SDL_Rect scaffoldRect; 
@@ -149,7 +148,7 @@ private:
 
 	  
 	  
-	//
+	 
 	//Pets
 	//Pet* dog = new Pet(700, 100, true);
 	//Pet* cat = new Pet(600, 1 00, false);
@@ -166,7 +165,7 @@ private:
 	// gravity 
 	float gravity = 0.098f; 
 
-	bool isFirst;
+	
 	 
 }; 
 

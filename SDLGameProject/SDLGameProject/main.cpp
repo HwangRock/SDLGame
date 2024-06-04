@@ -71,6 +71,8 @@ std::vector <SDL_Rect> goal = {};
 std::vector <SDL_Rect> start = {};
 int chapterNum;
 int win_w, win_h;
+bool isFirst;
+
 
 //map bg image
 SDL_Texture* mapbg;

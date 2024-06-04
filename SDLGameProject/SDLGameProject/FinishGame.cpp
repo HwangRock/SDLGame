@@ -58,10 +58,13 @@ void Finish::HandleEvents()
                 UpdateSourceRectangle();
             }
             else {
-                g_current_game_phase = PHASE_INTRO;
+                chapterNum = 0;
                 cnt = 0;
                 musOnOff = false;
                 phase1first = true;
+
+                g_current_game_phase = PHASE_INTRO; 
+                g_pre_game_phase = PHASE_STAGE1;
                 UpdateSourceRectangle();
             }
             break;
