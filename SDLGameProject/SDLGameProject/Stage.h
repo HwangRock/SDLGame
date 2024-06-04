@@ -107,6 +107,10 @@ private:
 	SDL_Texture* scaffoldTexture;
 	SDL_Texture* reTexture;
 
+	SDL_Texture* curtainTexture;
+             
+
+
 	SDL_Texture* picturesTexture;
 	std::vector<SDL_Rect> picturesRect;
 

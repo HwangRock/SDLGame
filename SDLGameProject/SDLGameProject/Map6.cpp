@@ -130,7 +130,8 @@ public:
 
 		Blind* b1 = new Blind({ 340,100,200,75 }, 3);
 		Blind* b2 = new Blind({ 800,20,240,170 }, 0);
-		blinds = { *b1,*b2 };
+		Blind* b3 = new Blind({ 700,200,370,150 }, 7);
+		blinds = { *b1,*b2,*b3 };
 
 
 		Box* box1 = new Box({ 300, 500, 50, 50 });

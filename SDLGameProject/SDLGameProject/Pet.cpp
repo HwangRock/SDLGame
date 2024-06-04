@@ -44,6 +44,23 @@ Pet::Reset()
 	isPressCushion = -1;
 }
 
+double Distance(SDL_Rect pet, SDL_Rect circle)
+{
+	// pet의 중점
+	int centerAx = pet.x + pet.w / 2;
+	int centerAy = pet.y + pet.h / 2;
+
+	// missile의 중점 계산
+	int centerBx = circle.x + circle.h / 2;
+	int centerBy = circle.y + circle.h / 2;
+
+	int dx = centerBx - centerAx;
+	int dy = centerBy - centerAy;
+
+	return std::sqrt(dx * dx + dy * dy);
+}
+
+
 
 void
 Pet::Update(double timestep_s)
@@ -91,7 +108,12 @@ Pet::Update(double timestep_s)
 	for (auto& missile : mis) {
 		if (SDL_HasIntersection(&missile.misile_pos, &pos))
 		{
-			isDead = true;
+			if (Distance(pos, missile.misile_pos) <= pos.h / 2 + 10)
+			{
+				//std::cout << "missile!!!!!!\n";
+				isDead = true;
+			}
+
 		}
 	}
 

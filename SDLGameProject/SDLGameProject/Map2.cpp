@@ -25,22 +25,31 @@ public:
 		Terrain* floor4 = new Terrain(20, 450, 85, 22);
 
 		Terrain* floor5 = new Terrain(253, 520, 415, 20);
-		Terrain* floor8 = new Terrain(843, 264, 445, 14);
+		Terrain* floor8 = new Terrain(843, 264, 445, 20);
 
 		Terrain* floor9 = new Terrain(177, 208, 211, 70);
-		Terrain* floor10 = new Terrain(20, 370, 40, 15);
-		Terrain* extra1 = new Terrain(150, 300, 40, 15);
-		Terrain* extra2 = new Terrain(20, 250, 40, 15);
+		Terrain* floor10 = new Terrain(20, 370, 40, 20);
+		Terrain* extra1 = new Terrain(150, 300, 40, 20);
+		Terrain* extra2 = new Terrain(20, 250, 40, 20);
 		Terrain* floor11 = new Terrain(468, 230, 35, 35);
 		Terrain* floor12 = new Terrain(617, 230, 100, 35);
 
 		Terrain* floor13 = new Terrain(825, 230, 70, 35);
 		Terrain* floor14 = new Terrain(1032, 230, 80, 35);
 		Terrain* floor15 = new Terrain(1068, 93, 95, 20);
-		Terrain* floor16 = new Terrain(25, 100, 765, 20);
-		Terrain* floor18 = new Terrain(832, 415, 21, 151);
-		Terrain* floor19 = new Terrain(177,278,1092,38);
 
+		//맨위의 goal있는 발판
+		Terrain* floor16_1 = new Terrain(25, 100, 115, 25);
+		Terrain* floor16_2 = new Terrain(250, 100, 50, 25);
+		Terrain* floor16_3 = new Terrain(410, 100, 50, 25);
+		Terrain* floor16_4 = new Terrain(570, 100, 225, 25);
+
+
+		Terrain* floor18 = new Terrain(832, 415, 21, 151);
+		Terrain* floor19 = new Terrain(177, 278, 1092, 38);
+
+
+		//DEFAULT
 		Terrain* default1 = new Terrain(win_w - 26, 0, 35, 720);
 		Terrain* default2 = new Terrain(0, 0, 1280, 20);
 		Terrain* default3 = new Terrain(0, 0, 25, 720);
@@ -60,7 +69,9 @@ public:
 		walls =
 		{
 			*floor1,*floor2,*floor3,*floor4,*floor5,*floor8,*floor9,
-			*floor10,*floor11,*floor12,*floor13,*floor14,*floor15,*floor16,*floor18,* floor19,
+			*floor10,*floor11,*floor12,*floor13,*floor14,*floor15,
+			*floor16_1,*floor16_2,*floor16_3,*floor16_4,
+			*floor18,*floor19,
 			*default2,*default3,*default4,*default5,*default6,*default1,
 			*liquid2, *extra1,*extra2, *f1,*f2,*f3
 		};
@@ -79,14 +90,14 @@ public:
 		//Button
 		Button* btn1 = new Button(1, 1,
 			{ {win_w - 50, 400 - modify,20,20} },
-			{ { 100, 450,25,80 } },
-			{ { 100, 350,25,80 } },
-			{ { 100, 450,25,80 } });
+			{ { 105, 450,25,90 } },
+			{ { 105, 380,25,90 } },
+			{ { 105, 450,25,90 } });
 		Button* btn2 = new Button(1, 1,
 			{ { 1100, 75,20,20 } },
-			{ { 852,93,220,20 } },
-			{ { 852, 210,220,20 } },
-			{ { 852, 93,220,20 } });
+			{ { 852,93,170,20 } },
+			{ { 852, 210,170,20 } },
+			{ { 852, 93,170,20 } });
 		buttons = { *btn1,*btn2 };
 
 
@@ -95,12 +106,26 @@ public:
 		climbWalls = { *cwall1,*cwall2 };
 
 
+		//맨 상단의 우유
+		Liquid* water0 = new Liquid({ 460,100,110,25 }, "water");
 
 		Liquid* water1 = new Liquid({ 490,700,574,25 }, "water");
+
 		Liquid* milk1 = new Liquid({ 899,402,325,22 }, "milk");
+		//맨 상단의 우유
+		Liquid* milk2 = new Liquid({ 300,100,110,25 }, "milk");
+
 
 		Liquid* choco1 = new Liquid({ 388,245,872,24 }, "choco");
-		liquid = { *water1 , *milk1 , *choco1 };
+
+		//맨 상단의 초코
+		Liquid* choco0 = new Liquid({ 140,100,125,25 }, "choco");
+
+
+		//밑에 왼쪽 초코
+		Liquid* choco2 = new Liquid({ 25,670,140,30 }, "choco");
+		Liquid* choco3 = new Liquid({ 200,670,80,30 }, "choco");
+		liquid = { *water0, *water1 , *milk1,*milk2 , *choco0 ,*choco1,*choco2,*choco3 };
 		s_liquid = {};
 
 
@@ -111,13 +136,13 @@ public:
 		liquidWalls = {  };
 		liquidAisles = { };
 
-		Key* key = new Key({ 44,493,25,25 }, { 178,120,41,88 });
-		keys = {*key};
+		Key* key = new Key({ 44,493,25,25 }, { 178,125,40,85 });
+		keys = { *key };
 		//keys = {};
 
-		goal = { {50,30,40,70} };
-		start = { {1200,620,50,80} };
-		//start = { {436,452,50,80} };//test
+		goal = { {50,35,50,70} };
+		//start = { {1200,625,50,80} };
+		start = { {600,50,50,80} };//test
 	}
 protected:
 

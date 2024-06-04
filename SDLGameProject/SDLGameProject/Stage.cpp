@@ -65,6 +65,12 @@ StageInterface::StageInterface()
 	picturesRect.push_back({ 0,138,169,212-138 });
 	picturesRect.push_back({ 188,139,263-188,211-139 });
 	picturesRect.push_back({ 289,124,401-289,210-124 });
+	
+	SDL_Surface* surface_curtain = IMG_Load("../Resources/curtain.png");
+	curtainTexture = SDL_CreateTextureFromSurface(g_renderer, surface_curtain);
+	SDL_FreeSurface(surface_curtain);
+	picturesRect.push_back({ 0,0,250,240 });
+	picturesRect.push_back({ 287,76,603-287,240-76 });
 
 
 	//Blind
@@ -745,12 +751,35 @@ void StageInterface::Render()
 	
 
 	// Blind
+	SDL_SetTextureBlendMode(picturesTexture, SDL_BLENDMODE_BLEND);
 	for (Blind bln : blinds)
 	{
-		SDL_SetTextureBlendMode(picturesTexture, SDL_BLENDMODE_BLEND);
-		SDL_SetTextureAlphaMod(picturesTexture, dog->blindOpacity_);
-		SDL_RenderCopy(g_renderer, picturesTexture, &picturesRect[bln.pictureNum%6], &bln.pos);
+		if (dog->isDead == true || cat->isDead == true)
+		{
+			if (SDL_HasIntersection(&bln.pos, &dog->pos) ||
+				SDL_HasIntersection(&bln.pos, &cat->pos))
+			{
+				SDL_SetTextureAlphaMod(picturesTexture, 70);
+				SDL_SetTextureAlphaMod(curtainTexture, 70);
+			}
+		}
+		else
+		{
+			SDL_SetTextureAlphaMod(picturesTexture, dog->blindOpacity_);
+			SDL_SetTextureAlphaMod(curtainTexture, dog->blindOpacity_);
+		}
+		if (bln.pictureNum <= 5)
+		{
+			SDL_RenderCopy(g_renderer, picturesTexture, &picturesRect[bln.pictureNum], &bln.pos);
+		}
+		else
+		{
+			SDL_RenderCopy(g_renderer, curtainTexture, &picturesRect[bln.pictureNum%8], &bln.pos);
+		}
+		SDL_SetTextureAlphaMod(picturesTexture, 255);
+		SDL_SetTextureAlphaMod(curtainTexture, 255);
 	}
+
 
 	// restart
 	SDL_RenderCopy(g_renderer, reTexture, &reRect, &reRect_des);
