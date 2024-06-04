@@ -31,13 +31,14 @@ public:
 
         Terrain* floor10 = new Terrain(950, 500, 200, 25);
 
-        Terrain* floor12 = new Terrain(450, 575, 165, 65);
+        Terrain* floor12 = new Terrain(450, 575, 165, 65);//Liquid wallÂÊ
         Terrain* floor13 = new Terrain(675, 575, win_w - 675, win_h - 575);
 
         Terrain* block1 = new Terrain(116, 598, 318, 27);
         Terrain* block2 = new Terrain(15, 575, 103, 50);
-        Terrain* block3 = new Terrain(426, 575, 204, 50);
+        Terrain* block3 = new Terrain(426, 575, 25, 50);
 
+        //default
         Terrain* default1 = new Terrain(0, 0, 30, win_h);
         Terrain* default2 = new Terrain(0, 0, win_w, 30);
         Terrain* default3 = new Terrain(win_w - 30, 0, 30, win_h);
@@ -62,25 +63,25 @@ public:
             { {1000,350,25,50} });
         Button* btnB = new Button(1, 2,
             { {1200,550,25,25} },
-            { {450,500,25,75},{1100,500,25,75} },
-            { {450,575,25,75},{1100,575,25,75} },
-            { {450,500,25,75},{1100,500,25,75} }
+            { {450,500,25,75},{1125,500,25,75} },
+            { {450,575,25,75},{1125,575,25,75} },
+            { {450,500,25,75},{1125,500,25,75} }
         );
         Button* btnC = new Button(1, 1,
             { {600,670,25,25} },
-            { {117,589,200,25} }, 
-            { {117,498,200,25} }, 
-            { {100,550,200,25} }
+            { {180,600,190,25} }, 
+            { {180,550,190,25} },
+            { {180,600,190,25} }
         );
-        buttons = { *btnA,*btnB,*btnC };
+        buttons = { *btnB,*btnC };
 
 
         Blind* blind1 = new Blind({ 400,50,100,100 }, 4);
         Blind* blind2 = new Blind({ 650,100,100,100 }, 5);
         blinds = { *blind1,*blind2 };
 
-        LiquidWall* lwallA = new LiquidWall({ 615,575,15,90 }, "right");
-        LiquidWall* lwallB = new LiquidWall({ 660,575,15,win_h - 575 }, "left");
+        LiquidWall* lwallA = new LiquidWall({ 615,575,15,90 }, "down");
+        LiquidWall* lwallB = new LiquidWall({ 660,575,15,win_h - 575 }, "down");
         LiquidWall* lwallC = new LiquidWall({ 450,640,165,25 }, "down");
 
         liquidWalls = { *lwallA,*lwallB,*lwallC };
@@ -120,13 +121,14 @@ public:
         Liquid* milk3 = new Liquid({ 651,173,99,25 }, "milk");
 
         Liquid* water1 = new Liquid({ 540,475,130,25 }, "water");
-        Liquid* water2 = new Liquid({ 399,101,101,25 }, "water");
-        liquid = { *choco1, *milk1 , *milk2,*water1,*water2,*milk3 };
+        //Liquid* water2 = new Liquid({ 399,101,101,25 }, "water");
+        liquid = { *choco1, *milk1 , *milk2,*water1,*milk3 };
         s_liquid = {};
 
 
         start = { {100,30,50,70} };
         goal = { {50,505,50,70},{50,623,50,70} };
+
 
     }
 protected:

@@ -63,7 +63,7 @@ std::vector<misile>mis = {};
 //Item
 std::vector<Key>keys = {};
 
-SDL_Texture* blindTexture;
+
 SDL_Texture *manyTexture;
 SDL_Texture* many2Texture;
 

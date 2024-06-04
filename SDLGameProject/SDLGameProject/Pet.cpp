@@ -128,7 +128,7 @@ Pet::Update(double timestep_s)
 		if (l.liquidClass == "choco" && SDL_HasIntersection(&l.liquidPos, &pos))
 		{
 			//std::cout << "touch choco->die\n";
-			//isDead = true;
+			isDead = true;
 		}
 	}
 	

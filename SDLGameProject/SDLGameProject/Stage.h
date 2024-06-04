@@ -63,7 +63,7 @@ extern std::vector<SDL_Rect> start;
   
 extern int chapterNum;
 extern int win_w, win_h; 
-extern SDL_Texture* blindTexture;
+
 extern SDL_Texture *manyTexture;
 extern SDL_Texture* many2Texture;
 
@@ -99,10 +99,9 @@ private:
 	SDL_Rect catRect;  
 
 
-	SDL_Texture* blindTexture;
 	SDL_Texture* wallTexture;
 	SDL_Texture* cwallTexture;
-
+ 
 	SDL_Texture* goalTexture;
 	SDL_Texture* scaffoldTexture;
 	SDL_Texture* reTexture;
@@ -133,10 +132,10 @@ private:
 	SDL_Rect wallRect;
 	SDL_Rect buttonRect;
 	SDL_Rect PushbuttonRect;
-	SDL_Rect blindRect;
+
 	 
 	SDL_Rect boxRect;
-	SDL_Rect cannonRect; 
+	SDL_Rect cannonRect;
 	SDL_Rect reRect;     
 	SDL_Rect lcannonRect;
 	SDL_Rect misileRect;

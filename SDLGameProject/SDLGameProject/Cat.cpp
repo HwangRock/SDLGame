@@ -58,7 +58,7 @@ void Cat::Update(double timestep_s)
 			if (l.liquidClass == "water") 
 			{
 				std::cout << "touch water->die\n";
-				//isDead = true;
+				isDead = true;
 			}
 
 		}
@@ -72,7 +72,7 @@ void Cat::Update(double timestep_s)
 			if (s_liquid[i].liquidClass == "water")
 			{
 				std::cout << "touch water->die\n";
-				//isDead = true;
+				isDead = true;
 			}
 		}
 	}

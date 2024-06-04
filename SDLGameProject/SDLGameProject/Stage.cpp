@@ -73,12 +73,6 @@ StageInterface::StageInterface()
 	picturesRect.push_back({ 287,76,603-287,240-76 });
 
 
-	//Blind
-	SDL_Surface* surface_blind = IMG_Load("../Resources/many.png");
-	SDL_SetSurfaceBlendMode(surface_blind, SDL_BLENDMODE_BLEND);
-	blindTexture = SDL_CreateTextureFromSurface(g_renderer, surface_blind);
-	SDL_FreeSurface(surface_blind);
-	blindRect = { 576,2676,206,116 };
 
 	//Climb Wall
 	SDL_Surface* surface_cwall = IMG_Load("../Resources/scratch.jpg");
@@ -174,7 +168,6 @@ StageInterface::~StageInterface()
 	SDL_DestroyTexture(goalTexture);
 	SDL_DestroyTexture(scaffoldTexture);
 
-	SDL_DestroyTexture(blindTexture);
 	SDL_DestroyTexture(manyTexture);
 	SDL_DestroyTexture(many2Texture);
 	SDL_DestroyTexture(liquidTexture);
@@ -624,6 +617,37 @@ void StageInterface::Render()
 		SDL_RenderCopy(g_renderer, manyTexture, &boneRect, &b.pos);
 	}
 
+	// Button
+	for (Button btn : buttons)
+	{
+
+
+		for (int i = 0; i < btn.buttonPos.size(); i++)
+		{
+			if (btn.isPressed)
+			{
+				SDL_RenderCopy(g_renderer, manyTexture, &PushbuttonRect, &btn.buttonPos[i]);
+			}
+			else
+			{
+				SDL_RenderCopy(g_renderer, manyTexture, &buttonRect, &btn.buttonPos[i]);
+			}
+		}
+		//yellow
+		//SDL_SetRenderDrawColor(g_renderer, 225, 154, 17, 255);
+
+		//orange
+		SDL_SetRenderDrawColor(g_renderer, 225, 114, 1, 255);
+		for (int i = 0; i < btn.scaffold_.size(); i++)
+		{
+			// Button connected scaffolds
+			SDL_RenderFillRect(g_renderer, &btn.scaffold_[i]);
+			//SDL_RenderCopy(g_renderer, scaffoldTexture, &scaffoldRect, &btn.scaffold_[i]);
+		}
+	}
+
+
+
 	// liquid
 	for (Liquid l : liquid)
 	{
@@ -640,8 +664,11 @@ void StageInterface::Render()
 		}
 		else if (l.liquidClass == "choco")
 		{
-			SDL_RenderCopy(g_renderer, liquidTexture, &chocoR, &l.liquidPos);
+			SDL_SetRenderDrawColor(g_renderer, 50, 29, 14, 255);
+			SDL_RenderFillRect(g_renderer, &l.liquidPos);
+			//SDL_RenderCopy(g_renderer, liquidTexture, &chocoR, &l.liquidPos);
 		}
+
 		else if (l.liquidClass == "milk")
 		{
 			SDL_RenderCopy(g_renderer, liquidTexture, &milkR, &l.liquidPos);
@@ -673,34 +700,7 @@ void StageInterface::Render()
 		}
 	}
 
-	// Button
-	for (Button btn : buttons)
-	{
-
-
-		for (int i = 0; i < btn.buttonPos.size(); i++)
-		{
-			if (btn.isPressed)
-			{
-				SDL_RenderCopy(g_renderer, manyTexture, &PushbuttonRect, &btn.buttonPos[i]);
-			}
-			else
-			{
-				SDL_RenderCopy(g_renderer, manyTexture, &buttonRect, &btn.buttonPos[i]);
-			}
-		}
-		//yellow
-		//SDL_SetRenderDrawColor(g_renderer, 225, 154, 17, 255);
-
-		//orange
-		SDL_SetRenderDrawColor(g_renderer, 225, 114, 1, 255);
-		for (int i = 0; i < btn.scaffold_.size(); i++)
-		{
-			// Button connected scaffolds
-			SDL_RenderFillRect(g_renderer, &btn.scaffold_[i]);
-			//SDL_RenderCopy(g_renderer, scaffoldTexture, &scaffoldRect, &btn.scaffold_[i]);
-		}
-	}
+	
 
 
 	// Wall

@@ -30,8 +30,8 @@ void Dog::Update(double timestep_s)
 
 			if (l.liquidClass == "milk") 
 			{
-				std::cout << "touch milk->die\n"; //종성: 게임 오버 화면 보기 위해 일부러 켜뒀습니다! 불편하신 분은 끄셔도 돼요!
-				//isDead = true;
+				//std::cout << "touch milk->die\n"; //종성: 게임 오버 화면 보기 위해 일부러 켜뒀습니다! 불편하신 분은 끄셔도 돼요!
+				isDead = true;
 			}
 		}
 	}
@@ -44,8 +44,8 @@ void Dog::Update(double timestep_s)
 
 			if (s_liquid[i].liquidClass == "milk") 
 			{
-				std::cout << "touch milk->die\n"; //종성: 게임 오버 화면 보기 위해 일부러 켜뒀습니다! 불편하신 분은 끄셔도 돼요!
-				//isDead = true;
+				//std::cout << "touch milk->die\n"; //종성: 게임 오버 화면 보기 위해 일부러 켜뒀습니다! 불편하신 분은 끄셔도 돼요!
+				isDead = true;
 			}
 		}
 	}
@@ -63,8 +63,6 @@ void Dog::Update(double timestep_s)
 	//SNIFF////////////////////////////////////////////////////////////
 	if (blindOpacity_ != -1)
 	{
-		SDL_SetTextureBlendMode(blindTexture, SDL_BLENDMODE_BLEND);
-		SDL_SetTextureAlphaMod(blindTexture, blindOpacity_);
 		if (blindOpacity_ == 0)
 		{
 			beBlurry_ = false;
