@@ -224,8 +224,6 @@ void StageInterface::Update()
 		Reset();
 		isFirst = false;
 	}
-
-
 	
 	//Reach the Goal//////////////////////////////////////////
 	if (cat->isInGoal == true && dog->isInGoal == true)

@@ -34,5 +34,6 @@ protected:
 	// dog skill variables
 	bool beBlurry_;
 	bool isSkill_;//
+	bool moving;
 	
 };

@@ -11,13 +11,15 @@ void Dog::Reset()
 	isSkill_ = true;
 	box_collide = false;
 	blindOpacity_ = -1;
-
+	moving = true;
 }
 
 void Dog::Update(double timestep_s)
 {
+	std::cout << blindOpacity_ << "\n";
+
 	if (v[1] <= 6.5) { v[1] += gravity; }
-	
+
 	Pet::Update(timestep_s);
 
 	//MILK////////////////////////////
@@ -74,17 +76,20 @@ void Dog::Update(double timestep_s)
 		{
 			//���������
 			blindOpacity_--;
+			moving = false;
 		}
 		else
 		{
 			//�Ƿ���������
 			blindOpacity_++;
+			moving = false;
 		}
 
 		//end skill
 		if (blindOpacity_ == 255)
 		{
 			blindOpacity_ = -1;
+			moving = true;
 		}
 	}
 
@@ -158,39 +163,40 @@ void Dog::HandleEvent(SDL_Event event)
 	switch (event.type)
 	{
 	case SDL_KEYDOWN:
-
-		if (event.key.keysym.sym == SDLK_LEFT)
+		if (moving)
 		{
-			keyDownNum = 1;
-			v[0] = -1.0f;
-		}
-		else if (event.key.keysym.sym == SDLK_RIGHT)
-		{
-			keyDownNum = 2;
-			v[0] = 1.0f;
-		}
-		else if (event.key.keysym.sym == SDLK_UP)
-		{
-			if (jumping == false)
+			if (event.key.keysym.sym == SDLK_LEFT)
 			{
-				v[1] = jumpSpeed();
-				Mix_PlayChannel(1, bark, 0);
-				jumping = true;
+				keyDownNum = 1;
+				v[0] = -1.0f;
+			}
+			else if (event.key.keysym.sym == SDLK_RIGHT)
+			{
+				keyDownNum = 2;
+				v[0] = 1.0f;
+			}
+			else if (event.key.keysym.sym == SDLK_UP)
+			{
+				if (jumping == false)
+				{
+					v[1] = jumpSpeed();
+					Mix_PlayChannel(1, bark, 0);
+					jumping = true;
+				}
+			}
+
+			if (event.key.keysym.sym == SDLK_RSHIFT)
+			{
+				if (isSkill_ == true)
+				{
+					//Use Sniffing Skill
+					std::cout << "sniff skill\n";
+					Mix_PlayChannel(-1, sniff, 0);
+					blindOpacity_ = 254;
+					isSkill_ = false;
+				}
 			}
 		}
-
-		if (event.key.keysym.sym == SDLK_RSHIFT)
-		{
-			if (isSkill_ == true)
-			{
-				//Use Sniffing Skill
-				std::cout << "sniff skill\n";
-				Mix_PlayChannel(-1, sniff, 0);
-				blindOpacity_ = 254;
-				isSkill_ = false;
-			}
-		}
-
 
 
 		if (keyDownNum != 0)
