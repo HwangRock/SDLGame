@@ -6,7 +6,7 @@ int cnt = 0;
 Finish::Finish()
 {
     // For Texture
-    SDL_Surface* temp_surface = IMG_Load("../Resources/finish.png");
+    SDL_Surface* temp_surface = IMG_Load("../Resources/endingtoon2.png");
     texture_ = SDL_CreateTextureFromSurface(g_renderer, temp_surface);
     SDL_FreeSurface(temp_surface);
 
@@ -53,7 +53,7 @@ void Finish::HandleEvents()
 
         case SDL_MOUSEBUTTONDOWN:
         case SDL_KEYDOWN:
-            if (cnt != 6) {
+            if (cnt != 4) {
                 cnt++;
                 UpdateSourceRectangle();
             }
@@ -63,7 +63,7 @@ void Finish::HandleEvents()
                 musOnOff = false;
                 phase1first = true;
 
-                g_current_game_phase = PHASE_INTRO; 
+                g_current_game_phase = PHASE_INTRO;
                 g_pre_game_phase = PHASE_STAGE1;
                 UpdateSourceRectangle();
             }
@@ -79,17 +79,16 @@ void Finish::UpdateSourceRectangle()
 {
     // Define an array of source rectangles
     SDL_Rect source_rects[] = {
-        {136, 182, 596, 335},
-        {756, 182, 596, 335},
-        {136, 588, 596, 335},
-        {756, 588, 596, 335},
-        {136, 1000, 596, 335},
-        {756, 1000, 596, 335},
-        {136, 1391, 596, 335}
+        {0, 0, 1280, 720},
+        {0, 720, 1280, 720},
+        {0, 1440, 1280, 720},
+        {0, 2160, 1280, 720},
+        {0, 2880, 1280, 720}
+
     };
 
     // Update the source rectangle based on the current count
     source_rectangle_ = source_rects[cnt];
 
-   
+
 }

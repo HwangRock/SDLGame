@@ -10,7 +10,7 @@
 #include "SDL_mixer.h"
 #include "SDL_image.h" 
  
-//////////////////////
+//////////////////////  
 #include "math.h"  
 
 #include "Dog.h"

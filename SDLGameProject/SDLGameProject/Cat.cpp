@@ -40,7 +40,7 @@ void Cat::Update(double timestep_s)
 		*/
 	}
 
-	if (isClimbWall == true) { v[1] -= gravity; } //0.098f
+	if (isClimbWall == true) { v[1] = -1.5f; } //0.098f
 	else if(v[1] <= 6.5) { v[1] += gravity; }
 
 	//UPDATE///////////////////////////////////////////////////
