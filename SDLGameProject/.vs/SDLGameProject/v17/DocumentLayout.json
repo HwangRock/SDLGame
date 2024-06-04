@@ -1,117 +1,117 @@
 {
   "Version": 1,
-  "WorkspaceRootPath": "C:\\Users\\peter\\Documents\\GitHub\\SDLGame\\SDLGameProject\\",
+  "WorkspaceRootPath": "C:\\Users\\zioba\\Documents\\GitHub\\SDLGame\\SDLGameProject\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{7F6EDB56-0C6B-4C79-9FD0-746A17FF184E}|SDLGameProject\\SDLGameProject.vcxproj|C:\\Users\\peter\\Documents\\GitHub\\SDLGame\\SDLGameProject\\SDLGameProject\\Stage.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "AbsoluteMoniker": "D:0:0:{7F6EDB56-0C6B-4C79-9FD0-746A17FF184E}|SDLGameProject\\SDLGameProject.vcxproj|C:\\Users\\zioba\\Documents\\GitHub\\SDLGame\\SDLGameProject\\SDLGameProject\\Stage.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
       "RelativeMoniker": "D:0:0:{7F6EDB56-0C6B-4C79-9FD0-746A17FF184E}|SDLGameProject\\SDLGameProject.vcxproj|solutionrelative:SDLGameProject\\Stage.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{7F6EDB56-0C6B-4C79-9FD0-746A17FF184E}|SDLGameProject\\SDLGameProject.vcxproj|C:\\Users\\peter\\Documents\\GitHub\\SDLGame\\SDLGameProject\\SDLGameProject\\Cat.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
-      "RelativeMoniker": "D:0:0:{7F6EDB56-0C6B-4C79-9FD0-746A17FF184E}|SDLGameProject\\SDLGameProject.vcxproj|solutionrelative:SDLGameProject\\Cat.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{7F6EDB56-0C6B-4C79-9FD0-746A17FF184E}|SDLGameProject\\SDLGameProject.vcxproj|C:\\Users\\peter\\Documents\\GitHub\\SDLGame\\SDLGameProject\\SDLGameProject\\FinishGame.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
-      "RelativeMoniker": "D:0:0:{7F6EDB56-0C6B-4C79-9FD0-746A17FF184E}|SDLGameProject\\SDLGameProject.vcxproj|solutionrelative:SDLGameProject\\FinishGame.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{7F6EDB56-0C6B-4C79-9FD0-746A17FF184E}|SDLGameProject\\SDLGameProject.vcxproj|C:\\Users\\peter\\Documents\\GitHub\\SDLGame\\SDLGameProject\\SDLGameProject\\Stage.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "AbsoluteMoniker": "D:0:0:{7F6EDB56-0C6B-4C79-9FD0-746A17FF184E}|SDLGameProject\\SDLGameProject.vcxproj|C:\\Users\\zioba\\Documents\\GitHub\\SDLGame\\SDLGameProject\\SDLGameProject\\Stage.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
       "RelativeMoniker": "D:0:0:{7F6EDB56-0C6B-4C79-9FD0-746A17FF184E}|SDLGameProject\\SDLGameProject.vcxproj|solutionrelative:SDLGameProject\\Stage.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{7F6EDB56-0C6B-4C79-9FD0-746A17FF184E}|SDLGameProject\\SDLGameProject.vcxproj|C:\\Users\\peter\\Documents\\GitHub\\SDLGame\\SDLGameProject\\SDLGameProject\\Map1.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
-      "RelativeMoniker": "D:0:0:{7F6EDB56-0C6B-4C79-9FD0-746A17FF184E}|SDLGameProject\\SDLGameProject.vcxproj|solutionrelative:SDLGameProject\\Map1.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{7F6EDB56-0C6B-4C79-9FD0-746A17FF184E}|SDLGameProject\\SDLGameProject.vcxproj|C:\\Users\\peter\\Documents\\GitHub\\SDLGame\\SDLGameProject\\SDLGameProject\\Main.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
-      "RelativeMoniker": "D:0:0:{7F6EDB56-0C6B-4C79-9FD0-746A17FF184E}|SDLGameProject\\SDLGameProject.vcxproj|solutionrelative:SDLGameProject\\Main.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{7F6EDB56-0C6B-4C79-9FD0-746A17FF184E}|SDLGameProject\\SDLGameProject.vcxproj|C:\\Users\\peter\\Documents\\GitHub\\SDLGame\\SDLGameProject\\SDLGameProject\\Button.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
-      "RelativeMoniker": "D:0:0:{7F6EDB56-0C6B-4C79-9FD0-746A17FF184E}|SDLGameProject\\SDLGameProject.vcxproj|solutionrelative:SDLGameProject\\Button.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{7F6EDB56-0C6B-4C79-9FD0-746A17FF184E}|SDLGameProject\\SDLGameProject.vcxproj|C:\\Users\\peter\\Documents\\GitHub\\SDLGame\\SDLGameProject\\SDLGameProject\\Button.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
-      "RelativeMoniker": "D:0:0:{7F6EDB56-0C6B-4C79-9FD0-746A17FF184E}|SDLGameProject\\SDLGameProject.vcxproj|solutionrelative:SDLGameProject\\Button.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{7F6EDB56-0C6B-4C79-9FD0-746A17FF184E}|SDLGameProject\\SDLGameProject.vcxproj|C:\\Users\\peter\\Documents\\GitHub\\SDLGame\\SDLGameProject\\SDLGameProject\\Map2.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
-      "RelativeMoniker": "D:0:0:{7F6EDB56-0C6B-4C79-9FD0-746A17FF184E}|SDLGameProject\\SDLGameProject.vcxproj|solutionrelative:SDLGameProject\\Map2.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{7F6EDB56-0C6B-4C79-9FD0-746A17FF184E}|SDLGameProject\\SDLGameProject.vcxproj|C:\\Users\\peter\\Documents\\GitHub\\SDLGame\\SDLGameProject\\SDLGameProject\\Pet.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
-      "RelativeMoniker": "D:0:0:{7F6EDB56-0C6B-4C79-9FD0-746A17FF184E}|SDLGameProject\\SDLGameProject.vcxproj|solutionrelative:SDLGameProject\\Pet.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{7F6EDB56-0C6B-4C79-9FD0-746A17FF184E}|SDLGameProject\\SDLGameProject.vcxproj|C:\\Users\\peter\\Documents\\GitHub\\SDLGame\\SDLGameProject\\SDLGameProject\\Key.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
-      "RelativeMoniker": "D:0:0:{7F6EDB56-0C6B-4C79-9FD0-746A17FF184E}|SDLGameProject\\SDLGameProject.vcxproj|solutionrelative:SDLGameProject\\Key.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{7F6EDB56-0C6B-4C79-9FD0-746A17FF184E}|SDLGameProject\\SDLGameProject.vcxproj|C:\\Users\\peter\\Documents\\GitHub\\SDLGame\\SDLGameProject\\SDLGameProject\\Game.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
-      "RelativeMoniker": "D:0:0:{7F6EDB56-0C6B-4C79-9FD0-746A17FF184E}|SDLGameProject\\SDLGameProject.vcxproj|solutionrelative:SDLGameProject\\Game.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{7F6EDB56-0C6B-4C79-9FD0-746A17FF184E}|SDLGameProject\\SDLGameProject.vcxproj|C:\\Users\\peter\\Documents\\GitHub\\SDLGame\\SDLGameProject\\SDLGameProject\\Game.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
-      "RelativeMoniker": "D:0:0:{7F6EDB56-0C6B-4C79-9FD0-746A17FF184E}|SDLGameProject\\SDLGameProject.vcxproj|solutionrelative:SDLGameProject\\Game.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{7F6EDB56-0C6B-4C79-9FD0-746A17FF184E}|SDLGameProject\\SDLGameProject.vcxproj|C:\\Users\\peter\\Documents\\GitHub\\SDLGame\\SDLGameProject\\SDLGameProject\\Liquid.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
-      "RelativeMoniker": "D:0:0:{7F6EDB56-0C6B-4C79-9FD0-746A17FF184E}|SDLGameProject\\SDLGameProject.vcxproj|solutionrelative:SDLGameProject\\Liquid.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{7F6EDB56-0C6B-4C79-9FD0-746A17FF184E}|SDLGameProject\\SDLGameProject.vcxproj|C:\\Users\\peter\\Documents\\GitHub\\SDLGame\\SDLGameProject\\SDLGameProject\\Map6.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
-      "RelativeMoniker": "D:0:0:{7F6EDB56-0C6B-4C79-9FD0-746A17FF184E}|SDLGameProject\\SDLGameProject.vcxproj|solutionrelative:SDLGameProject\\Map6.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{7F6EDB56-0C6B-4C79-9FD0-746A17FF184E}|SDLGameProject\\SDLGameProject.vcxproj|C:\\Users\\peter\\Documents\\GitHub\\SDLGame\\SDLGameProject\\SDLGameProject\\Map5.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
-      "RelativeMoniker": "D:0:0:{7F6EDB56-0C6B-4C79-9FD0-746A17FF184E}|SDLGameProject\\SDLGameProject.vcxproj|solutionrelative:SDLGameProject\\Map5.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{7F6EDB56-0C6B-4C79-9FD0-746A17FF184E}|SDLGameProject\\SDLGameProject.vcxproj|C:\\Users\\peter\\Documents\\GitHub\\SDLGame\\SDLGameProject\\SDLGameProject\\Map4.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
-      "RelativeMoniker": "D:0:0:{7F6EDB56-0C6B-4C79-9FD0-746A17FF184E}|SDLGameProject\\SDLGameProject.vcxproj|solutionrelative:SDLGameProject\\Map4.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{7F6EDB56-0C6B-4C79-9FD0-746A17FF184E}|SDLGameProject\\SDLGameProject.vcxproj|C:\\Users\\peter\\Documents\\GitHub\\SDLGame\\SDLGameProject\\SDLGameProject\\Map3.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "AbsoluteMoniker": "D:0:0:{7F6EDB56-0C6B-4C79-9FD0-746A17FF184E}|SDLGameProject\\SDLGameProject.vcxproj|C:\\Users\\zioba\\Documents\\GitHub\\SDLGame\\SDLGameProject\\SDLGameProject\\Map3.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
       "RelativeMoniker": "D:0:0:{7F6EDB56-0C6B-4C79-9FD0-746A17FF184E}|SDLGameProject\\SDLGameProject.vcxproj|solutionrelative:SDLGameProject\\Map3.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{7F6EDB56-0C6B-4C79-9FD0-746A17FF184E}|SDLGameProject\\SDLGameProject.vcxproj|C:\\Users\\peter\\Documents\\GitHub\\SDLGame\\SDLGameProject\\SDLGameProject\\GameClear.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
-      "RelativeMoniker": "D:0:0:{7F6EDB56-0C6B-4C79-9FD0-746A17FF184E}|SDLGameProject\\SDLGameProject.vcxproj|solutionrelative:SDLGameProject\\GameClear.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{7F6EDB56-0C6B-4C79-9FD0-746A17FF184E}|SDLGameProject\\SDLGameProject.vcxproj|C:\\Users\\peter\\Documents\\GitHub\\SDLGame\\SDLGameProject\\SDLGameProject\\GameManual.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
-      "RelativeMoniker": "D:0:0:{7F6EDB56-0C6B-4C79-9FD0-746A17FF184E}|SDLGameProject\\SDLGameProject.vcxproj|solutionrelative:SDLGameProject\\GameManual.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{7F6EDB56-0C6B-4C79-9FD0-746A17FF184E}|SDLGameProject\\SDLGameProject.vcxproj|C:\\Users\\peter\\Documents\\GitHub\\SDLGame\\SDLGameProject\\SDLGameProject\\GameEnding.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
-      "RelativeMoniker": "D:0:0:{7F6EDB56-0C6B-4C79-9FD0-746A17FF184E}|SDLGameProject\\SDLGameProject.vcxproj|solutionrelative:SDLGameProject\\GameEnding.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{7F6EDB56-0C6B-4C79-9FD0-746A17FF184E}|SDLGameProject\\SDLGameProject.vcxproj|C:\\Users\\peter\\Documents\\GitHub\\SDLGame\\SDLGameProject\\SDLGameProject\\GameIntro.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
-      "RelativeMoniker": "D:0:0:{7F6EDB56-0C6B-4C79-9FD0-746A17FF184E}|SDLGameProject\\SDLGameProject.vcxproj|solutionrelative:SDLGameProject\\GameIntro.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{7F6EDB56-0C6B-4C79-9FD0-746A17FF184E}|SDLGameProject\\SDLGameProject.vcxproj|C:\\Users\\peter\\Documents\\GitHub\\SDLGame\\SDLGameProject\\SDLGameProject\\GameESC.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
-      "RelativeMoniker": "D:0:0:{7F6EDB56-0C6B-4C79-9FD0-746A17FF184E}|SDLGameProject\\SDLGameProject.vcxproj|solutionrelative:SDLGameProject\\GameESC.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{7F6EDB56-0C6B-4C79-9FD0-746A17FF184E}|SDLGameProject\\SDLGameProject.vcxproj|C:\\Users\\peter\\Documents\\GitHub\\SDLGame\\SDLGameProject\\SDLGameProject\\GameManual.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
-      "RelativeMoniker": "D:0:0:{7F6EDB56-0C6B-4C79-9FD0-746A17FF184E}|SDLGameProject\\SDLGameProject.vcxproj|solutionrelative:SDLGameProject\\GameManual.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{7F6EDB56-0C6B-4C79-9FD0-746A17FF184E}|SDLGameProject\\SDLGameProject.vcxproj|C:\\Users\\peter\\Documents\\GitHub\\SDLGame\\SDLGameProject\\SDLGameProject\\GameOver.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
-      "RelativeMoniker": "D:0:0:{7F6EDB56-0C6B-4C79-9FD0-746A17FF184E}|SDLGameProject\\SDLGameProject.vcxproj|solutionrelative:SDLGameProject\\GameOver.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{7F6EDB56-0C6B-4C79-9FD0-746A17FF184E}|SDLGameProject\\SDLGameProject.vcxproj|C:\\Users\\peter\\Documents\\GitHub\\SDLGame\\SDLGameProject\\SDLGameProject\\DogAnimation.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "AbsoluteMoniker": "D:0:0:{7F6EDB56-0C6B-4C79-9FD0-746A17FF184E}|SDLGameProject\\SDLGameProject.vcxproj|C:\\Users\\zioba\\Documents\\GitHub\\SDLGame\\SDLGameProject\\SDLGameProject\\DogAnimation.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
       "RelativeMoniker": "D:0:0:{7F6EDB56-0C6B-4C79-9FD0-746A17FF184E}|SDLGameProject\\SDLGameProject.vcxproj|solutionrelative:SDLGameProject\\DogAnimation.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{7F6EDB56-0C6B-4C79-9FD0-746A17FF184E}|SDLGameProject\\SDLGameProject.vcxproj|C:\\Users\\peter\\Documents\\GitHub\\SDLGame\\SDLGameProject\\SDLGameProject\\Dog.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "AbsoluteMoniker": "D:0:0:{7F6EDB56-0C6B-4C79-9FD0-746A17FF184E}|SDLGameProject\\SDLGameProject.vcxproj|C:\\Users\\zioba\\Documents\\GitHub\\SDLGame\\SDLGameProject\\SDLGameProject\\GameManual.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{7F6EDB56-0C6B-4C79-9FD0-746A17FF184E}|SDLGameProject\\SDLGameProject.vcxproj|solutionrelative:SDLGameProject\\GameManual.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{7F6EDB56-0C6B-4C79-9FD0-746A17FF184E}|SDLGameProject\\SDLGameProject.vcxproj|C:\\Users\\zioba\\Documents\\GitHub\\SDLGame\\SDLGameProject\\SDLGameProject\\Button.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{7F6EDB56-0C6B-4C79-9FD0-746A17FF184E}|SDLGameProject\\SDLGameProject.vcxproj|solutionrelative:SDLGameProject\\Button.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{7F6EDB56-0C6B-4C79-9FD0-746A17FF184E}|SDLGameProject\\SDLGameProject.vcxproj|C:\\Users\\zioba\\Documents\\GitHub\\SDLGame\\SDLGameProject\\SDLGameProject\\Cat.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{7F6EDB56-0C6B-4C79-9FD0-746A17FF184E}|SDLGameProject\\SDLGameProject.vcxproj|solutionrelative:SDLGameProject\\Cat.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{7F6EDB56-0C6B-4C79-9FD0-746A17FF184E}|SDLGameProject\\SDLGameProject.vcxproj|C:\\Users\\zioba\\Documents\\GitHub\\SDLGame\\SDLGameProject\\SDLGameProject\\FinishGame.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{7F6EDB56-0C6B-4C79-9FD0-746A17FF184E}|SDLGameProject\\SDLGameProject.vcxproj|solutionrelative:SDLGameProject\\FinishGame.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{7F6EDB56-0C6B-4C79-9FD0-746A17FF184E}|SDLGameProject\\SDLGameProject.vcxproj|C:\\Users\\zioba\\Documents\\GitHub\\SDLGame\\SDLGameProject\\SDLGameProject\\Map1.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{7F6EDB56-0C6B-4C79-9FD0-746A17FF184E}|SDLGameProject\\SDLGameProject.vcxproj|solutionrelative:SDLGameProject\\Map1.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{7F6EDB56-0C6B-4C79-9FD0-746A17FF184E}|SDLGameProject\\SDLGameProject.vcxproj|C:\\Users\\zioba\\Documents\\GitHub\\SDLGame\\SDLGameProject\\SDLGameProject\\Main.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{7F6EDB56-0C6B-4C79-9FD0-746A17FF184E}|SDLGameProject\\SDLGameProject.vcxproj|solutionrelative:SDLGameProject\\Main.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{7F6EDB56-0C6B-4C79-9FD0-746A17FF184E}|SDLGameProject\\SDLGameProject.vcxproj|C:\\Users\\zioba\\Documents\\GitHub\\SDLGame\\SDLGameProject\\SDLGameProject\\Button.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{7F6EDB56-0C6B-4C79-9FD0-746A17FF184E}|SDLGameProject\\SDLGameProject.vcxproj|solutionrelative:SDLGameProject\\Button.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{7F6EDB56-0C6B-4C79-9FD0-746A17FF184E}|SDLGameProject\\SDLGameProject.vcxproj|C:\\Users\\zioba\\Documents\\GitHub\\SDLGame\\SDLGameProject\\SDLGameProject\\Map2.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{7F6EDB56-0C6B-4C79-9FD0-746A17FF184E}|SDLGameProject\\SDLGameProject.vcxproj|solutionrelative:SDLGameProject\\Map2.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{7F6EDB56-0C6B-4C79-9FD0-746A17FF184E}|SDLGameProject\\SDLGameProject.vcxproj|C:\\Users\\zioba\\Documents\\GitHub\\SDLGame\\SDLGameProject\\SDLGameProject\\Pet.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{7F6EDB56-0C6B-4C79-9FD0-746A17FF184E}|SDLGameProject\\SDLGameProject.vcxproj|solutionrelative:SDLGameProject\\Pet.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{7F6EDB56-0C6B-4C79-9FD0-746A17FF184E}|SDLGameProject\\SDLGameProject.vcxproj|C:\\Users\\zioba\\Documents\\GitHub\\SDLGame\\SDLGameProject\\SDLGameProject\\Key.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{7F6EDB56-0C6B-4C79-9FD0-746A17FF184E}|SDLGameProject\\SDLGameProject.vcxproj|solutionrelative:SDLGameProject\\Key.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{7F6EDB56-0C6B-4C79-9FD0-746A17FF184E}|SDLGameProject\\SDLGameProject.vcxproj|C:\\Users\\zioba\\Documents\\GitHub\\SDLGame\\SDLGameProject\\SDLGameProject\\Game.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{7F6EDB56-0C6B-4C79-9FD0-746A17FF184E}|SDLGameProject\\SDLGameProject.vcxproj|solutionrelative:SDLGameProject\\Game.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{7F6EDB56-0C6B-4C79-9FD0-746A17FF184E}|SDLGameProject\\SDLGameProject.vcxproj|C:\\Users\\zioba\\Documents\\GitHub\\SDLGame\\SDLGameProject\\SDLGameProject\\Game.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{7F6EDB56-0C6B-4C79-9FD0-746A17FF184E}|SDLGameProject\\SDLGameProject.vcxproj|solutionrelative:SDLGameProject\\Game.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{7F6EDB56-0C6B-4C79-9FD0-746A17FF184E}|SDLGameProject\\SDLGameProject.vcxproj|C:\\Users\\zioba\\Documents\\GitHub\\SDLGame\\SDLGameProject\\SDLGameProject\\Liquid.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{7F6EDB56-0C6B-4C79-9FD0-746A17FF184E}|SDLGameProject\\SDLGameProject.vcxproj|solutionrelative:SDLGameProject\\Liquid.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{7F6EDB56-0C6B-4C79-9FD0-746A17FF184E}|SDLGameProject\\SDLGameProject.vcxproj|C:\\Users\\zioba\\Documents\\GitHub\\SDLGame\\SDLGameProject\\SDLGameProject\\Map6.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{7F6EDB56-0C6B-4C79-9FD0-746A17FF184E}|SDLGameProject\\SDLGameProject.vcxproj|solutionrelative:SDLGameProject\\Map6.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{7F6EDB56-0C6B-4C79-9FD0-746A17FF184E}|SDLGameProject\\SDLGameProject.vcxproj|C:\\Users\\zioba\\Documents\\GitHub\\SDLGame\\SDLGameProject\\SDLGameProject\\Map5.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{7F6EDB56-0C6B-4C79-9FD0-746A17FF184E}|SDLGameProject\\SDLGameProject.vcxproj|solutionrelative:SDLGameProject\\Map5.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{7F6EDB56-0C6B-4C79-9FD0-746A17FF184E}|SDLGameProject\\SDLGameProject.vcxproj|C:\\Users\\zioba\\Documents\\GitHub\\SDLGame\\SDLGameProject\\SDLGameProject\\Map4.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{7F6EDB56-0C6B-4C79-9FD0-746A17FF184E}|SDLGameProject\\SDLGameProject.vcxproj|solutionrelative:SDLGameProject\\Map4.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{7F6EDB56-0C6B-4C79-9FD0-746A17FF184E}|SDLGameProject\\SDLGameProject.vcxproj|C:\\Users\\zioba\\Documents\\GitHub\\SDLGame\\SDLGameProject\\SDLGameProject\\GameClear.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{7F6EDB56-0C6B-4C79-9FD0-746A17FF184E}|SDLGameProject\\SDLGameProject.vcxproj|solutionrelative:SDLGameProject\\GameClear.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{7F6EDB56-0C6B-4C79-9FD0-746A17FF184E}|SDLGameProject\\SDLGameProject.vcxproj|C:\\Users\\zioba\\Documents\\GitHub\\SDLGame\\SDLGameProject\\SDLGameProject\\GameEnding.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{7F6EDB56-0C6B-4C79-9FD0-746A17FF184E}|SDLGameProject\\SDLGameProject.vcxproj|solutionrelative:SDLGameProject\\GameEnding.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{7F6EDB56-0C6B-4C79-9FD0-746A17FF184E}|SDLGameProject\\SDLGameProject.vcxproj|C:\\Users\\zioba\\Documents\\GitHub\\SDLGame\\SDLGameProject\\SDLGameProject\\GameIntro.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{7F6EDB56-0C6B-4C79-9FD0-746A17FF184E}|SDLGameProject\\SDLGameProject.vcxproj|solutionrelative:SDLGameProject\\GameIntro.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{7F6EDB56-0C6B-4C79-9FD0-746A17FF184E}|SDLGameProject\\SDLGameProject.vcxproj|C:\\Users\\zioba\\Documents\\GitHub\\SDLGame\\SDLGameProject\\SDLGameProject\\GameESC.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{7F6EDB56-0C6B-4C79-9FD0-746A17FF184E}|SDLGameProject\\SDLGameProject.vcxproj|solutionrelative:SDLGameProject\\GameESC.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{7F6EDB56-0C6B-4C79-9FD0-746A17FF184E}|SDLGameProject\\SDLGameProject.vcxproj|C:\\Users\\zioba\\Documents\\GitHub\\SDLGame\\SDLGameProject\\SDLGameProject\\GameManual.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{7F6EDB56-0C6B-4C79-9FD0-746A17FF184E}|SDLGameProject\\SDLGameProject.vcxproj|solutionrelative:SDLGameProject\\GameManual.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{7F6EDB56-0C6B-4C79-9FD0-746A17FF184E}|SDLGameProject\\SDLGameProject.vcxproj|C:\\Users\\zioba\\Documents\\GitHub\\SDLGame\\SDLGameProject\\SDLGameProject\\GameOver.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{7F6EDB56-0C6B-4C79-9FD0-746A17FF184E}|SDLGameProject\\SDLGameProject.vcxproj|solutionrelative:SDLGameProject\\GameOver.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{7F6EDB56-0C6B-4C79-9FD0-746A17FF184E}|SDLGameProject\\SDLGameProject.vcxproj|C:\\Users\\zioba\\Documents\\GitHub\\SDLGame\\SDLGameProject\\SDLGameProject\\Dog.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
       "RelativeMoniker": "D:0:0:{7F6EDB56-0C6B-4C79-9FD0-746A17FF184E}|SDLGameProject\\SDLGameProject.vcxproj|solutionrelative:SDLGameProject\\Dog.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{7F6EDB56-0C6B-4C79-9FD0-746A17FF184E}|SDLGameProject\\SDLGameProject.vcxproj|C:\\Users\\peter\\Documents\\GitHub\\SDLGame\\SDLGameProject\\SDLGameProject\\Pet.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "AbsoluteMoniker": "D:0:0:{7F6EDB56-0C6B-4C79-9FD0-746A17FF184E}|SDLGameProject\\SDLGameProject.vcxproj|C:\\Users\\zioba\\Documents\\GitHub\\SDLGame\\SDLGameProject\\SDLGameProject\\Pet.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
       "RelativeMoniker": "D:0:0:{7F6EDB56-0C6B-4C79-9FD0-746A17FF184E}|SDLGameProject\\SDLGameProject.vcxproj|solutionrelative:SDLGameProject\\Pet.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     }
   ],
@@ -126,10 +126,6 @@
           "Children": [
             {
               "$type": "Bookmark",
-              "Name": "ST:0:0:{e506b91c-c606-466a-90a9-123d1d1e12b3}"
-            },
-            {
-              "$type": "Bookmark",
               "Name": "ST:129:0:{1fc202d4-d401-403c-9834-5b218574bb67}"
             }
           ]
@@ -142,11 +138,11 @@
               "$type": "Document",
               "DocumentIndex": 0,
               "Title": "Stage.h",
-              "DocumentMoniker": "C:\\Users\\peter\\Documents\\GitHub\\SDLGame\\SDLGameProject\\SDLGameProject\\Stage.h",
+              "DocumentMoniker": "C:\\Users\\zioba\\Documents\\GitHub\\SDLGame\\SDLGameProject\\SDLGameProject\\Stage.h",
               "RelativeDocumentMoniker": "SDLGameProject\\Stage.h",
-              "ToolTip": "C:\\Users\\peter\\Documents\\GitHub\\SDLGame\\SDLGameProject\\SDLGameProject\\Stage.h",
+              "ToolTip": "C:\\Users\\zioba\\Documents\\GitHub\\SDLGame\\SDLGameProject\\SDLGameProject\\Stage.h",
               "RelativeToolTip": "SDLGameProject\\Stage.h",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAkAAAAWAAAA",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAwAAAAbAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
               "WhenOpened": "2024-06-02T14:28:58.796Z",
               "IsPinned": true,
@@ -162,59 +158,24 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 7,
+              "DocumentIndex": 5,
               "Title": "Button.cpp",
-              "DocumentMoniker": "C:\\Users\\peter\\Documents\\GitHub\\SDLGame\\SDLGameProject\\SDLGameProject\\Button.cpp",
+              "DocumentMoniker": "C:\\Users\\zioba\\Documents\\GitHub\\SDLGame\\SDLGameProject\\SDLGameProject\\Button.cpp",
               "RelativeDocumentMoniker": "SDLGameProject\\Button.cpp",
-              "ToolTip": "C:\\Users\\peter\\Documents\\GitHub\\SDLGame\\SDLGameProject\\SDLGameProject\\Button.cpp",
+              "ToolTip": "C:\\Users\\zioba\\Documents\\GitHub\\SDLGame\\SDLGameProject\\SDLGameProject\\Button.cpp",
               "RelativeToolTip": "SDLGameProject\\Button.cpp",
               "ViewState": "AQIAAAYAAAAAAAAAAAAAAAUAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
-              "WhenOpened": "2024-06-03T16:55:06.739Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 10,
-              "Title": "Key.cpp",
-              "DocumentMoniker": "C:\\Users\\peter\\Documents\\GitHub\\SDLGame\\SDLGameProject\\SDLGameProject\\Key.cpp",
-              "RelativeDocumentMoniker": "SDLGameProject\\Key.cpp",
-              "ToolTip": "C:\\Users\\peter\\Documents\\GitHub\\SDLGame\\SDLGameProject\\SDLGameProject\\Key.cpp",
-              "RelativeToolTip": "SDLGameProject\\Key.cpp",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAsAAAAMAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
-              "WhenOpened": "2024-06-03T16:00:30.059Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 13,
-              "Title": "Liquid.cpp",
-              "DocumentMoniker": "C:\\Users\\peter\\Documents\\GitHub\\SDLGame\\SDLGameProject\\SDLGameProject\\Liquid.cpp",
-              "RelativeDocumentMoniker": "SDLGameProject\\Liquid.cpp",
-              "ToolTip": "C:\\Users\\peter\\Documents\\GitHub\\SDLGame\\SDLGameProject\\SDLGameProject\\Liquid.cpp",
-              "RelativeToolTip": "SDLGameProject\\Liquid.cpp",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
-              "WhenOpened": "2024-06-03T15:59:47.624Z"
+              "WhenOpened": "2024-06-03T16:55:06.739Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 8,
-              "Title": "Map2.cpp",
-              "DocumentMoniker": "C:\\Users\\peter\\Documents\\GitHub\\SDLGame\\SDLGameProject\\SDLGameProject\\Map2.cpp",
-              "RelativeDocumentMoniker": "SDLGameProject\\Map2.cpp",
-              "ToolTip": "C:\\Users\\peter\\Documents\\GitHub\\SDLGame\\SDLGameProject\\SDLGameProject\\Map2.cpp",
-              "RelativeToolTip": "SDLGameProject\\Map2.cpp",
-              "ViewState": "AQIAABgAAAAAAAAAAAAAADIAAAA9AAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
-              "WhenOpened": "2024-06-03T06:56:46.116Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 4,
               "Title": "Map1.cpp",
-              "DocumentMoniker": "C:\\Users\\peter\\Documents\\GitHub\\SDLGame\\SDLGameProject\\SDLGameProject\\Map1.cpp",
+              "DocumentMoniker": "C:\\Users\\zioba\\Documents\\GitHub\\SDLGame\\SDLGameProject\\SDLGameProject\\Map1.cpp",
               "RelativeDocumentMoniker": "SDLGameProject\\Map1.cpp",
-              "ToolTip": "C:\\Users\\peter\\Documents\\GitHub\\SDLGame\\SDLGameProject\\SDLGameProject\\Map1.cpp",
+              "ToolTip": "C:\\Users\\zioba\\Documents\\GitHub\\SDLGame\\SDLGameProject\\SDLGameProject\\Map1.cpp",
               "RelativeToolTip": "SDLGameProject\\Map1.cpp",
               "ViewState": "AQIAAC0AAAAAAAAAAAAAAHAAAAAhAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
@@ -222,48 +183,49 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 17,
-              "Title": "Map3.cpp",
-              "DocumentMoniker": "C:\\Users\\peter\\Documents\\GitHub\\SDLGame\\SDLGameProject\\SDLGameProject\\Map3.cpp",
-              "RelativeDocumentMoniker": "SDLGameProject\\Map3.cpp",
-              "ToolTip": "C:\\Users\\peter\\Documents\\GitHub\\SDLGame\\SDLGameProject\\SDLGameProject\\Map3.cpp",
-              "RelativeToolTip": "SDLGameProject\\Map3.cpp",
-              "ViewState": "AQIAAGYAAAAAAAAAAAAAAHMAAAASAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
-              "WhenOpened": "2024-06-02T16:50:23.968Z"
-            },
-            {
-              "$type": "Document",
               "DocumentIndex": 2,
-              "Title": "FinishGame.cpp",
-              "DocumentMoniker": "C:\\Users\\peter\\Documents\\GitHub\\SDLGame\\SDLGameProject\\SDLGameProject\\FinishGame.cpp",
-              "RelativeDocumentMoniker": "SDLGameProject\\FinishGame.cpp",
-              "ToolTip": "C:\\Users\\peter\\Documents\\GitHub\\SDLGame\\SDLGameProject\\SDLGameProject\\FinishGame.cpp",
-              "RelativeToolTip": "SDLGameProject\\FinishGame.cpp",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAcAAAASAAAA",
+              "Title": "Map3.cpp",
+              "DocumentMoniker": "C:\\Users\\zioba\\Documents\\GitHub\\SDLGame\\SDLGameProject\\SDLGameProject\\Map3.cpp",
+              "RelativeDocumentMoniker": "SDLGameProject\\Map3.cpp",
+              "ToolTip": "C:\\Users\\zioba\\Documents\\GitHub\\SDLGame\\SDLGameProject\\SDLGameProject\\Map3.cpp",
+              "RelativeToolTip": "SDLGameProject\\Map3.cpp",
+              "ViewState": "AQIAAGgAAAAAAAAAAAAAAIcAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
-              "WhenOpened": "2024-06-02T16:48:16.805Z",
+              "WhenOpened": "2024-06-02T16:50:23.968Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "Stage.cpp",
-              "DocumentMoniker": "C:\\Users\\peter\\Documents\\GitHub\\SDLGame\\SDLGameProject\\SDLGameProject\\Stage.cpp",
-              "RelativeDocumentMoniker": "SDLGameProject\\Stage.cpp",
-              "ToolTip": "C:\\Users\\peter\\Documents\\GitHub\\SDLGame\\SDLGameProject\\SDLGameProject\\Stage.cpp",
-              "RelativeToolTip": "SDLGameProject\\Stage.cpp",
-              "ViewState": "AQIAAO0BAAAAAAAAAAAAAAICAAA3AAAA",
+              "DocumentIndex": 7,
+              "Title": "FinishGame.cpp",
+              "DocumentMoniker": "C:\\Users\\zioba\\Documents\\GitHub\\SDLGame\\SDLGameProject\\SDLGameProject\\FinishGame.cpp",
+              "RelativeDocumentMoniker": "SDLGameProject\\FinishGame.cpp",
+              "ToolTip": "C:\\Users\\zioba\\Documents\\GitHub\\SDLGame\\SDLGameProject\\SDLGameProject\\FinishGame.cpp",
+              "RelativeToolTip": "SDLGameProject\\FinishGame.cpp",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAcAAAASAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
-              "WhenOpened": "2024-06-02T14:43:42.115Z"
+              "WhenOpened": "2024-06-02T16:48:16.805Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
+              "DocumentIndex": 1,
+              "Title": "Stage.cpp",
+              "DocumentMoniker": "C:\\Users\\zioba\\Documents\\GitHub\\SDLGame\\SDLGameProject\\SDLGameProject\\Stage.cpp",
+              "RelativeDocumentMoniker": "SDLGameProject\\Stage.cpp",
+              "ToolTip": "C:\\Users\\zioba\\Documents\\GitHub\\SDLGame\\SDLGameProject\\SDLGameProject\\Stage.cpp",
+              "RelativeToolTip": "SDLGameProject\\Stage.cpp",
+              "ViewState": "AQIAAKIAAAAAAAAAAAAAALUAAAAfAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
+              "WhenOpened": "2024-06-02T14:43:42.115Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
               "Title": "Main.cpp",
-              "DocumentMoniker": "C:\\Users\\peter\\Documents\\GitHub\\SDLGame\\SDLGameProject\\SDLGameProject\\main.cpp",
+              "DocumentMoniker": "C:\\Users\\zioba\\Documents\\GitHub\\SDLGame\\SDLGameProject\\SDLGameProject\\main.cpp",
               "RelativeDocumentMoniker": "SDLGameProject\\main.cpp",
-              "ToolTip": "C:\\Users\\peter\\Documents\\GitHub\\SDLGame\\SDLGameProject\\SDLGameProject\\main.cpp",
+              "ToolTip": "C:\\Users\\zioba\\Documents\\GitHub\\SDLGame\\SDLGameProject\\SDLGameProject\\main.cpp",
               "RelativeToolTip": "SDLGameProject\\main.cpp",
               "ViewState": "AQIAADYAAAAAAAAAAIAwwE0AAAASAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
@@ -271,11 +233,73 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 6,
+              "DocumentIndex": 4,
+              "Title": "GameManual.cpp",
+              "DocumentMoniker": "C:\\Users\\zioba\\Documents\\GitHub\\SDLGame\\SDLGameProject\\SDLGameProject\\GameManual.cpp",
+              "RelativeDocumentMoniker": "SDLGameProject\\GameManual.cpp",
+              "ToolTip": "C:\\Users\\zioba\\Documents\\GitHub\\SDLGame\\SDLGameProject\\SDLGameProject\\GameManual.cpp",
+              "RelativeToolTip": "SDLGameProject\\GameManual.cpp",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAsAAAA7AAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
+              "WhenOpened": "2024-06-02T07:04:39.42Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "DogAnimation.cpp",
+              "DocumentMoniker": "C:\\Users\\zioba\\Documents\\GitHub\\SDLGame\\SDLGameProject\\SDLGameProject\\DogAnimation.cpp",
+              "RelativeDocumentMoniker": "SDLGameProject\\DogAnimation.cpp",
+              "ToolTip": "C:\\Users\\zioba\\Documents\\GitHub\\SDLGame\\SDLGameProject\\SDLGameProject\\DogAnimation.cpp",
+              "RelativeToolTip": "SDLGameProject\\DogAnimation.cpp",
+              "ViewState": "AQIAACoAAAAAAAAAAAAAAD8AAAAJAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
+              "WhenOpened": "2024-06-02T16:01:12.696Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 11,
+              "Title": "Map2.cpp",
+              "DocumentMoniker": "C:\\Users\\zioba\\Documents\\GitHub\\SDLGame\\SDLGameProject\\SDLGameProject\\Map2.cpp",
+              "RelativeDocumentMoniker": "SDLGameProject\\Map2.cpp",
+              "ToolTip": "C:\\Users\\zioba\\Documents\\GitHub\\SDLGame\\SDLGameProject\\SDLGameProject\\Map2.cpp",
+              "RelativeToolTip": "SDLGameProject\\Map2.cpp",
+              "ViewState": "AQIAABgAAAAAAAAAAAAAADIAAAA9AAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
+              "WhenOpened": "2024-06-03T06:56:46.116Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 16,
+              "Title": "Liquid.cpp",
+              "DocumentMoniker": "C:\\Users\\zioba\\Documents\\GitHub\\SDLGame\\SDLGameProject\\SDLGameProject\\Liquid.cpp",
+              "RelativeDocumentMoniker": "SDLGameProject\\Liquid.cpp",
+              "ToolTip": "C:\\Users\\zioba\\Documents\\GitHub\\SDLGame\\SDLGameProject\\SDLGameProject\\Liquid.cpp",
+              "RelativeToolTip": "SDLGameProject\\Liquid.cpp",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
+              "WhenOpened": "2024-06-03T15:59:47.624Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 13,
+              "Title": "Key.cpp",
+              "DocumentMoniker": "C:\\Users\\zioba\\Documents\\GitHub\\SDLGame\\SDLGameProject\\SDLGameProject\\Key.cpp",
+              "RelativeDocumentMoniker": "SDLGameProject\\Key.cpp",
+              "ToolTip": "C:\\Users\\zioba\\Documents\\GitHub\\SDLGame\\SDLGameProject\\SDLGameProject\\Key.cpp",
+              "RelativeToolTip": "SDLGameProject\\Key.cpp",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAsAAAAMAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
+              "WhenOpened": "2024-06-03T16:00:30.059Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 10,
               "Title": "Button.h",
-              "DocumentMoniker": "C:\\Users\\peter\\Documents\\GitHub\\SDLGame\\SDLGameProject\\SDLGameProject\\Button.h",
+              "DocumentMoniker": "C:\\Users\\zioba\\Documents\\GitHub\\SDLGame\\SDLGameProject\\SDLGameProject\\Button.h",
               "RelativeDocumentMoniker": "SDLGameProject\\Button.h",
-              "ToolTip": "C:\\Users\\peter\\Documents\\GitHub\\SDLGame\\SDLGameProject\\SDLGameProject\\Button.h",
+              "ToolTip": "C:\\Users\\zioba\\Documents\\GitHub\\SDLGame\\SDLGameProject\\SDLGameProject\\Button.h",
               "RelativeToolTip": "SDLGameProject\\Button.h",
               "ViewState": "AQIAAA8AAAAAAAAAAAAAAA8AAAABAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
@@ -283,11 +307,11 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 16,
+              "DocumentIndex": 19,
               "Title": "Map4.cpp",
-              "DocumentMoniker": "C:\\Users\\peter\\Documents\\GitHub\\SDLGame\\SDLGameProject\\SDLGameProject\\Map4.cpp",
+              "DocumentMoniker": "C:\\Users\\zioba\\Documents\\GitHub\\SDLGame\\SDLGameProject\\SDLGameProject\\Map4.cpp",
               "RelativeDocumentMoniker": "SDLGameProject\\Map4.cpp",
-              "ToolTip": "C:\\Users\\peter\\Documents\\GitHub\\SDLGame\\SDLGameProject\\SDLGameProject\\Map4.cpp",
+              "ToolTip": "C:\\Users\\zioba\\Documents\\GitHub\\SDLGame\\SDLGameProject\\SDLGameProject\\Map4.cpp",
               "RelativeToolTip": "SDLGameProject\\Map4.cpp",
               "ViewState": "AQIAALsAAAAAAAAAAAAQwMIAAAATAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
@@ -295,11 +319,11 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 15,
+              "DocumentIndex": 18,
               "Title": "Map5.cpp",
-              "DocumentMoniker": "C:\\Users\\peter\\Documents\\GitHub\\SDLGame\\SDLGameProject\\SDLGameProject\\Map5.cpp",
+              "DocumentMoniker": "C:\\Users\\zioba\\Documents\\GitHub\\SDLGame\\SDLGameProject\\SDLGameProject\\Map5.cpp",
               "RelativeDocumentMoniker": "SDLGameProject\\Map5.cpp",
-              "ToolTip": "C:\\Users\\peter\\Documents\\GitHub\\SDLGame\\SDLGameProject\\SDLGameProject\\Map5.cpp",
+              "ToolTip": "C:\\Users\\zioba\\Documents\\GitHub\\SDLGame\\SDLGameProject\\SDLGameProject\\Map5.cpp",
               "RelativeToolTip": "SDLGameProject\\Map5.cpp",
               "ViewState": "AQIAAGwAAAAAAAAAAAAAAHQAAAAUAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
@@ -307,23 +331,23 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 14,
+              "DocumentIndex": 17,
               "Title": "Map6.cpp",
-              "DocumentMoniker": "C:\\Users\\peter\\Documents\\GitHub\\SDLGame\\SDLGameProject\\SDLGameProject\\Map6.cpp",
+              "DocumentMoniker": "C:\\Users\\zioba\\Documents\\GitHub\\SDLGame\\SDLGameProject\\SDLGameProject\\Map6.cpp",
               "RelativeDocumentMoniker": "SDLGameProject\\Map6.cpp",
               "ToolTip": "C:\\Users\\peter\\Documents\\GitHub\\SDLGame\\SDLGameProject\\SDLGameProject\\Map6.cpp*",
-              "RelativeToolTip": "SDLGameProject\\Map6.cpp*",
+              "RelativeToolTip": "..\\..\\..\\..\\..\\peter\\Documents\\GitHub\\SDLGame\\SDLGameProject\\SDLGameProject\\Map6.cpp*",
               "ViewState": "AQIAAEEAAAAAAAAAAAAAAFEAAAAMAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
               "WhenOpened": "2024-06-03T05:52:39.474Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 20,
+              "DocumentIndex": 21,
               "Title": "GameEnding.cpp",
-              "DocumentMoniker": "C:\\Users\\peter\\Documents\\GitHub\\SDLGame\\SDLGameProject\\SDLGameProject\\GameEnding.cpp",
+              "DocumentMoniker": "C:\\Users\\zioba\\Documents\\GitHub\\SDLGame\\SDLGameProject\\SDLGameProject\\GameEnding.cpp",
               "RelativeDocumentMoniker": "SDLGameProject\\GameEnding.cpp",
-              "ToolTip": "C:\\Users\\peter\\Documents\\GitHub\\SDLGame\\SDLGameProject\\SDLGameProject\\GameEnding.cpp",
+              "ToolTip": "C:\\Users\\zioba\\Documents\\GitHub\\SDLGame\\SDLGameProject\\SDLGameProject\\GameEnding.cpp",
               "RelativeToolTip": "SDLGameProject\\GameEnding.cpp",
               "ViewState": "AQIAAAAAAAAAAAAAAAAgwDwAAAAEAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
@@ -331,11 +355,11 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 21,
+              "DocumentIndex": 22,
               "Title": "GameIntro.cpp",
-              "DocumentMoniker": "C:\\Users\\peter\\Documents\\GitHub\\SDLGame\\SDLGameProject\\SDLGameProject\\GameIntro.cpp",
+              "DocumentMoniker": "C:\\Users\\zioba\\Documents\\GitHub\\SDLGame\\SDLGameProject\\SDLGameProject\\GameIntro.cpp",
               "RelativeDocumentMoniker": "SDLGameProject\\GameIntro.cpp",
-              "ToolTip": "C:\\Users\\peter\\Documents\\GitHub\\SDLGame\\SDLGameProject\\SDLGameProject\\GameIntro.cpp",
+              "ToolTip": "C:\\Users\\zioba\\Documents\\GitHub\\SDLGame\\SDLGameProject\\SDLGameProject\\GameIntro.cpp",
               "RelativeToolTip": "SDLGameProject\\GameIntro.cpp",
               "ViewState": "AQIAACEAAAAAAAAAAAAAAC4AAAACAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
@@ -343,11 +367,11 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 23,
+              "DocumentIndex": 24,
               "Title": "GameManual.h",
-              "DocumentMoniker": "C:\\Users\\peter\\Documents\\GitHub\\SDLGame\\SDLGameProject\\SDLGameProject\\GameManual.h",
+              "DocumentMoniker": "C:\\Users\\zioba\\Documents\\GitHub\\SDLGame\\SDLGameProject\\SDLGameProject\\GameManual.h",
               "RelativeDocumentMoniker": "SDLGameProject\\GameManual.h",
-              "ToolTip": "C:\\Users\\peter\\Documents\\GitHub\\SDLGame\\SDLGameProject\\SDLGameProject\\GameManual.h",
+              "ToolTip": "C:\\Users\\zioba\\Documents\\GitHub\\SDLGame\\SDLGameProject\\SDLGameProject\\GameManual.h",
               "RelativeToolTip": "SDLGameProject\\GameManual.h",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAABgAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
@@ -355,11 +379,11 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 22,
+              "DocumentIndex": 23,
               "Title": "GameESC.cpp",
-              "DocumentMoniker": "C:\\Users\\peter\\Documents\\GitHub\\SDLGame\\SDLGameProject\\SDLGameProject\\GameESC.cpp",
+              "DocumentMoniker": "C:\\Users\\zioba\\Documents\\GitHub\\SDLGame\\SDLGameProject\\SDLGameProject\\GameESC.cpp",
               "RelativeDocumentMoniker": "SDLGameProject\\GameESC.cpp",
-              "ToolTip": "C:\\Users\\peter\\Documents\\GitHub\\SDLGame\\SDLGameProject\\SDLGameProject\\GameESC.cpp",
+              "ToolTip": "C:\\Users\\zioba\\Documents\\GitHub\\SDLGame\\SDLGameProject\\SDLGameProject\\GameESC.cpp",
               "RelativeToolTip": "SDLGameProject\\GameESC.cpp",
               "ViewState": "AQIAAEIAAAAAAAAAAAApwFIAAAAFAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
@@ -367,11 +391,11 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 24,
+              "DocumentIndex": 25,
               "Title": "GameOver.cpp",
-              "DocumentMoniker": "C:\\Users\\peter\\Documents\\GitHub\\SDLGame\\SDLGameProject\\SDLGameProject\\GameOver.cpp",
+              "DocumentMoniker": "C:\\Users\\zioba\\Documents\\GitHub\\SDLGame\\SDLGameProject\\SDLGameProject\\GameOver.cpp",
               "RelativeDocumentMoniker": "SDLGameProject\\GameOver.cpp",
-              "ToolTip": "C:\\Users\\peter\\Documents\\GitHub\\SDLGame\\SDLGameProject\\SDLGameProject\\GameOver.cpp",
+              "ToolTip": "C:\\Users\\zioba\\Documents\\GitHub\\SDLGame\\SDLGameProject\\SDLGameProject\\GameOver.cpp",
               "RelativeToolTip": "SDLGameProject\\GameOver.cpp",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAHwAAAASAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
@@ -379,11 +403,11 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 18,
+              "DocumentIndex": 20,
               "Title": "GameClear.cpp",
-              "DocumentMoniker": "C:\\Users\\peter\\Documents\\GitHub\\SDLGame\\SDLGameProject\\SDLGameProject\\GameClear.cpp",
+              "DocumentMoniker": "C:\\Users\\zioba\\Documents\\GitHub\\SDLGame\\SDLGameProject\\SDLGameProject\\GameClear.cpp",
               "RelativeDocumentMoniker": "SDLGameProject\\GameClear.cpp",
-              "ToolTip": "C:\\Users\\peter\\Documents\\GitHub\\SDLGame\\SDLGameProject\\SDLGameProject\\GameClear.cpp",
+              "ToolTip": "C:\\Users\\zioba\\Documents\\GitHub\\SDLGame\\SDLGameProject\\SDLGameProject\\GameClear.cpp",
               "RelativeToolTip": "SDLGameProject\\GameClear.cpp",
               "ViewState": "AQIAAJAAAAAAAAAAAAAAAJkAAAANAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
@@ -391,23 +415,11 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 25,
-              "Title": "DogAnimation.cpp",
-              "DocumentMoniker": "C:\\Users\\peter\\Documents\\GitHub\\SDLGame\\SDLGameProject\\SDLGameProject\\DogAnimation.cpp",
-              "RelativeDocumentMoniker": "SDLGameProject\\DogAnimation.cpp",
-              "ToolTip": "C:\\Users\\peter\\Documents\\GitHub\\SDLGame\\SDLGameProject\\SDLGameProject\\DogAnimation.cpp",
-              "RelativeToolTip": "SDLGameProject\\DogAnimation.cpp",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
-              "WhenOpened": "2024-06-02T16:01:12.696Z"
-            },
-            {
-              "$type": "Document",
               "DocumentIndex": 27,
               "Title": "Pet.h",
-              "DocumentMoniker": "C:\\Users\\peter\\Documents\\GitHub\\SDLGame\\SDLGameProject\\SDLGameProject\\Pet.h",
+              "DocumentMoniker": "C:\\Users\\zioba\\Documents\\GitHub\\SDLGame\\SDLGameProject\\SDLGameProject\\Pet.h",
               "RelativeDocumentMoniker": "SDLGameProject\\Pet.h",
-              "ToolTip": "C:\\Users\\peter\\Documents\\GitHub\\SDLGame\\SDLGameProject\\SDLGameProject\\Pet.h",
+              "ToolTip": "C:\\Users\\zioba\\Documents\\GitHub\\SDLGame\\SDLGameProject\\SDLGameProject\\Pet.h",
               "RelativeToolTip": "SDLGameProject\\Pet.h",
               "ViewState": "AQIAAAwAAAAAAAAAAAAAAAAAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
@@ -415,11 +427,11 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 9,
+              "DocumentIndex": 12,
               "Title": "Pet.cpp",
-              "DocumentMoniker": "C:\\Users\\peter\\Documents\\GitHub\\SDLGame\\SDLGameProject\\SDLGameProject\\Pet.cpp",
+              "DocumentMoniker": "C:\\Users\\zioba\\Documents\\GitHub\\SDLGame\\SDLGameProject\\SDLGameProject\\Pet.cpp",
               "RelativeDocumentMoniker": "SDLGameProject\\Pet.cpp",
-              "ToolTip": "C:\\Users\\peter\\Documents\\GitHub\\SDLGame\\SDLGameProject\\SDLGameProject\\Pet.cpp",
+              "ToolTip": "C:\\Users\\zioba\\Documents\\GitHub\\SDLGame\\SDLGameProject\\SDLGameProject\\Pet.cpp",
               "RelativeToolTip": "SDLGameProject\\Pet.cpp",
               "ViewState": "AQIAAKAAAAAAAAAAAAAgwLMAAABAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
@@ -427,24 +439,23 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 6,
               "Title": "Cat.cpp",
-              "DocumentMoniker": "C:\\Users\\peter\\Documents\\GitHub\\SDLGame\\SDLGameProject\\SDLGameProject\\Cat.cpp",
+              "DocumentMoniker": "C:\\Users\\zioba\\Documents\\GitHub\\SDLGame\\SDLGameProject\\SDLGameProject\\Cat.cpp",
               "RelativeDocumentMoniker": "SDLGameProject\\Cat.cpp",
-              "ToolTip": "C:\\Users\\peter\\Documents\\GitHub\\SDLGame\\SDLGameProject\\SDLGameProject\\Cat.cpp",
+              "ToolTip": "C:\\Users\\zioba\\Documents\\GitHub\\SDLGame\\SDLGameProject\\SDLGameProject\\Cat.cpp",
               "RelativeToolTip": "SDLGameProject\\Cat.cpp",
               "ViewState": "AQIAAB4AAAAAAAAAAAAAACoAAAAoAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
-              "WhenOpened": "2024-06-02T14:37:49.787Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-06-02T14:37:49.787Z"
             },
             {
               "$type": "Document",
               "DocumentIndex": 26,
               "Title": "Dog.cpp",
-              "DocumentMoniker": "C:\\Users\\peter\\Documents\\GitHub\\SDLGame\\SDLGameProject\\SDLGameProject\\Dog.cpp",
+              "DocumentMoniker": "C:\\Users\\zioba\\Documents\\GitHub\\SDLGame\\SDLGameProject\\SDLGameProject\\Dog.cpp",
               "RelativeDocumentMoniker": "SDLGameProject\\Dog.cpp",
-              "ToolTip": "C:\\Users\\peter\\Documents\\GitHub\\SDLGame\\SDLGameProject\\SDLGameProject\\Dog.cpp",
+              "ToolTip": "C:\\Users\\zioba\\Documents\\GitHub\\SDLGame\\SDLGameProject\\SDLGameProject\\Dog.cpp",
               "RelativeToolTip": "SDLGameProject\\Dog.cpp",
               "ViewState": "AQIAAA8AAAAAAAAAAAAAABwAAAAnAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
@@ -452,11 +463,11 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 11,
+              "DocumentIndex": 14,
               "Title": "Game.h",
-              "DocumentMoniker": "C:\\Users\\peter\\Documents\\GitHub\\SDLGame\\SDLGameProject\\SDLGameProject\\Game.h",
+              "DocumentMoniker": "C:\\Users\\zioba\\Documents\\GitHub\\SDLGame\\SDLGameProject\\SDLGameProject\\Game.h",
               "RelativeDocumentMoniker": "SDLGameProject\\Game.h",
-              "ToolTip": "C:\\Users\\peter\\Documents\\GitHub\\SDLGame\\SDLGameProject\\SDLGameProject\\Game.h",
+              "ToolTip": "C:\\Users\\zioba\\Documents\\GitHub\\SDLGame\\SDLGameProject\\SDLGameProject\\Game.h",
               "RelativeToolTip": "SDLGameProject\\Game.h",
               "ViewState": "AQIAABsAAAAAAAAAAAAAACwAAAAbAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
@@ -464,27 +475,15 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 12,
+              "DocumentIndex": 15,
               "Title": "Game.cpp",
-              "DocumentMoniker": "C:\\Users\\peter\\Documents\\GitHub\\SDLGame\\SDLGameProject\\SDLGameProject\\Game.cpp",
+              "DocumentMoniker": "C:\\Users\\zioba\\Documents\\GitHub\\SDLGame\\SDLGameProject\\SDLGameProject\\Game.cpp",
               "RelativeDocumentMoniker": "SDLGameProject\\Game.cpp",
-              "ToolTip": "C:\\Users\\peter\\Documents\\GitHub\\SDLGame\\SDLGameProject\\SDLGameProject\\Game.cpp",
+              "ToolTip": "C:\\Users\\zioba\\Documents\\GitHub\\SDLGame\\SDLGameProject\\SDLGameProject\\Game.cpp",
               "RelativeToolTip": "SDLGameProject\\Game.cpp",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAA8AAAAZAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
               "WhenOpened": "2024-06-02T14:24:27.217Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 19,
-              "Title": "GameManual.cpp",
-              "DocumentMoniker": "C:\\Users\\peter\\Documents\\GitHub\\SDLGame\\SDLGameProject\\SDLGameProject\\GameManual.cpp",
-              "RelativeDocumentMoniker": "SDLGameProject\\GameManual.cpp",
-              "ToolTip": "C:\\Users\\peter\\Documents\\GitHub\\SDLGame\\SDLGameProject\\SDLGameProject\\GameManual.cpp",
-              "RelativeToolTip": "SDLGameProject\\GameManual.cpp",
-              "ViewState": "AQIAACEAAAAAAAAAAAAAADsAAAAbAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
-              "WhenOpened": "2024-06-02T07:04:39.42Z"
             }
           ]
         }

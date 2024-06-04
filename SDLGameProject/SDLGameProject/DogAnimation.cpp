@@ -28,7 +28,7 @@ void DogAnimation::AddTexture()
 			break;
 		case 5://death left
 		case 6://death right
-			dog_animation.push_back({ 340,1529,221,156 });
+			dog_animation.push_back({ 826, 1482, 175, 181 });
 			break;
 		case 7://skill left(sniff)
 		case 8://skill right(sniff)
@@ -50,11 +50,11 @@ void DogAnimation::AddTexture()
 			break;
 		case 11://left idle
 		case 12://right idle
-			dog_animation.push_back({ 142,1011,162,186 });
-			dog_animation.push_back({ 142,1011,162,186 });
-			dog_animation.push_back({ 142,1011,162,186 });
-			dog_animation.push_back({ 142,1011,162,186 });
-			dog_animation.push_back({ 142,1011,162,186 });
+			dog_animation.push_back({ 151,1011,162,186 });
+			dog_animation.push_back({ 151,1011,162,186 });
+			dog_animation.push_back({ 151,1011,162,186 });
+			dog_animation.push_back({ 151,1011,162,186 });
+			dog_animation.push_back({ 151,1011,162,186 });
 
 			dog_animation.push_back({ 1264,1011,162,186 });
 			dog_animation.push_back({ 1264,1011,162,186 });

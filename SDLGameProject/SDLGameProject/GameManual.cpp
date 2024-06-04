@@ -9,7 +9,7 @@ Manual::Manual()
 
 	pageNow = 0; //0이 메뉴얼 첫번째 장임.
 
-	SDL_Surface* temp_surface = IMG_Load("../Resources/manual.png");
+	SDL_Surface* temp_surface = IMG_Load("../Resources/manual2.png");
 	manualtexture_ = SDL_CreateTextureFromSurface(g_renderer, temp_surface);
 	SDL_FreeSurface(temp_surface);
 

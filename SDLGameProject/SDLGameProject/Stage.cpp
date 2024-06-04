@@ -99,7 +99,7 @@ StageInterface::StageInterface()
 
 
 	//Texture
-	SDL_Surface* texture = IMG_Load("../Resources/many.png");
+	SDL_Surface* texture = IMG_Load("../Resources/many_new.png");
 	manyTexture = SDL_CreateTextureFromSurface(g_renderer, texture);
 	SDL_FreeSurface(texture);
 	boxRect = { 156,3139, 139, 140 };
@@ -173,13 +173,18 @@ StageInterface::~StageInterface()
 	SDL_DestroyTexture(cwallTexture);
 	SDL_DestroyTexture(goalTexture);
 	SDL_DestroyTexture(scaffoldTexture);
+
+	SDL_DestroyTexture(blindTexture);
 	SDL_DestroyTexture(manyTexture);
 	SDL_DestroyTexture(many2Texture);
 	SDL_DestroyTexture(liquidTexture);
 
 	SDL_DestroyTexture(reTexture);
 
-	
+	SDL_DestroyTexture(mapbg);
+	SDL_DestroyTexture(wallTexture);
+	SDL_DestroyTexture(curtainTexture);
+	SDL_DestroyTexture(picturesTexture);
 
 }
 
