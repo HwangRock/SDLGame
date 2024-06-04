@@ -512,7 +512,7 @@ void StageInterface::Render()
 	{
 
 		//SDL_SetRenderDrawColor(g_renderer, 39, 27, 18, 255);
-		SDL_SetRenderDrawColor(g_renderer, 156, 122, 52, 255);
+		SDL_SetRenderDrawColor(g_renderer, 112, 87, 37, 255);
 		SDL_RenderFillRect(g_renderer, &wall.pos_);
 		//SDL_RenderCopy(g_renderer, wallTexture, &wallRect, &wall.pos_);
 	}
@@ -620,7 +620,7 @@ void StageInterface::Render()
 	{
 		//wall//////////////
 		//SDL_SetRenderDrawColor(g_renderer, 39, 27, 18, 255);
-		SDL_SetRenderDrawColor(g_renderer, 156, 122, 52, 255);
+		SDL_SetRenderDrawColor(g_renderer, 112, 87, 37, 255);
 		SDL_RenderFillRect(g_renderer, &l.wallPos);
 		//SDL_RenderCopy(g_renderer, wallTexture, &wallRect, &l.wallPos);
 
@@ -698,7 +698,7 @@ void StageInterface::Render()
 	for (Terrain wall : walls)
 	{
 		//SDL_SetRenderDrawColor(g_renderer, 39, 27, 18, 255);
-		SDL_SetRenderDrawColor(g_renderer, 156, 122, 52, 255);
+		SDL_SetRenderDrawColor(g_renderer, 112, 87, 37, 255);
 		SDL_RenderFillRect(g_renderer, &wall.pos);
 		//SDL_RenderCopy(g_renderer, wallTexture, &wallRect, &wall.pos);
 	}
