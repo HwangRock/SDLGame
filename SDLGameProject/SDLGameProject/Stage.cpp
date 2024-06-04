@@ -691,12 +691,12 @@ void StageInterface::Render()
 			}
 		}
 		//yellow
-		//SDL_SetRenderDrawColor(g_renderer, 225, 154, 17, 255);
+		SDL_SetRenderDrawColor(g_renderer, 225, 154, 17, 255);
 		for (int i = 0; i < btn.scaffold_.size(); i++)
 		{
 			// Button connected scaffolds
-			//SDL_RenderFillRect(g_renderer, &btn.scaffold_[i]);
-			SDL_RenderCopy(g_renderer, scaffoldTexture, &scaffoldRect, &btn.scaffold_[i]);
+			SDL_RenderFillRect(g_renderer, &btn.scaffold_[i]);
+			//SDL_RenderCopy(g_renderer, scaffoldTexture, &scaffoldRect, &btn.scaffold_[i]);
 		}
 	}
 

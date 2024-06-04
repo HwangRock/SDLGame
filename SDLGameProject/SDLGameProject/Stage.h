@@ -77,7 +77,7 @@ extern SDL_Rect mapDrect;
 extern bool isFirst; 
       
 class StageInterface : public PhaseInterface    
-{
+{  
 public:   
 	StageInterface();  
 	~StageInterface();
