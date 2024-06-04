@@ -26,12 +26,14 @@ public:
 		Terrain* floor8 = new Terrain(950, 375, win_w - 950, 50);
 		Terrain* floor9 = new Terrain(0, 475, 800, 25);
 		Terrain* floor10 = new Terrain(950, 500, 200, 25);
-		Terrain* floor11 = new Terrain(0, 575, 450, 50);
 
 		Terrain* floor12 = new Terrain(450, 575, 165, 65);
 		Terrain* floor13 = new Terrain(675, 575, win_w - 675, win_h - 575);
 
-
+		// 새로 배치
+		Terrain* block1 = new Terrain(116,598,318,27);
+		Terrain* block2 = new Terrain(15,575,103,50);
+		Terrain* block3 = new Terrain(426,575,204,50);
 
 		Terrain* default1 = new Terrain(0, 0, 30, win_h);
 		Terrain* default2 = new Terrain(0, 0, win_w, 30);
@@ -41,7 +43,8 @@ public:
 		{
 
 			*default1,*default2,*default3,*default4,
-			*floor1,*floor2,*floor3,*floor4,*floor5,*floor6,*floor7,*floor8,*floor9,*floor10,*floor11,*floor12,*floor13
+			*floor1,*floor2,*floor3,*floor4,*floor5,*floor6,*floor7,*floor8,*floor9,*floor10,*floor12,*floor13,
+			*block1,* block2,* block3
 
 		};
 
@@ -105,8 +108,8 @@ public:
 
 
 
-		Liquid* milk1 = new Liquid({ 120,568,305,25 }, "milk");
-		Liquid* milk2 = new Liquid({ 950,490,200,20 }, "milk");
+		Liquid* milk1 = new Liquid({ 118,575,310,25 }, "milk");
+		Liquid* milk2 = new Liquid({ 950,483,200,20 }, "milk");
 		liquid = { *milk1 , *milk2 };
 		s_liquid = {};
 
