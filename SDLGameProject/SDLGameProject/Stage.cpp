@@ -662,23 +662,11 @@ void StageInterface::Render()
 		}
 	}
 
-
-
-	// Wall
-	for (Terrain wall : walls)
-	{
-		SDL_SetRenderDrawColor(g_renderer, 39, 27, 18, 255);
-		SDL_RenderFillRect(g_renderer, &wall.pos);
-		//SDL_RenderCopy(g_renderer, wallTexture, &wallRect, &wall.pos);
-	}
-
-	
-
 	// Button
 	for (Button btn : buttons)
 	{
-		
-		
+
+
 		for (int i = 0; i < btn.buttonPos.size(); i++)
 		{
 			if (btn.isPressed)
@@ -699,6 +687,19 @@ void StageInterface::Render()
 			//SDL_RenderCopy(g_renderer, scaffoldTexture, &scaffoldRect, &btn.scaffold_[i]);
 		}
 	}
+
+
+	// Wall
+	for (Terrain wall : walls)
+	{
+		SDL_SetRenderDrawColor(g_renderer, 39, 27, 18, 255);
+		SDL_RenderFillRect(g_renderer, &wall.pos);
+		//SDL_RenderCopy(g_renderer, wallTexture, &wallRect, &wall.pos);
+	}
+
+	
+
+	
 
 	
 

@@ -26,42 +26,48 @@ public:
         Terrain* floor3 = new Terrain(150, 550, 870, 20);
         Terrain* floor4 = new Terrain(1020, 500, 20, 70);
         Terrain* floor5 = new Terrain(150, 350, 20, 200);
-        Terrain* floor6 = new Terrain(30, 130, 120, 20);
+
+
+        //왼쪽 상단 물
+        Terrain* floor6_1 = new Terrain(30, 130, 25, 25);
+        Terrain* floor6_2 = new Terrain(125, 130, 25, 25);
+
+
         Terrain* floor7 = new Terrain(150, 130, 20, 150);
         Terrain* floor8 = new Terrain(100, 350, 50, 20);
         Terrain* floor9 = new Terrain(30, 275, 40, 20);
         Terrain* floor10 = new Terrain(300, 130, 100, 20);
-        Terrain* floor11 = new Terrain(300, 300, 50, 20);
+        //Terrain* floor11 = new Terrain(300, 300, 50, 20);
         Terrain* floor12 = new Terrain(800, 300, 20, 20);
         Terrain* floor13 = new Terrain(800, 150, 20, 20);
         Terrain* floor14 = new Terrain(500, 130, 220, 20);
         Terrain* floor15 = new Terrain(850, 420, 25, 80);//박스 위쪽 막는거
         Terrain* floor16 = new Terrain(1200, 370, 50, 20);
-        Terrain* floor17 = new Terrain(1100, 140, 180, 20);
+        Terrain* floor17 = new Terrain(1100, 140, 180, 20);//goal있는곳
         Terrain* floor18 = new Terrain(910, 30, 10, 390);
 
         walls =
         {
            *default1,*default2,*default3,*default4,
-           *floor1,*floor3,*floor4, *floor5,*floor6,*floor7,*floor8,*floor9,
-           *floor10,*floor11,*floor12,*floor13,*floor14,*floor15,*floor16,*floor17,*floor18
+           *floor1,*floor3,*floor4, *floor5,*floor6_1,*floor6_2,*floor7,*floor8,*floor9,
+           *floor10,*floor12,*floor13,*floor14,*floor15,*floor16,*floor17,*floor18
         };
 
         Button* btnA = new Button(1, 1,
             { { 330, 110, 25, 25} },
             { { 150, 280,20,80 } },
-            { { 150, 180,20,80 } },
+            { { 150, 200,20,80 } },
             { { 150, 280,20,80 } });
         Button* btnB = new Button(1, 1,
             { { 30, 255, 25, 25} },
-            { { 170,400,130,25 } },
-            { { 300, 400,130,25 } },
-            { { 170,400,130,25 } });
+            { { 170,400,130,30 } },
+            { { 300,400,130,30 } },
+            { { 170,400,130,30 } });
         Button* btnC = new Button(1, 1,
             { { 1150, 120, 25, 25} },
-            { { 940,420,150,25 } },
-            { { 940, 100,150,25 } },
-            { { 940,420,150,25 } });
+            { { 940,420 - 25,150,25 } },
+            { { 940,140,150,25 } },
+            { { 940,420 - 25,150,25 } });
         buttons = { *btnA,*btnB,*btnC };
 
         liquidWalls = { };
@@ -91,11 +97,12 @@ public:
 
         keys = {};
 
+        Liquid* water1 = new Liquid({ 55, 130,70,25 }, "water");
         Liquid* choco1 = new Liquid({ 30, win_h - 30,470,30 }, "choco");//아래쪽 초코
         Liquid* choco2 = new Liquid({ 300, 400, 600, 30 }, "choco");//위쪽 초코
         liquid =
         {
-           *choco1,*choco2
+           *water1,*choco1,*choco2
         };
         s_liquid = {};
 
@@ -111,7 +118,7 @@ public:
         Cushion* cushion1 = new Cushion({ 1100,640,100, 55 });
         cushions = { *cushion1 };
 
-        Blind* blind1 = new Blind({ 30,80,140,50 }, 3);
+        Blind* blind1 = new Blind({ 30,80,140,80 }, 2);
         Blind* blind2 = new Blind({ 580,60,150,80 }, 0);
         blinds = { *blind1,*blind2 };
 
@@ -124,5 +131,4 @@ public:
 protected:
 
 };
-
 

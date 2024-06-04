@@ -29,15 +29,15 @@ public:
 		Terrain* floor3 = new Terrain(220, 150, 30, 550);
 		Terrain* floor4 = new Terrain(1050, 497, 200, 40);
 		Terrain* floor5 = new Terrain(1050, 170, 30, 330);
-		
+
 
 		//왼쪽 물 있는 발판
 		Terrain* floor6_1 = new Terrain(250, 150, 100, 25);
 		Terrain* floor6_2 = new Terrain(500, 150, 50, 25);
 
 		//오른쪽 물 있는 발판
-		Terrain* floor15_1 = new Terrain(650, 150, 810-650, 20);
-		Terrain* floor15_2 = new Terrain(810+225, 150, 45, 20);
+		Terrain* floor15_1 = new Terrain(650, 150, 810 - 650, 20);
+		Terrain* floor15_2 = new Terrain(810 + 225, 150, 45, 20);
 
 
 		Terrain* floor7 = new Terrain(400, 330, 650, 20);
@@ -48,8 +48,8 @@ public:
 		Terrain* floor12 = new Terrain(850, 600, 50, 100);//버튼 D가 있을 곳
 		//Terrain* floor13 = new Terrain(700, 670, 150, 20);
 		Terrain* floor14 = new Terrain(850, 430, 50, 20);//대포가 올라가 있는곳
-		
-		
+
+
 
 		Terrain* floor16 = new Terrain(1180, 210, 70, 20);
 		Terrain* floor17 = new Terrain(150, 210, 70, 20);
@@ -60,10 +60,10 @@ public:
 		Terrain* floor21 = new Terrain(650, 300, 400, 30);
 		Terrain* floor22 = new Terrain(850, 260, 50, 40);
 		Terrain* floor23 = new Terrain(895, 80, 50, 25);//가장 높은 발판
-		
-		Terrain* floor24 = new Terrain(900+100, 720 - 30 - 25, win_w-1000, 25);//goal쪽 발판
 
-		
+		Terrain* floor24 = new Terrain(900 + 100, 720 - 30 - 25, win_w - 1000, 25);//goal쪽 발판
+
+
 
 		walls =
 		{
@@ -108,16 +108,16 @@ public:
 			{ { 250, 330, 150, 20} },
 			{ { 400, 330,170,25 } },
 			{ { 250, 330, 150, 20} });
-		Button* btnD = new Button(1, 2,
+		Button* btnD = new Button(1, 1,
 			{ { 850, 580, 25, 25} },
-			{ { 700,720,150,25 } ,{600,625,50,25} },
-			{ {700,645,150,25 } , {600,550,50,25 } },
-			{ {700,720,150,25 } , {600,625,50,25} });
+			{ {600,625,50,25} },
+			{ {600,550,50,25} },
+			{ {600,625,50,25} });
 		buttons = { *btnA,*btnB,*btnC,*btnD };
 
-		
+
 		//CLIMB WALL//////////////////////////////////////////////
-		ClimbWall* cwall1 = new ClimbWall({ 650,480,50,win_h-480});
+		ClimbWall* cwall1 = new ClimbWall({ 650,480,50,win_h - 480 });
 		ClimbWall* cwall2 = new ClimbWall({ 1000,350,50,187 });
 		climbWalls = { *cwall1,*cwall2 };
 
@@ -128,8 +128,8 @@ public:
 		//AND SO ON//////////////////////////////////////////////
 		cushions = { };
 
-		Blind* b1 = new Blind({ 340,100,140,50 }, 3);
-		Blind* b2 = new Blind({ 800,20,220,150 }, 0);
+		Blind* b1 = new Blind({ 340,100,200,75 }, 3);
+		Blind* b2 = new Blind({ 800,20,240,170 }, 0);
 		blinds = { *b1,*b2 };
 
 
@@ -140,8 +140,8 @@ public:
 		cannon = { *cannon1 };
 		misile* misile1 = new misile({ 800, 380, 50, 30 }, "left");
 		mis = { *misile1 };
-		
-		
+
+
 		keys = {};
 
 		//BONE FISH//////////////////////////////////////////
@@ -163,8 +163,8 @@ public:
 
 
 		Liquid* milk2 = new Liquid({ 700,720 - 30 - 25,150,50 }, "milk");//아래쪽 우유
-		
-		Liquid* choco1 = new Liquid({ 900,720-30-25,100,25 }, "choco");
+
+		Liquid* choco1 = new Liquid({ 900,720 - 30 - 25,100,25 }, "choco");
 
 		liquid =
 		{
@@ -189,14 +189,13 @@ public:
 		fadefloors = { *fadefloor1,*fadefloor2,*fadefloor3,*fadefloor4,*fadefloor5 };
 
 
-		
+
 
 		//START, GOAL////////////////////////////////////////////////
-		goal = { { 1190,610,50,80 } };
-		//start = { { 100,450,50,80 },{1130,360,50,80 } };
-		start = { {400,50,50,80 },{500,50,50,80 } };
+		goal = { { 1190,600,50,80 } };
+		start = { { 100,455,50,80 },{1130,365,50,80 } };
+		//start = { {400,50,50,80 },{500,50,50,80 } };
 	}
 protected:
 
 };
-

@@ -116,7 +116,9 @@ public:
 		boxs = { *box1,*box2 };
 
 		Terrain* cannon1 = new Terrain(940, 640, 50, 50);
+		cannon = { *cannon1 };
 		misile* misile1 = new misile({ 890, 640, 50, 30 },"left");
+		mis = { *misile1 };
 
 		Terrain* fish1 = new Terrain(70, 350, 30, 30);
 		Terrain* fish2 = new Terrain(460, 60, 30, 30);
@@ -142,8 +144,7 @@ public:
 
 		
 
-		cannon = { *cannon1 };
-		mis = { *misile1 };
+	
 		bone = { *bone1,*bone2,*bone3,*bone4,*bone5,*bone6 };
 		fish = { *fish1,*fish2,*fish3,*fish4,*fish5,*fish6 };
 		

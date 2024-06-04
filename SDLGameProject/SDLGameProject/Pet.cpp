@@ -53,7 +53,6 @@ Pet::Update(double timestep_s)
 
 	//MOVING/////////////////////////////////////////////////
 
-
 	nowInput = inputs[inputs.size() - 1];
 	//left
 	if (nowInput == 1) { pos.x -= 2; }
@@ -90,9 +89,9 @@ Pet::Update(double timestep_s)
 
 	//MISSILE////////////////////////////////
 	for (auto& missile : mis) {
-		if (SDL_HasIntersection(&mis[0].misile_pos, &pos))
+		if (SDL_HasIntersection(&missile.misile_pos, &pos))
 		{
-			//isDead = true;
+			isDead = true;
 		}
 	}
 

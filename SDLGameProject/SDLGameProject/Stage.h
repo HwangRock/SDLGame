@@ -68,9 +68,9 @@ extern SDL_Texture *manyTexture;
 extern SDL_Texture* many2Texture;
 
 extern int score_bone;
-extern int score_fish;
+extern int score_fish; 
 
-extern SDL_Texture* mapbg;
+extern SDL_Texture* mapbg; 
 extern SDL_Rect mapSrect[3];
 extern SDL_Rect mapDrect;
 
