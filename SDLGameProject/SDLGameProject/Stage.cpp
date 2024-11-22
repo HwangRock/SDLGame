@@ -1033,6 +1033,16 @@ void StageInterface::NextChapter()
 		g_pre_game_phase = PHASE_STAGE6;
 		break;
 	case 5:
+		chapterNum = 6;
+		g_current_game_phase = PHASE_STAGE7;
+		g_pre_game_phase = PHASE_STAGE7;
+		break;
+	case 6:
+		chapterNum = 7;
+		g_current_game_phase = PHASE_STAGE8;
+		g_pre_game_phase = PHASE_STAGE8;
+		break;
+	case 7: ////원래 마지막
 		chapterNum = 0;
 		g_current_game_phase = PHASE_FINISH;
 		g_pre_game_phase = PHASE_STAGE1;

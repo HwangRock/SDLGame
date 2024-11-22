@@ -170,6 +170,8 @@
     <ClCompile Include="Map4.cpp" />
     <ClCompile Include="Map5.cpp" />
     <ClCompile Include="Map6.cpp" />
+    <ClCompile Include="Map7.cpp" />
+    <ClCompile Include="Map8.cpp" />
     <ClCompile Include="misile.cpp" />
     <ClCompile Include="movingObject.cpp" />
     <ClCompile Include="robot.cpp" />

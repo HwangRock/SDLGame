@@ -17,6 +17,8 @@
 #include "Map4.cpp"
 #include "Map5.cpp"
 #include "Map6.cpp"
+#include "Map7.cpp"
+#include "Map8.cpp"
 
 
 /////////////////////////////////////////////////
@@ -125,7 +127,7 @@ int main(int argc, char* argv[])
 
 	InitGame(); 
 
-	PhaseInterface* game_phases[13];
+	PhaseInterface* game_phases[15];
 	game_phases[0] = new Intro;
 	game_phases[1] = new Map1;
 	game_phases[2] = new Map2;
@@ -133,12 +135,14 @@ int main(int argc, char* argv[])
 	game_phases[4] = new Map4;
 	game_phases[5] = new Map5;
 	game_phases[6] = new Map6;
-	game_phases[7] = new Ending;
-	game_phases[8] = new Over;
-	game_phases[9] = new Clear;
-	game_phases[10] = new ESC;
-	game_phases[11] = new Manual;
-	game_phases[12] = new Finish;
+	game_phases[7] = new Map7;
+	game_phases[8] = new Map8;
+	game_phases[9] = new Ending;
+	game_phases[10] = new Over;
+	game_phases[11] = new Clear;
+	game_phases[12] = new ESC;
+	game_phases[13] = new Manual;
+	game_phases[14] = new Finish;
 	
 	
 	g_current_game_phase = PHASE_INTRO;
@@ -165,7 +169,7 @@ int main(int argc, char* argv[])
 	//END////////////////////////////////////////////
 	
 
-	for (int i = 0; i < 13; i++)
+	for (int i = 0; i < 15; i++)
 	{
 		delete game_phases[i];
 	}
