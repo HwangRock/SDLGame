@@ -117,6 +117,15 @@
     <ClCompile Include="Torch.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
+    <ClCompile Include="movingObject.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="robot.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="flyingBox.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Pet.h">
@@ -181,6 +190,15 @@
     </ClInclude>
     <ClInclude Include="Torch.h">
       <Filter>소스 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="movingObject.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="robot.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="flyingBox.h">
+      <Filter>헤더 파일</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

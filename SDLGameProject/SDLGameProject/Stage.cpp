@@ -124,6 +124,10 @@ StageInterface::StageInterface()
 	darkRect = { 0,0,300,300 };
 	torchRect = { 400, 2708, 102, 119 };
 
+	robotRect = { 156,3139, 139, 140 };
+	flyRect = { 1532,2213,83,110 };
+
+
 	SDL_Surface* texture2 = IMG_Load("../Resources/many_2.png");
 	many2Texture = SDL_CreateTextureFromSurface(g_renderer, texture2);
 	SDL_FreeSurface(texture2);
@@ -277,6 +281,16 @@ void StageInterface::Update()
 		for (Box& b : boxs) {
 			b.Update(g_timestep_s);
 		}
+
+		//robot update
+		for (robot& r : robo) {
+			r.Update();
+		}
+		//flyingBox update
+		for (flyingBox& f : fly) {
+			f.Update();
+		}
+
 
 		// 미사일 위치 업데이트
 		for (misile& missile : mis)
@@ -622,6 +636,13 @@ void StageInterface::Render()
 	for (Box b : boxs)
 	{
 		SDL_RenderCopy(g_renderer, manyTexture, &boxRect, &b.box_pos);
+	}
+
+	for (robot r : robo) {
+		SDL_RenderCopy(g_renderer, manyTexture, &robotRect, &r.currentLocation);
+	}
+	for (flyingBox f : fly) {
+		SDL_RenderCopy(g_renderer, manyTexture, &flyRect, &f.currentLocation);
 	}
 
 	// CANNON

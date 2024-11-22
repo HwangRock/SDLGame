@@ -48,7 +48,7 @@
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
     <ConfigurationType>Application</ConfigurationType>
     <UseDebugLibraries>false</UseDebugLibraries>
-    <PlatformToolset>v142</PlatformToolset>
+    <PlatformToolset>v143</PlatformToolset>
     <WholeProgramOptimization>true</WholeProgramOptimization>
     <CharacterSet>Unicode</CharacterSet>
   </PropertyGroup>
@@ -154,6 +154,7 @@
     <ClCompile Include="DogAnimation.cpp" />
     <ClCompile Include="FadeFloor.cpp" />
     <ClCompile Include="FinishGame.cpp" />
+    <ClCompile Include="flyingBox.cpp" />
     <ClCompile Include="Game.cpp" />
     <ClCompile Include="GameClear.cpp" />
     <ClCompile Include="GameEnding.cpp" />
@@ -170,6 +171,8 @@
     <ClCompile Include="Map5.cpp" />
     <ClCompile Include="Map6.cpp" />
     <ClCompile Include="misile.cpp" />
+    <ClCompile Include="movingObject.cpp" />
+    <ClCompile Include="robot.cpp" />
     <ClCompile Include="Seesaw.cpp" />
     <ClCompile Include="Stage.cpp" />
     <ClCompile Include="Main.cpp" />
@@ -192,12 +195,15 @@
     <ClInclude Include="DogAnimation.h" />
     <ClInclude Include="FadeFloor.h" />
     <ClInclude Include="FinishGame.h" />
+    <ClInclude Include="flyingBox.h" />
     <ClInclude Include="Game.h" />
     <ClInclude Include="GameEnding.h" />
     <ClInclude Include="GameESC.h" />
     <ClInclude Include="GameIntro.h" />
     <ClInclude Include="GameManual.h" />
     <ClInclude Include="LiquidWall.h" />
+    <ClInclude Include="movingObject.h" />
+    <ClInclude Include="robot.h" />
     <ClInclude Include="Seesaw.h" />
     <ClInclude Include="Stage.h" />
     <ClInclude Include="Pet.h" />

@@ -170,6 +170,34 @@ Pet::Update(double timestep_s)
 	}
 	
 	
+	//robot////////////
+	for (const robot& r : robo) {
+		SDL_Rect intersection;
+		if (SDL_HasIntersection(&pos, &r.currentLocation)) {
+			SDL_IntersectRect(&pos, &r.currentLocation, &intersection);
+
+			if (intersection.w > intersection.h) {
+				if (pos.y + pos.h <= r.currentLocation.y + r.currentLocation.h / 2) {
+					pos.y = r.currentLocation.y - pos.h;
+					v[1] = 0;
+					jumping = false;
+				}
+				else {
+					pos.y = r.currentLocation.y + r.currentLocation.h;
+					v[1] = 0;
+					jumping = true;
+				}
+			}
+			else {
+				if (pos.x < r.currentLocation.x + r.currentLocation.w / 2) {
+					isDead = true;
+				}
+				else if (pos.x + pos.w > r.currentLocation.x) {
+					isDead = true;
+				}
+			}
+		}
+	}
 
 
 

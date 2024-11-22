@@ -95,6 +95,10 @@ public:
         SDL_Rect laisle1 = { 250,150,200,30 };
         liquidAisles = { laisle1 };
 
+        //robot* robo1 = new robot{ {150,653,80,35},{200,653,80,35} };
+        robo = {  };
+        //flyingBox* fly1 = new flyingBox{ {150,553,80,35},{200,553,80,35} };
+        fly = {  };
 
         //CLIMB WALL////////////////////////////////////
         ClimbWall* cwall = new ClimbWall({ 13,31,19,394 });

@@ -106,7 +106,8 @@ public:
         };
         s_liquid = {};
         seesaws = {};
-
+        robo = {};
+        fly = {};
 
         FadeFloor* fadefloor1 = new FadeFloor({ 200,640,87,25 });
         FadeFloor* fadefloor2 = new FadeFloor({ 50,640,87,25 });

@@ -40,12 +40,31 @@ void Cat::Update(double timestep_s)
 		*/
 	}
 
+	for (int k = 0; k < fly.size(); k++)
+	{
+		if (SDL_HasIntersection(&pos, &fly[k].currentLocation))
+		{
+			BlockMoving(fly[k].currentLocation);
+			if (pos.y <= fly[k].currentLocation.y + fly[k].currentLocation.h - 1 &&
+				pos.y + pos.h >= fly[k].currentLocation.y + 1)
+			{
+				isClimbWall = true;
+			}
+			else
+			{
+				std::cout << "flying box out of boundary\n";
+			}
+		}
+	}
+
+
 	if (isClimbWall == true) { v[1] = -1.5f; } //0.098f
 	else if(v[1] <= 6.5) { v[1] += gravity; }
 
 	//UPDATE///////////////////////////////////////////////////
 	Pet::Update(timestep_s);
 	 
+
 
 	//WATER///////////////////////////////////////////////////
 	for (Liquid l : liquid)

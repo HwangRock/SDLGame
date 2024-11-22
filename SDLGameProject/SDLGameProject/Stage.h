@@ -10,7 +10,7 @@
 #include "SDL_mixer.h"
 #include "SDL_image.h" 
  
-//////////////////////  ///
+//////////////////////  ///////////
 #include "math.h"  
 
 #include "Dog.h"
@@ -39,7 +39,10 @@
 #include "Game.h"
 
 #include "CatAnimation.h"
-#include "DogAnimation.h" 
+#include "DogAnimation.h"
+
+#include "robot.h"
+#include "flyingBox.h"
 
 extern std::vector<Terrain> walls, cannon, fish, bone; 
 extern std::vector<Box> boxs;    
@@ -64,7 +67,9 @@ extern std::vector<Key>keys;
 extern std::vector<SDL_Rect> goal;
 extern std::vector<SDL_Rect> start;
 
-  
+extern std::vector<robot> robo;
+extern std::vector <flyingBox> fly;
+
 extern int chapterNum;
 extern int win_w, win_h; 
 
@@ -157,6 +162,8 @@ private:
 	SDL_Rect bgRect;
 	SDL_Rect darkRect;
 	SDL_Rect torchRect;
+	SDL_Rect robotRect;
+	SDL_Rect flyRect;
 	 
 	 
 	//Pets

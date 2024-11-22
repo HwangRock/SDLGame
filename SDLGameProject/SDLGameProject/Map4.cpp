@@ -185,7 +185,8 @@ public:
 		seesaws = {};
 		Cushion* cushion1 = new Cushion({ 900,500,100, 55 });
 		cushions = { *cushion1 };
-
+		robo = {};
+		fly = {};
 
 		//climbwall
 		ClimbWall* cwall1 = new ClimbWall({ 215,426,20,265 });

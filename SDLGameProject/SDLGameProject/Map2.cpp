@@ -142,6 +142,9 @@ public:
 		//Blind
 		blinds = { };
 
+		robo = {};
+		fly = {};
+
 		liquidWalls = {  };
 		liquidAisles = { };
 

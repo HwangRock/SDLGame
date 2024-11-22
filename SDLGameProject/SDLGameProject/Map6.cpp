@@ -144,6 +144,8 @@ public:
 
 
 		keys = {};
+		robo = {};
+		fly = {};
 
 		//BONE FISH//////////////////////////////////////////
 		Terrain* bone1 = new Terrain(280, 280, 30, 30);
