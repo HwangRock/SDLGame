@@ -45,6 +45,7 @@ std::vector<SDL_Rect>liquidAisles = {};
 std::vector<ClimbWall>climbWalls = {};
 std::vector<Cushion>cushions = {};
 std::vector<FadeFloor>fadefloors = {};
+std::vector<Torch>torches = {};
 
 std::vector<SDL_Rect> cat_animation = {{141, 75, 172, 219}, {141, 75, 172, 219}, {141, 75, 172, 219}, {818, 75, 172, 219}, {1047, 75, 172, 219}, {1274, 75, 172, 219}, {1495, 75, 172, 219}, {1714, 75, 172, 219}, {1947, 75, 172, 219}};
 std::vector<SDL_Rect> dog_animation = {{142, 1011, 165, 198}, {142, 1011, 165, 198}, {142, 1011, 165, 198}, {142, 1011, 165, 198}, {142, 1011, 165, 198}, {1264, 1011, 162, 186}, {1264, 1011, 162, 186}, {1264, 1011, 162, 186}, {1264, 1011, 162, 186}, {1264, 1011, 162, 186}};

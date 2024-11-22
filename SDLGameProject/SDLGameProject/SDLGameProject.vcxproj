@@ -179,6 +179,7 @@
     <ClCompile Include="Pet.cpp" />
     <ClCompile Include="SwellingLiquid.cpp" />
     <ClCompile Include="Terrain.cpp" />
+    <ClCompile Include="Torch.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Box.h" />
@@ -201,6 +202,7 @@
     <ClInclude Include="Stage.h" />
     <ClInclude Include="Pet.h" />
     <ClInclude Include="Terrain.h" />
+    <ClInclude Include="Torch.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

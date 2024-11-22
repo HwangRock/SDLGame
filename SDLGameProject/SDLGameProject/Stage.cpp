@@ -91,6 +91,11 @@ StageInterface::StageInterface()
 	SDL_FreeSurface(surface_sca);
 	scaffoldRect = {126, 4235, 427, 61};
 
+	//blackbg
+	SDL_Surface* blackbg = IMG_Load("../Resources/blackbg.png");
+	blackbgTexture = SDL_CreateTextureFromSurface(g_renderer, blackbg);
+	SDL_FreeSurface(blackbg);
+	darkRect = { 0,0,300,300 };
 
 	//Texture
 	SDL_Surface* texture = IMG_Load("../Resources/many_new.png");
@@ -115,6 +120,9 @@ StageInterface::StageInterface()
 	dogPushRect = { 119,1941,132,179 };
 	catDieRect = { 580,770,187,222 };
 	dogDieRect = { 342,1537,218,144 };
+
+	darkRect = { 0,0,300,300 };
+	torchRect = { 400, 2708, 102, 119 };
 
 	SDL_Surface* texture2 = IMG_Load("../Resources/many_2.png");
 	many2Texture = SDL_CreateTextureFromSurface(g_renderer, texture2);
@@ -186,6 +194,7 @@ StageInterface::~StageInterface()
 	SDL_DestroyTexture(wallTexture);
 	SDL_DestroyTexture(curtainTexture);
 	SDL_DestroyTexture(picturesTexture);
+	SDL_DestroyTexture(blackbgTexture);
 
 }
 
@@ -363,6 +372,29 @@ void StageInterface::Update()
 					buttons[i].Update();
 				}
 
+			}
+		}
+
+		//Torch/////////////////////////////////////////////////////////////
+		for (int i = 0; i < torches.size(); i++)
+		{
+			for (int j = 0; j < torches[i].torchPos.size(); j++)
+			{
+				if (SDL_HasIntersection(&dog->pos, &torches[i].torchPos[j]) ||
+					SDL_HasIntersection(&cat->pos, &torches[i].torchPos[j]))
+				{
+					std::cout << torches[i].opacity << "\n";
+					//닿음
+					torches[i].Touch(true);
+					torches[i].Update();
+					break;
+				}
+				else
+				{
+					//닿지 않음
+					torches[i].Touch(false);
+					torches[i].Update();
+				}
 			}
 		}
 
@@ -805,6 +837,35 @@ void StageInterface::Render()
 		SDL_RenderDrawPoint(g_renderer, center.x, center.y);
 	}
 
+	// Torch
+	SDL_SetTextureBlendMode(blackbgTexture, SDL_BLENDMODE_BLEND);
+	for (Torch torch : torches)
+	{
+		SDL_SetTextureAlphaMod(blackbgTexture, 255);
+
+		//torch
+		for (int i = 0; i < torch.torchPos.size(); i++)
+		{
+			SDL_RenderCopy(g_renderer, manyTexture, &torchRect, &torch.torchPos[i]);
+		}
+
+		//black
+		for (int i = 0; i < torch.dark_.size(); i++)
+		{
+			if (torch.isTouched == true)
+			{
+				SDL_SetTextureAlphaMod(blackbgTexture, torch.opacity);
+			}
+			else {
+				if (torch.opacity == 0) {
+					SDL_SetTextureAlphaMod(blackbgTexture, 0);
+				}
+			}
+			// Torch connected darkbg
+			SDL_RenderCopy(g_renderer, blackbgTexture, &darkRect, &torch.dark_[i]);
+		}
+		SDL_SetTextureAlphaMod(blackbgTexture, 0);
+	}
 
 	// restart
 	SDL_RenderCopy(g_renderer, reTexture, &reRect, &reRect_des);

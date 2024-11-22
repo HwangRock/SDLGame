@@ -6,7 +6,7 @@
 #include "ClimbWall.cpp"
 #include "Cushion.h"
 #include "FadeFloor.h"
-
+#include "Torch.h"
 
 #include "SDL.h"
 #include "Pet.h"

@@ -22,7 +22,8 @@
 #include "LiquidWall.h"
 #include "ClimbWall.cpp"
 #include "FadeFloor.h"
-#include "Cushion.h" 
+#include "Cushion.h"
+#include "Torch.h"
 #include "Blind.cpp"
      
     
@@ -50,6 +51,7 @@ extern std::vector<ClimbWall>climbWalls;
 extern std::vector<Cushion>cushions;
 extern std::vector<FadeFloor>fadefloors;
 extern std::vector<misile>mis;
+extern std::vector<Torch>torches;
 
 extern std::vector<SDL_Rect> cat_animation;
 extern std::vector<SDL_Rect> dog_animation;
@@ -109,6 +111,8 @@ private:
 	SDL_Texture* reTexture;
 
 	SDL_Texture* curtainTexture;
+
+	SDL_Texture* blackbgTexture;
              
 	SDL_Texture* seesawTexture;
 	SDL_Rect seesawRect; 
@@ -151,9 +155,9 @@ private:
 	SDL_Rect catDieRect;
 	SDL_Rect dogDieRect;
 	SDL_Rect bgRect;
+	SDL_Rect darkRect;
+	SDL_Rect torchRect;
 	 
-	  
-	  
 	 
 	//Pets
 	//Pet* dog = new Pet(700, 100, true);

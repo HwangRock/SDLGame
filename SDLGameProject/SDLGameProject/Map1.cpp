@@ -4,6 +4,7 @@
 #include "Terrain.h"
 #include "Button.h"
 #include <vector>
+#include "Torch.h"
 
 class Map1 : public StageInterface
 {
@@ -53,9 +54,13 @@ public:
            *default7, *floor9
         };
 
-
-
-
+        /*
+        //torch////////////////////////////////////////
+        //torchNum, darkNum, darkRect, torchPos, opacity
+        Torch* torch1 = new Torch(1, 1, { {400,194, 999,355 } }, { { 863, 580, 102, 119} }, 255);
+        Torch* torch2 = new Torch(1, 1, { {0,0,279,443 } }, { { 288, 312, 102, 119} }, 255);
+        Torch* torch3 = new Torch(1, 1, { {1004,1,278,189} }, { { 697, 60, 102, 119} }, 255);
+        torches = { *torch1, *torch2, *torch3 };*/
 
         //Button//////////////////////////////////////
         Button* btn1 = new Button(2, 1,
