@@ -170,8 +170,8 @@ C:\Users\zioba\Documents\GitHub\SDLGame\SDLGameProject\SDLGameProject\misile.cpp
   (소스 파일 'Torch.cpp'을(를) 컴파일하는 중)
   
   코드를 생성하고 있습니다.
-  61 of 1296 functions ( 4.7%) were compiled, the rest were copied from previous compilation.
-    10 functions were new in current compilation
-    60 functions had inline decision re-evaluated but remain unchanged
+  1 of 1327 functions (<0.1%) were compiled, the rest were copied from previous compilation.
+    0 functions were new in current compilation
+    12 functions had inline decision re-evaluated but remain unchanged
   코드를 생성했습니다.
   SDLGameProject.vcxproj -> C:\Users\zioba\Documents\GitHub\SDLGame\SDLGameProject\x64\Release\SDLGameProject.exe

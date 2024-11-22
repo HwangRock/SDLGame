@@ -63,14 +63,14 @@ public:
         torches = { *torch1, *torch2, *torch3 };*/
 
         ///Teleport//////////
-        /*Teleport_bi* tele1 = new Teleport_bi(
+        Teleport_bi* tele1 = new Teleport_bi(
             { 200, 375, 50, 50 },
             { 500, 375, 50, 50 },
-            "no one", "no one",
+           "no one", "no one",
             false, false
         );
 
-        teleports_bi = { *tele1 };*/ ///////벡터 이름만 첫 글자 t 소문자입니다. 클래스명은 Teleport_bi
+        teleports_bi = { *tele1 }; ///////벡터 이름만 첫 글자 t 소문자입니다. 클래스명은 Teleport_bi
 
         //Button//////////////////////////////////////
         Button* btn1 = new Button(2, 1,
@@ -145,16 +145,16 @@ public:
         s_liquid = {};
 
         //SEESAW
-        Seesaw* ss1 = new Seesaw({ 880,500,100,25 });
-        seesaws = { *ss1 };
+        //Seesaw* ss1 = new Seesaw({ 880,500,100,25 });
+        //seesaws = { *ss1 };
         //GOAL, START/////////////////////////////////////////////
         goal = { {1125,110,50,75} };
-        start = { {50,620,50,75} }; //map1 원래 스타트 지점
+        //start = { {50,620,50,75} }; //map1 원래 스타트 지점
         //start = { {350,375,50,75} }; //텔레포트 시험용 빠른 시작 지점
 
 
         //start={{600,300,50,80}};
-        //start = { 1000,100,50,100 };
+        start = { { 1000,100,50,100 } };
         //바로 클리어 장면 볼 수 있는 start 위치.
     }
 protected:

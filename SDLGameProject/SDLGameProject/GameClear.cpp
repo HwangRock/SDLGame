@@ -138,6 +138,14 @@ public:
 							chapterNum = 5;
 							g_current_game_phase = PHASE_STAGE6;
 							break;
+						case 6:
+							chapterNum = 6;
+							g_current_game_phase = PHASE_STAGE7;
+							break;
+						case 7:
+							chapterNum = 7;
+							g_current_game_phase = PHASE_STAGE8;
+							break;
 						default:
 							std::cout << "restart error\n";
 							break;
@@ -177,6 +185,16 @@ public:
 
 							break;
 						case 5:
+							chapterNum = 6;
+							g_current_game_phase = PHASE_STAGE7;
+
+							break;
+						case 6:
+							chapterNum = 7;
+							g_current_game_phase = PHASE_STAGE8;
+
+							break;
+						case 7:
 							chapterNum = 0;
 							g_current_game_phase = PHASE_FINISH;
 

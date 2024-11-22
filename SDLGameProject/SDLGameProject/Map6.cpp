@@ -146,6 +146,7 @@ public:
 		keys = {};
 		robo = {};
 		fly = {};
+		teleports_bi = {};
 
 		//BONE FISH//////////////////////////////////////////
 		Terrain* bone1 = new Terrain(280, 280, 30, 30);

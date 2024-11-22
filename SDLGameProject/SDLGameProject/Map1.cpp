@@ -63,14 +63,14 @@ public:
         torches = { *torch1, *torch2, *torch3 };*/
 
         ///Teleport//////////
-        /*Teleport_bi* tele1 = new Teleport_bi(
+        Teleport_bi* tele1 = new Teleport_bi(
             { 200, 375, 50, 50 },
             { 500, 375, 50, 50 },
             "no one", "no one",
             false, false
         );
 
-        teleports_bi = { *tele1 };*/ ///////벡터 이름만 첫 글자 t 소문자입니다. 클래스명은 Teleport_bi
+        teleports_bi = { *tele1 }; ///////벡터 이름만 첫 글자 t 소문자입니다. 클래스명은 Teleport_bi
 
         //Button//////////////////////////////////////
         Button* btn1 = new Button(2, 1,
@@ -146,7 +146,7 @@ public:
 
         //SEESAW
         Seesaw* ss1 = new Seesaw({ 880,500,100,25 });
-        seesaws = { *ss1 };
+        //seesaws = { *ss1 };
         //GOAL, START/////////////////////////////////////////////
         goal = { {1125,110,50,75} };
         start = { {50,620,50,75} }; //map1 원래 스타트 지점

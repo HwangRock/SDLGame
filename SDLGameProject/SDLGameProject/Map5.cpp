@@ -108,6 +108,7 @@ public:
         seesaws = {};
         robo = {};
         fly = {};
+        teleports_bi = {};
 
         FadeFloor* fadefloor1 = new FadeFloor({ 200,640,87,25 });
         FadeFloor* fadefloor2 = new FadeFloor({ 50,640,87,25 });

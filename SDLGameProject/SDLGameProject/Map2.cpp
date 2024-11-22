@@ -144,6 +144,7 @@ public:
 
 		robo = {};
 		fly = {};
+		teleports_bi = {};
 
 		liquidWalls = {  };
 		liquidAisles = { };

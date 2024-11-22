@@ -187,6 +187,7 @@ public:
 		cushions = { *cushion1 };
 		robo = {};
 		fly = {};
+		teleports_bi = {};
 
 		//climbwall
 		ClimbWall* cwall1 = new ClimbWall({ 215,426,20,265 });
