@@ -105,7 +105,7 @@ public:
            *water1,*choco1,*choco2
         };
         s_liquid = {};
-
+        seesaws = {};
 
 
         FadeFloor* fadefloor1 = new FadeFloor({ 200,640,87,25 });
@@ -121,6 +121,8 @@ public:
         Blind* blind1 = new Blind({ 30,80,140,80 }, 2);
         Blind* blind2 = new Blind({ 580,60,150,80 }, 0);
         blinds = { *blind1,*blind2 };
+
+
 
         goal = { { 1100,65,50,80 } };
         start = { { 620,225,50,80 } };

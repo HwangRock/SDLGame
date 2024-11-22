@@ -115,7 +115,7 @@ public:
         keys = {};
         fadefloors = {};
         cushions = {};
-
+        
         //LIQUID/////////////////////////////////////////////////
         Liquid* water1 = new Liquid({ 200,693,330,35 }, "water");//1층
         Liquid* water2 = new Liquid({ 750,95,198,25 }, "water");
@@ -125,10 +125,13 @@ public:
         liquid = { *water1,*water2 , *milk1,*milk2 ,*choco1 };
         s_liquid = {};
 
+        //SEESAW
+        Seesaw* ss1 = new Seesaw({ 880,500,100,25 });
+        seesaws = { *ss1 };
         //GOAL, START/////////////////////////////////////////////
         goal = { {1125,110,50,75} };
         start = { {50,620,50,75} };
-
+        
         //start={{600,300,50,80}};
         //start = { 1000,100,50,100 };
         //바로 클리어 장면 볼 수 있는 start 위치.

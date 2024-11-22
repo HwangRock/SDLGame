@@ -178,7 +178,7 @@ public:
 		SwellingLiquid* sl2 = new SwellingLiquid(
 			{ 1075,480,175,25 }, { 1075,155,175,350 - 5 }, "water", 16);
 		s_liquid = { *sl1,*sl2 };
-
+		seesaws = {};
 
 
 		//FADE FLOOR///////////////////////////////////////////////

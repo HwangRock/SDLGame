@@ -59,6 +59,7 @@ std::vector<Terrain> fish = {};
 std::vector<Terrain> bone = {};
 std::vector<misile>mis = {};
 
+std::vector<Seesaw> seesaws = {};
 
 //Item
 std::vector<Key>keys = {};

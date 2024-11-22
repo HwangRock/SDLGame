@@ -124,7 +124,7 @@ public:
         //Liquid* water2 = new Liquid({ 399,101,101,25 }, "water");
         liquid = { *choco1, *milk1 , *milk2,*water1,*milk3 };
         s_liquid = {};
-
+        seesaws = {};
 
         start = { {100,30,50,70} };
         goal = { {50,505,50,70},{50,623,50,70} };

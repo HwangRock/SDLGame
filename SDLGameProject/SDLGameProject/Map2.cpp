@@ -137,7 +137,7 @@ public:
 		liquid = { *water0, *water1 , *milk1,*milk2 , *choco0 ,*choco1,*choco2,*choco3 };
 		s_liquid = {};
 
-
+		seesaws = {};
 
 		//Blind
 		blinds = { };

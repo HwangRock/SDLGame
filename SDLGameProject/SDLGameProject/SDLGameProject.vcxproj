@@ -170,6 +170,7 @@
     <ClCompile Include="Map5.cpp" />
     <ClCompile Include="Map6.cpp" />
     <ClCompile Include="misile.cpp" />
+    <ClCompile Include="Seesaw.cpp" />
     <ClCompile Include="Stage.cpp" />
     <ClCompile Include="Main.cpp" />
     <ClCompile Include="Map1.cpp">
@@ -196,6 +197,7 @@
     <ClInclude Include="GameIntro.h" />
     <ClInclude Include="GameManual.h" />
     <ClInclude Include="LiquidWall.h" />
+    <ClInclude Include="Seesaw.h" />
     <ClInclude Include="Stage.h" />
     <ClInclude Include="Pet.h" />
     <ClInclude Include="Terrain.h" />

@@ -34,7 +34,7 @@ public:
 	void HandleEvent(SDL_Event event);
 
 	virtual void BlockMoving(SDL_Rect obst);
-
+	virtual void SeesawBlockMoving(SDL_Rect obst, double angle);
 
 	void setPos(double x, double y) { pos_[0] = x; pos_[1] = y; }
 	//void setVelocity(double x, double y) { v[0] = x; v[1] = y; }

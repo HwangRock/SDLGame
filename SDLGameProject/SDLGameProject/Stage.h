@@ -28,7 +28,8 @@
     
 #include "Box.h"  
 #include "misile.cpp" 
- 
+#include "Seesaw.h"
+
 #include "Liquid.cpp" 
 #include "SwellingLiquid.cpp"
 
@@ -37,7 +38,7 @@
 #include "Game.h"
 
 #include "CatAnimation.h"
-#include "DogAnimation.h"
+#include "DogAnimation.h" 
 
 extern std::vector<Terrain> walls, cannon, fish, bone; 
 extern std::vector<Box> boxs;    
@@ -53,9 +54,10 @@ extern std::vector<misile>mis;
 extern std::vector<SDL_Rect> cat_animation;
 extern std::vector<SDL_Rect> dog_animation;
 
+extern std::vector<Seesaw>seesaws;
 extern std::vector<Liquid>liquid;
-extern std::vector<SwellingLiquid> s_liquid;
-extern std::vector<Key>keys;
+extern std::vector<SwellingLiquid> s_liquid; 
+extern std::vector<Key>keys; 
 
 extern std::vector<SDL_Rect> goal;
 extern std::vector<SDL_Rect> start;
@@ -108,15 +110,16 @@ private:
 
 	SDL_Texture* curtainTexture;
              
-
+	SDL_Texture* seesawTexture;
+	SDL_Rect seesawRect; 
 
 	SDL_Texture* picturesTexture;
 	std::vector<SDL_Rect> picturesRect;
 
-	SDL_Texture* liquidTexture;
+	SDL_Texture* liquidTexture; 
 	SDL_Rect waterR;
 	SDL_Rect chocoR;
-	SDL_Rect milkR;
+	SDL_Rect milkR; 
 
 	 
 	SDL_Rect keyRect;
@@ -143,12 +146,12 @@ private:
 	SDL_Rect fishRect;
 	SDL_Rect boneRect;  
 	SDL_Rect cushionRect;
-	SDL_Rect PushcushionRect;
+	SDL_Rect PushcushionRect; 
 	SDL_Rect fadefloorRect;
 	SDL_Rect catDieRect;
 	SDL_Rect dogDieRect;
 	SDL_Rect bgRect;
-
+	 
 	  
 	  
 	 

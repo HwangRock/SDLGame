@@ -123,6 +123,14 @@ StageInterface::StageInterface()
 	lockRect = { 1766,2155,80,214 };
 
 
+	//Sessaw
+	SDL_Surface* surface_ss = IMG_Load("../Resources/choco.png");
+	seesawTexture = SDL_CreateTextureFromSurface(g_renderer, surface_ss);
+	SDL_FreeSurface(surface_ss);
+	seesawRect = { 0,0,300,300 };
+
+
+
 	//restart
 	SDL_Surface* rebox = IMG_Load("../Resources/many.png");
 	reTexture = SDL_CreateTextureFromSurface(g_renderer, rebox);
@@ -783,6 +791,18 @@ void StageInterface::Render()
 		}
 		SDL_SetTextureAlphaMod(picturesTexture, 255);
 		SDL_SetTextureAlphaMod(curtainTexture, 255);
+	}
+
+	//Seesaw
+	for (Seesaw ss : seesaws)
+	{
+		SDL_Point center = { ss.pos.w / 2, ss.pos.h / 2 };
+
+		SDL_RenderCopyEx(g_renderer, seesawTexture, &seesawRect, &ss.pos, ss.angle * 180 / M_PI, &center, SDL_FLIP_NONE);
+
+		// Draw seesaw center point for debugging
+		SDL_SetRenderDrawColor(g_renderer, 255, 0, 0, 255); // Red color
+		SDL_RenderDrawPoint(g_renderer, center.x, center.y);
 	}
 
 

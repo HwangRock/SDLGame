@@ -182,7 +182,7 @@ public:
 			*milk1 ,
 			*water1};
 		s_liquid = {};
-
+		seesaws = {};
 		Cushion* cushion1 = new Cushion({ 900,500,100, 55 });
 		cushions = { *cushion1 };
 
@@ -196,6 +196,9 @@ public:
 		liquidWalls = { };
 		liquidAisles = { };
 		keys = {};
+
+
+
 		goal = { {1200 - 25,40,50,75} };
 		start = { {125,620,50,75} };
 

@@ -68,6 +68,42 @@ Pet::Update(double timestep_s)
 	double dt = timestep_s;	// seconds
 
 
+	//Seesaw///////////////////////////////////////////////////
+	for (int i = 0; i < seesaws.size(); i++)
+	{
+		SDL_Rect seesawRect = seesaws[i].pos;
+		if (SDL_HasIntersection(&pos, &seesawRect))
+		{
+			// 시소의 중심 좌표 계산
+			int seesawCenterX = seesawRect.x + seesawRect.w / 2;
+
+			// 물체의 중심 좌표 계산
+			int objectCenterX = pos.x + pos.w / 2;
+
+			// 시소 중심으로부터의 거리 계산
+			float distance = abs(objectCenterX - seesawCenterX);
+
+			// 거리에 따라 FORCE 계산 (멀리 떨어질수록 강해짐)
+			float scaledForce = seesaws[i].FORCE * (distance / (seesawRect.w / 2)); // 시소 폭 기준으로 정규화
+
+			if (objectCenterX < seesawCenterX) {
+				seesaws[i].applyForce(-scaledForce);
+			}
+			else if (objectCenterX > seesawCenterX) {
+				seesaws[i].applyForce(scaledForce);
+			}
+
+			//blcok moving
+			double angle = seesaws[i].angle;
+			SeesawBlockMoving(seesaws[i].pos, angle);
+
+		}
+
+		// Update seesaw
+		seesaws[i].update();
+	}
+
+
 	//MOVING/////////////////////////////////////////////////
 
 	nowInput = inputs[inputs.size() - 1];
@@ -89,6 +125,7 @@ Pet::Update(double timestep_s)
 			//break;
 		}
 	}
+
 
 	//CUSHION////////////////////////////////////////////////
 	isPressCushion = -1;
@@ -270,7 +307,38 @@ void Pet::BlockMoving(SDL_Rect obst)
 }
 
 
+void Pet::SeesawBlockMoving(SDL_Rect obst, double angle)
+{
+	// 시소의 중심 계산
+	double seesawCenterX = obst.x + obst.w / 2;
+	double seesawCenterY = obst.y;
 
+	// Pet의 중심 X 좌표
+	double petCenterX = pos.x + pos.w / 2;
+
+	// Pet의 시소 중심으로부터의 상대 X 위치
+	double relativeX = petCenterX - seesawCenterX;
+
+	// 시소 각도에 따른 높이 계산
+	double offsetY = std::tan(angle) * relativeX;
+
+	// Y 좌표는 시소의 각도에 따라 조정
+	pos.y = seesawCenterY - pos.h + offsetY;
+
+	// 시소의 기울기가 클 경우 X 좌표 조정
+	const double maxAngle = M_PI / 9; // 45도 기준
+	if (std::abs(angle) > maxAngle) {
+		// 기울기 방향에 따라 tiltSpeed 계산
+		double tiltSpeed = (relativeX > 0 ? 1 : -1) * std::abs(std::sin(angle)) * 2.0;
+
+		// X 좌표를 기울기에 따라 이동
+		pos.x += tiltSpeed;
+	}
+
+	// 중력 초기화
+	v[1] = 0;
+	jumping = false;
+}
 
 
 
