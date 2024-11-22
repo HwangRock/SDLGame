@@ -17,6 +17,9 @@ int g_elapsed_time;
 int cat_v = -1; // left : -1 , right : 1
 int dog_v = -1;
 
+bool teleportON = false;
+Uint32 lastSpacePressTime = 0;
+
 //InitGame
 StageInterface::StageInterface()
 {
@@ -344,7 +347,79 @@ void StageInterface::Update()
 		}
 
 
+		//TELEPORT//////////
+		for (int i = 0; i < teleports_bi.size(); i++)
+		{
+			if (SDL_HasIntersection(&cat->pos, &teleports_bi[i].Lport_pos_) || SDL_HasIntersection(&dog->pos, &teleports_bi[i].Lport_pos_)) {
+				teleports_bi[i].Lport_activated_ = true;
 
+				if (SDL_HasIntersection(&cat->pos, &teleports_bi[i].Lport_pos_) && SDL_HasIntersection(&dog->pos, &teleports_bi[i].Lport_pos_))
+				{
+					teleports_bi[i].Lport_passanger_ = "both";
+				}
+
+				else if (SDL_HasIntersection(&cat->pos, &teleports_bi[i].Lport_pos_) && !SDL_HasIntersection(&dog->pos, &teleports_bi[i].Lport_pos_))
+				{
+					teleports_bi[i].Lport_passanger_ = "cat";
+
+				}
+
+				else if (!SDL_HasIntersection(&cat->pos, &teleports_bi[i].Lport_pos_) && SDL_HasIntersection(&dog->pos, &teleports_bi[i].Lport_pos_))
+				{
+					teleports_bi[i].Lport_passanger_ = "dog";
+				}
+			}
+
+			else {
+				teleports_bi[i].Lport_activated_ = false;
+				teleports_bi[i].Lport_passanger_ = "no one";
+			}
+
+			if (SDL_HasIntersection(&cat->pos, &teleports_bi[i].Rport_pos_) || SDL_HasIntersection(&dog->pos, &teleports_bi[i].Rport_pos_)) {
+				teleports_bi[i].Rport_activated_ = true;
+
+				if (SDL_HasIntersection(&cat->pos, &teleports_bi[i].Rport_pos_) && SDL_HasIntersection(&dog->pos, &teleports_bi[i].Rport_pos_))
+				{
+					teleports_bi[i].Rport_passanger_ = "both";
+				}
+
+				else if (SDL_HasIntersection(&cat->pos, &teleports_bi[i].Rport_pos_) && !SDL_HasIntersection(&dog->pos, &teleports_bi[i].Rport_pos_))
+				{
+					teleports_bi[i].Rport_passanger_ = "cat";
+				}
+
+				else if (!SDL_HasIntersection(&cat->pos, &teleports_bi[i].Rport_pos_) && SDL_HasIntersection(&dog->pos, &teleports_bi[i].Rport_pos_))
+				{
+					teleports_bi[i].Rport_passanger_ = "dog";
+				}
+
+			}
+
+			else {
+				teleports_bi[i].Rport_activated_ = false;
+				teleports_bi[i].Rport_passanger_ = "no one";
+			}
+
+			if (teleports_bi[i].Lport_activated_ == true && teleports_bi[i].Rport_activated_ == true && teleportON == true) {
+
+				if (teleports_bi[i].Lport_passanger_ == "cat") {
+					cat->pos.x = teleports_bi[i].Rport_pos_.x;
+					cat->pos.y = teleports_bi[i].Rport_pos_.y;
+					dog->pos.x = teleports_bi[i].Lport_pos_.x;
+					dog->pos.y = teleports_bi[i].Lport_pos_.y;
+					teleportON = false;
+				}
+
+				else if (teleports_bi[i].Lport_passanger_ == "dog") {
+					cat->pos.x = teleports_bi[i].Lport_pos_.x;
+					cat->pos.y = teleports_bi[i].Lport_pos_.y;
+					dog->pos.x = teleports_bi[i].Rport_pos_.x;
+					dog->pos.y = teleports_bi[i].Rport_pos_.y;
+					teleportON = false;
+				}
+
+			}
+		}
 
 		
 
@@ -581,6 +656,19 @@ void StageInterface::Render()
 	for (SDL_Rect s : start)
 	{
 		SDL_RenderCopy(g_renderer, manyTexture, &goalRect, &s);
+	}
+
+	// Teleports_bi
+	for (Teleport_bi tele : teleports_bi)
+	{
+
+		//SDL_SetRenderDrawColor(g_renderer, 39, 27, 18, 255);
+		SDL_SetRenderDrawColor(g_renderer, 50, 200, 0, 0);
+		SDL_RenderFillRect(g_renderer, &tele.Lport_pos_);
+
+		SDL_SetRenderDrawColor(g_renderer, 50, 200, 0, 0);
+		SDL_RenderFillRect(g_renderer, &tele.Rport_pos_);
+		//SDL_RenderCopy(g_renderer, wallTexture, &wallRect, &wall.pos_);
 	}
 
 
@@ -983,9 +1071,21 @@ void StageInterface::HandleEvents()
 			{
 				NextChapter();
 			}
+
+			else if (event.key.keysym.sym == SDLK_SPACE)
+			{
+				Uint32 currentTime = SDL_GetTicks(); // 현재 시간(ms)
+				if (currentTime > lastSpacePressTime + 200) { // 200ms 디바운싱
+					teleportON = true;
+					lastSpacePressTime = currentTime;
+				}
+			}
 			break;
 
 		case SDL_KEYUP:
+			if (event.key.keysym.sym == SDLK_SPACE) {
+				teleportON = false;
+			}
 			break;
 
 

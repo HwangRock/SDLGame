@@ -10,7 +10,7 @@
 #include "SDL_mixer.h"
 #include "SDL_image.h" 
  
-//////////////////////  ///////////
+//////////////////////  //////////////
 #include "math.h"  
 
 #include "Dog.h"
@@ -25,7 +25,7 @@
 #include "Cushion.h"
 #include "Torch.h"
 #include "Blind.cpp"
-     
+#include "Teleport.h"
     
 #include "Box.h"  
 #include "misile.cpp" 
@@ -55,6 +55,7 @@ extern std::vector<Cushion>cushions;
 extern std::vector<FadeFloor>fadefloors;
 extern std::vector<misile>mis;
 extern std::vector<Torch>torches;
+extern std::vector<Teleport_bi>teleports_bi;
 
 extern std::vector<SDL_Rect> cat_animation;
 extern std::vector<SDL_Rect> dog_animation;
