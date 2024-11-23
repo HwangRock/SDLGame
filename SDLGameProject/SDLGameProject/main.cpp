@@ -73,6 +73,7 @@ std::vector<Key>keys = {};
 
 SDL_Texture *manyTexture;
 SDL_Texture* many2Texture;
+SDL_Texture* many3Texture;
 
 std::vector <SDL_Rect> goal = {};
 std::vector <SDL_Rect> start = {};

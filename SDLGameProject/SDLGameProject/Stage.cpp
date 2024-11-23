@@ -127,9 +127,14 @@ StageInterface::StageInterface()
 	darkRect = { 0,0,300,300 };
 	torchRect = { 400, 2708, 102, 119 };
 
-	robotRect = { 156,3139, 139, 140 };
 	flyRect = { 1532,2213,83,110 };
 
+	//portal,robot,seesaw
+	SDL_Surface* texture3 = IMG_Load("../Resources/many_3.png");
+	many3Texture = SDL_CreateTextureFromSurface(g_renderer, texture3);
+	SDL_FreeSurface(texture3);
+	teleRect = { 0,722,275,212 };
+	robotRect = { 0,373, 363, 227 };
 
 	SDL_Surface* texture2 = IMG_Load("../Resources/many_2.png");
 	many2Texture = SDL_CreateTextureFromSurface(g_renderer, texture2);
@@ -193,6 +198,7 @@ StageInterface::~StageInterface()
 
 	SDL_DestroyTexture(manyTexture);
 	SDL_DestroyTexture(many2Texture);
+	SDL_DestroyTexture(many3Texture);
 	SDL_DestroyTexture(liquidTexture);
 
 	SDL_DestroyTexture(reTexture);
@@ -661,14 +667,8 @@ void StageInterface::Render()
 	// Teleports_bi
 	for (Teleport_bi tele : teleports_bi)
 	{
-
-		//SDL_SetRenderDrawColor(g_renderer, 39, 27, 18, 255);
-		SDL_SetRenderDrawColor(g_renderer, 50, 200, 0, 0);
-		SDL_RenderFillRect(g_renderer, &tele.Lport_pos_);
-
-		SDL_SetRenderDrawColor(g_renderer, 50, 200, 0, 0);
-		SDL_RenderFillRect(g_renderer, &tele.Rport_pos_);
-		//SDL_RenderCopy(g_renderer, wallTexture, &wallRect, &wall.pos_);
+		SDL_RenderCopy(g_renderer, many3Texture, &teleRect, &tele.Rport_pos_);
+		SDL_RenderCopy(g_renderer, many3Texture, &teleRect, &tele.Lport_pos_);
 	}
 
 
@@ -727,7 +727,7 @@ void StageInterface::Render()
 	}
 
 	for (robot r : robo) {
-		SDL_RenderCopy(g_renderer, manyTexture, &robotRect, &r.currentLocation);
+		SDL_RenderCopy(g_renderer, many3Texture, &robotRect, &r.currentLocation);
 	}
 	for (flyingBox f : fly) {
 		SDL_RenderCopy(g_renderer, manyTexture, &flyRect, &f.currentLocation);

@@ -4,7 +4,7 @@ robot::robot(SDL_Rect start, SDL_Rect end) : movingObject() {
     startPoint = start;
     endPoint = end;
     direction = false;
-    speed = 1;
+    speed = 2.0f;
     isColision = false;
     Reset();
 }

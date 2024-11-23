@@ -10,7 +10,7 @@
 #include "SDL_mixer.h"
 #include "SDL_image.h" 
  
-//////////////////////  ////////////////////
+//////////////////////  ///////////////////////////////////////
 #include "math.h"  
 
 #include "Dog.h"
@@ -76,6 +76,8 @@ extern int win_w, win_h;
 
 extern SDL_Texture *manyTexture;
 extern SDL_Texture* many2Texture;
+extern SDL_Texture* many3Texture;
+
 
 extern int score_bone;
 extern int score_fish; 
@@ -165,6 +167,7 @@ private:
 	SDL_Rect torchRect;
 	SDL_Rect robotRect;
 	SDL_Rect flyRect;
+	SDL_Rect teleRect;
 	 
 	 
 	//Pets

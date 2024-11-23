@@ -63,14 +63,15 @@ public:
         torches = { *torch1, *torch2, *torch3 };*/
 
         ///Teleport//////////
+        /*
         Teleport_bi* tele1 = new Teleport_bi(
             { 200, 375, 50, 50 },
             { 500, 375, 50, 50 },
             "no one", "no one",
             false, false
-        );
+        );*/
 
-        teleports_bi = { *tele1 }; ///////벡터 이름만 첫 글자 t 소문자입니다. 클래스명은 Teleport_bi
+        teleports_bi = {  }; ///////벡터 이름만 첫 글자 t 소문자입니다. 클래스명은 Teleport_bi
 
         //Button//////////////////////////////////////
         Button* btn1 = new Button(2, 1,
@@ -105,8 +106,8 @@ public:
         SDL_Rect laisle1 = { 250,150,200,30 };
         liquidAisles = { laisle1 };
 
-        //robot* robo1 = new robot{ {150,653,80,35},{200,653,80,35} };
-        robo = {  };
+        robot* robo1 = new robot{ {200,393,80,35},{550,393,80,35} };
+        robo = { *robo1 };
         //flyingBox* fly1 = new flyingBox{ {150,553,80,35},{200,553,80,35} };
         fly = {  };
 
@@ -125,11 +126,13 @@ public:
 
         Terrain* fish1 = new Terrain(143, 41, 30, 30);
         Terrain* fish2 = new Terrain(760, 640, 30, 30);
+        Terrain* fish3 = new Terrain(300, 250, 30, 30);
 
         Terrain* bone1 = new Terrain(620, 640, 30, 30);
         Terrain* bone2 = new Terrain(810, 130, 30, 30);
-        bone = { *bone1,*bone2 };
-        fish = { *fish1,*fish2 };
+        Terrain* bone3 = new Terrain(500, 250, 30, 30);
+        bone = { *bone1,*bone2,*bone3 };
+        fish = { *fish1,*fish2,*fish3 };
 
         keys = {};
         fadefloors = {};
