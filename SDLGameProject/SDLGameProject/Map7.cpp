@@ -17,41 +17,49 @@ public:
     virtual void SetVar()
     {
         //Terrain
-        Terrain* default1 = new Terrain(0, 0, 30, win_h);
-        Terrain* default2 = new Terrain(0, 0, win_w, 30);
-        Terrain* default3 = new Terrain(win_w - 30, 0, 30, win_h);
+        Terrain* default1 = new Terrain(0, 0, 20, win_h); //왼쪽 외벽
+        Terrain* default2 = new Terrain(0, 0, win_w, 20); //지붕
+        Terrain* default3 = new Terrain(win_w - 20, 0, 20, win_h); //오른쪽 외벽
 
-        Terrain* default4 = new Terrain(0, win_h - 30, 200, 30);
-        Terrain* default5 = new Terrain(850, win_h - 30, 102, 30);
-        Terrain* default6 = new Terrain(1150, win_h - 30, 130, 30);
-        Terrain* default7 = new Terrain(530, win_h - 30, 20, 30);
+        Terrain* column1 = new Terrain(620, 140, 40, win_h - 305); //가운데 기둥(위)
+        Terrain* column2 = new Terrain(620, win_h - 70, 40, 70); //가운데 기둥(아래)
 
+        Terrain* floor_start = new Terrain(520, win_h - 90, 240, 20); //스타트 지점 있는 플로어
+        Terrain* floor_goal = new Terrain(470, 120, 340, 20); //종료 지점 있는 플로어
 
+        Terrain* floor1 = new Terrain(550, 190, 180, 20); //초콜릿 대포 올려져 있는 플로어
+        Terrain* floor3 = new Terrain(435, 335, 410, 20); //텔레포트 올려져 있는 플로어
 
-        Terrain* floor1 = new Terrain(200, 175, 50, 25);
+        Terrain* floor2 = new Terrain(20, 210, 260, 20); //2층 상자 올려져 있는 플로어
 
-        Terrain* floor3 = new Terrain(450, 175, 300, 25);
+        Terrain* floor4 = new Terrain(win_w - 120, win_h - 30, 100, 30);//버튼 있는 플로어
+
+        //Terrain* floor3 = new Terrain(450, 175, 300, 25);
         //Terrain* floor4 = new Terrain(750, 100, 200, 25);
-        Terrain* floor5 = new Terrain(0, 425, 850, 25);
+        //Terrain* floor5 = new Terrain(0, 425, 850, 25);
 
-        Terrain* floor6 = new Terrain(670, 590, 25, 25);//초코 위의 벽
+        //Terrain* floor6 = new Terrain(670, 590, 25, 25);//초코 위의 벽
 
 
         //liquidWall쪽 벽
-        Terrain* floor7 = new Terrain(250, 110, 200, 15);//up
-        Terrain* floor8 = new Terrain(250, 175, 200, 25);//down
-        Terrain* floor2 = new Terrain(450, 110, 25, 90);
+        //Terrain* floor7 = new Terrain(250, 110, 200, 15);//up
+        //Terrain* floor8 = new Terrain(250, 175, 200, 25);//down
+        //Terrain* floor2 = new Terrain(450, 110, 25, 90);
 
 
-        Terrain* floor9 = new Terrain(948, 175, 332, 25);
+        //Terrain* floor9 = new Terrain(948, 175, 332, 25);
         //Terrain* floor10 = new Terrain(750, 98, 20, 23);
         //Terrain* floor11 = new Terrain(938, 98, 20, 23);
 
         walls =
         {
-           *floor1,*floor2,*floor3,*floor5,*floor6,*floor7,*floor8,
-           *default1,*default2,*default3,*default4,*default5,*default6,
-           *default7, *floor9
+
+           *default1,*default2,*default3,
+           *floor_start, *floor_goal,
+           *floor1, *floor2, *floor3, *floor4,
+           *column1, *column2,
+
+
         };
 
         /*
@@ -64,9 +72,9 @@ public:
 
         ///Teleport//////////
         Teleport_bi* tele1 = new Teleport_bi(
-            { 200, 375, 50, 50 },
-            { 500, 375, 50, 50 },
-           "no one", "no one",
+            { 565, 285, 50, 50 },
+            { 665, 285, 50, 50 },
+            "no one", "no one",
             false, false
         );
 
@@ -83,7 +91,7 @@ public:
             { { 50, 400,150,25 } },
             { { 50, 175,150,25 } },
             { { 50, 400,150,25 } });
-        buttons = { *btn1,*btn2 };
+        buttons = { };
 
 
         //BLIND///////////////////////////////////////
@@ -94,16 +102,16 @@ public:
         blinds = { blind1,blind2 };  */
 
         Blind* blind1 = new Blind({ 740,60,230,150 }, 6);
-        blinds = { *blind1 };
+        blinds = {  };
 
 
         //LIQUID WALL////////////////////////////////////
         LiquidWall* lwall1 = new LiquidWall({ 250,125,200,15 }, "down");
-        liquidWalls = { *lwall1 };
+        liquidWalls = {  };
 
 
         SDL_Rect laisle1 = { 250,150,200,30 };
-        liquidAisles = { laisle1 };
+        liquidAisles = {  };
 
         //robot* robo1 = new robot{ {150,653,80,35},{200,653,80,35} };
         robo = {  };
@@ -112,12 +120,12 @@ public:
 
         //CLIMB WALL////////////////////////////////////
         ClimbWall* cwall = new ClimbWall({ 13,31,19,394 });
-        climbWalls = { *cwall };
+        climbWalls = {  };
 
 
         //BOX///////////////////////////////////////////
         Box* box1 = new Box({ 400, 580, 50, 50 });
-        boxs = { *box1 };
+        boxs = {  };
 
         ///////////////////////////////////////////////
         cannon = { };
@@ -128,33 +136,34 @@ public:
 
         Terrain* bone1 = new Terrain(620, 640, 30, 30);
         Terrain* bone2 = new Terrain(810, 130, 30, 30);
-        bone = { *bone1,*bone2 };
-        fish = { *fish1,*fish2 };
+        bone = {};
+        fish = {};
 
         keys = {};
         fadefloors = {};
         cushions = {};
 
         //LIQUID/////////////////////////////////////////////////
-        Liquid* water1 = new Liquid({ 200,693,330,35 }, "water");//1층
-        Liquid* water2 = new Liquid({ 750,95,198,25 }, "water");
-        Liquid* milk1 = new Liquid({ 952,693,198,35 }, "milk");//1층
-        Liquid* milk2 = new Liquid({ 750,175,198,25 }, "milk");
-        Liquid* choco1 = new Liquid({ 550,693,300,35 }, "choco");//1층
-        liquid = { *water1,*water2 , *milk1,*milk2 ,*choco1 };
+        //Liquid* water1 = new Liquid({ 200,693,330,35 }, "water");//1층
+        //Liquid* water2 = new Liquid({ 750,95,198,25 }, "water");
+        Liquid* milk1 = new Liquid({ 660, win_h - 30,500,35 }, "milk");//1층 오른쪽 우유(로봇청소기 다니는 곳)
+        //Liquid* milk2 = new Liquid({ 750,175,198,25 }, "milk");
+        Liquid* choco1 = new Liquid({ 20,win_h - 30,600,30 }, "choco");//1층 왼쪽 초코
+        liquid = { *choco1, *milk1 };
         s_liquid = {};
 
         //SEESAW
         //Seesaw* ss1 = new Seesaw({ 880,500,100,25 });
         //seesaws = { *ss1 };
         //GOAL, START/////////////////////////////////////////////
-        goal = { {1125,110,50,75} };
+        //goal = { {1125,110,50,75} }; map1 원래 골인 지점
         //start = { {50,620,50,75} }; //map1 원래 스타트 지점
         //start = { {350,375,50,75} }; //텔레포트 시험용 빠른 시작 지점
 
-
+        start = { {615,win_h - 166, 50, 75} }; //map7 스타트 지점
+        goal = { {615,44,50,75} };
         //start={{600,300,50,80}};
-        start = { { 1000,100,50,100 } };
+        //start = { { 1000,100,50,100 } };
         //바로 클리어 장면 볼 수 있는 start 위치.
     }
 protected:
