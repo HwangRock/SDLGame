@@ -95,10 +95,9 @@ StageInterface::StageInterface()
 	scaffoldRect = {126, 4235, 427, 61};
 
 	//blackbg
-	SDL_Surface* blackbg = IMG_Load("../Resources/blackbg.png");
+	SDL_Surface* blackbg = IMG_Load("../Resources/blackbg2.png");
 	blackbgTexture = SDL_CreateTextureFromSurface(g_renderer, blackbg);
 	SDL_FreeSurface(blackbg);
-	darkRect = { 0,0,300,300 };
 
 	//Texture
 	SDL_Surface* texture = IMG_Load("../Resources/many_new.png");
@@ -124,7 +123,7 @@ StageInterface::StageInterface()
 	catDieRect = { 580,770,187,222 };
 	dogDieRect = { 342,1537,218,144 };
 
-	darkRect = { 0,0,300,300 };
+	darkRect = { 0,0,1280,720 };
 	torchRect = { 400, 2708, 102, 119 };
 
 	flyRect = { 1532,2213,83,110 };
@@ -950,7 +949,7 @@ void StageInterface::Render()
 	SDL_SetTextureBlendMode(blackbgTexture, SDL_BLENDMODE_BLEND);
 	for (Torch torch : torches)
 	{
-		SDL_SetTextureAlphaMod(blackbgTexture, 255);
+		SDL_SetTextureAlphaMod(blackbgTexture, 120);
 
 		//torch
 		for (int i = 0; i < torch.torchPos.size(); i++)

@@ -2,7 +2,6 @@
 #include "SDL.h"
 #include "Stage.h"
 #include "Terrain.h"
-#include "Button.h"
 #include <vector>
 #include "Torch.h"
 
@@ -16,146 +15,108 @@ public:
 
     virtual void SetVar()
     {
-        //Terrain
+        //Terrain/////////////////////////////////////////////
         Terrain* default1 = new Terrain(0, 0, 30, win_h);
         Terrain* default2 = new Terrain(0, 0, win_w, 30);
         Terrain* default3 = new Terrain(win_w - 30, 0, 30, win_h);
 
-        Terrain* default4 = new Terrain(0, win_h - 30, 200, 30);
-        Terrain* default5 = new Terrain(850, win_h - 30, 102, 30);
-        Terrain* default6 = new Terrain(1150, win_h - 30, 130, 30);
-        Terrain* default7 = new Terrain(530, win_h - 30, 20, 30);
+        //기본 바닥(아래)
+        Terrain* default4 = new Terrain(0, win_h - 30, 580, 30);
+        Terrain* default5 = new Terrain(1015, win_h - 30, 269, 30);
+
+        Terrain* floor1 = new Terrain(991, 453, 102, 29); //BLIND 위치의 바닥
+        Terrain* floor2 = new Terrain(1120, 133, 135, 30); //END 위치의 바닥
+        Terrain* floor3 = new Terrain(251, 186, 41, 420); //lock위의 세로벽
+        Terrain* floor4 = new Terrain(539, 185, 164, 40); //횃불아래바닥
+        Terrain* floor5 = new Terrain(252, 185, 287, 40);//액체화통로 아래쪽
+
+        walls = { *default1,*default2,*default3,*default4,
+                        *default5, *floor1,*floor2,*floor3,*floor4,*floor5 };
+
+        //LIQUID WALL////////////////////////////////////
+        LiquidWall* lwall1 = new LiquidWall({ 252,185,287,40 }, "down");
+        LiquidWall* lwall2 = new LiquidWall({ 252,135,287,20 }, "up");
+        liquidWalls = { *lwall1, *lwall2 };
+
+        //SDL_Rect laisle1 = { 250,150,200,30 };
+        //liquidAisles = { laisle1 };
 
 
-
-        Terrain* floor1 = new Terrain(200, 175, 50, 25);
-
-        Terrain* floor3 = new Terrain(450, 175, 300, 25);
-        //Terrain* floor4 = new Terrain(750, 100, 200, 25);
-        Terrain* floor5 = new Terrain(0, 425, 850, 25);
-
-        Terrain* floor6 = new Terrain(670, 590, 25, 25);//초코 위의 벽
+        //FADEFLOOR////////////////////////////////////
+        FadeFloor* fadefloor1 = new FadeFloor({ 835,412,80,35 });
+        FadeFloor* fadefloor2 = new FadeFloor({ 873, 144, 110, 45 }); //높은 위치의 fadefloor
+        fadefloors = { *fadefloor1, *fadefloor2 };
 
 
-        //liquidWall쪽 벽
-        Terrain* floor7 = new Terrain(250, 110, 200, 15);//up
-        Terrain* floor8 = new Terrain(250, 175, 200, 25);//down
-        Terrain* floor2 = new Terrain(450, 110, 25, 90);
+        //CLIMB WALL////////////////////////////////////
+        ClimbWall* cwall1 = new ClimbWall({ 1226, 493, 25,197 });
+        climbWalls = { *cwall1 };
 
 
-        Terrain* floor9 = new Terrain(948, 175, 332, 25);
-        //Terrain* floor10 = new Terrain(750, 98, 20, 23);
-        //Terrain* floor11 = new Terrain(938, 98, 20, 23);
+        //score////////////////////////////////////////
+        Terrain* fish1 = new Terrain(855, 324, 35, 35);
+        Terrain* fish2 = new Terrain(199, 413, 35, 35);
+        Terrain* fish3 = new Terrain(169, 141, 35, 35);
+        Terrain* fish4 = new Terrain(1017, 78, 35, 35);
 
-        walls =
-        {
-           *floor1,*floor2,*floor3,*floor5,*floor6,*floor7,*floor8,
-           *default1,*default2,*default3,*default4,*default5,*default6,
-           *default7, *floor9
-        };
+        fish = { *fish1, *fish2, *fish3, *fish4 };
 
-        /*
-        //torch////////////////////////////////////////
-        //torchNum, darkNum, darkRect, torchPos, opacity
-        Torch* torch1 = new Torch(1, 1, { {400,194, 999,355 } }, { { 863, 580, 102, 119} }, 255);
-        Torch* torch2 = new Torch(1, 1, { {0,0,279,443 } }, { { 288, 312, 102, 119} }, 255);
-        Torch* torch3 = new Torch(1, 1, { {1004,1,278,189} }, { { 697, 60, 102, 119} }, 255);
-        torches = { *torch1, *torch2, *torch3 };*/
+        Terrain* bone1 = new Terrain(463, 569, 35, 35);
+        Terrain* bone2 = new Terrain(46, 539, 35, 35);
+        Terrain* bone3 = new Terrain(43, 273, 35, 35);
+        Terrain* bone4 = new Terrain(766, 108, 35, 35);
 
-        ///Teleport//////////
-        Teleport_bi* tele1 = new Teleport_bi(
-            { 200, 375, 50, 50 },
-            { 500, 375, 50, 50 },
-            "no one", "no one",
-            false, false
-        );
-
-        teleports_bi = {}; ///////벡터 이름만 첫 글자 t 소문자입니다. 클래스명은 Teleport_bi
-
-        //Button//////////////////////////////////////
-        Button* btn1 = new Button(2, 1,
-            { {650, 405,20,20},{1180,675,20,20} },
-            { { 950, 620,200,25 } },
-            { { 950, 470,200,25 } },
-            { { 950, 620,200,25 } });
-        Button* btn2 = new Button(1, 1,
-            { { 400, 160,20,20 } },
-            { { 50, 400,150,25 } },
-            { { 50, 175,150,25 } },
-            { { 50, 400,150,25 } });
-        buttons = { *btn1,*btn2 };
+        bone = { *bone1, *bone2, *bone3, *bone4 };
 
 
-        //BLIND///////////////////////////////////////
-        /*
-        SDL_Rect blind1 = { 550, 570, 300, 25 };
-        SDL_Rect blind2 = { 550, 650, 300, 25 };
+        //key////////////////////////////////////////
+        Key* key = new Key({ 660,293, 50,50 }, { 250,604,41,85 });
+        keys = { *key };
 
-        blinds = { blind1,blind2 };  */
 
-        Blind* blind1 = new Blind({ 740,60,230,150 }, 6);
+        //BLIND////////////////////////////////////
+        Blind* blind1 = new Blind({ 762, 384, 251, 133 }, 6);
         blinds = { *blind1 };
 
 
-        //LIQUID WALL////////////////////////////////////
-        LiquidWall* lwall1 = new LiquidWall({ 250,125,200,15 }, "down");
-        liquidWalls = { *lwall1 };
-
-
-        SDL_Rect laisle1 = { 250,150,200,30 };
-        liquidAisles = { laisle1 };
-
-        //robot* robo1 = new robot{ {150,653,80,35},{200,653,80,35} };
-        robo = {  };
-        //flyingBox* fly1 = new flyingBox{ {150,553,80,35},{200,553,80,35} };
-        fly = {  };
-
-        //CLIMB WALL////////////////////////////////////
-        ClimbWall* cwall = new ClimbWall({ 13,31,19,394 });
-        climbWalls = { *cwall };
-
-
-        //BOX///////////////////////////////////////////
-        Box* box1 = new Box({ 400, 580, 50, 50 });
-        boxs = { *box1 };
-
-        ///////////////////////////////////////////////
-        cannon = { };
-        mis = {};
-
-        Terrain* fish1 = new Terrain(143, 41, 30, 30);
-        Terrain* fish2 = new Terrain(760, 640, 30, 30);
-
-        Terrain* bone1 = new Terrain(620, 640, 30, 30);
-        Terrain* bone2 = new Terrain(810, 130, 30, 30);
-        bone = { *bone1,*bone2 };
-        fish = { *fish1,*fish2 };
-
-        keys = {};
-        fadefloors = {};
-        cushions = {};
-
         //LIQUID/////////////////////////////////////////////////
-        Liquid* water1 = new Liquid({ 200,693,330,35 }, "water");//1층
-        Liquid* water2 = new Liquid({ 750,95,198,25 }, "water");
-        Liquid* milk1 = new Liquid({ 952,693,198,35 }, "milk");//1층
-        Liquid* milk2 = new Liquid({ 750,175,198,25 }, "milk");
-        Liquid* choco1 = new Liquid({ 550,693,300,35 }, "choco");//1층
-        liquid = { *water1,*water2 , *milk1,*milk2 ,*choco1 };
+        Liquid* choco1 = new Liquid({ 580, 697, 436, 25 }, "choco");
+        Liquid* choco2 = new Liquid({ 772, 453, 219, 29 }, "choco");
+        Liquid* water1 = new Liquid({ 252,114,287,25 }, "water");
+        liquid = { *choco1, *choco2 };
         s_liquid = {};
 
-        //SEESAW
-        Seesaw* ss1 = new Seesaw({ 880,500,100,25 });
-        seesaws = { *ss1 };
+
+        //SEESAW/////////////////////////////////////////////////
+        Seesaw* ss1 = new Seesaw({ 865, 620, 151, 25 });
+        Seesaw* ss2 = new Seesaw({ 582, 620, 151, 25 });
+        Seesaw* ss3 = new Seesaw({ 632, 372, 100, 25 });
+        seesaws = { *ss1, *ss2, *ss3 };
+
+
+        //torch/////////////////////////////////////////////////
+        Torch* torch1 = new Torch(1, 1, { {0,0,1280,720 } }, { { 1012, 385, 72, 72} }, 255);
+        Torch* torch2 = new Torch(1, 1, { {0,0,1280,720 } }, { { 446,623,71,72} }, 255);
+        Torch* torch3 = new Torch(1, 1, { {0,0,1280,720 } }, { { 631,119,72,72} }, 255);
+        torches = { *torch1, *torch2, *torch3 };
+
+
+        //other/////////////////////////////////////////////////
+        teleports_bi = { };
+        buttons = { };
+        robo = { };
+        fly = { };
+        boxs = { };
+        cannon = { };
+        mis = {};
+        cushions = {};
+
         //GOAL, START/////////////////////////////////////////////
-        goal = { {1125,110,50,75} };
-        //start = { {50,620,50,75} }; //map1 원래 스타트 지점
-        //start = { {350,375,50,75} }; //텔레포트 시험용 빠른 시작 지점
+        start = { {1133, 610, 50,80} };
+        goal = { { 1166,60,50,80 } };
 
-
-        //start={{600,300,50,80}};
-        start = { { 1000,100,50,100 } };
-        //바로 클리어 장면 볼 수 있는 start 위치.
+        //test용도
+        //start = { {570,110, 50,80} };
     }
 protected:
 
