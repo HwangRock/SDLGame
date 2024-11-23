@@ -113,8 +113,8 @@ public:
         SDL_Rect laisle1 = { 250,150,200,30 };
         liquidAisles = {  };
 
-        //robot* robo1 = new robot{ {150,653,80,35},{200,653,80,35} };
-        robo = {  };
+        robot* robo1 = new robot{ {670,win_h - 60,80,35},{win_w - 185,win_h - 60,80,35} };
+        robo = { *robo1 };
         //flyingBox* fly1 = new flyingBox{ {150,553,80,35},{200,553,80,35} };
         fly = {  };
 
@@ -124,23 +124,27 @@ public:
 
 
         //BOX///////////////////////////////////////////
-        Box* box1 = new Box({ 400, 580, 50, 50 });
-        boxs = {  };
+        //Box* box1 = new Box({ 400, 580, 50, 50 });
+        boxs = { };
 
         ///////////////////////////////////////////////
         cannon = { };
         mis = {};
 
-        Terrain* fish1 = new Terrain(143, 41, 30, 30);
-        Terrain* fish2 = new Terrain(760, 640, 30, 30);
+        Terrain* fish1 = new Terrain(690, win_h - 70, 30, 30);
 
-        Terrain* bone1 = new Terrain(620, 640, 30, 30);
+        Terrain* bone1 = new Terrain(1040, win_h - 130, 30, 30);
         Terrain* bone2 = new Terrain(810, 130, 30, 30);
-        bone = {};
-        fish = {};
+        bone = { *bone1 };
+        fish = { *fish1 };
 
         keys = {};
-        fadefloors = {};
+        FadeFloor* fadefloor1 = new FadeFloor({ 1000,win_h - 90,100,30 });
+        FadeFloor* fadefloor2 = new FadeFloor({ 1100,win_h - 170,100,30 });
+        FadeFloor* fadefloor3 = new FadeFloor({ 1000,win_h - 250,100,30 });
+        FadeFloor* fadefloor4 = new FadeFloor({ 1100,win_h - 330,100,30 });
+        FadeFloor* fadefloor5 = new FadeFloor({ 1000,win_h - 410,100,30 });
+        fadefloors = { *fadefloor1,*fadefloor2,*fadefloor3,*fadefloor4,*fadefloor5 };
         cushions = {};
 
         //LIQUID/////////////////////////////////////////////////
@@ -151,7 +155,6 @@ public:
         Liquid* choco1 = new Liquid({ 20,win_h - 30,600,30 }, "choco");//1Ãþ ¿ÞÂÊ ÃÊÄÚ
         liquid = { *choco1, *milk1 };
         s_liquid = {};
-        trap = {};
 
         //SEESAW
         //Seesaw* ss1 = new Seesaw({ 880,500,100,25 });
