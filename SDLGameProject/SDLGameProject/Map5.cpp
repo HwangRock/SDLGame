@@ -72,7 +72,7 @@ public:
 
         liquidWalls = { };
         liquidAisles = { };
-
+        trap = {};
         ClimbWall* cwall1 = new ClimbWall({ 900,30,40,400 });
         climbWalls = { *cwall1 };
 

@@ -90,7 +90,7 @@ public:
 
 		bone = { *bone1,*bone2,*bone3 };
 		fish = { *fish1,*fish2,*fish3 };
-
+		trap = {};
 		cannon = { };
 		mis = {};
 		fadefloors = {};

@@ -103,6 +103,29 @@ Pet::Update(double timestep_s)
 		seesaws[i].update();
 	}
 
+	//Trap///////////////////////////////////////////////////
+	for (int i = 0; i < trap.size(); i++)
+	{
+		if (trap[i].trapActivated)
+		{
+			if (SDL_HasIntersection(&pos, &trap[i].blockTrap))
+			{
+				BlockMoving(trap[i].blockTrap);
+			}
+			//std::cout << "trap activated\n";
+		}
+
+		if (SDL_HasIntersection(&pos, &trap[i].touchPoint))
+		{
+			BlockMoving(trap[i].touchPoint);
+
+			if (isDog) { trap[i].isDogTouch = true; }
+			else { trap[i].isCatTouch = true; }
+
+			if (trap[i].isDogTouch && trap[i].isCatTouch) { trap[i].trapActivated = true; }
+		}
+	}
+
 
 	//MOVING/////////////////////////////////////////////////
 
@@ -200,7 +223,15 @@ Pet::Update(double timestep_s)
 	}
 
 
-
+	//FADE FLOOR///////////////////////////////////////////////////////
+	for (int j = 0; j < fadefloors.size(); j++)
+	{
+		if (SDL_HasIntersection(&pos, &fadefloors[j].floor_pos))
+		{
+			BlockMoving(fadefloors[j].floor_pos);
+			fadefloors[j].CollideFloor(true);
+		}
+	}
 	//PRESS BUTTON/////////////////////////////////////////////////////////////
 	for (int i = 0; i < buttons.size(); i++)
 	{
@@ -214,34 +245,6 @@ Pet::Update(double timestep_s)
 				//break;
 			}
 		}
-
-		/*
-		for (int j = 0; j < buttons[i].buttonNum; j++)
-		{
-			if (SDL_HasIntersection(&pos, &buttons[i].buttonPos[j]))
-			{
-				//Pressing button
-				isPressing = i;
-				break;
-			}
-			else
-			{
-				//if (isPressing == i)
-				//{ isPressing = -1; }
-			}
-		}
-		*/
-
-		//FADE FLOOR///////////////////////////////////////////////////////
-		for (int j = 0; j < fadefloors.size(); j++)
-		{
-			if (SDL_HasIntersection(&pos, &fadefloors[j].floor_pos))
-			{
-				BlockMoving(fadefloors[j].floor_pos);
-				fadefloors[j].CollideFloor(true);
-			}
-		}
-
 
 	}
 

@@ -42,6 +42,7 @@ std::vector<Button>buttons = {};
 //Blind(sniff, dog skill)
 std::vector<Blind> blinds = {};
 //Liquid wall(cat skill)
+std::vector<Trap>trap = {};
 std::vector<LiquidWall>liquidWalls = {};
 std::vector<SDL_Rect>liquidAisles = {};
 std::vector<ClimbWall>climbWalls = {};

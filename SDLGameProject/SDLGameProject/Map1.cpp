@@ -114,7 +114,7 @@ public:
         //CLIMB WALL////////////////////////////////////
         ClimbWall* cwall = new ClimbWall({ 13,31,19,394 });
         climbWalls = { *cwall };
-
+        trap = {};
 
         //BOX///////////////////////////////////////////
         Box* box1 = new Box({ 400, 580, 50, 50 });

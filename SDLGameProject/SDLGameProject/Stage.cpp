@@ -498,9 +498,22 @@ void StageInterface::Update()
 			fadefloors[i].Update();
 		}
 		//SWELLING LIQUID/////////////////////////////////////////////////////
-		for (int i = 0; i < s_liquid.size(); i++)
+		if (trap.size() == 0)
 		{
-			s_liquid[i].Update();
+			for (int i = 0; i < s_liquid.size(); i++)
+			{
+				s_liquid[i].Update();
+			}
+		}
+		else
+		{
+			//durty code!!!!!! you need to fix it if you use this several times
+			//std::cout << "trap-"<< trap[0].trapActivated<<"\n";
+			//std::cout << "trap-" << trap[0].trapActivated << "\n";
+			if (trap[0].trapActivated)
+			{
+				s_liquid[0].Update();
+			}
 		}
 
 
@@ -794,7 +807,7 @@ void StageInterface::Render()
 		}
 	}
 
-
+	
 
 	// liquid
 	for (Liquid l : liquid)
@@ -848,7 +861,13 @@ void StageInterface::Render()
 		}
 	}
 
-	
+	//Trap
+	for (Trap t : trap)
+	{
+		SDL_SetRenderDrawColor(g_renderer, 112, 87, 37, 255);
+		SDL_RenderFillRect(g_renderer, &t.touchPoint);
+		if (t.trapActivated) { SDL_RenderFillRect(g_renderer, &t.blockTrap); }
+	}
 
 
 	// Wall

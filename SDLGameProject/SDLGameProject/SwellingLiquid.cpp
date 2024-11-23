@@ -1,42 +1,50 @@
-#include "SDL.h"
-#include <string>
+#include "SwellingLiquid.h"
 
-class SwellingLiquid
+SwellingLiquid::SwellingLiquid(SDL_Rect start, SDL_Rect end, std::string liquidName, int timeDelay_)
 {
-public:
-	SDL_Rect startPos;
-	SDL_Rect endPos;
+    startPos = start;
+    endPos = end;
+    liquidClass = liquidName;
+    timeDelay = timeDelay_;
+    started = false; // Initially, swelling doesn't start
+    Reset();
+}
 
-	SDL_Rect nowPos;
+void SwellingLiquid::Reset()
+{
+    time = 0;
+    nowPos = startPos;
+    started = false; // Reset the started state
+}
 
-	std::string liquidClass;
+void SwellingLiquid::Update(const Trap& trap)
+{
+    // Start swelling if trapActivated is true or if already started
+    if (trap.trapActivated || started)
+    {
+        std::cout << "trap activate\n";
+        started = true; // Ensure it continues even if trapActivated becomes false later
+        if (nowPos.h != endPos.h)
+        {
+            if (time % timeDelay == 0)
+            {
+                nowPos.h++;
+                nowPos.y--;
+            }
+            time++;
+        }
+    }
+}
 
-	SwellingLiquid(SDL_Rect start,SDL_Rect end, std::string liquidName,int timeDelay_)
-	{
-		startPos = start;
-		endPos = end;
-		liquidClass = liquidName;
-		timeDelay=timeDelay_;
-		Reset();
-	}
-	void Reset()
-	{
-		time = 0;
-		nowPos = startPos;
-	}
-	void Update()
-	{
-		if (nowPos.h != endPos.h)
-		{
-			if (time % timeDelay == 0)
-			{
-				nowPos.h++;
-				nowPos.y--;
-			}
-			time++;
-		}
-	}
-protected:
-	int timeDelay;
-	int time;
-};
+void SwellingLiquid::Update()
+{
+    if (nowPos.h != endPos.h)
+    {
+        if (time % timeDelay == 0)
+        {
+            nowPos.h++;
+            nowPos.y--;
+        }
+        time++;
+    }
+}

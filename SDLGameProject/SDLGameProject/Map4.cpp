@@ -198,7 +198,7 @@ public:
 		liquidWalls = { };
 		liquidAisles = { };
 		keys = {};
-
+		trap = {};
 
 
 		goal = { {1200 - 25,40,50,75} };

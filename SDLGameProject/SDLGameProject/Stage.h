@@ -18,7 +18,7 @@
 #include "Pet.h"
   
 #include "Terrain.h"
-#include "Button.h"    
+#include "Button.h"
 #include "LiquidWall.h"
 #include "ClimbWall.cpp"
 #include "FadeFloor.h"
@@ -29,10 +29,10 @@
     
 #include "Box.h"  
 #include "misile.cpp" 
-#include "Seesaw.h"
-
+#include "Seesaw.h" 
+#include "Trap.h"
 #include "Liquid.cpp" 
-#include "SwellingLiquid.cpp"
+#include "SwellingLiquid.h"
 
 #include "Key.cpp" 
 
@@ -43,7 +43,7 @@
 
 #include "robot.h"
 #include "flyingBox.h"
-
+  
 extern std::vector<Terrain> walls, cannon, fish, bone; 
 extern std::vector<Box> boxs;    
 extern std::vector<Button> buttons;        
@@ -53,13 +53,14 @@ extern std::vector<SDL_Rect>liquidAisles;
 extern std::vector<ClimbWall>climbWalls;
 extern std::vector<Cushion>cushions;
 extern std::vector<FadeFloor>fadefloors;
-extern std::vector<misile>mis;
+extern std::vector<misile>mis; 
 extern std::vector<Torch>torches;
 extern std::vector<Teleport_bi>teleports_bi;
 
 extern std::vector<SDL_Rect> cat_animation;
 extern std::vector<SDL_Rect> dog_animation;
 
+extern std::vector<Trap>trap;
 extern std::vector<Seesaw>seesaws;
 extern std::vector<Liquid>liquid;
 extern std::vector<SwellingLiquid> s_liquid; 
@@ -136,9 +137,8 @@ private:
 	 
 	SDL_Rect keyRect;
 	SDL_Rect lockRect;
-
-	
 	 
+	
 	 
 	SDL_Rect dogPushRect;
 	SDL_Rect scaffoldRect; 

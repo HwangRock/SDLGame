@@ -114,7 +114,7 @@ public:
         robo = {};
         fly = {};
         teleports_bi = {};
-
+        trap = {};
 
         Liquid* choco1 = new Liquid({ 270,475,160,25 }, "choco");
 

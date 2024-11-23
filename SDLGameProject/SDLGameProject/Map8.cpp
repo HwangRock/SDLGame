@@ -24,22 +24,44 @@ public:
         Terrain* default4 = new Terrain(0, win_h - 30, 580, 30);
         Terrain* default5 = new Terrain(1015, win_h - 30, 269, 30);
 
+        //section3
+        Terrain* l6 = new Terrain(210, 200, 50, 25);
+        Terrain* l5 = new Terrain(0, 270, 60, 25);
+        Terrain* l4 = new Terrain(210, 340, 50, 25);
+        Terrain* l3 = new Terrain(0, 410, 70, 25);
+        Terrain* l2 = new Terrain(210, 490, 50, 25);
+        Terrain* sec3_long = new Terrain(251, 186 - 30, 41, 420 - 30);
+        Terrain* sec3_long2 = new Terrain(251, 650, 41, 100);
+
+
         Terrain* floor1 = new Terrain(991, 453, 102, 29); //BLIND 위치의 바닥
-        Terrain* floor2 = new Terrain(1120, 133, 135, 30); //END 위치의 바닥
-        Terrain* floor3 = new Terrain(251, 186, 41, 420); //lock위의 세로벽
+        Terrain* floor2 = new Terrain(1100, 133, 500, 30); //END 위치의 바닥
+        //Terrain* floor3 = new Terrain(251, 186, 41, 420); //lock위의 세로벽
         Terrain* floor4 = new Terrain(539, 185, 164, 40); //횃불아래바닥
-        Terrain* floor5 = new Terrain(252, 185, 287, 40);//액체화통로 아래쪽
+        Terrain* floor5 = new Terrain(252, 185, 305, 40);//액체화통로 아래쪽
 
         walls = { *default1,*default2,*default3,*default4,
-                        *default5, *floor1,*floor2,*floor3,*floor4,*floor5 };
+            * l2,* l3,* l4,* l5,* l6,
+            * sec3_long,* sec3_long2,
+            * default5, *floor1,*floor2,*floor4,*floor5 };
 
         //LIQUID WALL////////////////////////////////////
-        LiquidWall* lwall1 = new LiquidWall({ 252,185,287,40 }, "down");
-        LiquidWall* lwall2 = new LiquidWall({ 252,135,287,20 }, "up");
-        liquidWalls = { *lwall1, *lwall2 };
+        LiquidWall* lwall1 = new LiquidWall({ 350,130,250,40 }, "down");
+        //LiquidWall* lwall2 = new LiquidWall({ 252,135,287,20 }, "up");
+        liquidWalls = { *lwall1};
 
         //SDL_Rect laisle1 = { 250,150,200,30 };
         //liquidAisles = { laisle1 };
+
+        //SWELLING LIQUID///////////////////////////////
+        SwellingLiquid* sl1 = new SwellingLiquid(
+            { 30, 660, 251, win_h - 660 - 30 }, { 30,160,251,win_h - 160 - 30 }, "choco", 4);
+        s_liquid = { *sl1 };
+        //TRAP/////////////////////////////////////////
+        Trap* t = new Trap({ 0, 570, 120, 25 }, { 251,156 + 390,41,150 }, 10);
+        trap = { *t };
+
+
 
 
         //FADEFLOOR////////////////////////////////////
@@ -62,17 +84,17 @@ public:
         fish = { *fish1, *fish2, *fish3, *fish4 };
 
         Terrain* bone1 = new Terrain(463, 569, 35, 35);
-        Terrain* bone2 = new Terrain(46, 539, 35, 35);
-        Terrain* bone3 = new Terrain(43, 273, 35, 35);
+        Terrain* bone2 = new Terrain(46, 535, 35, 35);
+        Terrain* bone3 = new Terrain(80, 273, 35, 35);
         Terrain* bone4 = new Terrain(766, 108, 35, 35);
 
         bone = { *bone1, *bone2, *bone3, *bone4 };
 
 
         //key////////////////////////////////////////
-        Key* key = new Key({ 660,293, 50,50 }, { 250,604,41,85 });
+        Key* key = new Key({ 660,293, 50,50 }, { 251,546,41,120 });
         keys = { *key };
-
+        //keys = {};156+390
 
         //BLIND////////////////////////////////////
         Blind* blind1 = new Blind({ 762, 384, 251, 133 }, 6);
@@ -82,14 +104,13 @@ public:
         //LIQUID/////////////////////////////////////////////////
         Liquid* choco1 = new Liquid({ 580, 697, 436, 25 }, "choco");
         Liquid* choco2 = new Liquid({ 772, 453, 219, 29 }, "choco");
-        Liquid* water1 = new Liquid({ 252,114,287,25 }, "water");
-        liquid = { *choco1, *choco2 };
-        s_liquid = {};
+        Liquid* water1 = new Liquid({ 350,130-30,250,30 }, "water");
+        liquid = { *choco1, *choco2,*water1 };
 
 
         //SEESAW/////////////////////////////////////////////////
-        Seesaw* ss1 = new Seesaw({ 865, 620, 151, 25 });
-        Seesaw* ss2 = new Seesaw({ 582, 620, 151, 25 });
+        Seesaw* ss1 = new Seesaw({ 865, 620, 100, 25 });
+        Seesaw* ss2 = new Seesaw({ 650, 620, 100, 25 });
         Seesaw* ss3 = new Seesaw({ 632, 372, 100, 25 });
         seesaws = { *ss1, *ss2, *ss3 };
 
@@ -116,7 +137,7 @@ public:
         goal = { { 1166,60,50,80 } };
 
         //test용도
-        //start = { {570,110, 50,80} };
+        start = { {700, 30, 50,80} };
     }
 protected:
 

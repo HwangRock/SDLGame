@@ -186,6 +186,7 @@
     <ClCompile Include="Teleport.cpp" />
     <ClCompile Include="Terrain.cpp" />
     <ClCompile Include="Torch.cpp" />
+    <ClCompile Include="Trap.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Box.h" />
@@ -210,9 +211,11 @@
     <ClInclude Include="Seesaw.h" />
     <ClInclude Include="Stage.h" />
     <ClInclude Include="Pet.h" />
+    <ClInclude Include="SwellingLiquid.h" />
     <ClInclude Include="Teleport.h" />
     <ClInclude Include="Terrain.h" />
     <ClInclude Include="Torch.h" />
+    <ClInclude Include="Trap.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

@@ -147,7 +147,7 @@ public:
 		robo = {};
 		fly = {};
 		teleports_bi = {};
-
+		trap = {};
 		//BONE FISH//////////////////////////////////////////
 		Terrain* bone1 = new Terrain(280, 280, 30, 30);
 		Terrain* bone2 = new Terrain(480, 450, 30, 30);

@@ -42,7 +42,7 @@ void Dog::Update(double timestep_s)
 		{
 			if (nowInput == 1 || nowInput == 2) { Mix_PlayChannel(-1, liquidSound, 0); }
 
-			if (s_liquid[i].liquidClass == "milk") 
+			if (s_liquid[i].liquidClass == "milk"|| s_liquid[i].liquidClass == "choco")
 			{
 				//std::cout << "touch milk->die\n"; //종성: 게임 오버 화면 보기 위해 일부러 켜뒀습니다! 불편하신 분은 끄셔도 돼요!
 				isDead = true;

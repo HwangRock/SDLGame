@@ -151,6 +151,7 @@ public:
         Liquid* choco1 = new Liquid({ 20,win_h - 30,600,30 }, "choco");//1Ãş ¿ŞÂÊ ÃÊÄÚ
         liquid = { *choco1, *milk1 };
         s_liquid = {};
+        trap = {};
 
         //SEESAW
         //Seesaw* ss1 = new Seesaw({ 880,500,100,25 });
