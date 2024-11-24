@@ -149,7 +149,8 @@ public:
 
         //SEESAW
         Seesaw* ss1 = new Seesaw({ 880,500,100,25 });
-        //seesaws = { *ss1 };
+        seesaws = { *ss1 };
+
         //GOAL, START/////////////////////////////////////////////
         goal = { {1125,110,50,75} };
         start = { {50,620,50,75} }; //map1 원래 스타트 지점
