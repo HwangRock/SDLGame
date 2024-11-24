@@ -368,21 +368,21 @@ void StageInterface::Update()
 		//TELEPORT//////////
 		for (int i = 0; i < teleports_bi.size(); i++)
 		{
-			if (SDL_HasIntersection(&cat->pos, &teleports_bi[i].Lport_pos_) || SDL_HasIntersection(&dog->pos, &teleports_bi[i].Lport_pos_)) {
+			if (SDL_HasIntersection(&cat->pos, &teleports_bi[i].Lport_activating_area_) || SDL_HasIntersection(&dog->pos, &teleports_bi[i].Lport_activating_area_)) {
 				teleports_bi[i].Lport_activated_ = true;
 
-				if (SDL_HasIntersection(&cat->pos, &teleports_bi[i].Lport_pos_) && SDL_HasIntersection(&dog->pos, &teleports_bi[i].Lport_pos_))
+				if (SDL_HasIntersection(&cat->pos, &teleports_bi[i].Lport_activating_area_) && SDL_HasIntersection(&dog->pos, &teleports_bi[i].Lport_activating_area_))
 				{
 					teleports_bi[i].Lport_passanger_ = "both";
 				}
 
-				else if (SDL_HasIntersection(&cat->pos, &teleports_bi[i].Lport_pos_) && !SDL_HasIntersection(&dog->pos, &teleports_bi[i].Lport_pos_))
+				else if (SDL_HasIntersection(&cat->pos, &teleports_bi[i].Lport_activating_area_) && !SDL_HasIntersection(&dog->pos, &teleports_bi[i].Lport_activating_area_))
 				{
 					teleports_bi[i].Lport_passanger_ = "cat";
 
 				}
 
-				else if (!SDL_HasIntersection(&cat->pos, &teleports_bi[i].Lport_pos_) && SDL_HasIntersection(&dog->pos, &teleports_bi[i].Lport_pos_))
+				else if (!SDL_HasIntersection(&cat->pos, &teleports_bi[i].Lport_activating_area_) && SDL_HasIntersection(&dog->pos, &teleports_bi[i].Lport_activating_area_))
 				{
 					teleports_bi[i].Lport_passanger_ = "dog";
 				}
@@ -393,20 +393,20 @@ void StageInterface::Update()
 				teleports_bi[i].Lport_passanger_ = "no one";
 			}
 
-			if (SDL_HasIntersection(&cat->pos, &teleports_bi[i].Rport_pos_) || SDL_HasIntersection(&dog->pos, &teleports_bi[i].Rport_pos_)) {
+			if (SDL_HasIntersection(&cat->pos, &teleports_bi[i].Rport_activating_area_) || SDL_HasIntersection(&dog->pos, &teleports_bi[i].Rport_activating_area_)) {
 				teleports_bi[i].Rport_activated_ = true;
 
-				if (SDL_HasIntersection(&cat->pos, &teleports_bi[i].Rport_pos_) && SDL_HasIntersection(&dog->pos, &teleports_bi[i].Rport_pos_))
+				if (SDL_HasIntersection(&cat->pos, &teleports_bi[i].Rport_activating_area_) && SDL_HasIntersection(&dog->pos, &teleports_bi[i].Rport_activating_area_))
 				{
 					teleports_bi[i].Rport_passanger_ = "both";
 				}
 
-				else if (SDL_HasIntersection(&cat->pos, &teleports_bi[i].Rport_pos_) && !SDL_HasIntersection(&dog->pos, &teleports_bi[i].Rport_pos_))
+				else if (SDL_HasIntersection(&cat->pos, &teleports_bi[i].Rport_activating_area_) && !SDL_HasIntersection(&dog->pos, &teleports_bi[i].Rport_activating_area_))
 				{
 					teleports_bi[i].Rport_passanger_ = "cat";
 				}
 
-				else if (!SDL_HasIntersection(&cat->pos, &teleports_bi[i].Rport_pos_) && SDL_HasIntersection(&dog->pos, &teleports_bi[i].Rport_pos_))
+				else if (!SDL_HasIntersection(&cat->pos, &teleports_bi[i].Rport_activating_area_) && SDL_HasIntersection(&dog->pos, &teleports_bi[i].Rport_activating_area_))
 				{
 					teleports_bi[i].Rport_passanger_ = "dog";
 				}
@@ -694,8 +694,18 @@ void StageInterface::Render()
 	// Teleports_bi
 	for (Teleport_bi tele : teleports_bi)
 	{
-		SDL_RenderCopy(g_renderer, portalTexture, &portalRect, &tele.Rport_pos_);
-		SDL_RenderCopy(g_renderer, portalTexture, &portalRect, &tele.Lport_pos_);
+		if (tele.Lport_activated_ == true && tele.Rport_activated_ == true) {
+			SDL_SetTextureColorMod(portalTexture, 255, 255, 255);
+			SDL_RenderCopy(g_renderer, portalTexture, &portalRect, &tele.Rport_pos_);
+			SDL_RenderCopy(g_renderer, portalTexture, &portalRect, &tele.Lport_pos_);
+		}
+		
+		else {
+			SDL_SetTextureColorMod(portalTexture, 255, 0, 0);
+			SDL_RenderCopy(g_renderer, portalTexture, &portalRect, &tele.Rport_pos_);
+			SDL_RenderCopy(g_renderer, portalTexture, &portalRect, &tele.Lport_pos_);
+		}
+		
 	}
 
 
