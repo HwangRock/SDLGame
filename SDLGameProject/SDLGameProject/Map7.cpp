@@ -82,16 +82,16 @@ public:
 
         //Button//////////////////////////////////////
         Button* btn1 = new Button(2, 1,
-            { {650, 405,20,20},{1180,675,20,20} },
-            { { 950, 620,200,25 } },
-            { { 950, 470,200,25 } },
+            { {1180,675,20,20},{1180,675,20,20} },
+            { { 280, 570,50,25 } },
+            { { 280, 525,50,25 } },
             { { 950, 620,200,25 } });
         Button* btn2 = new Button(1, 1,
             { { 400, 160,20,20 } },
             { { 50, 400,150,25 } },
             { { 50, 175,150,25 } },
             { { 50, 400,150,25 } });
-        buttons = { };
+        buttons = { *btn1 };
 
 
         //BLIND///////////////////////////////////////
@@ -115,8 +115,8 @@ public:
 
         robot* robo1 = new robot{ {670,win_h - 60,80,35},{win_w - 185,win_h - 60,80,35} };
         robo = { *robo1 };
-        //flyingBox* fly1 = new flyingBox{ {150,553,80,35},{200,553,80,35} };
-        fly = {  };
+        flyingBox* fly1 = new flyingBox{ {790, 180,80,35},{1020,180,80,35} };
+        fly = { *fly1 };
 
         //CLIMB WALL////////////////////////////////////
         ClimbWall* cwall = new ClimbWall({ 13,31,19,394 });
@@ -124,26 +124,30 @@ public:
 
 
         //BOX///////////////////////////////////////////
-        //Box* box1 = new Box({ 400, 580, 50, 50 });
-        boxs = { };
+        Box* box1 = new Box({ 510, 290, 50, 50 });
+        Box* box2 = new Box({ 100, 150, 50, 50 });
+        boxs = { *box1,*box2 };
 
         ///////////////////////////////////////////////
         cannon = { };
         mis = {};
 
         Terrain* fish1 = new Terrain(690, win_h - 70, 30, 30);
+        Terrain* fish2 = new Terrain(150, 390, 30, 30);
+        Terrain* fish3 = new Terrain(690, 150, 30, 30);
 
-        Terrain* bone1 = new Terrain(1040, win_h - 130, 30, 30);
-        Terrain* bone2 = new Terrain(810, 130, 30, 30);
-        bone = { *bone1 };
-        fish = { *fish1 };
+        Terrain* bone1 = new Terrain(1140, win_h - 410, 30, 30);
+        Terrain* bone2 = new Terrain(150, win_h - 140, 30, 30);
+        Terrain* bone3 = new Terrain(540, 150, 30, 30);
+        bone = { *bone1,*bone2,*bone3 };
+        fish = { *fish1,*fish2,*fish3 };
 
         keys = {};
-        FadeFloor* fadefloor1 = new FadeFloor({ 1000,win_h - 90,100,30 });
-        FadeFloor* fadefloor2 = new FadeFloor({ 1100,win_h - 170,100,30 });
-        FadeFloor* fadefloor3 = new FadeFloor({ 1000,win_h - 250,100,30 });
-        FadeFloor* fadefloor4 = new FadeFloor({ 1100,win_h - 330,100,30 });
-        FadeFloor* fadefloor5 = new FadeFloor({ 1000,win_h - 410,100,30 });
+        FadeFloor* fadefloor1 = new FadeFloor({ 1000,win_h - 140,100,30 });
+        FadeFloor* fadefloor2 = new FadeFloor({ 1100,win_h - 220,100,30 });
+        FadeFloor* fadefloor3 = new FadeFloor({ 1000,win_h - 300,100,30 });
+        FadeFloor* fadefloor4 = new FadeFloor({ 1100,win_h - 380,100,30 });
+        FadeFloor* fadefloor5 = new FadeFloor({ 900,win_h - 380,100,30 });
         fadefloors = { *fadefloor1,*fadefloor2,*fadefloor3,*fadefloor4,*fadefloor5 };
         cushions = {};
 
@@ -157,8 +161,10 @@ public:
         s_liquid = {};
 
         //SEESAW
-        //Seesaw* ss1 = new Seesaw({ 880,500,100,25 });
-        //seesaws = { *ss1 };
+        Seesaw* ss1 = new Seesaw({ 130, win_h - 90,100,25 });
+        Seesaw* ss2 = new Seesaw({ 130, 430,100,25 });
+        Seesaw* ss3 = new Seesaw({ 290, 370,100,25 });
+        seesaws = { *ss1,*ss2,*ss3 };
         //GOAL, START/////////////////////////////////////////////
         //goal = { {1125,110,50,75} }; map1 원래 골인 지점
         //start = { {50,620,50,75} }; //map1 원래 스타트 지점

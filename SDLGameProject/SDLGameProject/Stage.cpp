@@ -82,6 +82,7 @@ StageInterface::StageInterface()
 	cwallTexture = SDL_CreateTextureFromSurface(g_renderer, surface_cwall);
 	SDL_FreeSurface(surface_cwall);
 	cwallRect = { 279,398,204, 909 };
+	flyRect = { 279,398,204, 909 };
 
 	//Goal
 	SDL_Surface* surface_goal = IMG_Load("../Resources/ending.png");
@@ -125,8 +126,6 @@ StageInterface::StageInterface()
 
 	darkRect = { 0,0,1280,720 };
 	torchRect = { 400, 2708, 102, 119 };
-
-	flyRect = { 1532,2213,83,110 };
 
 	//portal,robot,seesaw
 	SDL_Surface* texture3 = IMG_Load("../Resources/many_3.png");
@@ -741,9 +740,6 @@ void StageInterface::Render()
 	for (robot r : robo) {
 		SDL_RenderCopy(g_renderer, many3Texture, &robotRect, &r.currentLocation);
 	}
-	for (flyingBox f : fly) {
-		SDL_RenderCopy(g_renderer, manyTexture, &flyRect, &f.currentLocation);
-	}
 
 	// CANNON
 	for (int i = 0; i < cannon.size(); i++)
@@ -902,6 +898,9 @@ void StageInterface::Render()
 	for (ClimbWall wall : climbWalls)
 	{
 		SDL_RenderCopy(g_renderer, cwallTexture, &cwallRect, &wall.wall_pos);
+	}
+	for (flyingBox f : fly) {
+		SDL_RenderCopy(g_renderer, cwallTexture, &flyRect, &f.currentLocation);
 	}
 
 	// cushion
