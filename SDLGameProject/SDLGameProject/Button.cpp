@@ -59,7 +59,7 @@ void Button::petOverlap(const SDL_Rect &obj)
 				//벽의 아래에 있음
 				if (std::abs(obj.y - (scaffold_[i].y + scaffold_[i].h)) <= 5 && v_y>=1)
 				{
-					std::cout << "vy=" << v_y << " distance=" << std::abs(obj.y - (scaffold_[i].y + scaffold_[i].h)) << "\n";
+					//std::cout << "vy=" << v_y << " distance=" << std::abs(obj.y - (scaffold_[i].y + scaffold_[i].h)) << "\n";
 					isStop = true;
 					break;
 				}

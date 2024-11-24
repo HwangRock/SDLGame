@@ -11,7 +11,7 @@ void Cat::Reset()
 
 void Cat::Update(double timestep_s)
 {
-	std::cout << isLiquid << "\n";
+	//std::cout << isLiquid << "\n";
 	//CLIMB WALL////////////////////////////////////////////
 	isClimbWall = false;
 	for (int k = 0; k < climbWalls.size(); k++)

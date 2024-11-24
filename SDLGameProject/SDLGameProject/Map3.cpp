@@ -115,7 +115,7 @@ public:
         fly = {};
         teleports_bi = {};
         trap = {};
-
+        torches = { };
         Liquid* choco1 = new Liquid({ 270,475,160,25 }, "choco");
 
         Liquid* milk1 = new Liquid({ 118,575,310,25 }, "milk");

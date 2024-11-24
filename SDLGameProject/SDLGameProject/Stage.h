@@ -36,7 +36,7 @@
 
 #include "Key.cpp" 
 
-#include "Game.h"
+#include "Game.h" 
 
 #include "CatAnimation.h"
 #include "DogAnimation.h"
@@ -46,7 +46,7 @@
   
 extern std::vector<Terrain> walls, cannon, fish, bone; 
 extern std::vector<Box> boxs;    
-extern std::vector<Button> buttons;        
+extern std::vector<Button> buttons;
 extern std::vector<Blind> blinds;
 extern std::vector<LiquidWall>liquidWalls;
 extern std::vector<SDL_Rect>liquidAisles;         
@@ -123,10 +123,13 @@ private:
 	SDL_Texture* curtainTexture;
 
 	SDL_Texture* blackbgTexture;
-             
+    
 	SDL_Texture* seesawTexture;
 	SDL_Rect seesawRect; 
 
+	SDL_Texture* portalTexture;
+	SDL_Rect portalRect;
+	 
 	SDL_Texture* picturesTexture;
 	std::vector<SDL_Rect> picturesRect;
 
@@ -170,7 +173,7 @@ private:
 	SDL_Rect flyRect;
 	SDL_Rect teleRect;
 
-
+	 
 	SDL_Rect map1TextureRect;
 	SDL_Rect map2TextureRect;
 	SDL_Rect map3TextureRect;

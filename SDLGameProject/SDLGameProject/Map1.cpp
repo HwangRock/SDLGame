@@ -61,7 +61,7 @@ public:
         Torch* torch2 = new Torch(1, 1, { {0,0,279,443 } }, { { 288, 312, 102, 119} }, 255);
         Torch* torch3 = new Torch(1, 1, { {1004,1,278,189} }, { { 697, 60, 102, 119} }, 255);
         torches = { *torch1, *torch2, *torch3 };*/
-
+        torches = { };
         ///Teleport//////////
         /*
         Teleport_bi* tele1 = new Teleport_bi(

@@ -109,9 +109,9 @@ public:
 
 
         //SEESAW/////////////////////////////////////////////////
-        Seesaw* ss1 = new Seesaw({ 865, 620, 100, 25 });
-        Seesaw* ss2 = new Seesaw({ 650, 620, 100, 25 });
-        Seesaw* ss3 = new Seesaw({ 632, 372, 100, 25 });
+        Seesaw* ss1 = new Seesaw({ 865, 620, 100, 20 });
+        Seesaw* ss2 = new Seesaw({ 650, 620, 100, 20 });
+        Seesaw* ss3 = new Seesaw({ 632, 372, 100, 20 });
         seesaws = { *ss1, *ss2, *ss3 };
 
 
@@ -137,7 +137,7 @@ public:
         goal = { { 1166,60,50,80 } };
 
         //test¿ëµµ
-        start = { {700, 30, 50,80} };
+        //start = { {700, 30, 50,80} };
     }
 protected:
 

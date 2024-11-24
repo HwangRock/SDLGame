@@ -72,8 +72,8 @@ public:
 
         ///Teleport//////////
         Teleport_bi* tele1 = new Teleport_bi(
-            { 565, 285, 50, 50 },
-            { 665, 285, 50, 50 },
+            { 565, 270, 50, 65 },
+            { 665, 270, 50, 65 },
             "no one", "no one",
             false, false
         );
@@ -150,6 +150,7 @@ public:
         FadeFloor* fadefloor5 = new FadeFloor({ 900,win_h - 380,100,30 });
         fadefloors = { *fadefloor1,*fadefloor2,*fadefloor3,*fadefloor4,*fadefloor5 };
         cushions = {};
+        torches = { };
 
         //LIQUID/////////////////////////////////////////////////
         //Liquid* water1 = new Liquid({ 200,693,330,35 }, "water");//1Ãþ
@@ -161,9 +162,9 @@ public:
         s_liquid = {};
 
         //SEESAW
-        Seesaw* ss1 = new Seesaw({ 130, win_h - 90,100,25 });
-        Seesaw* ss2 = new Seesaw({ 130, 430,100,25 });
-        Seesaw* ss3 = new Seesaw({ 290, 370,100,25 });
+        Seesaw* ss1 = new Seesaw({ 130, win_h - 90,100,20 });
+        Seesaw* ss2 = new Seesaw({ 130, 430,100,20 });
+        Seesaw* ss3 = new Seesaw({ 290, 370,100,20 });
         seesaws = { *ss1,*ss2,*ss3 };
         //GOAL, START/////////////////////////////////////////////
         //goal = { {1125,110,50,75} }; map1 ¿ø·¡ °ñÀÎ ÁöÁ¡

@@ -148,7 +148,7 @@ public:
 
 		liquidWalls = {  };
 		liquidAisles = { };
-
+		torches = { };
 		Key* key = new Key({ 44,493,25,25 }, { 178,125,40,85 });
 		keys = { *key };
 		//keys = {};

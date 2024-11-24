@@ -139,24 +139,29 @@ StageInterface::StageInterface()
 	map7TextureRect = { 7680, 0, 1280, 720 };
 	map8TextureRect = { 8960, 0, 1280, 720 };
 
-	//portal,robot,seesaw
+	//robot,seesaw
 	SDL_Surface* texture3 = IMG_Load("../Resources/many_3.png");
 	many3Texture = SDL_CreateTextureFromSurface(g_renderer, texture3);
 	SDL_FreeSurface(texture3);
-	teleRect = { 0,722,275,212 };
+	//teleRect = { 0,722,275,212 };
 	robotRect = { 0,373, 363, 227 };
+	seesawRect = { 0,0,519,61 };
 
+
+	//LOCK
 	SDL_Surface* texture2 = IMG_Load("../Resources/many_2.png");
 	many2Texture = SDL_CreateTextureFromSurface(g_renderer, texture2);
 	SDL_FreeSurface(texture2);
 
 	lockRect = { 1766,2155,80,214 };
 
-	//Sessaw
-	SDL_Surface* surface_ss = IMG_Load("../Resources/choco.png");
-	seesawTexture = SDL_CreateTextureFromSurface(g_renderer, surface_ss);
-	SDL_FreeSurface(surface_ss);
-	seesawRect = { 0,0,300,300 };
+	//Portal
+	SDL_Surface* surface_po = IMG_Load("../Resources/portal.png");
+	portalTexture = SDL_CreateTextureFromSurface(g_renderer, surface_po);
+	SDL_FreeSurface(surface_po);
+	portalRect = { 0,0,258,388 };
+
+	
 
 	//restart
 	SDL_Surface* rebox = IMG_Load("../Resources/many.png");
@@ -485,7 +490,7 @@ void StageInterface::Update()
 				if (SDL_HasIntersection(&dog->pos, &torches[i].torchPos[j]) ||
 					SDL_HasIntersection(&cat->pos, &torches[i].torchPos[j]))
 				{
-					std::cout << torches[i].opacity << "\n";
+					//std::cout << torches[i].opacity << "\n";
 					//닿음
 					torches[i].Touch(true);
 					torches[i].Update();
@@ -647,7 +652,7 @@ void StageInterface::Update()
 
 	g_elapsed_time += 33;
 
-	std::cout << chapterNum << "\n";
+	//std::cout << chapterNum << "\n";
 }
 
 
@@ -689,8 +694,8 @@ void StageInterface::Render()
 	// Teleports_bi
 	for (Teleport_bi tele : teleports_bi)
 	{
-		SDL_RenderCopy(g_renderer, many3Texture, &teleRect, &tele.Rport_pos_);
-		SDL_RenderCopy(g_renderer, many3Texture, &teleRect, &tele.Lport_pos_);
+		SDL_RenderCopy(g_renderer, portalTexture, &portalRect, &tele.Rport_pos_);
+		SDL_RenderCopy(g_renderer, portalTexture, &portalRect, &tele.Lport_pos_);
 	}
 
 
@@ -992,7 +997,7 @@ void StageInterface::Render()
 	{
 		SDL_Point center = { ss.pos.w / 2, ss.pos.h / 2 };
 
-		SDL_RenderCopyEx(g_renderer, seesawTexture, &seesawRect, &ss.pos, ss.angle * 180 / M_PI, &center, SDL_FLIP_NONE);
+		SDL_RenderCopyEx(g_renderer, many3Texture, &seesawRect, &ss.pos, ss.angle * 180 / M_PI, &center, SDL_FLIP_NONE);
 
 		// Draw seesaw center point for debugging
 		SDL_SetRenderDrawColor(g_renderer, 255, 0, 0, 255); // Red color

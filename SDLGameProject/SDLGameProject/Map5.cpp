@@ -96,7 +96,7 @@ public:
         fish = { *fish1,*fish2 };
 
         keys = {};
-
+        torches = { };
         Liquid* water1 = new Liquid({ 55, 130,70,25 }, "water");
         Liquid* choco1 = new Liquid({ 30, win_h - 30,470,30 }, "choco");//아래쪽 초코
         Liquid* choco2 = new Liquid({ 300, 400, 600, 30 }, "choco");//위쪽 초코

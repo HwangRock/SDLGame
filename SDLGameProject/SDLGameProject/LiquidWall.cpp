@@ -10,7 +10,7 @@ LiquidWall::LiquidWall(SDL_Rect pos, std::string dir)
 
 SDL_Rect LiquidWall::returnWall() 
 {
-	std::cout << dir_ << "\n";
+	//std::cout << dir_ << "\n";
 	SDL_Rect newWall;
 	if (dir_ == "up") 
 	{

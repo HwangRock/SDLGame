@@ -199,7 +199,7 @@ public:
 		liquidAisles = { };
 		keys = {};
 		trap = {};
-
+		torches = { };
 
 		goal = { {1200 - 25,40,50,75} };
 		start = { {125,620,50,75} };

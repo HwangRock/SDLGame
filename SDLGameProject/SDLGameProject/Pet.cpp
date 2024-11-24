@@ -72,7 +72,7 @@ Pet::Update(double timestep_s)
 	for (int i = 0; i < seesaws.size(); i++)
 	{
 		SDL_Rect seesawRect = seesaws[i].pos;
-		if (SDL_HasIntersection(&pos, &seesawRect))
+		if (SDL_HasIntersection(&pos, &seesawRect)&& pos.y<seesawRect.y)
 		{
 			// 시소의 중심 좌표 계산
 			int seesawCenterX = seesawRect.x + seesawRect.w / 2;
