@@ -123,9 +123,21 @@ StageInterface::StageInterface()
 	dogPushRect = { 119,1941,132,179 };
 	catDieRect = { 580,770,187,222 };
 	dogDieRect = { 342,1537,218,144 };
-
 	darkRect = { 0,0,1280,720 };
 	torchRect = { 400, 2708, 102, 119 };
+
+	//mapTexture Rect
+	SDL_Surface* MAPtexture = IMG_Load("../Resources/mapTexture.png");
+	mapTexture = SDL_CreateTextureFromSurface(g_renderer, MAPtexture);
+	SDL_FreeSurface(MAPtexture);
+	map1TextureRect = { 0, 0, 1280, 720 };
+	map2TextureRect = { 1280, 0, 1280, 720 };
+	map3TextureRect = { 2560, 0, 1280, 720 };
+	map4TextureRect = { 3840, 0, 1280, 720 };
+	map5TextureRect = { 5120, 0, 1280, 720 };
+	map6TextureRect = { 6400, 0, 1280, 720 };
+	map7TextureRect = { 7680, 0, 1280, 720 };
+	map8TextureRect = { 8960, 0, 1280, 720 };
 
 	//portal,robot,seesaw
 	SDL_Surface* texture3 = IMG_Load("../Resources/many_3.png");
@@ -140,14 +152,11 @@ StageInterface::StageInterface()
 
 	lockRect = { 1766,2155,80,214 };
 
-
 	//Sessaw
 	SDL_Surface* surface_ss = IMG_Load("../Resources/choco.png");
 	seesawTexture = SDL_CreateTextureFromSurface(g_renderer, surface_ss);
 	SDL_FreeSurface(surface_ss);
 	seesawRect = { 0,0,300,300 };
-
-
 
 	//restart
 	SDL_Surface* rebox = IMG_Load("../Resources/many.png");
@@ -206,7 +215,7 @@ StageInterface::~StageInterface()
 	SDL_DestroyTexture(curtainTexture);
 	SDL_DestroyTexture(picturesTexture);
 	SDL_DestroyTexture(blackbgTexture);
-
+	SDL_DestroyTexture(mapTexture);
 }
 
 void StageInterface::SetVar()
@@ -637,6 +646,8 @@ void StageInterface::Update()
 	dogAnim.AddTexture();
 
 	g_elapsed_time += 33;
+
+	std::cout << chapterNum << "\n";
 }
 
 
@@ -875,11 +886,36 @@ void StageInterface::Render()
 		//SDL_RenderCopy(g_renderer, wallTexture, &wallRect, &wall.pos);
 	}
 
-	
 
-	
-
-	
+	//map Texture
+	switch (chapterNum)
+	{
+	case 0:
+		SDL_RenderCopy(g_renderer, mapTexture, &map1TextureRect, NULL);
+		break;
+	case 1:
+		SDL_RenderCopy(g_renderer, mapTexture, &map2TextureRect, NULL);
+		break;
+	case 2:
+		SDL_RenderCopy(g_renderer, mapTexture, &map3TextureRect, NULL);
+		break;
+	case 3:
+		SDL_RenderCopy(g_renderer, mapTexture, &map4TextureRect, NULL);
+		break;
+	case 4:
+		SDL_RenderCopy(g_renderer, mapTexture, &map5TextureRect, NULL);
+		break;
+	case 5:
+		SDL_RenderCopy(g_renderer, mapTexture, &map6TextureRect, NULL);
+		break;
+	case 6:
+		SDL_RenderCopy(g_renderer, mapTexture, &map7TextureRect, NULL);
+		break;
+	case 7: ////원래 마지막
+		SDL_RenderCopy(g_renderer, mapTexture, &map8TextureRect, NULL);
+	default:
+		break;
+	}
 
 	// Key and Lock
 	for (Key key : keys)

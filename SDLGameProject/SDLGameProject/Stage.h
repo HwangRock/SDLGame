@@ -86,6 +86,7 @@ extern int score_fish;
 extern SDL_Texture* mapbg; 
 extern SDL_Rect mapSrect[3];
 extern SDL_Rect mapDrect;
+extern SDL_Texture* mapTexture;
 
 extern bool isFirst; 
       
@@ -168,6 +169,16 @@ private:
 	SDL_Rect robotRect;
 	SDL_Rect flyRect;
 	SDL_Rect teleRect;
+
+
+	SDL_Rect map1TextureRect;
+	SDL_Rect map2TextureRect;
+	SDL_Rect map3TextureRect;
+	SDL_Rect map4TextureRect;
+	SDL_Rect map5TextureRect;
+	SDL_Rect map6TextureRect;
+	SDL_Rect map7TextureRect;
+	SDL_Rect map8TextureRect;
 	 
 	 
 	//Pets

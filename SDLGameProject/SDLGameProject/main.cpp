@@ -87,8 +87,7 @@ bool isFirst;
 SDL_Texture* mapbg;
 SDL_Rect mapSrect[3];
 SDL_Rect mapDrect;
-
-
+SDL_Texture* mapTexture;
 
 //Music
 Mix_Music* g_bgm;
