@@ -149,7 +149,7 @@ public:
 
         //SEESAW
         Seesaw* ss1 = new Seesaw({ 880,500,100,25 });
-        seesaws = { *ss1 };
+        seesaws = {  };
 
         //GOAL, START/////////////////////////////////////////////
         goal = { {1125,110,50,75} };
