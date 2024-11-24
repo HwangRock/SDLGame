@@ -10,7 +10,7 @@
 #include "SDL_mixer.h"
 #include "SDL_image.h" 
  
-//////////////////
+//////////////////////
 #include "math.h"  
 
 #include "Dog.h"
@@ -129,6 +129,10 @@ private:
 
 	SDL_Texture* portalTexture;
 	SDL_Rect portalRect;
+
+	SDL_Texture* pressSpaceKeyTexture;
+	SDL_Rect pressSpaceKeyRect;
+	SDL_Rect pressSpaceKey_pos;
 	 
 	SDL_Texture* picturesTexture;
 	std::vector<SDL_Rect> picturesRect;

@@ -161,6 +161,13 @@ StageInterface::StageInterface()
 	SDL_FreeSurface(surface_po);
 	portalRect = { 0,0,258,388 };
 
+	//Press the space key////
+	SDL_Surface* sentence = IMG_Load("../Resources/pressSpaceKey.png");
+	pressSpaceKeyTexture = SDL_CreateTextureFromSurface(g_renderer, sentence);
+	SDL_FreeSurface(sentence);
+	pressSpaceKeyRect = { 0,0,600,81 };
+	pressSpaceKey_pos = { 566, 335 ,148, 20 };
+
 	
 
 	//restart
@@ -214,6 +221,7 @@ StageInterface::~StageInterface()
 	SDL_DestroyTexture(liquidTexture);
 
 	SDL_DestroyTexture(reTexture);
+	SDL_DestroyTexture(pressSpaceKeyTexture);
 
 	SDL_DestroyTexture(mapbg);
 	SDL_DestroyTexture(wallTexture);
@@ -691,22 +699,8 @@ void StageInterface::Render()
 		SDL_RenderCopy(g_renderer, manyTexture, &goalRect, &s);
 	}
 
-	// Teleports_bi
-	for (Teleport_bi tele : teleports_bi)
-	{
-		if (tele.Lport_activated_ == true && tele.Rport_activated_ == true) {
-			SDL_SetTextureColorMod(portalTexture, 255, 255, 255);
-			SDL_RenderCopy(g_renderer, portalTexture, &portalRect, &tele.Rport_pos_);
-			SDL_RenderCopy(g_renderer, portalTexture, &portalRect, &tele.Lport_pos_);
-		}
-		
-		else {
-			SDL_SetTextureColorMod(portalTexture, 255, 0, 0);
-			SDL_RenderCopy(g_renderer, portalTexture, &portalRect, &tele.Rport_pos_);
-			SDL_RenderCopy(g_renderer, portalTexture, &portalRect, &tele.Lport_pos_);
-		}
-		
-	}
+	
+	
 
 	// Wall
 	for (Terrain wall : walls)
@@ -777,6 +771,25 @@ void StageInterface::Render()
 	default:
 		break;
 	}
+
+	// Teleports_bi
+	for (Teleport_bi tele : teleports_bi)
+	{
+		if (tele.Lport_activated_ == true && tele.Rport_activated_ == true) {
+			SDL_SetTextureColorMod(portalTexture, 255, 255, 255);
+			SDL_RenderCopy(g_renderer, portalTexture, &portalRect, &tele.Rport_pos_);
+			SDL_RenderCopy(g_renderer, portalTexture, &portalRect, &tele.Lport_pos_);
+			SDL_RenderCopy(g_renderer, pressSpaceKeyTexture, &pressSpaceKeyRect, &pressSpaceKey_pos);
+		}
+
+		else {
+			SDL_SetTextureColorMod(portalTexture, 255, 0, 0);
+			SDL_RenderCopy(g_renderer, portalTexture, &portalRect, &tele.Rport_pos_);
+			SDL_RenderCopy(g_renderer, portalTexture, &portalRect, &tele.Lport_pos_);
+		}
+
+	}
+
 
 	// cat
 	if (catAnim.cat_move_type == 2 || catAnim.cat_move_type == 4 || catAnim.cat_move_type == 6 ||
