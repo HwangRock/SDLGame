@@ -708,6 +708,75 @@ void StageInterface::Render()
 		
 	}
 
+	// Wall
+	for (Terrain wall : walls)
+	{
+		//SDL_SetRenderDrawColor(g_renderer, 39, 27, 18, 255);
+		SDL_SetRenderDrawColor(g_renderer, 112, 87, 37, 255);
+		SDL_RenderFillRect(g_renderer, &wall.pos);
+		//SDL_RenderCopy(g_renderer, wallTexture, &wallRect, &wall.pos);
+	}
+
+	// liquid
+	for (Liquid l : liquid)
+	{
+		//wall//////////////
+		//SDL_SetRenderDrawColor(g_renderer, 39, 27, 18, 255);
+		SDL_SetRenderDrawColor(g_renderer, 112, 87, 37, 255);
+		SDL_RenderFillRect(g_renderer, &l.wallPos);
+		//SDL_RenderCopy(g_renderer, wallTexture, &wallRect, &l.wallPos);
+
+		//liquid///////////
+		if (l.liquidClass == "water")
+		{
+			SDL_RenderCopy(g_renderer, liquidTexture, &waterR, &l.liquidPos);
+		}
+		else if (l.liquidClass == "choco")
+		{
+			SDL_SetRenderDrawColor(g_renderer, 50, 29, 14, 255);
+			SDL_RenderFillRect(g_renderer, &l.liquidPos);
+			//SDL_RenderCopy(g_renderer, liquidTexture, &chocoR, &l.liquidPos);
+		}
+
+		else if (l.liquidClass == "milk")
+		{
+			SDL_RenderCopy(g_renderer, liquidTexture, &milkR, &l.liquidPos);
+		}
+		else
+		{
+			std::cout << "there is no such liquid class\n";
+		}
+	}
+
+	//map Texture
+	switch (chapterNum)
+	{
+	case 0:
+		SDL_RenderCopy(g_renderer, mapTexture, &map1TextureRect, NULL);
+		break;
+	case 1:
+		SDL_RenderCopy(g_renderer, mapTexture, &map2TextureRect, NULL);
+		break;
+	case 2:
+		SDL_RenderCopy(g_renderer, mapTexture, &map3TextureRect, NULL);
+		break;
+	case 3:
+		SDL_RenderCopy(g_renderer, mapTexture, &map4TextureRect, NULL);
+		break;
+	case 4:
+		SDL_RenderCopy(g_renderer, mapTexture, &map5TextureRect, NULL);
+		break;
+	case 5:
+		SDL_RenderCopy(g_renderer, mapTexture, &map6TextureRect, NULL);
+		break;
+	case 6:
+		SDL_RenderCopy(g_renderer, mapTexture, &map7TextureRect, NULL);
+		break;
+	case 7: ////원래 마지막
+		SDL_RenderCopy(g_renderer, mapTexture, &map8TextureRect, NULL);
+	default:
+		break;
+	}
 
 	// cat
 	if (catAnim.cat_move_type == 2 || catAnim.cat_move_type == 4 || catAnim.cat_move_type == 6 ||
@@ -829,39 +898,6 @@ void StageInterface::Render()
 		}
 	}
 
-	
-
-	// liquid
-	for (Liquid l : liquid)
-	{
-		//wall//////////////
-		//SDL_SetRenderDrawColor(g_renderer, 39, 27, 18, 255);
-		SDL_SetRenderDrawColor(g_renderer, 112, 87, 37, 255);
-		SDL_RenderFillRect(g_renderer, &l.wallPos);
-		//SDL_RenderCopy(g_renderer, wallTexture, &wallRect, &l.wallPos);
-
-		//liquid///////////
-		if (l.liquidClass == "water")
-		{
-			SDL_RenderCopy(g_renderer, liquidTexture, &waterR, &l.liquidPos);
-		}
-		else if (l.liquidClass == "choco")
-		{
-			SDL_SetRenderDrawColor(g_renderer, 50, 29, 14, 255);
-			SDL_RenderFillRect(g_renderer, &l.liquidPos);
-			//SDL_RenderCopy(g_renderer, liquidTexture, &chocoR, &l.liquidPos);
-		}
-
-		else if (l.liquidClass == "milk")
-		{
-			SDL_RenderCopy(g_renderer, liquidTexture, &milkR, &l.liquidPos);
-		}
-		else
-		{
-			std::cout << "there is no such liquid class\n";
-		}
-	}
-
 	//swelling liquid
 	for (SwellingLiquid sl : s_liquid)
 	{
@@ -889,47 +925,6 @@ void StageInterface::Render()
 		SDL_SetRenderDrawColor(g_renderer, 112, 87, 37, 255);
 		SDL_RenderFillRect(g_renderer, &t.touchPoint);
 		if (t.trapActivated) { SDL_RenderFillRect(g_renderer, &t.blockTrap); }
-	}
-
-
-	// Wall
-	for (Terrain wall : walls)
-	{
-		//SDL_SetRenderDrawColor(g_renderer, 39, 27, 18, 255);
-		SDL_SetRenderDrawColor(g_renderer, 112, 87, 37, 255);
-		SDL_RenderFillRect(g_renderer, &wall.pos);
-		//SDL_RenderCopy(g_renderer, wallTexture, &wallRect, &wall.pos);
-	}
-
-
-	//map Texture
-	switch (chapterNum)
-	{
-	case 0:
-		SDL_RenderCopy(g_renderer, mapTexture, &map1TextureRect, NULL);
-		break;
-	case 1:
-		SDL_RenderCopy(g_renderer, mapTexture, &map2TextureRect, NULL);
-		break;
-	case 2:
-		SDL_RenderCopy(g_renderer, mapTexture, &map3TextureRect, NULL);
-		break;
-	case 3:
-		SDL_RenderCopy(g_renderer, mapTexture, &map4TextureRect, NULL);
-		break;
-	case 4:
-		SDL_RenderCopy(g_renderer, mapTexture, &map5TextureRect, NULL);
-		break;
-	case 5:
-		SDL_RenderCopy(g_renderer, mapTexture, &map6TextureRect, NULL);
-		break;
-	case 6:
-		SDL_RenderCopy(g_renderer, mapTexture, &map7TextureRect, NULL);
-		break;
-	case 7: ////원래 마지막
-		SDL_RenderCopy(g_renderer, mapTexture, &map8TextureRect, NULL);
-	default:
-		break;
 	}
 
 	// Key and Lock
