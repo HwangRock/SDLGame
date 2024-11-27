@@ -179,9 +179,9 @@ public:
 
 
 		SwellingLiquid* sl1 = new SwellingLiquid(
-			{ 30,600,200,win_h - 600 - 30 }, { 30,155,200,win_h - 155 - 30 }, "milk", 4);
+			{ 30,600,190,win_h - 600 - 30 }, { 30,155,190,win_h - 155 - 30 }, "milk", 4);
 		SwellingLiquid* sl2 = new SwellingLiquid(
-			{ 1075,480,175,25 }, { 1075,155,175,350 - 5 }, "water", 16);
+			{ 1080,476,170,20 }, { 1080,155,170,350 }, "water", 16);
 		s_liquid = { *sl1,*sl2 };
 		seesaws = {};
 

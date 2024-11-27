@@ -679,6 +679,39 @@ void StageInterface::Render()
 
 	SDL_RenderCopy(g_renderer, mapbg, &mapSrect[(g_pre_game_phase - 1)%3], &mapDrect);
 
+
+	// Button
+	for (Button btn : buttons)
+	{
+
+
+		for (int i = 0; i < btn.buttonPos.size(); i++)
+		{
+			if (btn.isPressed)
+			{
+				SDL_RenderCopy(g_renderer, manyTexture, &PushbuttonRect, &btn.buttonPos[i]);
+			}
+			else
+			{
+				SDL_RenderCopy(g_renderer, manyTexture, &buttonRect, &btn.buttonPos[i]);
+			}
+		}
+		//yellow
+		//SDL_SetRenderDrawColor(g_renderer, 225, 154, 17, 255);
+
+		//orange
+		SDL_SetRenderDrawColor(g_renderer, 225, 114, 1, 255);
+		for (int i = 0; i < btn.scaffold_.size(); i++)
+		{
+			// Button connected scaffolds
+			SDL_RenderFillRect(g_renderer, &btn.scaffold_[i]);
+			//SDL_RenderCopy(g_renderer, scaffoldTexture, &scaffoldRect, &btn.scaffold_[i]);
+		}
+	}
+
+	
+
+
 	// LiquidWall
 	for (LiquidWall wall : liquidWalls)
 	{
@@ -700,7 +733,13 @@ void StageInterface::Render()
 	}
 
 	
-	
+	//Trap
+	for (Trap t : trap)
+	{
+		SDL_SetRenderDrawColor(g_renderer, 112, 87, 37, 255);
+		SDL_RenderFillRect(g_renderer, &t.touchPoint);
+		if (t.trapActivated) { SDL_RenderFillRect(g_renderer, &t.blockTrap); }
+	}
 
 	// Wall
 	for (Terrain wall : walls)
@@ -711,66 +750,9 @@ void StageInterface::Render()
 		//SDL_RenderCopy(g_renderer, wallTexture, &wallRect, &wall.pos);
 	}
 
-	// liquid
-	for (Liquid l : liquid)
-	{
-		//wall//////////////
-		//SDL_SetRenderDrawColor(g_renderer, 39, 27, 18, 255);
-		SDL_SetRenderDrawColor(g_renderer, 112, 87, 37, 255);
-		SDL_RenderFillRect(g_renderer, &l.wallPos);
-		//SDL_RenderCopy(g_renderer, wallTexture, &wallRect, &l.wallPos);
+	
 
-		//liquid///////////
-		if (l.liquidClass == "water")
-		{
-			SDL_RenderCopy(g_renderer, liquidTexture, &waterR, &l.liquidPos);
-		}
-		else if (l.liquidClass == "choco")
-		{
-			SDL_SetRenderDrawColor(g_renderer, 50, 29, 14, 255);
-			SDL_RenderFillRect(g_renderer, &l.liquidPos);
-			//SDL_RenderCopy(g_renderer, liquidTexture, &chocoR, &l.liquidPos);
-		}
-
-		else if (l.liquidClass == "milk")
-		{
-			SDL_RenderCopy(g_renderer, liquidTexture, &milkR, &l.liquidPos);
-		}
-		else
-		{
-			std::cout << "there is no such liquid class\n";
-		}
-	}
-
-	//map Texture
-	switch (chapterNum)
-	{
-	case 0:
-		SDL_RenderCopy(g_renderer, mapTexture, &map1TextureRect, NULL);
-		break;
-	case 1:
-		SDL_RenderCopy(g_renderer, mapTexture, &map2TextureRect, NULL);
-		break;
-	case 2:
-		SDL_RenderCopy(g_renderer, mapTexture, &map3TextureRect, NULL);
-		break;
-	case 3:
-		SDL_RenderCopy(g_renderer, mapTexture, &map4TextureRect, NULL);
-		break;
-	case 4:
-		SDL_RenderCopy(g_renderer, mapTexture, &map5TextureRect, NULL);
-		break;
-	case 5:
-		SDL_RenderCopy(g_renderer, mapTexture, &map6TextureRect, NULL);
-		break;
-	case 6:
-		SDL_RenderCopy(g_renderer, mapTexture, &map7TextureRect, NULL);
-		break;
-	case 7: ////원래 마지막
-		SDL_RenderCopy(g_renderer, mapTexture, &map8TextureRect, NULL);
-	default:
-		break;
-	}
+	
 
 	// Teleports_bi
 	for (Teleport_bi tele : teleports_bi)
@@ -812,6 +794,8 @@ void StageInterface::Render()
 	{
 		SDL_RenderCopy(g_renderer, manyTexture, &dog_animation[d_index], &dog->pos);
 	}
+
+
 
 	//fadefloor
 	SDL_SetTextureBlendMode(manyTexture, SDL_BLENDMODE_BLEND);
@@ -882,63 +866,8 @@ void StageInterface::Render()
 		SDL_RenderCopy(g_renderer, manyTexture, &boneRect, &b.pos);
 	}
 
-	// Button
-	for (Button btn : buttons)
-	{
-
-
-		for (int i = 0; i < btn.buttonPos.size(); i++)
-		{
-			if (btn.isPressed)
-			{
-				SDL_RenderCopy(g_renderer, manyTexture, &PushbuttonRect, &btn.buttonPos[i]);
-			}
-			else
-			{
-				SDL_RenderCopy(g_renderer, manyTexture, &buttonRect, &btn.buttonPos[i]);
-			}
-		}
-		//yellow
-		//SDL_SetRenderDrawColor(g_renderer, 225, 154, 17, 255);
-
-		//orange
-		SDL_SetRenderDrawColor(g_renderer, 225, 114, 1, 255);
-		for (int i = 0; i < btn.scaffold_.size(); i++)
-		{
-			// Button connected scaffolds
-			SDL_RenderFillRect(g_renderer, &btn.scaffold_[i]);
-			//SDL_RenderCopy(g_renderer, scaffoldTexture, &scaffoldRect, &btn.scaffold_[i]);
-		}
-	}
-
-	//swelling liquid
-	for (SwellingLiquid sl : s_liquid)
-	{
-		if (sl.liquidClass == "water")
-		{
-			SDL_RenderCopy(g_renderer, liquidTexture, &waterR, &sl.nowPos);
-		}
-		else if (sl.liquidClass == "choco")
-		{
-			SDL_RenderCopy(g_renderer, liquidTexture, &chocoR, &sl.nowPos);
-		}
-		else if (sl.liquidClass == "milk")
-		{
-			SDL_RenderCopy(g_renderer, liquidTexture, &milkR, &sl.nowPos);
-		}
-		else
-		{
-			std::cout << "there is no such liquid class\n";
-		}
-	}
-
-	//Trap
-	for (Trap t : trap)
-	{
-		SDL_SetRenderDrawColor(g_renderer, 112, 87, 37, 255);
-		SDL_RenderFillRect(g_renderer, &t.touchPoint);
-		if (t.trapActivated) { SDL_RenderFillRect(g_renderer, &t.blockTrap); }
-	}
+	
+	
 
 	// Key and Lock
 	for (Key key : keys)
@@ -979,6 +908,88 @@ void StageInterface::Render()
 	}
 
 	
+
+
+	// liquid
+	for (Liquid l : liquid)
+	{
+		//wall//////////////
+		//SDL_SetRenderDrawColor(g_renderer, 39, 27, 18, 255);
+		SDL_SetRenderDrawColor(g_renderer, 112, 87, 37, 255);
+		SDL_RenderFillRect(g_renderer, &l.wallPos);
+		//SDL_RenderCopy(g_renderer, wallTexture, &wallRect, &l.wallPos);
+
+		//liquid///////////
+		if (l.liquidClass == "water")
+		{
+			SDL_RenderCopy(g_renderer, liquidTexture, &waterR, &l.liquidPos);
+		}
+		else if (l.liquidClass == "choco")
+		{
+			SDL_SetRenderDrawColor(g_renderer, 50, 29, 14, 255);
+			SDL_RenderFillRect(g_renderer, &l.liquidPos);
+			//SDL_RenderCopy(g_renderer, liquidTexture, &chocoR, &l.liquidPos);
+		}
+
+		else if (l.liquidClass == "milk")
+		{
+			SDL_RenderCopy(g_renderer, liquidTexture, &milkR, &l.liquidPos);
+		}
+		else
+		{
+			std::cout << "there is no such liquid class\n";
+		}
+	}
+
+	//map Texture
+	switch (chapterNum)
+	{
+	case 0:
+		SDL_RenderCopy(g_renderer, mapTexture, &map1TextureRect, NULL);
+		break;
+	case 1:
+		SDL_RenderCopy(g_renderer, mapTexture, &map2TextureRect, NULL);
+		break;
+	case 2:
+		SDL_RenderCopy(g_renderer, mapTexture, &map3TextureRect, NULL);
+		break;
+	case 3:
+		SDL_RenderCopy(g_renderer, mapTexture, &map4TextureRect, NULL);
+		break;
+	case 4:
+		SDL_RenderCopy(g_renderer, mapTexture, &map5TextureRect, NULL);
+		break;
+	case 5:
+		SDL_RenderCopy(g_renderer, mapTexture, &map6TextureRect, NULL);
+		break;
+	case 6:
+		SDL_RenderCopy(g_renderer, mapTexture, &map7TextureRect, NULL);
+		break;
+	case 7: ////원래 마지막
+		SDL_RenderCopy(g_renderer, mapTexture, &map8TextureRect, NULL);
+	default:
+		break;
+	}
+	//swelling liquid
+	for (SwellingLiquid sl : s_liquid)
+	{
+		if (sl.liquidClass == "water")
+		{
+			SDL_RenderCopy(g_renderer, liquidTexture, &waterR, &sl.nowPos);
+		}
+		else if (sl.liquidClass == "choco")
+		{
+			SDL_RenderCopy(g_renderer, liquidTexture, &chocoR, &sl.nowPos);
+		}
+		else if (sl.liquidClass == "milk")
+		{
+			SDL_RenderCopy(g_renderer, liquidTexture, &milkR, &sl.nowPos);
+		}
+		else
+		{
+			std::cout << "there is no such liquid class\n";
+		}
+	}
 
 	// Blind
 	SDL_SetTextureBlendMode(picturesTexture, SDL_BLENDMODE_BLEND);

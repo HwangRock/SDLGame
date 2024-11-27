@@ -13,7 +13,7 @@
 //////////////////////
 #include "math.h"  
 
-#include "Dog.h"
+#include "Dog.h" 
 #include "Cat.h" 
 #include "Pet.h"
   
@@ -32,7 +32,7 @@
 #include "Seesaw.h" 
 #include "Trap.h"
 #include "Liquid.cpp" 
-#include "SwellingLiquid.h"
+#include "SwellingLiquid.h"  
 
 #include "Key.cpp" 
 
@@ -46,7 +46,7 @@
   
 extern std::vector<Terrain> walls, cannon, fish, bone; 
 extern std::vector<Box> boxs;    
-extern std::vector<Button> buttons;
+extern std::vector<Button> buttons; 
 extern std::vector<Blind> blinds;
 extern std::vector<LiquidWall>liquidWalls;
 extern std::vector<SDL_Rect>liquidAisles;         
