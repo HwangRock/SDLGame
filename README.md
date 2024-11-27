@@ -5,7 +5,7 @@
 ## 시작화면
 ![](./presentation/1.png)
 ## 설명서
-![](./presentation/1.png)
+![](./presentation/manual1.png)
 ![](./presentation/manual2.png)
 ## 맵
 ![](./presentation/4.png)
